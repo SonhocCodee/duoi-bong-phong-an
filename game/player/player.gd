@@ -52,6 +52,13 @@ var _death_timer: float = 0.0 # thời gian hiện animation death (trước res
 
 func _ready() -> void:
 	hp = max_hp
+	# Khởi tạo HP từ GameState (save/load) thay vì luôn đầy máu:
+	# nếu GameState có HP > 0 thì lấy theo, clamp trong 1..max_hp.
+	if has_node("/root/GameState"):
+		if GameState.player_max_hp > 0:
+			max_hp = GameState.player_max_hp
+		if GameState.player_hp > 0:
+			hp = clampi(GameState.player_hp, 1, max_hp)
 	stamina = max_stamina
 	add_to_group("player")
 	# Đồng bộ HP khởi tạo sang GameState
@@ -122,6 +129,11 @@ func _apply_modulate() -> void:
 # --- Gameplay ----------------------------------------------------------
 
 func _physics_process(delta: float) -> void:
+	# Đang nói chuyện / mua đồ: khóa toàn bộ input + di chuyển
+	if has_node("/root/GameState") and GameState.in_dialogue:
+		velocity = Vector2.ZERO
+		return
+
 	# --- Timers ---
 	if _combo_timer > 0.0:
 		_combo_timer -= delta
@@ -171,6 +183,10 @@ func _physics_process(delta: float) -> void:
 		_try_dodge(input_dir)
 	elif Input.is_action_just_pressed("attack"):
 		_try_attack()
+	elif Input.is_action_just_pressed("interact"):
+		_try_interact()
+	elif Input.is_action_just_pressed("use_potion"):
+		_try_use_potion()
 	elif Input.is_action_just_pressed("skill_1"):
 		_use_skill(1)
 	elif Input.is_action_just_pressed("skill_2"):
@@ -233,6 +249,34 @@ func _try_attack() -> void:
 	_combo_index = (_combo_index + 1) % attack_damage.size()
 	_combo_timer = combo_window
 	queue_redraw()
+
+
+# Tương tác: gọi interact() của interactable gần nhất trong 56px (NPC...)
+func _try_interact() -> void:
+	var best: Node2D = null
+	var best_dist := 56.0
+	for n in get_tree().get_nodes_in_group("interactable"):
+		if n is Node2D and n.has_method("interact"):
+			var d: float = global_position.distance_to(n.global_position)
+			if d <= best_dist:
+				best = n
+				best_dist = d
+	if best != null:
+		best.interact()
+
+
+# Dùng bình máu (phím H): hồi 50 HP, trừ qua GameState.use_potion()
+func _try_use_potion() -> void:
+	if not has_node("/root/GameState"):
+		return
+	if hp >= max_hp:
+		print("[Player] Máu đã đầy, không cần dùng bình.")
+		return
+	if GameState.use_potion():
+		heal(50)
+		print("[Player] Dùng bình máu: +50 HP (còn %d bình)" % GameState.potions)
+	else:
+		print("[Player] Hết bình máu!")
 
 
 func _use_skill(skill_id: int) -> void:

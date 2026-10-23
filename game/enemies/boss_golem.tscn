@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/boss_golem.gd" id="1_boss"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/golem_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(46, 36)
+
+[node name="BossGolem" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_boss")
+enemy_type = "boss_golem"
+display_name = "Mossback, the Moss Golem"
+max_hp = 380
+damage = 18
+speed = 55.0
+xp_reward = 200
+gold_reward = 120
+attack_cooldown_time = 1.2
+sprite_frames = ExtResource("2_frames")
+sprite_scale = 2.3
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-30, 14, 30, 14, 36, 20, 30, 24, -30, 24, -36, 20)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -26)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")

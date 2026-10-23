@@ -1,0 +1,323 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://systems/map_root.gd" id="1_e"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="2_e"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_e"]
+[ext_resource type="PackedScene" path="res://systems/portal.tscn" id="4_e"]
+[ext_resource type="PackedScene" path="res://systems/npc.tscn" id="5_e"]
+[ext_resource type="PackedScene" path="res://enemies/bandit.tscn" id="6_e"]
+[ext_resource type="PackedScene" path="res://enemies/rat.tscn" id="7_e"]
+
+[sub_resource type="RectangleShape2D" id="R1"]
+size = Vector2(1888, 32)
+
+[sub_resource type="RectangleShape2D" id="R2"]
+size = Vector2(1888, 32)
+
+[sub_resource type="RectangleShape2D" id="R3"]
+size = Vector2(32, 1376)
+
+[sub_resource type="RectangleShape2D" id="R4"]
+size = Vector2(32, 1376)
+
+[sub_resource type="RectangleShape2D" id="R5"]
+size = Vector2(832, 32)
+
+[sub_resource type="RectangleShape2D" id="R6"]
+size = Vector2(832, 32)
+
+[sub_resource type="RectangleShape2D" id="R7"]
+size = Vector2(32, 512)
+
+[sub_resource type="RectangleShape2D" id="R8"]
+size = Vector2(96, 64)
+
+[sub_resource type="RectangleShape2D" id="R9"]
+size = Vector2(96, 64)
+
+[sub_resource type="RectangleShape2D" id="R10"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="R11"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="R12"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="R13"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="R14"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="C15"]
+radius = 24
+
+[sub_resource type="CircleShape2D" id="C16"]
+radius = 24
+
+[sub_resource type="CircleShape2D" id="C17"]
+radius = 24
+
+[sub_resource type="RectangleShape2D" id="R18"]
+size = Vector2(256, 32)
+
+[sub_resource type="RectangleShape2D" id="R19"]
+size = Vector2(32, 160)
+
+[sub_resource type="RectangleShape2D" id="R20"]
+size = Vector2(32, 160)
+
+[sub_resource type="RectangleShape2D" id="R21"]
+size = Vector2(96, 32)
+
+[sub_resource type="RectangleShape2D" id="R22"]
+size = Vector2(96, 32)
+
+[sub_resource type="RectangleShape2D" id="R23"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="R24"]
+size = Vector2(96, 64)
+
+[node name="MoDaXanh" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_e")
+
+[node name="Darken" type="CanvasModulate" parent="."]
+color = Color(0.5, 0.52, 0.58, 1)
+
+[node name="BackgroundPlaceholder" type="ColorRect" parent="."]
+z_index = -100
+offset_left = -900.0
+offset_top = -650.0
+offset_right = 900.0
+offset_bottom = 650.0
+mouse_filter = 2
+color = Color(0.23, 0.25, 0.3, 1)
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="BorderTop" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, -672)
+shape = SubResource("R1")
+
+[node name="BorderBottom" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, 672)
+shape = SubResource("R2")
+
+[node name="BorderLeft" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-928, 0)
+shape = SubResource("R3")
+
+[node name="BorderRight" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(928, 0)
+shape = SubResource("R4")
+
+[node name="WallPartL" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-480, -160)
+shape = SubResource("R5")
+
+[node name="WallPartR" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(480, -160)
+shape = SubResource("R6")
+
+[node name="WallPartV" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(352, 384)
+shape = SubResource("R7")
+
+[node name="MineCart" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-288, 128)
+shape = SubResource("R8")
+
+[node name="MineCart2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(512, -320)
+shape = SubResource("R9")
+
+[node name="Pillar0" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-448, -320)
+shape = SubResource("R10")
+
+[node name="Pillar1" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, -320)
+shape = SubResource("R11")
+
+[node name="Pillar2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(448, -320)
+shape = SubResource("R12")
+
+[node name="Pillar3" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-448, 288)
+shape = SubResource("R13")
+
+[node name="Pillar4" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(96, 288)
+shape = SubResource("R14")
+
+[node name="BlueStone0" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-736, -512)
+shape = SubResource("C15")
+
+[node name="BlueStone1" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(768, -512)
+shape = SubResource("C16")
+
+[node name="BlueStone2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-704, -256)
+shape = SubResource("C17")
+
+[node name="CageBack" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-608, 512)
+shape = SubResource("R18")
+
+[node name="CageLeft" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-704, 448)
+shape = SubResource("R19")
+
+[node name="CageRight" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-480, 448)
+shape = SubResource("R20")
+
+[node name="CageFrontL" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-672, 352)
+shape = SubResource("R21")
+
+[node name="CageFrontR" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-544, 352)
+shape = SubResource("R22")
+
+[node name="CampBlock1" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(608, -448)
+shape = SubResource("R23")
+
+[node name="CampBlock2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(480, -480)
+shape = SubResource("R24")
+
+[node name="TorchLight0" type="PointLight2D" parent="."]
+position = Vector2(-700, -560)
+color = Color(0.55, 0.75, 1, 1)
+energy = 0.7
+texture_scale = 2.0
+
+[node name="TorchLight1" type="PointLight2D" parent="."]
+position = Vector2(700, -560)
+color = Color(0.55, 0.75, 1, 1)
+energy = 0.7
+texture_scale = 2.0
+
+[node name="TorchLight2" type="PointLight2D" parent="."]
+position = Vector2(0, -190)
+color = Color(0.55, 0.75, 1, 1)
+energy = 0.7
+texture_scale = 2.0
+
+[node name="TorchLight3" type="PointLight2D" parent="."]
+position = Vector2(-700, 300)
+color = Color(0.55, 0.75, 1, 1)
+energy = 0.7
+texture_scale = 2.0
+
+[node name="LabelMap" type="Label" parent="."]
+offset_left = -300.0
+offset_top = 560.0
+offset_right = 300.0
+offset_bottom = 592.0
+theme_override_colors/font_color = Color(0.65, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "MỎ ĐÁ XANH"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelCage" type="Label" parent="."]
+offset_left = -830.0
+offset_top = 300.0
+offset_right = -370.0
+offset_bottom = 323.0
+theme_override_colors/font_color = Color(0.8, 0.85, 0.95, 1)
+theme_override_font_sizes/font_size = 13
+text = "Khu giam phu mỏ"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelSewer" type="Label" parent="."]
+offset_left = 340.0
+offset_top = 560.0
+offset_right = 900.0
+offset_bottom = 583.0
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 13
+text = "Sau khu phu mỏ... có hơi gió lạ?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelMouth" type="Label" parent="."]
+offset_left = -200.0
+offset_top = -610.0
+offset_right = 200.0
+offset_bottom = -586.0
+theme_override_colors/font_color = Color(0.8, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "↑ Miệng mỏ — Cloudpeak"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="NPC_PhuMo" parent="." instance=ExtResource("5_e")]
+position = Vector2(-608, 448)
+npc_id = "phu_mo"
+display_name = "Phu mỏ bị giam"
+quest_ids = Array[String]([])
+shop_enabled = false
+tint = Color(0.9, 0.85, 0.8, 1)
+wander_radius = 0.0
+dialogue_done = Array[String](["Chúng bắt phu mỏ chúng ta đào đá xanh ngày đêm, đá ấy phát sáng, nghe nói để nộp lên tháp trung tâm...", "Sau khu lán có đường cống cũ thông thẳng vào trong thành. Kháng chiến biết lối, ta thì không dám đi.", "Đốc công là bọn sơn tặc được thuê. Cẩn thận dao của chúng."])
+
+[node name="Bandit1" parent="." instance=ExtResource("6_e")]
+position = Vector2(-512, 288)
+
+[node name="Bandit2" parent="." instance=ExtResource("6_e")]
+position = Vector2(-96, -64)
+
+[node name="Bandit3" parent="." instance=ExtResource("6_e")]
+position = Vector2(288, -288)
+
+[node name="Bandit4" parent="." instance=ExtResource("6_e")]
+position = Vector2(608, -384)
+
+[node name="Rat1" parent="." instance=ExtResource("7_e")]
+position = Vector2(-192, 480)
+
+[node name="Rat2" parent="." instance=ExtResource("7_e")]
+position = Vector2(160, -480)
+
+[node name="Rat3" parent="." instance=ExtResource("7_e")]
+position = Vector2(576, 128)
+
+[node name="Spawn_start" type="Marker2D" parent="."]
+position = Vector2(0, -544)
+
+[node name="Spawn_from_nui" type="Marker2D" parent="."]
+position = Vector2(0, -544)
+
+[node name="Spawn_from_cong" type="Marker2D" parent="."]
+position = Vector2(608, 480)
+
+[node name="PortalMouth" parent="." instance=ExtResource("4_e")]
+position = Vector2(0, -608)
+target_scene = "res://maps/nui_thanh_van.tscn"
+target_spawn = "from_mo"
+label_text = "↑ Cloudpeak"
+
+[node name="PortalSewer" parent="." instance=ExtResource("4_e")]
+position = Vector2(672, 576)
+target_scene = "res://maps/cong_ngam.tscn"
+target_spawn = "from_mo"
+label_text = "↓ Đường cống (ẩn)"
+required_flag = "co_duong_cong"
+locked_text = "Đường cống sau mỏ — kháng chiến chưa chỉ lối."
+
+[node name="Player" parent="." instance=ExtResource("2_e")]
+position = Vector2(0, -544)
+
+[node name="HUD" parent="." instance=ExtResource("3_e")]
+

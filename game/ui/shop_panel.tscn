@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/shop_panel.gd" id="1_shop"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_panel"]
+bg_color = Color(0.07, 0.06, 0.1, 0.95)
+border_color = Color(0.85, 0.7, 0.35, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 20.0
+content_margin_top = 16.0
+content_margin_right = 20.0
+content_margin_bottom = 16.0
+
+[node name="ShopPanel" type="CanvasLayer"]
+script = ExtResource("1_shop")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+theme_override_styles/panel = SubResource("StyleBox_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+custom_minimum_size = Vector2(340, 0)
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+theme_override_colors/font_color = Color(1, 0.85, 0.45, 1)
+theme_override_font_sizes/font_size = 20
+text = "Cửa hàng"
+horizontal_alignment = 1
+
+[node name="GoldLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+theme_override_font_sizes/font_size = 15
+text = "Vàng của bạn: 0"
+
+[node name="ItemLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+theme_override_font_sizes/font_size = 15
+text = "Bình máu — 10 vàng (bấm [H] để dùng, hồi 50 HP)"
+autowrap_mode = 2
+
+[node name="PotionsLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+theme_override_font_sizes/font_size = 15
+text = "Bình máu đang có: 3"
+
+[node name="BuyButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
+theme_override_font_sizes/font_size = 15
+text = "Mua Bình máu (10 vàng)"
+
+[node name="CloseButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
+theme_override_font_sizes/font_size = 15
+text = "Đóng [Esc]"

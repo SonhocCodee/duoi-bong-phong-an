@@ -1,0 +1,291 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://systems/map_root.gd" id="1_e"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="2_e"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_e"]
+[ext_resource type="PackedScene" path="res://systems/portal.tscn" id="4_e"]
+[ext_resource type="PackedScene" path="res://systems/npc.tscn" id="5_e"]
+[ext_resource type="PackedScene" path="res://enemies/rat.tscn" id="6_e"]
+[ext_resource type="PackedScene" path="res://enemies/spider.tscn" id="7_e"]
+
+[sub_resource type="RectangleShape2D" id="R1"]
+size = Vector2(1888, 32)
+
+[sub_resource type="RectangleShape2D" id="R2"]
+size = Vector2(1888, 32)
+
+[sub_resource type="RectangleShape2D" id="R3"]
+size = Vector2(32, 1280)
+
+[sub_resource type="RectangleShape2D" id="R4"]
+size = Vector2(32, 1280)
+
+[sub_resource type="RectangleShape2D" id="R5"]
+size = Vector2(704, 32)
+
+[sub_resource type="RectangleShape2D" id="R6"]
+size = Vector2(704, 32)
+
+[sub_resource type="RectangleShape2D" id="R7"]
+size = Vector2(672, 32)
+
+[sub_resource type="RectangleShape2D" id="R8"]
+size = Vector2(32, 192)
+
+[sub_resource type="RectangleShape2D" id="R9"]
+size = Vector2(32, 192)
+
+[sub_resource type="RectangleShape2D" id="R10"]
+size = Vector2(32, 192)
+
+[sub_resource type="RectangleShape2D" id="R11"]
+size = Vector2(64, 32)
+
+[sub_resource type="RectangleShape2D" id="R12"]
+size = Vector2(64, 32)
+
+[sub_resource type="RectangleShape2D" id="R13"]
+size = Vector2(64, 32)
+
+[sub_resource type="RectangleShape2D" id="R14"]
+size = Vector2(64, 32)
+
+[sub_resource type="RectangleShape2D" id="R15"]
+size = Vector2(32, 320)
+
+[sub_resource type="RectangleShape2D" id="R16"]
+size = Vector2(512, 32)
+
+[sub_resource type="CircleShape2D" id="C17"]
+radius = 24
+
+[sub_resource type="CircleShape2D" id="C18"]
+radius = 24
+
+[sub_resource type="CircleShape2D" id="C19"]
+radius = 24
+
+[sub_resource type="CircleShape2D" id="C20"]
+radius = 24
+
+[node name="CongNgam" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_e")
+
+[node name="Darken" type="CanvasModulate" parent="."]
+color = Color(0.3, 0.32, 0.38, 1)
+
+[node name="BackgroundPlaceholder" type="ColorRect" parent="."]
+z_index = -100
+offset_left = -900.0
+offset_top = -600.0
+offset_right = 900.0
+offset_bottom = 600.0
+mouse_filter = 2
+color = Color(0.13, 0.15, 0.18, 1)
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="BorderTop" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, -608)
+shape = SubResource("R1")
+
+[node name="BorderBottom" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, 608)
+shape = SubResource("R2")
+
+[node name="BorderLeft" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-928, 0)
+shape = SubResource("R3")
+
+[node name="BorderRight" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(928, 0)
+shape = SubResource("R4")
+
+[node name="ChannelWallL" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-544, 96)
+shape = SubResource("R5")
+
+[node name="ChannelWallR" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(544, 96)
+shape = SubResource("R6")
+
+[node name="CellBack" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(576, -448)
+shape = SubResource("R7")
+
+[node name="CellDiv0" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(288, -352)
+shape = SubResource("R8")
+
+[node name="CellDiv1" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(480, -352)
+shape = SubResource("R9")
+
+[node name="CellDiv2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(672, -352)
+shape = SubResource("R10")
+
+[node name="CellFront1" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(352, -256)
+shape = SubResource("R11")
+
+[node name="CellFront2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(512, -256)
+shape = SubResource("R12")
+
+[node name="CellFront3" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(704, -256)
+shape = SubResource("R13")
+
+[node name="CellFront4" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(864, -256)
+shape = SubResource("R14")
+
+[node name="VaultWallV" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-288, -384)
+shape = SubResource("R15")
+
+[node name="VaultWallH" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-544, -512)
+shape = SubResource("R16")
+
+[node name="Rubble0" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-128, -64)
+shape = SubResource("C17")
+
+[node name="Rubble1" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(192, 320)
+shape = SubResource("C18")
+
+[node name="Rubble2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-480, 384)
+shape = SubResource("C19")
+
+[node name="Rubble3" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(704, 416)
+shape = SubResource("C20")
+
+[node name="TorchLight0" type="PointLight2D" parent="."]
+position = Vector2(-750, -500)
+color = Color(1, 0.72, 0.4, 1)
+energy = 0.9
+texture_scale = 2.2
+
+[node name="TorchLight1" type="PointLight2D" parent="."]
+position = Vector2(100, -520)
+color = Color(1, 0.72, 0.4, 1)
+energy = 0.9
+texture_scale = 2.2
+
+[node name="TorchLight2" type="PointLight2D" parent="."]
+position = Vector2(750, 520)
+color = Color(1, 0.72, 0.4, 1)
+energy = 0.9
+texture_scale = 2.2
+
+[node name="TorchLight3" type="PointLight2D" parent="."]
+position = Vector2(-100, 40)
+color = Color(1, 0.72, 0.4, 1)
+energy = 0.9
+texture_scale = 2.2
+
+[node name="LabelMap" type="Label" parent="."]
+offset_left = -300.0
+offset_top = 520.0
+offset_right = 300.0
+offset_bottom = 552.0
+theme_override_colors/font_color = Color(0.6, 0.75, 0.9, 1)
+theme_override_font_sizes/font_size = 22
+text = "ALDENMERE SEWERS"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelCells" type="Label" parent="."]
+offset_left = 320.0
+offset_top = -520.0
+offset_right = 820.0
+offset_bottom = -497.0
+theme_override_colors/font_color = Color(0.65, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 13
+text = "Khu ngục — song sắt (khung collision)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelPalaceDoor" type="Label" parent="."]
+offset_left = -830.0
+offset_top = -580.0
+offset_right = -270.0
+offset_bottom = -556.0
+theme_override_colors/font_color = Color(0.8, 0.7, 0.5, 1)
+theme_override_font_sizes/font_size = 14
+text = "Cửa đột nhập Royal Palace ↑"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="NPC_TuNhan" parent="." instance=ExtResource("5_e")]
+position = Vector2(384, -352)
+npc_id = "tu_nhan"
+display_name = "Tù nhân vô danh"
+quest_ids = Array[String]([])
+shop_enabled = false
+tint = Color(0.85, 0.8, 0.75, 1)
+wander_radius = 0.0
+dialogue_done = Array[String](["Họ giam ta vì dám hỏi đá xanh đào ở mỏ được đưa đi đâu...", "Cống này thông từ mỏ đá tới tận vườn sau Royal Palace. Ta nghe lính canh nói thế.", "Nếu ngươi lên được cung... hãy cẩn thận. Vua trên ngai không còn là người nữa đâu."])
+
+[node name="Rat1" parent="." instance=ExtResource("6_e")]
+position = Vector2(-512, 0)
+
+[node name="Rat2" parent="." instance=ExtResource("6_e")]
+position = Vector2(-96, -288)
+
+[node name="Rat3" parent="." instance=ExtResource("6_e")]
+position = Vector2(160, 480)
+
+[node name="Rat4" parent="." instance=ExtResource("6_e")]
+position = Vector2(512, 256)
+
+[node name="Rat5" parent="." instance=ExtResource("6_e")]
+position = Vector2(-704, 288)
+
+[node name="Spider1" parent="." instance=ExtResource("7_e")]
+position = Vector2(96, -128)
+
+[node name="Spider2" parent="." instance=ExtResource("7_e")]
+position = Vector2(-352, -480)
+
+[node name="Spawn_start" type="Marker2D" parent="."]
+position = Vector2(-768, 480)
+
+[node name="Spawn_from_mo" type="Marker2D" parent="."]
+position = Vector2(-768, 480)
+
+[node name="Spawn_from_thanh" type="Marker2D" parent="."]
+position = Vector2(768, 480)
+
+[node name="Spawn_from_cung" type="Marker2D" parent="."]
+position = Vector2(-544, -416)
+
+[node name="PortalToMine" parent="." instance=ExtResource("4_e")]
+position = Vector2(-832, 512)
+target_scene = "res://maps/mo_da_xanh.tscn"
+target_spawn = "from_cong"
+label_text = "← Về Bluestone Mine"
+
+[node name="PortalToCity" parent="." instance=ExtResource("4_e")]
+position = Vector2(832, 512)
+target_scene = "res://maps/thanh_xuan_lam.tscn"
+target_spawn = "from_cong"
+label_text = "→ Lên Aldenmere"
+
+[node name="PortalToPalace" parent="." instance=ExtResource("4_e")]
+position = Vector2(-544, -544)
+target_scene = "res://maps/hoang_cung.tscn"
+target_spawn = "from_cong"
+label_text = "↑ Đột nhập Royal Palace"
+
+[node name="Player" parent="." instance=ExtResource("2_e")]
+position = Vector2(-768, 480)
+
+[node name="HUD" parent="." instance=ExtResource("3_e")]
+

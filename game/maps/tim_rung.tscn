@@ -1,0 +1,417 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://systems/map_root.gd" id="1_e"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="2_e"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_e"]
+[ext_resource type="PackedScene" path="res://systems/portal.tscn" id="4_e"]
+[ext_resource type="PackedScene" path="res://enemies/spider.tscn" id="5_e"]
+[ext_resource type="PackedScene" path="res://enemies/goblin.tscn" id="6_e"]
+[ext_resource type="PackedScene" path="res://enemies/thu_yeu.tscn" id="7_e"]
+
+[sub_resource type="RectangleShape2D" id="R1"]
+size = Vector2(2080, 32)
+
+[sub_resource type="RectangleShape2D" id="R2"]
+size = Vector2(2080, 32)
+
+[sub_resource type="RectangleShape2D" id="R3"]
+size = Vector2(32, 1664)
+
+[sub_resource type="RectangleShape2D" id="R4"]
+size = Vector2(32, 1664)
+
+[sub_resource type="CircleShape2D" id="C5"]
+radius = 44
+
+[sub_resource type="CircleShape2D" id="C6"]
+radius = 20
+
+[sub_resource type="CircleShape2D" id="C7"]
+radius = 20
+
+[sub_resource type="CircleShape2D" id="C8"]
+radius = 20
+
+[sub_resource type="CircleShape2D" id="C9"]
+radius = 20
+
+[sub_resource type="CircleShape2D" id="C10"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C11"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C12"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C13"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C14"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C15"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C16"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C17"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C18"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C19"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C20"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C21"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C22"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C23"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C24"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C25"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C26"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C27"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C28"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C29"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C30"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C31"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C32"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C33"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C34"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C35"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C36"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C37"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C38"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C39"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C40"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C41"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="C42"]
+radius = 18
+
+[sub_resource type="CircleShape2D" id="C43"]
+radius = 18
+
+[sub_resource type="CircleShape2D" id="C44"]
+radius = 18
+
+[sub_resource type="CircleShape2D" id="C45"]
+radius = 18
+
+[node name="TimRung" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_e")
+
+[node name="Darken" type="CanvasModulate" parent="."]
+color = Color(0.55, 0.6, 0.5, 1)
+
+[node name="BackgroundPlaceholder" type="ColorRect" parent="."]
+z_index = -100
+offset_left = -1000.0
+offset_top = -800.0
+offset_right = 1000.0
+offset_bottom = 800.0
+mouse_filter = 2
+color = Color(0.16, 0.26, 0.16, 1)
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="BorderTop" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, -832)
+shape = SubResource("R1")
+
+[node name="BorderBottom" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, 832)
+shape = SubResource("R2")
+
+[node name="BorderLeft" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-1024, 0)
+shape = SubResource("R3")
+
+[node name="BorderRight" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(1024, 0)
+shape = SubResource("R4")
+
+[node name="GodTreeTrunk" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, -64)
+shape = SubResource("C5")
+
+[node name="GodRoot0" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(64, -32)
+shape = SubResource("C6")
+
+[node name="GodRoot1" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-64, -32)
+shape = SubResource("C7")
+
+[node name="GodRoot2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(64, -128)
+shape = SubResource("C8")
+
+[node name="GodRoot3" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-64, -128)
+shape = SubResource("C9")
+
+[node name="Tree0" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-832, -512)
+shape = SubResource("C10")
+
+[node name="Tree1" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-640, -608)
+shape = SubResource("C11")
+
+[node name="Tree2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-416, -544)
+shape = SubResource("C12")
+
+[node name="Tree3" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-192, -608)
+shape = SubResource("C13")
+
+[node name="Tree4" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(160, -576)
+shape = SubResource("C14")
+
+[node name="Tree5" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(416, -608)
+shape = SubResource("C15")
+
+[node name="Tree6" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(704, -512)
+shape = SubResource("C16")
+
+[node name="Tree7" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(896, -288)
+shape = SubResource("C17")
+
+[node name="Tree8" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-896, -192)
+shape = SubResource("C18")
+
+[node name="Tree9" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-576, -288)
+shape = SubResource("C19")
+
+[node name="Tree10" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-256, -384)
+shape = SubResource("C20")
+
+[node name="Tree11" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(256, -352)
+shape = SubResource("C21")
+
+[node name="Tree12" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(576, -288)
+shape = SubResource("C22")
+
+[node name="Tree13" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(864, 64)
+shape = SubResource("C23")
+
+[node name="Tree14" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-864, 416)
+shape = SubResource("C24")
+
+[node name="Tree15" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-608, 288)
+shape = SubResource("C25")
+
+[node name="Tree16" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-352, 256)
+shape = SubResource("C26")
+
+[node name="Tree17" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-128, 416)
+shape = SubResource("C27")
+
+[node name="Tree18" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(256, 288)
+shape = SubResource("C28")
+
+[node name="Tree19" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(512, 448)
+shape = SubResource("C29")
+
+[node name="Tree20" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(768, 288)
+shape = SubResource("C30")
+
+[node name="Tree21" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(896, 576)
+shape = SubResource("C31")
+
+[node name="Tree22" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(288, 640)
+shape = SubResource("C32")
+
+[node name="Tree23" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-64, 672)
+shape = SubResource("C33")
+
+[node name="Tree24" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-512, 608)
+shape = SubResource("C34")
+
+[node name="Tree25" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(128, -224)
+shape = SubResource("C35")
+
+[node name="Tree26" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-416, -64)
+shape = SubResource("C36")
+
+[node name="Tree27" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(608, -64)
+shape = SubResource("C37")
+
+[node name="Tree28" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(352, -128)
+shape = SubResource("C38")
+
+[node name="Tree29" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-768, -704)
+shape = SubResource("C39")
+
+[node name="Tree30" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(64, 192)
+shape = SubResource("C40")
+
+[node name="Tree31" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-256, -704)
+shape = SubResource("C41")
+
+[node name="Mushroom0" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-288, -160)
+shape = SubResource("C42")
+
+[node name="Mushroom1" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(384, 128)
+shape = SubResource("C43")
+
+[node name="Mushroom2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-576, -480)
+shape = SubResource("C44")
+
+[node name="Mushroom3" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(192, 512)
+shape = SubResource("C45")
+
+[node name="LabelMap" type="Label" parent="."]
+offset_left = -350.0
+offset_top = -760.0
+offset_right = 350.0
+offset_bottom = -728.0
+theme_override_colors/font_color = Color(0.75, 0.9, 0.7, 1)
+theme_override_font_sizes/font_size = 22
+text = "HEARTWOOD"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelGodTree" type="Label" parent="."]
+offset_left = -300.0
+offset_top = -260.0
+offset_right = 300.0
+offset_bottom = -236.0
+theme_override_colors/font_color = Color(0.8, 0.95, 0.75, 1)
+theme_override_font_sizes/font_size = 14
+text = "Cây Thần — chớ động vào rễ thần!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelWest" type="Label" parent="."]
+offset_left = -1080.0
+offset_top = 40.0
+offset_right = -680.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.8, 0.9, 0.8, 1)
+theme_override_font_sizes/font_size = 14
+text = "← Rìa Elderwood"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Spider1" parent="." instance=ExtResource("5_e")]
+position = Vector2(-416, -256)
+
+[node name="Spider2" parent="." instance=ExtResource("5_e")]
+position = Vector2(288, -288)
+
+[node name="Spider3" parent="." instance=ExtResource("5_e")]
+position = Vector2(-192, 256)
+
+[node name="Spider4" parent="." instance=ExtResource("5_e")]
+position = Vector2(480, 192)
+
+[node name="Goblin1" parent="." instance=ExtResource("6_e")]
+position = Vector2(-704, -96)
+
+[node name="Goblin2" parent="." instance=ExtResource("6_e")]
+position = Vector2(640, -416)
+
+[node name="Goblin3" parent="." instance=ExtResource("6_e")]
+position = Vector2(-352, 512)
+
+[node name="ThuYeuBoss" parent="." instance=ExtResource("7_e")]
+position = Vector2(0, -224)
+
+[node name="Spawn_start" type="Marker2D" parent="."]
+position = Vector2(-896, 96)
+
+[node name="Spawn_from_ria" type="Marker2D" parent="."]
+position = Vector2(-896, 96)
+
+[node name="PortalWest" parent="." instance=ExtResource("4_e")]
+position = Vector2(-960, 96)
+target_scene = "res://maps/rung_co_thu.tscn"
+target_spawn = "from_tim"
+label_text = "← Elderwood"
+
+[node name="Player" parent="." instance=ExtResource("2_e")]
+position = Vector2(-896, 96)
+
+[node name="HUD" parent="." instance=ExtResource("3_e")]
+

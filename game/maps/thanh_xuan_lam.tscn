@@ -1,0 +1,623 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://systems/npc.tscn" id="7_npc"]
+[ext_resource type="PackedScene" path="res://systems/portal.tscn" id="8_portal"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_hud"]
+[ext_resource type="Script" path="res://systems/map_root.gd" id="1_maproot"]
+
+[sub_resource type="RectangleShape2D" id="Shape_1"]
+size = Vector2(1030, 30)
+
+[sub_resource type="RectangleShape2D" id="Shape_2"]
+size = Vector2(30, 1600)
+
+[sub_resource type="RectangleShape2D" id="Shape_3"]
+size = Vector2(90, 90)
+
+[sub_resource type="CircleShape2D" id="Shape_4"]
+radius = 11.2
+
+[sub_resource type="CircleShape2D" id="Shape_5"]
+radius = 32
+
+[sub_resource type="RectangleShape2D" id="Shape_6"]
+size = Vector2(230, 120)
+
+[sub_resource type="RectangleShape2D" id="Shape_7"]
+size = Vector2(170, 100)
+
+[sub_resource type="RectangleShape2D" id="Shape_8"]
+size = Vector2(120, 85)
+
+[sub_resource type="RectangleShape2D" id="Shape_9"]
+size = Vector2(44, 28)
+
+[sub_resource type="RectangleShape2D" id="Shape_10"]
+size = Vector2(130, 26)
+
+[sub_resource type="RectangleShape2D" id="Shape_11"]
+size = Vector2(2280, 40)
+
+[sub_resource type="RectangleShape2D" id="Shape_12"]
+size = Vector2(40, 1680)
+
+[node name="ThanhXuanLam" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_maproot")
+[node name="StoneBase" type="Polygon2D" parent="."]
+z_index = -100
+color = Color(0.55, 0.57, 0.52, 1)
+polygon = PackedVector2Array(-1100, -800, 1100, -800, 1100, 800, -1100, 800)
+[node name="GrassNorth" type="Polygon2D" parent="."]
+z_index = -96
+color = Color(0.38, 0.6, 0.3, 1)
+polygon = PackedVector2Array(-1100, -800, 1100, -800, 1100, -560, -1100, -560)
+[node name="PlazaGround" type="Polygon2D" parent="."]
+z_index = -95
+color = Color(0.62, 0.64, 0.58, 1)
+polygon = PackedVector2Array(-420, -320, 420, -320, 420, 420, -420, 420)
+[node name="RoadNS" type="Polygon2D" parent="."]
+z_index = -88
+color = Color(0.66, 0.62, 0.55, 1)
+polygon = PackedVector2Array(-55, -800, 55, -800, 55, 800, -55, 800)
+[node name="RoadEW" type="Polygon2D" parent="."]
+z_index = -88
+color = Color(0.66, 0.62, 0.55, 1)
+polygon = PackedVector2Array(-1100, 120, 1100, 120, 1100, 180, -1100, 180)
+[node name="LabelThanh" type="Label" parent="."]
+offset_left = -280
+offset_top = -360
+offset_right = 280
+offset_bottom = -324
+theme_override_colors/font_color = Color(0.12, 0.22, 0.12, 1)
+theme_override_font_sizes/font_size = 26
+text = "ALDENMERE"
+horizontal_alignment = 1
+[node name="WallS1" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.52, 0.53, 0.56, 1)
+polygon = PackedVector2Array(-1100, 745, -70, 745, -70, 775, -1100, 775)
+[node name="Body_WallS1" type="StaticBody2D" parent="."]
+position = Vector2(-585, 760)
+[node name="Col" type="CollisionShape2D" parent="Body_WallS1"]
+shape = SubResource("Shape_1")
+[node name="WallS2" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.52, 0.53, 0.56, 1)
+polygon = PackedVector2Array(70, 745, 1100, 745, 1100, 775, 70, 775)
+[node name="Body_WallS2" type="StaticBody2D" parent="."]
+position = Vector2(585, 760)
+[node name="Col" type="CollisionShape2D" parent="Body_WallS2"]
+shape = SubResource("Shape_1")
+[node name="WallN1" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.52, 0.53, 0.56, 1)
+polygon = PackedVector2Array(-1100, -775, -70, -775, -70, -745, -1100, -745)
+[node name="Body_WallN1" type="StaticBody2D" parent="."]
+position = Vector2(-585, -760)
+[node name="Col" type="CollisionShape2D" parent="Body_WallN1"]
+shape = SubResource("Shape_1")
+[node name="WallN2" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.52, 0.53, 0.56, 1)
+polygon = PackedVector2Array(70, -775, 1100, -775, 1100, -745, 70, -745)
+[node name="Body_WallN2" type="StaticBody2D" parent="."]
+position = Vector2(585, -760)
+[node name="Col" type="CollisionShape2D" parent="Body_WallN2"]
+shape = SubResource("Shape_1")
+[node name="WallW" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.52, 0.53, 0.56, 1)
+polygon = PackedVector2Array(-1115, -800, -1085, -800, -1085, 800, -1115, 800)
+[node name="Body_WallW" type="StaticBody2D" parent="."]
+position = Vector2(-1100, 0)
+[node name="Col" type="CollisionShape2D" parent="Body_WallW"]
+shape = SubResource("Shape_2")
+[node name="WallE" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.52, 0.53, 0.56, 1)
+polygon = PackedVector2Array(1085, -800, 1115, -800, 1115, 800, 1085, 800)
+[node name="Body_WallE" type="StaticBody2D" parent="."]
+position = Vector2(1100, 0)
+[node name="Col" type="CollisionShape2D" parent="Body_WallE"]
+shape = SubResource("Shape_2")
+[node name="TowerSW" type="Node2D" parent="."]
+position = Vector2(-1040, 715)
+[node name="Body" type="StaticBody2D" parent="TowerSW"]
+[node name="Col" type="CollisionShape2D" parent="TowerSW/Body"]
+shape = SubResource("Shape_3")
+[node name="Stone" type="Polygon2D" parent="TowerSW"]
+color = Color(0.48, 0.49, 0.53, 1)
+polygon = PackedVector2Array(-45, -45, 45, -45, 45, 45, -45, 45)
+[node name="Roof" type="Polygon2D" parent="TowerSW"]
+color = Color(0.4, 0.25, 0.3, 1)
+polygon = PackedVector2Array(-55, -45, 55, -45, 0, -95)
+[node name="Window" type="Polygon2D" parent="TowerSW"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(-8, -22, 8, -22, 8, 0, -8, 0)
+[node name="TowerSE" type="Node2D" parent="."]
+position = Vector2(1040, 715)
+[node name="Body" type="StaticBody2D" parent="TowerSE"]
+[node name="Col" type="CollisionShape2D" parent="TowerSE/Body"]
+shape = SubResource("Shape_3")
+[node name="Stone" type="Polygon2D" parent="TowerSE"]
+color = Color(0.48, 0.49, 0.53, 1)
+polygon = PackedVector2Array(-45, -45, 45, -45, 45, 45, -45, 45)
+[node name="Roof" type="Polygon2D" parent="TowerSE"]
+color = Color(0.4, 0.25, 0.3, 1)
+polygon = PackedVector2Array(-55, -45, 55, -45, 0, -95)
+[node name="Window" type="Polygon2D" parent="TowerSE"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(-8, -22, 8, -22, 8, 0, -8, 0)
+[node name="TowerNW" type="Node2D" parent="."]
+position = Vector2(-1040, -715)
+[node name="Body" type="StaticBody2D" parent="TowerNW"]
+[node name="Col" type="CollisionShape2D" parent="TowerNW/Body"]
+shape = SubResource("Shape_3")
+[node name="Stone" type="Polygon2D" parent="TowerNW"]
+color = Color(0.48, 0.49, 0.53, 1)
+polygon = PackedVector2Array(-45, -45, 45, -45, 45, 45, -45, 45)
+[node name="Roof" type="Polygon2D" parent="TowerNW"]
+color = Color(0.4, 0.25, 0.3, 1)
+polygon = PackedVector2Array(-55, -45, 55, -45, 0, -95)
+[node name="Window" type="Polygon2D" parent="TowerNW"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(-8, -22, 8, -22, 8, 0, -8, 0)
+[node name="TowerNE" type="Node2D" parent="."]
+position = Vector2(1040, -715)
+[node name="Body" type="StaticBody2D" parent="TowerNE"]
+[node name="Col" type="CollisionShape2D" parent="TowerNE/Body"]
+shape = SubResource("Shape_3")
+[node name="Stone" type="Polygon2D" parent="TowerNE"]
+color = Color(0.48, 0.49, 0.53, 1)
+polygon = PackedVector2Array(-45, -45, 45, -45, 45, 45, -45, 45)
+[node name="Roof" type="Polygon2D" parent="TowerNE"]
+color = Color(0.4, 0.25, 0.3, 1)
+polygon = PackedVector2Array(-55, -45, 55, -45, 0, -95)
+[node name="Window" type="Polygon2D" parent="TowerNE"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(-8, -22, 8, -22, 8, 0, -8, 0)
+[node name="TowerGateS" type="Node2D" parent="."]
+position = Vector2(-115, 745)
+[node name="Body" type="StaticBody2D" parent="TowerGateS"]
+[node name="Col" type="CollisionShape2D" parent="TowerGateS/Body"]
+shape = SubResource("Shape_3")
+[node name="Stone" type="Polygon2D" parent="TowerGateS"]
+color = Color(0.48, 0.49, 0.53, 1)
+polygon = PackedVector2Array(-45, -45, 45, -45, 45, 45, -45, 45)
+[node name="Roof" type="Polygon2D" parent="TowerGateS"]
+color = Color(0.4, 0.25, 0.3, 1)
+polygon = PackedVector2Array(-55, -45, 55, -45, 0, -95)
+[node name="Window" type="Polygon2D" parent="TowerGateS"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(-8, -22, 8, -22, 8, 0, -8, 0)
+[node name="TowerGateN" type="Node2D" parent="."]
+position = Vector2(-115, -745)
+[node name="Body" type="StaticBody2D" parent="TowerGateN"]
+[node name="Col" type="CollisionShape2D" parent="TowerGateN/Body"]
+shape = SubResource("Shape_3")
+[node name="Stone" type="Polygon2D" parent="TowerGateN"]
+color = Color(0.48, 0.49, 0.53, 1)
+polygon = PackedVector2Array(-45, -45, 45, -45, 45, 45, -45, 45)
+[node name="Roof" type="Polygon2D" parent="TowerGateN"]
+color = Color(0.4, 0.25, 0.3, 1)
+polygon = PackedVector2Array(-55, -45, 55, -45, 0, -95)
+[node name="Window" type="Polygon2D" parent="TowerGateN"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(-8, -22, 8, -22, 8, 0, -8, 0)
+[node name="GatePostSL" type="Node2D" parent="."]
+position = Vector2(-68, 745)
+[node name="Body" type="StaticBody2D" parent="GatePostSL"]
+[node name="Col" type="CollisionShape2D" parent="GatePostSL/Body"]
+shape = SubResource("Shape_4")
+[node name="Stone" type="Polygon2D" parent="GatePostSL"]
+color = Color(0.45, 0.46, 0.5, 1)
+polygon = PackedVector2Array(14, 0, 12.12, 5.25, 7, 9.09, 0, 10.5, -7, 9.09, -12.12, 5.25, -14, 0, -12.12, -5.25, -7, -9.09, -0, -10.5, 7, -9.09, 12.12, -5.25)
+[node name="StoneHi" type="Polygon2D" parent="GatePostSL"]
+color = Color(0.65, 0.65, 0.67, 1)
+polygon = PackedVector2Array(2.8, -4.2, 1.96, -2.1, -0.35, -0.56, -3.5, 0, -6.65, -0.56, -8.96, -2.1, -9.8, -4.2, -8.96, -6.3, -6.65, -7.84, -3.5, -8.4, -0.35, -7.84, 1.96, -6.3)
+[node name="GatePostSR" type="Node2D" parent="."]
+position = Vector2(68, 745)
+[node name="Body" type="StaticBody2D" parent="GatePostSR"]
+[node name="Col" type="CollisionShape2D" parent="GatePostSR/Body"]
+shape = SubResource("Shape_4")
+[node name="Stone" type="Polygon2D" parent="GatePostSR"]
+color = Color(0.45, 0.46, 0.5, 1)
+polygon = PackedVector2Array(14, 0, 12.12, 5.25, 7, 9.09, 0, 10.5, -7, 9.09, -12.12, 5.25, -14, 0, -12.12, -5.25, -7, -9.09, -0, -10.5, 7, -9.09, 12.12, -5.25)
+[node name="StoneHi" type="Polygon2D" parent="GatePostSR"]
+color = Color(0.65, 0.65, 0.67, 1)
+polygon = PackedVector2Array(2.8, -4.2, 1.96, -2.1, -0.35, -0.56, -3.5, 0, -6.65, -0.56, -8.96, -2.1, -9.8, -4.2, -8.96, -6.3, -6.65, -7.84, -3.5, -8.4, -0.35, -7.84, 1.96, -6.3)
+[node name="GatePostNL" type="Node2D" parent="."]
+position = Vector2(-68, -745)
+[node name="Body" type="StaticBody2D" parent="GatePostNL"]
+[node name="Col" type="CollisionShape2D" parent="GatePostNL/Body"]
+shape = SubResource("Shape_4")
+[node name="Stone" type="Polygon2D" parent="GatePostNL"]
+color = Color(0.45, 0.46, 0.5, 1)
+polygon = PackedVector2Array(14, 0, 12.12, 5.25, 7, 9.09, 0, 10.5, -7, 9.09, -12.12, 5.25, -14, 0, -12.12, -5.25, -7, -9.09, -0, -10.5, 7, -9.09, 12.12, -5.25)
+[node name="StoneHi" type="Polygon2D" parent="GatePostNL"]
+color = Color(0.65, 0.65, 0.67, 1)
+polygon = PackedVector2Array(2.8, -4.2, 1.96, -2.1, -0.35, -0.56, -3.5, 0, -6.65, -0.56, -8.96, -2.1, -9.8, -4.2, -8.96, -6.3, -6.65, -7.84, -3.5, -8.4, -0.35, -7.84, 1.96, -6.3)
+[node name="GatePostNR" type="Node2D" parent="."]
+position = Vector2(68, -745)
+[node name="Body" type="StaticBody2D" parent="GatePostNR"]
+[node name="Col" type="CollisionShape2D" parent="GatePostNR/Body"]
+shape = SubResource("Shape_4")
+[node name="Stone" type="Polygon2D" parent="GatePostNR"]
+color = Color(0.45, 0.46, 0.5, 1)
+polygon = PackedVector2Array(14, 0, 12.12, 5.25, 7, 9.09, 0, 10.5, -7, 9.09, -12.12, 5.25, -14, 0, -12.12, -5.25, -7, -9.09, -0, -10.5, 7, -9.09, 12.12, -5.25)
+[node name="StoneHi" type="Polygon2D" parent="GatePostNR"]
+color = Color(0.65, 0.65, 0.67, 1)
+polygon = PackedVector2Array(2.8, -4.2, 1.96, -2.1, -0.35, -0.56, -3.5, 0, -6.65, -0.56, -8.96, -2.1, -9.8, -4.2, -8.96, -6.3, -6.65, -7.84, -3.5, -8.4, -0.35, -7.84, 1.96, -6.3)
+[node name="AncientTree" type="Node2D" parent="."]
+position = Vector2(0, -470)
+[node name="Body" type="StaticBody2D" parent="AncientTree"]
+[node name="Col" type="CollisionShape2D" parent="AncientTree/Body"]
+position = Vector2(0, 30)
+shape = SubResource("Shape_5")
+[node name="Trunk" type="Polygon2D" parent="AncientTree"]
+color = Color(0.36, 0.24, 0.13, 1)
+polygon = PackedVector2Array(-30, 55, 30, 55, 16, -55, -16, -55)
+[node name="CanopyL" type="Polygon2D" parent="AncientTree"]
+color = Color(0.15, 0.4, 0.17, 1)
+polygon = PackedVector2Array(5, -110, -7.06, -65, -40, -32.06, -85, -20, -130, -32.06, -162.94, -65, -175, -110, -162.94, -155, -130, -187.94, -85, -200, -40, -187.94, -7.06, -155)
+[node name="CanopyR" type="Polygon2D" parent="AncientTree"]
+color = Color(0.15, 0.4, 0.17, 1)
+polygon = PackedVector2Array(175, -110, 162.94, -65, 130, -32.06, 85, -20, 40, -32.06, 7.06, -65, -5, -110, 7.06, -155, 40, -187.94, 85, -200, 130, -187.94, 162.94, -155)
+[node name="CanopyC" type="Polygon2D" parent="AncientTree"]
+color = Color(0.19, 0.48, 0.2, 1)
+polygon = PackedVector2Array(110, -150, 95.26, -95, 55, -54.74, 0, -40, -55, -54.74, -95.26, -95, -110, -150, -95.26, -205, -55, -245.26, -0, -260, 55, -245.26, 95.26, -205)
+[node name="LabelCoThu" type="Label" parent="."]
+offset_left = -170
+offset_top = -295
+offset_right = 170
+offset_bottom = -269
+theme_override_colors/font_color = Color(0.08, 0.3, 0.1, 1)
+theme_override_font_sizes/font_size = 16
+text = "Elder Tree of Aldenmere"
+horizontal_alignment = 1
+[node name="Inn" type="Node2D" parent="."]
+position = Vector2(-400, -170)
+[node name="Body" type="StaticBody2D" parent="Inn"]
+[node name="Col" type="CollisionShape2D" parent="Inn/Body"]
+shape = SubResource("Shape_6")
+[node name="Wall" type="Polygon2D" parent="Inn"]
+color = Color(0.94, 0.88, 0.72, 1)
+polygon = PackedVector2Array(-115, -60, 115, -60, 115, 60, -115, 60)
+[node name="WallShade" type="Polygon2D" parent="Inn"]
+color = Color(0, 0, 0, 0.12)
+polygon = PackedVector2Array(-115, 46, 115, 46, 115, 60, -115, 60)
+[node name="Roof" type="Polygon2D" parent="Inn"]
+color = Color(0.58, 0.26, 0.18, 1)
+polygon = PackedVector2Array(-127, -60, 127, -60, 0, -114)
+[node name="RoofShade" type="Polygon2D" parent="Inn"]
+color = Color(0, 0, 0, 0.15)
+polygon = PackedVector2Array(0, -114, 127, -60, 0, -60)
+[node name="Door" type="Polygon2D" parent="Inn"]
+color = Color(0.23, 0.14, 0.07, 1)
+polygon = PackedVector2Array(-13, 6, 13, 6, 13, 60, -13, 60)
+[node name="WinL" type="Polygon2D" parent="Inn"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(-97, -42, -79, -42, -79, -24, -97, -24)
+[node name="WinR" type="Polygon2D" parent="Inn"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(79, -42, 97, -42, 97, -24, 79, -24)
+[node name="HouseLabel" type="Label" parent="Inn"]
+offset_left = -140
+offset_top = 66
+offset_right = 140
+offset_bottom = 87
+theme_override_colors/font_color = Color(0.2, 0.15, 0.08, 1)
+theme_override_font_sizes/font_size = 13
+text = "Nhà Trọ Liên Hoa"
+horizontal_alignment = 1
+[node name="Smithy" type="Node2D" parent="."]
+position = Vector2(430, -170)
+[node name="Body" type="StaticBody2D" parent="Smithy"]
+[node name="Col" type="CollisionShape2D" parent="Smithy/Body"]
+shape = SubResource("Shape_7")
+[node name="Wall" type="Polygon2D" parent="Smithy"]
+color = Color(0.8, 0.72, 0.6, 1)
+polygon = PackedVector2Array(-85, -50, 85, -50, 85, 50, -85, 50)
+[node name="WallShade" type="Polygon2D" parent="Smithy"]
+color = Color(0, 0, 0, 0.12)
+polygon = PackedVector2Array(-85, 36, 85, 36, 85, 50, -85, 50)
+[node name="Roof" type="Polygon2D" parent="Smithy"]
+color = Color(0.4, 0.35, 0.38, 1)
+polygon = PackedVector2Array(-97, -50, 97, -50, 0, -95)
+[node name="RoofShade" type="Polygon2D" parent="Smithy"]
+color = Color(0, 0, 0, 0.15)
+polygon = PackedVector2Array(0, -95, 97, -50, 0, -50)
+[node name="Door" type="Polygon2D" parent="Smithy"]
+color = Color(0.23, 0.14, 0.07, 1)
+polygon = PackedVector2Array(-13, 6, 13, 6, 13, 50, -13, 50)
+[node name="WinL" type="Polygon2D" parent="Smithy"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(-67, -32, -49, -32, -49, -14, -67, -14)
+[node name="WinR" type="Polygon2D" parent="Smithy"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(49, -32, 67, -32, 67, -14, 49, -14)
+[node name="HouseLabel" type="Label" parent="Smithy"]
+offset_left = -140
+offset_top = 56
+offset_right = 140
+offset_bottom = 77
+theme_override_colors/font_color = Color(0.2, 0.15, 0.08, 1)
+theme_override_font_sizes/font_size = 13
+text = "Tiệm Rèn"
+horizontal_alignment = 1
+[node name="HouseT1" type="Node2D" parent="."]
+position = Vector2(-620, 320)
+[node name="Body" type="StaticBody2D" parent="HouseT1"]
+[node name="Col" type="CollisionShape2D" parent="HouseT1/Body"]
+shape = SubResource("Shape_8")
+[node name="Wall" type="Polygon2D" parent="HouseT1"]
+color = Color(0.9, 0.83, 0.66, 1)
+polygon = PackedVector2Array(-60, -42.5, 60, -42.5, 60, 42.5, -60, 42.5)
+[node name="WallShade" type="Polygon2D" parent="HouseT1"]
+color = Color(0, 0, 0, 0.12)
+polygon = PackedVector2Array(-60, 28.5, 60, 28.5, 60, 42.5, -60, 42.5)
+[node name="Roof" type="Polygon2D" parent="HouseT1"]
+color = Color(0.55, 0.32, 0.2, 1)
+polygon = PackedVector2Array(-72, -42.5, 72, -42.5, 0, -80.75)
+[node name="RoofShade" type="Polygon2D" parent="HouseT1"]
+color = Color(0, 0, 0, 0.15)
+polygon = PackedVector2Array(0, -80.75, 72, -42.5, 0, -42.5)
+[node name="Door" type="Polygon2D" parent="HouseT1"]
+color = Color(0.23, 0.14, 0.07, 1)
+polygon = PackedVector2Array(-13, 6, 13, 6, 13, 42.5, -13, 42.5)
+[node name="WinL" type="Polygon2D" parent="HouseT1"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(-42, -24.5, -24, -24.5, -24, -6.5, -42, -6.5)
+[node name="WinR" type="Polygon2D" parent="HouseT1"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(24, -24.5, 42, -24.5, 42, -6.5, 24, -6.5)
+[node name="HouseT2" type="Node2D" parent="."]
+position = Vector2(-300, 480)
+[node name="Body" type="StaticBody2D" parent="HouseT2"]
+[node name="Col" type="CollisionShape2D" parent="HouseT2/Body"]
+shape = SubResource("Shape_8")
+[node name="Wall" type="Polygon2D" parent="HouseT2"]
+color = Color(0.88, 0.8, 0.62, 1)
+polygon = PackedVector2Array(-60, -42.5, 60, -42.5, 60, 42.5, -60, 42.5)
+[node name="WallShade" type="Polygon2D" parent="HouseT2"]
+color = Color(0, 0, 0, 0.12)
+polygon = PackedVector2Array(-60, 28.5, 60, 28.5, 60, 42.5, -60, 42.5)
+[node name="Roof" type="Polygon2D" parent="HouseT2"]
+color = Color(0.5, 0.3, 0.22, 1)
+polygon = PackedVector2Array(-72, -42.5, 72, -42.5, 0, -80.75)
+[node name="RoofShade" type="Polygon2D" parent="HouseT2"]
+color = Color(0, 0, 0, 0.15)
+polygon = PackedVector2Array(0, -80.75, 72, -42.5, 0, -42.5)
+[node name="Door" type="Polygon2D" parent="HouseT2"]
+color = Color(0.23, 0.14, 0.07, 1)
+polygon = PackedVector2Array(-13, 6, 13, 6, 13, 42.5, -13, 42.5)
+[node name="WinL" type="Polygon2D" parent="HouseT2"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(-42, -24.5, -24, -24.5, -24, -6.5, -42, -6.5)
+[node name="WinR" type="Polygon2D" parent="HouseT2"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(24, -24.5, 42, -24.5, 42, -6.5, 24, -6.5)
+[node name="HouseT3" type="Node2D" parent="."]
+position = Vector2(330, 350)
+[node name="Body" type="StaticBody2D" parent="HouseT3"]
+[node name="Col" type="CollisionShape2D" parent="HouseT3/Body"]
+shape = SubResource("Shape_8")
+[node name="Wall" type="Polygon2D" parent="HouseT3"]
+color = Color(0.91, 0.84, 0.67, 1)
+polygon = PackedVector2Array(-60, -42.5, 60, -42.5, 60, 42.5, -60, 42.5)
+[node name="WallShade" type="Polygon2D" parent="HouseT3"]
+color = Color(0, 0, 0, 0.12)
+polygon = PackedVector2Array(-60, 28.5, 60, 28.5, 60, 42.5, -60, 42.5)
+[node name="Roof" type="Polygon2D" parent="HouseT3"]
+color = Color(0.57, 0.33, 0.21, 1)
+polygon = PackedVector2Array(-72, -42.5, 72, -42.5, 0, -80.75)
+[node name="RoofShade" type="Polygon2D" parent="HouseT3"]
+color = Color(0, 0, 0, 0.15)
+polygon = PackedVector2Array(0, -80.75, 72, -42.5, 0, -42.5)
+[node name="Door" type="Polygon2D" parent="HouseT3"]
+color = Color(0.23, 0.14, 0.07, 1)
+polygon = PackedVector2Array(-13, 6, 13, 6, 13, 42.5, -13, 42.5)
+[node name="WinL" type="Polygon2D" parent="HouseT3"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(-42, -24.5, -24, -24.5, -24, -6.5, -42, -6.5)
+[node name="WinR" type="Polygon2D" parent="HouseT3"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(24, -24.5, 42, -24.5, 42, -6.5, 24, -6.5)
+[node name="HouseT4" type="Node2D" parent="."]
+position = Vector2(640, 480)
+[node name="Body" type="StaticBody2D" parent="HouseT4"]
+[node name="Col" type="CollisionShape2D" parent="HouseT4/Body"]
+shape = SubResource("Shape_8")
+[node name="Wall" type="Polygon2D" parent="HouseT4"]
+color = Color(0.89, 0.82, 0.64, 1)
+polygon = PackedVector2Array(-60, -42.5, 60, -42.5, 60, 42.5, -60, 42.5)
+[node name="WallShade" type="Polygon2D" parent="HouseT4"]
+color = Color(0, 0, 0, 0.12)
+polygon = PackedVector2Array(-60, 28.5, 60, 28.5, 60, 42.5, -60, 42.5)
+[node name="Roof" type="Polygon2D" parent="HouseT4"]
+color = Color(0.52, 0.31, 0.2, 1)
+polygon = PackedVector2Array(-72, -42.5, 72, -42.5, 0, -80.75)
+[node name="RoofShade" type="Polygon2D" parent="HouseT4"]
+color = Color(0, 0, 0, 0.15)
+polygon = PackedVector2Array(0, -80.75, 72, -42.5, 0, -42.5)
+[node name="Door" type="Polygon2D" parent="HouseT4"]
+color = Color(0.23, 0.14, 0.07, 1)
+polygon = PackedVector2Array(-13, 6, 13, 6, 13, 42.5, -13, 42.5)
+[node name="WinL" type="Polygon2D" parent="HouseT4"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(-42, -24.5, -24, -24.5, -24, -6.5, -42, -6.5)
+[node name="WinR" type="Polygon2D" parent="HouseT4"]
+color = Color(0.95, 0.8, 0.4, 1)
+polygon = PackedVector2Array(24, -24.5, 42, -24.5, 42, -6.5, 24, -6.5)
+[node name="Forge" type="Node2D" parent="."]
+position = Vector2(345, -95)
+[node name="Body" type="StaticBody2D" parent="Forge"]
+[node name="Col" type="CollisionShape2D" parent="Forge/Body"]
+shape = SubResource("Shape_9")
+[node name="Base" type="Polygon2D" parent="Forge"]
+color = Color(0.4, 0.36, 0.34, 1)
+polygon = PackedVector2Array(-22, -14, 22, -14, 22, 14, -22, 14)
+[node name="Fire" type="Polygon2D" parent="Forge"]
+color = Color(0.95, 0.5, 0.15, 1)
+polygon = PackedVector2Array(-10, 6, 0, -16, 10, 6)
+[node name="QuestBoard" type="Node2D" parent="."]
+position = Vector2(150, 60)
+[node name="Body" type="StaticBody2D" parent="QuestBoard"]
+[node name="Col" type="CollisionShape2D" parent="QuestBoard/Body"]
+shape = SubResource("Shape_10")
+[node name="Board" type="Polygon2D" parent="QuestBoard"]
+color = Color(0.55, 0.4, 0.22, 1)
+polygon = PackedVector2Array(-65, -52, 65, -52, 65, 8, -65, 8)
+[node name="BoardTop" type="Polygon2D" parent="QuestBoard"]
+color = Color(0.42, 0.29, 0.16, 1)
+polygon = PackedVector2Array(-72, -52, 72, -52, 0, -78)
+[node name="Paper1" type="Polygon2D" parent="QuestBoard"]
+color = Color(0.95, 0.92, 0.8, 1)
+polygon = PackedVector2Array(-52, -42, -22, -42, -22, -12, -52, -12)
+[node name="Paper2" type="Polygon2D" parent="QuestBoard"]
+color = Color(0.93, 0.88, 0.72, 1)
+polygon = PackedVector2Array(-12, -44, 20, -44, 20, -10, -12, -10)
+[node name="Paper3" type="Polygon2D" parent="QuestBoard"]
+color = Color(0.95, 0.92, 0.8, 1)
+polygon = PackedVector2Array(30, -40, 55, -40, 55, -14, 30, -14)
+[node name="LabelQuestBoard" type="Label" parent="."]
+offset_left = -10
+offset_top = -18
+offset_right = 310
+offset_bottom = 8
+theme_override_colors/font_color = Color(0.3, 0.18, 0.05, 1)
+theme_override_font_sizes/font_size = 16
+text = "BẢNG NHIỆM VỤ"
+horizontal_alignment = 1
+[node name="SignSouth" type="Node2D" parent="."]
+position = Vector2(80, 640)
+[node name="Post" type="Polygon2D" parent="SignSouth"]
+color = Color(0.42, 0.29, 0.16, 1)
+polygon = PackedVector2Array(-4, -6, 4, -6, 4, 22, -4, 22)
+[node name="Board" type="Polygon2D" parent="SignSouth"]
+color = Color(0.62, 0.47, 0.28, 1)
+polygon = PackedVector2Array(-52, -30, 52, -30, 52, -6, -52, -6)
+[node name="Label_SignSouth" type="Label" parent="."]
+offset_left = -80
+offset_top = 582
+offset_right = 240
+offset_bottom = 606
+theme_override_colors/font_color = Color(0.25, 0.16, 0.07, 1)
+theme_override_font_sizes/font_size = 14
+text = "↓ Barleyfield"
+horizontal_alignment = 1
+[node name="SignNorth" type="Node2D" parent="."]
+position = Vector2(80, -660)
+[node name="Post" type="Polygon2D" parent="SignNorth"]
+color = Color(0.42, 0.29, 0.16, 1)
+polygon = PackedVector2Array(-4, -6, 4, -6, 4, 22, -4, 22)
+[node name="Board" type="Polygon2D" parent="SignNorth"]
+color = Color(0.62, 0.47, 0.28, 1)
+polygon = PackedVector2Array(-52, -30, 52, -30, 52, -6, -52, -6)
+[node name="Label_SignNorth" type="Label" parent="."]
+offset_left = -80
+offset_top = -718
+offset_right = 240
+offset_bottom = -694
+theme_override_colors/font_color = Color(0.25, 0.16, 0.07, 1)
+theme_override_font_sizes/font_size = 14
+text = "Cloudpeak ↑"
+horizontal_alignment = 1
+[node name="NPC_ChuQuan" parent="." instance=ExtResource("7_npc")]
+position = Vector2(-330, -85)
+npc_id = "chu_quan"
+display_name = "Chủ quán Liên Hoa"
+quest_ids = Array[String](["dong_02_ham_ruou", "dong_03_chuot_chua", "dong_side_herb"])
+shop_enabled = true
+tint = Color(1, 0.85, 0.85, 1)
+dialogue_before = Array[String](["Quán Liên Hoa lúc nào cũng có phòng và rượu ngon — trừ khi chuột phá Elmford Cellar của ta!", "Xuống Elmford Cellar dưới quán, dẹp lũ chuột giúp ta trước đã. Cầu thang ngay trong quán này."])
+dialogue_active = Array[String](["Elmford Cellar ở ngay dưới quán. Nghe nói còn một con Rat King to lắm ở kho sâu..."])
+dialogue_ready = Array[String](["Hết chuột rồi sao? Mũi ta không còn ngửi thấy mùi hôi nữa!"])
+dialogue_done = Array[String](["Cần nghỉ ngơi hay mua đồ, cứ ghé quán Liên Hoa. Thảo dược quanh Barleyfield cũng tốt cho thuốc của quán lắm."])
+[node name="NPC_ThoRen" parent="." instance=ExtResource("7_npc")]
+position = Vector2(430, -85)
+npc_id = "tho_ren"
+display_name = "Thợ rèn Đạt"
+quest_ids = Array[String](["dong_side_slime"])
+shop_enabled = false
+tint = Color(0.9, 0.9, 0.95, 1)
+dialogue_before = Array[String](["Slime cỏ tràn ra ruộng ở Barleyfield, ăn hết lúa non. Dẹp giúp ta 5 con, ta trả công hậu."])
+dialogue_active = Array[String](["Slime ở ruộng phía nam thành, qua Barleyfield là thấy."])
+dialogue_ready = Array[String](["Ruộng yên rồi à? Tay nghề ngươi khá đấy!"])
+dialogue_done = Array[String](["Kiếm cùn thì mang qua đây, ta mài cho."])
+[node name="NPC_LinhGac" parent="." instance=ExtResource("7_npc")]
+position = Vector2(62, -672)
+npc_id = "linh_gac"
+display_name = "Lính gác cổng Bắc"
+quest_ids = Array[String](["dong_04_golem"])
+shop_enabled = false
+tint = Color(0.8, 0.85, 1, 1)
+dialogue_before = Array[String](["Trên Cloudpeak có hang Moss Den — con golem canh trong hang đã làm bị thương hai lính gác.", "Nếu ngươi đủ gan, lên núi theo cổng bắc này, vào hang ở sườn đông mà dẹp nó."])
+dialogue_active = Array[String](["Đường leo núi gấp khúc, hai bên là vách đá. Cứ men theo đường đất sáng là tới miệng hang golem."])
+dialogue_ready = Array[String](["Ngươi thật sự hạ được Mossback sao? Cả thành này nợ ngươi một chén rượu!"])
+dialogue_done = Array[String](["Cloudpeak Summit nhìn rõ Sigilspire lắm. Người già nói rồng sẽ đáp xuống đó một ngày kia..."])
+[node name="NPC_LinhGacNam" parent="." instance=ExtResource("7_npc")]
+position = Vector2(62, 672)
+npc_id = "linh_gac_nam"
+display_name = "Lính gác cổng Nam"
+quest_ids = Array[String]([])
+shop_enabled = false
+tint = Color(0.85, 0.9, 1, 1)
+dialogue_done = Array[String](["Cổng nam này ra Barleyfield. Đi thêm về nam là Elmford, làng khởi đầu của bao hiệp sĩ."])
+[node name="Spawn_start" type="Marker2D" parent="."]
+position = Vector2(0, 640)
+[node name="Spawn_from_ngoai" type="Marker2D" parent="."]
+position = Vector2(0, 640)
+[node name="Spawn_from_nui" type="Marker2D" parent="."]
+position = Vector2(0, -640)
+[node name="Spawn_from_cave" type="Marker2D" parent="."]
+position = Vector2(-315, -85)
+[node name="PortalSouth" parent="." instance=ExtResource("8_portal")]
+position = Vector2(0, 700)
+target_scene = "res://maps/ngoai_thanh.tscn"
+target_spawn = "from_thanh"
+label_text = "↓ The Wallfoot"
+[node name="PortalNorth" parent="." instance=ExtResource("8_portal")]
+position = Vector2(0, -700)
+target_scene = "res://maps/hoang_cung.tscn"
+target_spawn = "from_thanh"
+required_flag = "dong_giai_phong"
+locked_text = "Cổng Royal Palace niêm phong bởi ấn của vua. Kháng chiến thì thầm về một đường Aldenmere Sewers..."
+label_text = "↑ Royal Palace of Aldenmere"
+[node name="PortalToCellar" parent="." instance=ExtResource("8_portal")]
+position = Vector2(-400, -95)
+target_scene = "res://maps/ham_ruou.tscn"
+target_spawn = "from_village"
+label_text = "↓ Elmford Cellar"
+[node name="Borders" type="StaticBody2D" parent="."]
+[node name="ColTop" type="CollisionShape2D" parent="Borders"]
+position = Vector2(0, -818)
+shape = SubResource("Shape_11")
+[node name="ColBottom" type="CollisionShape2D" parent="Borders"]
+position = Vector2(0, 818)
+shape = SubResource("Shape_11")
+[node name="ColLeft" type="CollisionShape2D" parent="Borders"]
+position = Vector2(-1118, 0)
+shape = SubResource("Shape_12")
+[node name="ColRight" type="CollisionShape2D" parent="Borders"]
+position = Vector2(1118, 0)
+shape = SubResource("Shape_12")
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(0, 640)
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="Spawn_from_cong" type="Marker2D" parent="."]
+position = Vector2(-520, 330)
+
+[node name="Spawn_from_cung" type="Marker2D" parent="."]
+position = Vector2(0, -600)
+
+[node name="PortalSewer" parent="." instance=ExtResource("8_portal")]
+position = Vector2(-560, 290)
+target_scene = "res://maps/cong_ngam.tscn"
+target_spawn = "from_thanh"
+required_flag = "co_duong_cong"
+locked_text = "Nắp cống khóa chặt. Cần kháng chiến chỉ đường mới mở được."
+label_text = "Nắp Aldenmere Sewers"

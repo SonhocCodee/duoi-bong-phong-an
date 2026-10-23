@@ -4,8 +4,8 @@ extends Node2D
 ## Phím tắt debug: F5 lưu game, F9 tải game (ngoài input map chính)
 
 func _ready() -> void:
-	print("[World] Map test đã load: 4 thành + Tháp Vương Ấn ở trung tâm.")
-	print("[World] Player spawn ở Đông - Làng Tân Diệp. Hãy đánh 3 goblin gần đó!")
+	print("[World] Map test đã load: 4 thành + Sigilspire ở trung tâm.")
+	print("[World] Player spawn ở Đông - Elmford. Hãy đánh 3 goblin gần đó!")
 	# Thử tự nhận quest mẫu nếu player chưa nhận (player cũng tự nhận)
 	if has_node("/root/QuestManager"):
 		if QuestManager.active_quests.is_empty() and QuestManager.completed_quests.is_empty():

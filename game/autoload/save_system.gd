@@ -16,7 +16,9 @@ func _ready() -> void:
 
 func save_game(extra_data: Dictionary = {}) -> bool:
 	var data: Dictionary = {}
-	# Lấy dữ liệu từ GameState nếu autoload đã sẵn sàng
+	# Lấy dữ liệu từ GameState nếu autoload đã sẵn sàng.
+	# GameState.to_dict() đã gồm potions / seal_keys / flags / spawn_point /
+	# current_map (GĐ1) nên các dữ liệu này tự đi theo file save.
 	if has_node("/root/GameState"):
 		data["game_state"] = GameState.to_dict()
 	if has_node("/root/QuestManager"):
@@ -58,6 +60,9 @@ func load_game() -> bool:
 	var data: Dictionary = parsed
 	if data.has("game_state") and has_node("/root/GameState"):
 		GameState.from_dict(data["game_state"])
+		# GĐ1: chỉ khôi phục DỮ LIỆU (kể cả current_map / spawn_point trong
+		# GameState). Việc chuyển scene sang current_map sau khi load do menu
+		# (GD3) đảm nhiệm — SaveSystem không tự change_scene ở đây.
 	if data.has("quests") and has_node("/root/QuestManager"):
 		QuestManager.from_dict(data["quests"])
 	print("[SaveSystem] Đã tải game <- ", SAVE_PATH)

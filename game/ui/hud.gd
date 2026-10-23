@@ -8,6 +8,10 @@ extends CanvasLayer
 @onready var stamina_label: Label = $MarginContainer/VBoxContainer/StaminaBar/StaminaLabel
 @onready var info_label: Label = $MarginContainer/VBoxContainer/InfoLabel
 @onready var quest_label: Label = $MarginContainer/VBoxContainer/QuestLabel
+@onready var potion_label: Label = $MarginContainer/VBoxContainer/PotionLabel
+@onready var boss_container: VBoxContainer = $BossContainer
+@onready var boss_name_label: Label = $BossContainer/BossNameLabel
+@onready var boss_bar: ProgressBar = $BossContainer/BossBar
 
 var _player: Node = null
 
@@ -19,11 +23,16 @@ func _ready() -> void:
 		GameState.xp_changed.connect(_on_xp_changed)
 		GameState.level_changed.connect(_on_level_changed)
 		GameState.player_hp_changed.connect(_on_game_hp_changed)
+		GameState.potions_changed.connect(_on_potions_changed)
+		GameState.boss_changed.connect(_on_boss_changed)
 	if has_node("/root/QuestManager"):
 		QuestManager.quest_updated.connect(_on_quest_updated)
 		QuestManager.quest_completed.connect(_on_quest_completed)
 	_refresh_info()
 	_refresh_quest()
+	_refresh_potions()
+	if has_node("/root/GameState"):
+		_on_boss_changed(GameState.boss_name, GameState.boss_hp, GameState.boss_max_hp)
 	# Thử tìm player ngay (nếu HUD được thêm sau player thì _process sẽ nối tiếp)
 	_try_connect_player()
 
@@ -94,6 +103,30 @@ func _refresh_info() -> void:
 		info_label.text = "Level 1  |  XP 0  |  Vàng: 0"
 
 
+func _on_potions_changed(_n: int) -> void:
+	_refresh_potions()
+
+
+func _refresh_potions() -> void:
+	if not is_node_ready() or potion_label == null:
+		return
+	if has_node("/root/GameState"):
+		potion_label.text = "Bình: %d — [H] dùng" % GameState.potions
+
+
+# Thanh máu boss: hiện khi GameState.set_boss_display, ẩn khi clear_boss_display
+func _on_boss_changed(display_name: String, hp: int, max_hp: int) -> void:
+	if not is_node_ready() or boss_container == null:
+		return
+	if display_name == "" or max_hp <= 0:
+		boss_container.visible = false
+		return
+	boss_container.visible = true
+	boss_name_label.text = display_name
+	boss_bar.max_value = max_hp
+	boss_bar.value = hp
+
+
 func _on_quest_updated(_id: String) -> void:
 	_refresh_quest()
 
@@ -107,16 +140,18 @@ func _refresh_quest() -> void:
 	if not has_node("/root/QuestManager"):
 		quest_label.text = ""
 		return
-	var lines: Array[String] = []
+	# Chỉ theo dõi quest active đầu tiên (gồm cả quest đang chờ trả ready_turn_in)
 	for qid in QuestManager.active_quests:
 		var q: Dictionary = QuestManager.get_quest(qid)
-		if not q.is_empty():
-			lines.append("• %s: %d/%d" % [str(q.get("title", qid)), int(q.get("progress", 0)), int(q.get("target_count", 0))])
-	if lines.is_empty():
-		# Kiểm tra quest đã hoàn thành để hiển thị
-		if QuestManager.completed_quests.size() > 0:
-			quest_label.text = "Nhiệm vụ: Đã hoàn thành nhiệm vụ Tân Diệp ✓"
-		else:
-			quest_label.text = ""
+		if q.is_empty():
+			continue
+		var line := "Nhiệm vụ: %s (%d/%d)" % [str(q.get("title", qid)), int(q.get("progress", 0)), int(q.get("target_count", 0))]
+		if str(q.get("status", "")) == "ready_turn_in":
+			line += " — Quay lại trả nhiệm vụ!"
+		quest_label.text = line
+		return
+	# Không còn quest active
+	if QuestManager.completed_quests.size() > 0:
+		quest_label.text = "Nhiệm vụ: Đã hoàn thành nhiệm vụ Elmford ✓"
 	else:
-		quest_label.text = "Nhiệm vụ:\n" + "\n".join(lines)
+		quest_label.text = ""

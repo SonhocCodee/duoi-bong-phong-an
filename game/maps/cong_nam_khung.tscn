@@ -1,0 +1,135 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://systems/map_root.gd" id="1_e"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="2_e"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_e"]
+[ext_resource type="PackedScene" path="res://systems/portal.tscn" id="4_e"]
+
+[sub_resource type="RectangleShape2D" id="R1"]
+size = Vector2(1280, 32)
+
+[sub_resource type="RectangleShape2D" id="R2"]
+size = Vector2(1280, 32)
+
+[sub_resource type="RectangleShape2D" id="R3"]
+size = Vector2(32, 992)
+
+[sub_resource type="RectangleShape2D" id="R4"]
+size = Vector2(32, 992)
+
+[sub_resource type="RectangleShape2D" id="R5"]
+size = Vector2(1216, 64)
+
+[sub_resource type="CircleShape2D" id="C6"]
+radius = 24
+
+[sub_resource type="CircleShape2D" id="C7"]
+radius = 24
+
+[sub_resource type="CircleShape2D" id="C8"]
+radius = 24
+
+[sub_resource type="CircleShape2D" id="C9"]
+radius = 24
+
+[node name="CongNamKhung" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_e")
+
+[node name="BackgroundPlaceholder" type="ColorRect" parent="."]
+z_index = -100
+offset_left = -600.0
+offset_top = -450.0
+offset_right = 600.0
+offset_bottom = 450.0
+mouse_filter = 2
+color = Color(0.58, 0.55, 0.45, 1)
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="BorderTop" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, -480)
+shape = SubResource("R1")
+
+[node name="BorderBottom" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, 480)
+shape = SubResource("R2")
+
+[node name="BorderLeft" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-608, 0)
+shape = SubResource("R3")
+
+[node name="BorderRight" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(608, 0)
+shape = SubResource("R4")
+
+[node name="SouthWallBand" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, -384)
+shape = SubResource("R5")
+
+[node name="Rock0" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-384, -96)
+shape = SubResource("C6")
+
+[node name="Rock1" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(416, 64)
+shape = SubResource("C7")
+
+[node name="Rock2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-192, 256)
+shape = SubResource("C8")
+
+[node name="Rock3" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(288, 288)
+shape = SubResource("C9")
+
+[node name="LabelMap" type="Label" parent="."]
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = -270.0
+theme_override_colors/font_color = Color(0.25, 0.22, 0.18, 1)
+theme_override_font_sizes/font_size = 20
+text = "CỔNG NAM — TƯỜNG THÀNH (mặt ngoài)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelPart2" type="Label" parent="."]
+offset_left = -450.0
+offset_top = 60.0
+offset_right = 450.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.4, 0.25, 0.1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Đường sang Vùng Nam — Phần 2: Fenmire (chưa mở)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelBack" type="Label" parent="."]
+offset_left = -250.0
+offset_top = 360.0
+offset_right = 250.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0.95, 0.9, 0.75, 1)
+theme_override_font_sizes/font_size = 14
+text = "← Về Elmford"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Spawn_start" type="Marker2D" parent="."]
+position = Vector2(0, 320)
+
+[node name="Spawn_from_tandiep" type="Marker2D" parent="."]
+position = Vector2(0, 320)
+
+[node name="PortalBack" parent="." instance=ExtResource("4_e")]
+position = Vector2(-512, 384)
+target_scene = "res://maps/lang_tan_diep.tscn"
+target_spawn = "from_khung"
+label_text = "← Elmford"
+
+[node name="Player" parent="." instance=ExtResource("2_e")]
+position = Vector2(0, 320)
+
+[node name="HUD" parent="." instance=ExtResource("3_e")]
+

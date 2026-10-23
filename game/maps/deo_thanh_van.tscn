@@ -1,0 +1,229 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://systems/map_root.gd" id="1_e"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="2_e"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_e"]
+[ext_resource type="PackedScene" path="res://systems/portal.tscn" id="4_e"]
+[ext_resource type="PackedScene" path="res://enemies/stone_spirit.tscn" id="5_e"]
+[ext_resource type="PackedScene" path="res://enemies/wolf.tscn" id="6_e"]
+
+[sub_resource type="RectangleShape2D" id="R1"]
+size = Vector2(1664, 32)
+
+[sub_resource type="RectangleShape2D" id="R2"]
+size = Vector2(1664, 32)
+
+[sub_resource type="RectangleShape2D" id="R3"]
+size = Vector2(32, 2272)
+
+[sub_resource type="RectangleShape2D" id="R4"]
+size = Vector2(32, 2272)
+
+[sub_resource type="RectangleShape2D" id="R5"]
+size = Vector2(1216, 544)
+
+[sub_resource type="RectangleShape2D" id="R6"]
+size = Vector2(224, 1536)
+
+[sub_resource type="RectangleShape2D" id="R7"]
+size = Vector2(320, 448)
+
+[sub_resource type="RectangleShape2D" id="R8"]
+size = Vector2(768, 448)
+
+[sub_resource type="RectangleShape2D" id="R9"]
+size = Vector2(320, 448)
+
+[sub_resource type="RectangleShape2D" id="R10"]
+size = Vector2(1120, 448)
+
+[sub_resource type="RectangleShape2D" id="R11"]
+size = Vector2(1024, 352)
+
+[sub_resource type="RectangleShape2D" id="R12"]
+size = Vector2(416, 352)
+
+[sub_resource type="CircleShape2D" id="C13"]
+radius = 26
+
+[sub_resource type="CircleShape2D" id="C14"]
+radius = 26
+
+[sub_resource type="CircleShape2D" id="C15"]
+radius = 26
+
+[sub_resource type="CircleShape2D" id="C16"]
+radius = 26
+
+[node name="DeoThanhVan" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_e")
+
+[node name="BackgroundPlaceholder" type="ColorRect" parent="."]
+z_index = -100
+offset_left = -800.0
+offset_top = -1100.0
+offset_right = 800.0
+offset_bottom = 1100.0
+mouse_filter = 2
+color = Color(0.5, 0.52, 0.55, 1)
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="BorderTop" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, -1120)
+shape = SubResource("R1")
+
+[node name="BorderBottom" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, 1120)
+shape = SubResource("R2")
+
+[node name="BorderLeft" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-832, 0)
+shape = SubResource("R3")
+
+[node name="BorderRight" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(832, 0)
+shape = SubResource("R4")
+
+[node name="CliffA" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(192, 832)
+shape = SubResource("R5")
+
+[node name="CliffB" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-704, -352)
+shape = SubResource("R6")
+
+[node name="CliffC" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(640, 192)
+shape = SubResource("R7")
+
+[node name="CliffD" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-64, 192)
+shape = SubResource("R8")
+
+[node name="CliffE" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-640, -384)
+shape = SubResource("R9")
+
+[node name="CliffF" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(256, -384)
+shape = SubResource("R10")
+
+[node name="CliffG" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-288, -928)
+shape = SubResource("R11")
+
+[node name="CliffH" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(576, -928)
+shape = SubResource("R12")
+
+[node name="Boulder0" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-384, 704)
+shape = SubResource("C13")
+
+[node name="Boulder1" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(512, 256)
+shape = SubResource("C14")
+
+[node name="Boulder2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-288, -320)
+shape = SubResource("C15")
+
+[node name="Boulder3" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(192, -896)
+shape = SubResource("C16")
+
+[node name="LabelMap" type="Label" parent="."]
+offset_left = -800.0
+offset_top = 980.0
+offset_right = -200.0
+offset_bottom = 1012.0
+theme_override_colors/font_color = Color(0.15, 0.2, 0.3, 1)
+theme_override_font_sizes/font_size = 22
+text = "CLOUDPEAK PASS"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelRockWarn" type="Label" parent="."]
+offset_left = -690.0
+offset_top = 760.0
+offset_right = -170.0
+offset_bottom = 784.0
+theme_override_colors/font_color = Color(0.7, 0.2, 0.1, 1)
+theme_override_font_sizes/font_size = 14
+text = "⚠ Đá lăn! (đá tĩnh — bản khung kỹ thuật)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelFoot" type="Label" parent="."]
+offset_left = -710.0
+offset_top = 1030.0
+offset_right = -290.0
+offset_bottom = 1054.0
+theme_override_colors/font_color = Color(0.95, 0.9, 0.75, 1)
+theme_override_font_sizes/font_size = 14
+text = "↓ Chân đèo — Cloudpeak"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelTop" type="Label" parent="."]
+offset_left = 90.0
+offset_top = -1060.0
+offset_right = 510.0
+offset_bottom = -1036.0
+theme_override_colors/font_color = Color(0.95, 0.9, 0.75, 1)
+theme_override_font_sizes/font_size = 14
+text = "↑ Cloudpeak Summit"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelSnow" type="Label" parent="."]
+offset_left = 70.0
+offset_top = -820.0
+offset_right = 530.0
+offset_bottom = -797.0
+theme_override_colors/font_color = Color(0.3, 0.4, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+text = "Tuyết bắt đầu dày — gió mạnh"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="StoneSpirit1" parent="." instance=ExtResource("5_e")]
+position = Vector2(384, 192)
+
+[node name="StoneSpirit2" parent="." instance=ExtResource("5_e")]
+position = Vector2(-384, -480)
+
+[node name="Wolf1" parent="." instance=ExtResource("6_e")]
+position = Vector2(-512, 608)
+
+[node name="Wolf2" parent="." instance=ExtResource("6_e")]
+position = Vector2(288, -768)
+
+[node name="Spawn_start" type="Marker2D" parent="."]
+position = Vector2(-512, 992)
+
+[node name="Spawn_from_suon" type="Marker2D" parent="."]
+position = Vector2(-512, 992)
+
+[node name="Spawn_from_dinh" type="Marker2D" parent="."]
+position = Vector2(288, -992)
+
+[node name="PortalFoot" parent="." instance=ExtResource("4_e")]
+position = Vector2(-512, 1056)
+target_scene = "res://maps/nui_thanh_van.tscn"
+target_spawn = "from_deo"
+label_text = "↓ Cloudpeak"
+
+[node name="PortalTop" parent="." instance=ExtResource("4_e")]
+position = Vector2(288, -1056)
+target_scene = "res://maps/dinh_thanh_van.tscn"
+target_spawn = "from_deo"
+label_text = "↑ Cloudpeak Summit"
+
+[node name="Player" parent="." instance=ExtResource("2_e")]
+position = Vector2(-512, 992)
+
+[node name="HUD" parent="." instance=ExtResource("3_e")]
+

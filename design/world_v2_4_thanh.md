@@ -12,7 +12,7 @@
 
 1. Sơ đồ thế giới & Bảng tổng quan 5 khu vực
 2. Chi tiết từng vùng: Đông — Nam — Tây — Bắc
-3. Tháp Vương Ấn — Trung tâm & Endgame
+3. Sigilspire — Trung tâm & Endgame
 4. Tuyến tiến triển & Cổng chặn
 5. Hệ thống Phong Ấn: 4 Trụ, 4 Chìa & Cái Giá Của Việc Mở Cổng
 6. Quest chính tuyến theo từng vùng & Quest phụ gợi ý
@@ -28,7 +28,7 @@
 Thế giới không phải một lục địa tự do vô hướng. Nó là một **ấn đồ sống** (living seal diagram) được vẽ bằng địa lý:
 
 - 4 tòa thành ở 4 hướng Đông / Tây / Nam / Bắc là 4 **Trụ Phong Ấn**.
-- Tòa tháp khổng lồ ở chính giữa — **Tháp Vương Ấn** — là **khóa trung tâm**, nơi thứ bị giam bị neo lại.
+- Tòa tháp khổng lồ ở chính giữa — **Sigilspire** — là **khóa trung tâm**, nơi thứ bị giam bị neo lại.
 - Đất đai, khí hậu, quái vật và cả bệnh tật của từng vùng đều là **triệu chứng** của phong ấn đang yếu dần ở vùng đó.
 
 Người chơi bắt đầu trắng tay ở phía Đông, đi một vòng gần như theo chiều kim đồng hồ — Đông → Nam → Tây → Bắc — và mỗi lần "giải quyết" một thành, người chơi thực chất đang **chạm vào một trụ phong ấn**. Càng tiến về trung tâm, thế giới càng bớt giống truyện cổ tích cứu công chúa, càng giống một nghi lễ đang bị tháo dỡ mà không ai nói rõ tháo xong thì chuyện gì sẽ xảy ra.
@@ -42,7 +42,7 @@ Người chơi bắt đầu trắng tay ở phía Đông, đi một vòng gần 
                     Băng tuyết / Bão tuyết / Cực quang
                          Level 19-24
                     ┌─────────────────────┐
-                    │   THÀNH HÀN THIẾT   │
+                    │   FROSTGARD   │
                     │  Boss: Hiệp Sĩ Đen  │
                     │     (Hiệp Sĩ Băng)  │
                     └─────────┬───────────┘
@@ -56,21 +56,21 @@ Người chơi bắt đầu trắng tay ở phía Đông, đi một vòng gần 
    Khô nóng / Bão cát      ┌──────┴──────┐            Rừng xanh / Mưa phùn / Xuân vĩnh cửu
    Level 13-18             │             │                  Level 1-6
 ┌─────────────────┐        │  ĐẤT CHẾT   │        ┌─────────────────────┐
-│ THÀNH HỒNG SA   │────────│  TRO TÀN    │────────│  THÀNH XUÂN LÂM     │
-│ Boss: Rồng Cát  │  Cổng  │             │  Cổng  │  Boss: Golem Rêu    │
-│      Vesskar    │  Tây   │ THÁP VƯƠNG  │  Đông  │       Cổ Thụ        │
-└────────┬────────┘        │     ẤN      │        └─────────┬───────────┘
- Làng Giếng Cạn            │  Lv.25      │         Làng Tân Diệp ★ (khởi đầu)
- Làng Chợ Đêm              │  Vua: đỉnh  │         Làng Mạch Lúa
+│ SOLMARIS   │────────│  TRO TÀN    │────────│  ALDENMERE     │
+│ Boss: Rồng Cát  │  Cổng  │             │  Cổng  │  Boss: Mossback    │
+│      Vesskar    │  Tây   │ SIGILSPIRE  │  Đông  │       Elder Tree        │
+└────────┬────────┘        │             │        └─────────┬───────────┘
+ Làng Giếng Cạn            │  Lv.25      │         Elmford ★ (khởi đầu)
+ Làng Chợ Đêm              │  Vua: đỉnh  │         Barleyfield
  Làng Ốc Đảo               │  Công chúa: │         Làng Bến Mưa
-   Cát Trắng               │  trong tháp │         Dungeon: Hầm Rượu Chuột Chúa
- Dungeon: Lăng Cát Chôn    │  Boss cuối: │                   + Mỏ Rêu Cổ
+   Cát Trắng               │  trong tháp │         Dungeon: Elmford Cellar (The Rat King)
+ Dungeon: Lăng Cát Chôn    │  Boss cuối: │                   + Ancient Moss Mine
                            │  dưới / đỉnh│
                            └──────┬──────┘
                                   │  Đầm Ngập Triều / Cầu Muối
                                   │
                     ┌─────────────┴───────────┐
-                    │   THÀNH TRIỀU ẨM        │
+                    │   FENMIRE        │
                     │   Boss: Phù Thủy        │
                     │   Đầm Lầy Morvain       │
                     └─────────────────────────┘
@@ -81,26 +81,26 @@ Người chơi bắt đầu trắng tay ở phía Đông, đi một vòng gần 
                     Mưa bão / Rừng ngập / Độc
                          Level 7-12
 
-  ★ = Điểm khởi đầu: người chơi trắng tay tỉnh dậy / đến Làng Tân Diệp (Đông).
+  ★ = Điểm khởi đầu: người chơi trắng tay tỉnh dậy / đến Elmford (Đông).
   ── = Đường chính tuyến (main route). Các đường phụ, đường tắt mở theo uy tín / chìa.
-  Chiều tiến triển bắt buộc về mặt cốt truyện: ĐÔNG → NAM → TÂY → BẮC → THÁP VƯƠNG ẤN
+  Chiều tiến triển bắt buộc về mặt cốt truyện: ĐÔNG → NAM → TÂY → BẮC → SIGILSPIRE
 ```
 
 **Cách đọc sơ đồ:**
 
 - Vòng ngoài là **vành đai có người sống**: làng mạc bám quanh thành, thành bám vào đường thương mại hình vòng.
 - Vòng trong là **vùng đệm chết dần**: càng gần tháp, đất càng xám, cây càng ít, quái càng không giống sinh vật tự nhiên.
-- Tâm là **Tháp Vương Ấn**: nhìn thấy được từ rất xa ở mọi vùng (landmark cố định trên skyline) — nhắc người chơi liên tục về đích cuối, kể cả khi đang làm quest bắt chuột ở làng khởi đầu.
+- Tâm là **Sigilspire**: nhìn thấy được từ rất xa ở mọi vùng (landmark cố định trên skyline) — nhắc người chơi liên tục về đích cuối, kể cả khi đang làm quest bắt chuột ở làng khởi đầu.
 
 ### 1.3. Bảng tổng quan 5 khu vực
 
 | # | Khu vực / Hướng | Khí hậu & Địa hình | Thành chính | Dải Level | Boss thành | Dungeon riêng | Trụ / Chìa phong ấn |
 |---|---|---|---|---|---|---|---|
-| 1 | **ĐÔNG** | Ôn đới, mùa xuân vĩnh cửu, rừng xanh, mưa phùn, đồng ruộng | **Thành Xuân Lâm** | **1–6** | **Golem Rêu Cổ Thụ** | **Hầm Rượu Chuột Chúa** + **Mỏ Rêu Cổ** | Trụ Mộc — Chìa Rễ Xanh |
-| 2 | **NAM** | Nhiệt đới, đầm lầy ven biển, mưa bão, rừng ngập nước, độc | **Thành Triều Ẩm** | **7–12** | **Phù Thủy Đầm Lầy Morvain** | **Đền Chìm Triều** | Trụ Thủy — Chìa Triều Ngọc |
-| 3 | **TÂY** | Sa mạc khô nóng, bão cát, cao nguyên đá đỏ, ngày nóng đêm lạnh | **Thành Hồng Sa** | **13–18** | **Rồng Cát Vesskar** | **Lăng Cát Chôn** | Trụ Sa — Chìa Vảy Cát |
-| 4 | **BẮC** | Hàn đới, băng tuyết, bão tuyết, cực quang | **Thành Hàn Thiết** | **19–24** | **Hiệp Sĩ Đen (Hiệp Sĩ Băng)** | **Pháo Đài Băng Nứt** | Trụ Hàn — Chìa Sắt Băng |
-| 5 | **TRUNG TÂM** | Đất chết / tro tàn, không khí hậu tự nhiên, tĩnh lặng bất thường | **Tháp Vương Ấn** | **25 (endgame)** | **Vua ở đỉnh tháp / Boss cuối ở đỉnh–dưới tháp** (xem Mục 3) | **Tháp Vương Ấn** — dungeon leo tháp nhiều tầng | Khóa Trung Tâm — nơi công chúa, vật phong ấn sống, đang bị neo |
+| 1 | **ĐÔNG** | Ôn đới, mùa xuân vĩnh cửu, rừng xanh, mưa phùn, đồng ruộng | **Aldenmere** | **1–6** | **Mossback, the Moss Golem** | **Elmford Cellar (The Rat King)** + **Ancient Moss Mine** | Trụ Mộc — Chìa Rễ Xanh |
+| 2 | **NAM** | Nhiệt đới, đầm lầy ven biển, mưa bão, rừng ngập nước, độc | **Fenmire** | **7–12** | **Phù Thủy Đầm Lầy Morvain** | **Đền Chìm Triều** | Trụ Thủy — Chìa Triều Ngọc |
+| 3 | **TÂY** | Sa mạc khô nóng, bão cát, cao nguyên đá đỏ, ngày nóng đêm lạnh | **Solmaris** | **13–18** | **Rồng Cát Vesskar** | **Lăng Cát Chôn** | Trụ Sa — Chìa Vảy Cát |
+| 4 | **BẮC** | Hàn đới, băng tuyết, bão tuyết, cực quang | **Frostgard** | **19–24** | **Hiệp Sĩ Đen (Hiệp Sĩ Băng)** | **Pháo Đài Băng Nứt** | Trụ Hàn — Chìa Sắt Băng |
+| 5 | **TRUNG TÂM** | Đất chết / tro tàn, không khí hậu tự nhiên, tĩnh lặng bất thường | **Sigilspire** | **25 (endgame)** | **Vua ở đỉnh tháp / Boss cuối ở đỉnh–dưới tháp** (xem Mục 3) | **Sigilspire** — dungeon leo tháp nhiều tầng | Khóa Trung Tâm — nơi Công chúa Seraphine, vật phong ấn sống, đang bị neo |
 
 ### 1.4. Ba hồi cốt truyện — khung toàn cục
 
@@ -108,7 +108,7 @@ Người chơi bắt đầu trắng tay ở phía Đông, đi một vòng gần 
 |---|---|---|---|---|
 | **Hồi I — Hiệp Sĩ Tập Sự** | Đông + Nam (Lv.1–12) | Cổ tích sáng: trắng tay làm quest, tăng uy tín, cứu làng, đánh boss thành | Phong ấn là có thật; mỗi thành đang trả giá để giữ nó; người dân không biết toàn bộ sự thật | "Mình đang giúp ai, và giúp bằng cách nào?" |
 | **Hồi II — Vòng Ấn Nứt** | Tây + Bắc (Lv.13–24) | Phiêu lưu chuyển dark: lựa chọn có hậu quả không đảo ngược, đồng minh chết / phản bội / hóa quái, đường không giết xuất hiện | Vua không đơn thuần là ác; công chúa không chỉ là nạn nhân chờ cứu; thứ bị giam có trí tuệ và có lý lẽ | "Nếu mở phong ấn là sai, tại sao giữ nó cũng đang giết người mỗi ngày?" |
-| **Hồi III — Dưới Bóng Phong Ấn** | Tháp Vương Ấn (Lv.25) | Dark fantasy / bi kịch: leo tháp là đi ngược lịch sử phong ấn, mỗi tầng là một đời người gác ấn | Toàn bộ twist (Mục 3.5, 5.4): công chúa là vật phong ấn sống; vua muốn phá phong ấn vì lý do vừa ích kỷ vừa có thể hiểu được; thứ bị giam không thuần ác | "Kết thúc nào ít tàn nhẫn nhất — và mình có quyền chọn thay cho cả vương quốc không?" |
+| **Hồi III — Dưới Bóng Phong Ấn** | Sigilspire (Lv.25) | Dark fantasy / bi kịch: leo tháp là đi ngược lịch sử phong ấn, mỗi tầng là một đời người gác ấn | Toàn bộ twist (Mục 3.5, 5.4): công chúa là vật phong ấn sống; vua muốn phá phong ấn vì lý do vừa ích kỷ vừa có thể hiểu được; thứ bị giam không thuần ác | "Kết thúc nào ít tàn nhẫn nhất — và mình có quyền chọn thay cho cả vương quốc không?" |
 
 **Lưu ý thiết kế:** Không hồi nào "lật bàn" vô lý. Mọi twist ở Hồi III phải đã có mầm ở Hồi I: một câu thoại của trưởng làng, một phiến đá trong mỏ, một đứa trẻ ở Nam nói điều người lớn không dám nói. Người chơi chơi lại lần hai phải thấy dấu hiệu ở khắp nơi.
 
@@ -120,7 +120,7 @@ Người chơi bắt đầu trắng tay ở phía Đông, đi một vòng gần 
 
 ---
 
-### 2.1. ĐÔNG — Thành Xuân Lâm (Level 1–6)
+### 2.1. ĐÔNG — Aldenmere (Level 1–6)
 
 #### 2.1.1. Khí hậu, địa hình, palette
 
@@ -134,23 +134,23 @@ Người chơi bắt đầu trắng tay ở phía Đông, đi một vòng gần 
 
 Vùng Đông là **tutorial trá hình thành thế giới sống**: mọi hệ thống của game (combat, quest uy tín, nghỉ trọ hồi máu, craft cơ bản, chọn thoại, dungeon ngắn) đều được dạy ở đây mà không cần bảng hướng dẫn dài.
 
-#### 2.1.2. Thành Xuân Lâm
+#### 2.1.2. Aldenmere
 
 | Hạng mục | Chi tiết |
 |---|---|
 | Vai trò | Thủ phủ nông nghiệp của vương quốc; kho lúa nuôi cả vòng ngoài; nơi đóng **Trụ Mộc**. |
 | Lãnh chúa | **Lãnh chúa Lâm Nhược** — quản lý giỏi, hiền, sợ trách nhiệm. Không ác, nhưng sẵn sàng giấu sự thật "vì dân hoảng loạn còn tệ hơn". Là hình mẫu đầu tiên của kiểu nhân vật xuyên suốt game: *người tốt giữ bí mật xấu*. |
-| Kiến trúc | Tường đá phủ rêu và dây leo có hoa, tháp canh bằng gỗ cổ thụ, cổng thành kết từ cây sống uốn cong. Nhà mái ngói rêu, chợ trong sân thành quanh một **Cổ Thụ Trung Tâm** — chính là biểu hiện bề mặt của Trụ Mộc. |
+| Kiến trúc | Tường đá phủ rêu và dây leo có hoa, tháp canh bằng gỗ cổ thụ, cổng thành kết từ cây sống uốn cong. Nhà mái ngói rêu, chợ trong sân thành quanh một **Great Elder Tree** — chính là biểu hiện bề mặt của Trụ Mộc. |
 | Chức năng gameplay | Hub lớn đầu tiên: chợ vũ khí/khiên gỗ–sắt cơ bản, thợ rèn nâng cấp +1/+2, nhà trọ, bảng quest uy tín cấp Thành, kho chứa đồ, NPC dạy kỹ năng nền (đỡ đòn, né, khóa mục tiêu). |
-| Khu vực nội bộ | Sân Chợ Cây / Phố Thợ Rèn / Đền Nhỏ Xin Mùa / Gốc Cổ Thụ (khóa cho đến Main Quest Đông 3) / Nhà Lãnh Chúa. |
-| Bí mật | Rễ của Cổ Thụ đã ăn vào nền móng thành và vào **mộ của các đời gác ấn**. Cắt rễ để cứu nhà cửa = làm yếu trụ. Để rễ mọc = nhà dân nứt dần mỗi năm. |
+| Khu vực nội bộ | Sân Chợ Cây / Phố Thợ Rèn / Đền Nhỏ Xin Mùa / Gốc Elder Tree (khóa cho đến Main Quest Đông 3) / Nhà Lãnh Chúa. |
+| Bí mật | Rễ của Elder Tree đã ăn vào nền móng thành và vào **mộ của các đời gác ấn**. Cắt rễ để cứu nhà cửa = làm yếu trụ. Để rễ mọc = nhà dân nứt dần mỗi năm. |
 
 #### 2.1.3. Làng vệ tinh — Đông
 
 | Làng | Vị trí tương đối | Chức năng gameplay chính | NPC / Điểm nhớ | Ghi chú thiết kế |
 |---|---|---|---|---|
-| **Làng Tân Diệp** ★ | Đông Nam của thành, bìa rừng, nơi người chơi bắt đầu | **Làng khởi đầu** — tutorial, nhà trọ miễn phí lần đầu, shop cùi bắp (gậy gỗ, áo vải), bảng quest vỡ lòng, điểm save đầu tiên | Trưởng làng Tân Diệp; thợ mộc già; đứa bé nhặt được "lá không bao giờ héo" | Người chơi **trắng tay thật**: không vàng, không vũ khí xịn, phải làm quest chặt củi / đuổi slime / tìm đồ mất để có thanh kiếm đầu tiên. Không cho bỏ qua. |
-| **Làng Mạch Lúa** | Đồng ruộng phía Nam thành | Quest hub nông nghiệp, shop hạt giống & lương thực, craft nấu ăn (buff hồi stamina), mini-game / quest thu hoạch theo thời gian | Chủ vựa lúa; góa phụ giữ sổ nợ hạt giống | Là nơi dạy hệ thống **uy tín vùng**: giúp Mạch Lúa đủ mức mới được Làng Bến Mưa tin và mới được vào sân trong Thành Xuân Lâm. |
+| **Elmford** ★ | Đông Nam của thành, bìa rừng, nơi người chơi bắt đầu | **Làng khởi đầu** — tutorial, nhà trọ miễn phí lần đầu, shop cùi bắp (gậy gỗ, áo vải), bảng quest vỡ lòng, điểm save đầu tiên | Trưởng làng Elmford; thợ mộc già; đứa bé nhặt được "lá không bao giờ héo" | Người chơi **trắng tay thật**: không vàng, không vũ khí xịn, phải làm quest chặt củi / đuổi slime / tìm đồ mất để có thanh kiếm đầu tiên. Không cho bỏ qua. |
+| **Barleyfield** | Đồng ruộng phía Nam thành | Quest hub nông nghiệp, shop hạt giống & lương thực, craft nấu ăn (buff hồi stamina), mini-game / quest thu hoạch theo thời gian | Chủ vựa lúa; góa phụ giữ sổ nợ hạt giống | Là nơi dạy hệ thống **uy tín vùng**: giúp Barleyfield đủ mức mới được Làng Bến Mưa tin và mới được vào sân trong Aldenmere. |
 | **Làng Bến Mưa** | Ven sông, phía Đông thành | Bến đò / fast-travel nội vùng, shop cần câu & vật phẩm trị độc nhẹ, quest vận chuyển, nghỉ trọ rẻ | Lão chèo đò nói nhiều, biết nhiều hơn ông ta thừa nhận; thương nhân từ Nam ghé qua (foreshadow vùng Nam) | Đò của Bến Mưa là đường **nghe tin về Nam** đầu tiên. Khóa đường sang Nam bằng lũ / uy tín — xem Mục 4. |
 
 #### 2.1.4. Quái đặc trưng — Đông
@@ -160,7 +160,7 @@ Vùng Đông là **tutorial trá hình thành thế giới sống**: mọi hệ 
 | **Slime Cỏ** | Đồng cỏ, ruộng ẩm sau mưa | Kẻ địch đầu tiên: chậm, telegraph rõ, dạy đánh thường + né cơ bản. Sát thương rất thấp. | Gel cỏ — nấu ăn, quest vỡ lòng |
 | **Goblin Rừng** | Bìa rừng, trại tạm gần đường | Địch theo bầy 2–4 con, một con cầm cung yếu. Dạy ưu tiên mục tiêu, dùng địa hình / cây để chắn tên. | Tai goblin (bounty), dao gỉ, vải |
 | **Sói Rừng** | Rừng sâu, lúc chạng vạng / mưa | Địch nhanh, vồ theo cặp, dạy khóa mục tiêu khi di chuyển nhanh + quản lý stamina khi né liên tiếp. | Da sói — craft áo da đầu game |
-| **Golem Rêu** (mini-elite) | Quanh Mỏ Rêu Cổ, gốc cây mục | Địch chậm, giáp rêu dày, kháng chém nhẹ, yếu lửa / rìu. Dạy đổi vũ khí / dùng vật phẩm gây lửa, đánh vào lõi lộ ra sau đòn nặng. | Lõi rêu, đá rêu — nguyên liệu nâng cấp, chìa phụ vào Mỏ Rêu Cổ |
+| **Moss Golem** (mini-elite) | Quanh Ancient Moss Mine, gốc cây mục | Địch chậm, giáp rêu dày, kháng chém nhẹ, yếu lửa / rìu. Dạy đổi vũ khí / dùng vật phẩm gây lửa, đánh vào lõi lộ ra sau đòn nặng. | Lõi rêu, đá rêu — nguyên liệu nâng cấp, chìa phụ vào Ancient Moss Mine |
 
 **Nguyên tắc:** Không quái Đông nào có độc, nguyền, hay cơ chế "khó chịu". Độ khó ở đây là *đọc đòn*, không phải *chịu đựng trạng thái xấu* — để người chơi mới không nản trước khi hiểu game.
 
@@ -168,28 +168,28 @@ Vùng Đông là **tutorial trá hình thành thế giới sống**: mọi hệ 
 
 | Dungeon | Theme | Độ dài ước tính | Boss / Đỉnh điểm | Trick / Cơ chế riêng | Phần thưởng cốt truyện |
 |---|---|---|---|---|---|
-| **Hầm Rượu Chuột Chúa** | Hầm rượu dưới nhà trọ / kho lúa ở Làng Mạch Lúa, thùng vỡ, mùi men chua | Ngắn: 15–20 phút, 2 tầng nhỏ — **dungeon tutorial** | **Chuột Chúa** — chuột khổng lồ ăn lúa nhiễm rêu phong ấn, phình to bất thường | Lăn thùng để chặn đường / tạo vật chắn; ánh sáng đuốc đuổi đàn chuột nhỏ; không có bẫy giết người | Uy tín Mạch Lúa, kiếm sắt đầu tiên, manh mối đầu tiên: lúa trong hầm **không mốc dù để nhiều năm** |
-| **Mỏ Rêu Cổ** | Mỏ đá bỏ hoang dưới chân Cổ Thụ, rễ cây xuyên qua đường hầm, đá phát sáng xanh nhạt | Trung bình: 30–40 phút, 3 khu vực | **Golem Rêu Cổ Thụ** (phiên bản nhỏ / phân thân rễ — **không phải** boss thành ở dạng hoàn chỉnh; xem lưu ý dưới) — hoặc mini-boss **Lõi Rễ Mỏ** nếu dev muốn tách bạch | Rễ mọc lại chặn đường sau 1 khoảng thời gian — phải đi nhanh hoặc đốt rễ tạm; puzzle ánh sáng: phản chiếu sáng qua đá rêu để mở cửa đá | Mảnh **Chìa Rễ Xanh** (mảnh 1/2), nhật ký thợ mỏ đời trước nhắc tới "trụ không được đào" |
+| **Elmford Cellar (The Rat King)** | Elmford Cellar dưới nhà trọ / kho lúa ở Barleyfield, thùng vỡ, mùi men chua | Ngắn: 15–20 phút, 2 tầng nhỏ — **dungeon tutorial** | **The Rat King** — chuột khổng lồ ăn lúa nhiễm rêu phong ấn, phình to bất thường | Lăn thùng để chặn đường / tạo vật chắn; ánh sáng đuốc đuổi đàn chuột nhỏ; không có bẫy giết người | Uy tín Barleyfield, kiếm sắt đầu tiên, manh mối đầu tiên: lúa trong hầm **không mốc dù để nhiều năm** |
+| **Ancient Moss Mine** | Mỏ đá bỏ hoang dưới chân Elder Tree, rễ cây xuyên qua đường hầm, đá phát sáng xanh nhạt | Trung bình: 30–40 phút, 3 khu vực | **Mossback, the Moss Golem** (phiên bản nhỏ / phân thân rễ — **không phải** boss thành ở dạng hoàn chỉnh; xem lưu ý dưới) — hoặc mini-boss **Lõi Rễ Mỏ** nếu dev muốn tách bạch | Rễ mọc lại chặn đường sau 1 khoảng thời gian — phải đi nhanh hoặc đốt rễ tạm; puzzle ánh sáng: phản chiếu sáng qua đá rêu để mở cửa đá | Mảnh **Chìa Rễ Xanh** (mảnh 1/2), nhật ký thợ mỏ đời trước nhắc tới "trụ không được đào" |
 
-> **Lưu ý nhất quán quan trọng cho dev:** **Golem Rêu Cổ Thụ** là **Boss thành** của Đông (Main Quest Đông 4, ở Gốc Cổ Thụ trong Thành Xuân Lâm). Mỏ Rêu Cổ chỉ chứa một **phân thân rễ / lõi rễ** của nó. Không đặt boss thành hoàn chỉnh ở hai nơi. Khi phân thân ở mỏ bị đánh bại, boss thành ở hồi cuối vùng sẽ **yếu hơn / lộ lõi sớm hơn** — đây là phần thưởng cho người chơi chịu khám phá, không phải điều kiện bắt buộc.
+> **Lưu ý nhất quán quan trọng cho dev:** **Mossback, the Moss Golem** là **Boss thành** của Đông (Main Quest Đông 4, ở Gốc Elder Tree trong Aldenmere). Ancient Moss Mine chỉ chứa một **phân thân rễ / lõi rễ** của nó. Không đặt boss thành hoàn chỉnh ở hai nơi. Khi phân thân ở mỏ bị đánh bại, boss thành ở hồi cuối vùng sẽ **yếu hơn / lộ lõi sớm hơn** — đây là phần thưởng cho người chơi chịu khám phá, không phải điều kiện bắt buộc.
 
 #### 2.1.6. Lý do cốt truyện phải đến Đông
 
-Người chơi không "được chọn" bắt đầu ở Đông vì Đông dễ — mà vì **đó là nơi duy nhất còn nhận người lạ không giấy tờ**. Nhân vật chính đến Làng Tân Diệp với hai bàn tay trắng (mất trí nhớ một phần / thân phận mơ hồ — giữ mơ hồ theo GDD v1, không chốt cứng ở tài liệu này), phải sống như một người làm thuê bình thường trước khi là "hiệp sĩ". Đông dạy một chân lý của game: **uy tín không mua được, phải làm từng việc nhỏ mà tích**.
+Người chơi không "được chọn" bắt đầu ở Đông vì Đông dễ — mà vì **đó là nơi duy nhất còn nhận người lạ không giấy tờ**. Nhân vật chính đến Elmford với hai bàn tay trắng (mất trí nhớ một phần / thân phận mơ hồ — giữ mơ hồ theo GDD v1, không chốt cứng ở tài liệu này), phải sống như một người làm thuê bình thường trước khi là "hiệp sĩ". Đông dạy một chân lý của game: **uy tín không mua được, phải làm từng việc nhỏ mà tích**.
 
-Về mặt phong ấn: Cổ Thụ ở Thành Xuân Lâm đang **mọc nhanh bất thường và bắt đầu nuốt nhà dân, nuốt mộ, nuốt đường**. Lãnh chúa Lâm Nhược cầu cứu khắp nơi không ai tới (các vùng khác cũng đang có biến). Người chơi, từ kẻ vô danh ở Tân Diệp, là người duy nhất leo dần lên thang uy tín đủ để được cho vào Gốc Cổ Thụ.
+Về mặt phong ấn: Elder Tree ở Aldenmere đang **mọc nhanh bất thường và bắt đầu nuốt nhà dân, nuốt mộ, nuốt đường**. Lãnh chúa Lâm Nhược cầu cứu khắp nơi không ai tới (các vùng khác cũng đang có biến). Người chơi, từ kẻ vô danh ở Elmford, là người duy nhất leo dần lên thang uy tín đủ để được cho vào Gốc Elder Tree.
 
 #### 2.1.7. Cái giá dark riêng của Đông — "Mùa xuân không cho ai già đi, cũng không cho ai được chôn yên"
 
 Bề ngoài Đông là vùng ít dark nhất. Cái giá của nó nằm ở **thời gian và cái chết bị kẹt lại**:
 
-- Nhờ rò rỉ từ Trụ Mộc, cây không tàn, lúa không mốc — nhưng **người chết ở gần Cổ Thụ cũng không phân hủy đúng cách**. Nghĩa trang sau thành có những ngôi mộ mà cỏ không mọc *vì rễ Cổ Thụ đang giữ thứ ở dưới*.
-- Thợ mỏ đời trước trong Mỏ Rêu Cổ không chết vì sập mỏ. Nhật ký của họ cho thấy họ **ngừng già đi trong mỏ**, làm việc nhiều năm, rồi khi bước ra ánh sáng thì cơ thể "trả nợ thời gian" cùng lúc. Lãnh chúa các đời biết chuyện này và **niêm phong mỏ bằng lý do an toàn lao động**.
-- Lựa chọn cuối vùng (xem Quest Đông 4): làm yếu Cổ Thụ để cứu khu dân cư đang bị rễ nuốt **ngay bây giờ**, hay giữ nguyên trụ và di dời dân **mất nhà, mất mộ tổ**. Không có lựa chọn nào mà "mùa xuân vĩnh cửu" còn nguyên vẹn. Từ đây game hết là cổ tích thuần.
+- Nhờ rò rỉ từ Trụ Mộc, cây không tàn, lúa không mốc — nhưng **người chết ở gần Elder Tree cũng không phân hủy đúng cách**. Nghĩa trang sau thành có những ngôi mộ mà cỏ không mọc *vì rễ Elder Tree đang giữ thứ ở dưới*.
+- Thợ mỏ đời trước trong Ancient Moss Mine không chết vì sập mỏ. Nhật ký của họ cho thấy họ **ngừng già đi trong mỏ**, làm việc nhiều năm, rồi khi bước ra ánh sáng thì cơ thể "trả nợ thời gian" cùng lúc. Lãnh chúa các đời biết chuyện này và **niêm phong mỏ bằng lý do an toàn lao động**.
+- Lựa chọn cuối vùng (xem Quest Đông 4): làm yếu Elder Tree để cứu khu dân cư đang bị rễ nuốt **ngay bây giờ**, hay giữ nguyên trụ và di dời dân **mất nhà, mất mộ tổ**. Không có lựa chọn nào mà "mùa xuân vĩnh cửu" còn nguyên vẹn. Từ đây game hết là cổ tích thuần.
 
 ---
 
-### 2.2. NAM — Thành Triều Ẩm (Level 7–12)
+### 2.2. NAM — Fenmire (Level 7–12)
 
 #### 2.2.1. Khí hậu, địa hình, palette
 
@@ -203,7 +203,7 @@ Bề ngoài Đông là vùng ít dark nhất. Cái giá của nó nằm ở **th
 
 Nam là bước nhảy độ khó đầu tiên: thêm **độc, địa hình làm chậm, tầm nhìn kém khi bão**, và kẻ địch dùng trạng thái xấu. Người chơi rời vùng tutorial thực sự ở đây.
 
-#### 2.2.2. Thành Triều Ẩm
+#### 2.2.2. Fenmire
 
 | Hạng mục | Chi tiết |
 |---|---|
@@ -235,11 +235,11 @@ Nam là bước nhảy độ khó đầu tiên: thêm **độc, địa hình là
 
 | Dungeon | Theme | Độ dài | Boss / Đỉnh điểm | Trick / Cơ chế riêng | Phần thưởng cốt truyện |
 |---|---|---|---|---|---|
-| **Đền Chìm Triều** | Đền đá chìm nửa dưới nước trong đầm, rêu trơn, tượng thần mặt bị mài nhẵn | Trung bình–dài: 45–60 phút, mực nước thay đổi theo thời gian thực / theo cần gạt | **Morvain — Giai đoạn 1** (đối thoại + đánh thăm dò trong đền) — boss hoàn chỉnh ở Thành Triều Ẩm, Main Quest Nam 4. Trong đền, Morvain rút lui sau khi làm ngập phòng boss phụ. | **Puzzle triều:** gạt cần / đợi chu kỳ để nước dâng–rút mở đường khác nhau; phòng đi được lúc nước rút sẽ ngập lúc nước dâng (có cảnh báo chuông). Đèn dầu mang theo xua sương độc — dầu cạn dần, phải tìm trạm châm dầu. | **Chìa Triều Ngọc** (dạng thô, cần tinh luyện ở thành), sự thật: các đời người giữ đền **chết đuối theo nghi lễ** để "làm mới" trụ — tên họ khắc dưới mực nước, chỉ đọc được lúc triều rút sâu nhất. |
+| **Đền Chìm Triều** | Đền đá chìm nửa dưới nước trong đầm, rêu trơn, tượng thần mặt bị mài nhẵn | Trung bình–dài: 45–60 phút, mực nước thay đổi theo thời gian thực / theo cần gạt | **Morvain — Giai đoạn 1** (đối thoại + đánh thăm dò trong đền) — boss hoàn chỉnh ở Fenmire, Main Quest Nam 4. Trong đền, Morvain rút lui sau khi làm ngập phòng boss phụ. | **Puzzle triều:** gạt cần / đợi chu kỳ để nước dâng–rút mở đường khác nhau; phòng đi được lúc nước rút sẽ ngập lúc nước dâng (có cảnh báo chuông). Đèn dầu mang theo xua sương độc — dầu cạn dần, phải tìm trạm châm dầu. | **Chìa Triều Ngọc** (dạng thô, cần tinh luyện ở thành), sự thật: các đời người giữ đền **chết đuối theo nghi lễ** để "làm mới" trụ — tên họ khắc dưới mực nước, chỉ đọc được lúc triều rút sâu nhất. |
 
 #### 2.2.6. Lý do cốt truyện phải đến Nam
 
-Sau biến cố Cổ Thụ ở Đông, tin đồn "triều điên" ở Nam không còn là chuyện xa: nước đầm Đông–Nam bắt đầu chảy ngược, cá chết trôi về Bến Mưa. Lãnh chúa Lâm Nhược (hoặc Hội Đèn ở Làng Đèn Lồng, tùy lựa chọn của người chơi ở Đông) nhờ / thuê người chơi xuống Nam vì **đội triều quan của vua đã bỏ Nam từ lâu**. Về gameplay: đây là lúc game mở **vòng quest liên vùng** — hành động ở Đông (giúp / không giúp Bến Mưa) ảnh hưởng ai sẽ đón người chơi ở Bến Bùn.
+Sau biến cố Elder Tree ở Đông, tin đồn "triều điên" ở Nam không còn là chuyện xa: nước đầm Đông–Nam bắt đầu chảy ngược, cá chết trôi về Bến Mưa. Lãnh chúa Lâm Nhược (hoặc Hội Đèn ở Làng Đèn Lồng, tùy lựa chọn của người chơi ở Đông) nhờ / thuê người chơi xuống Nam vì **đội triều quan của vua đã bỏ Nam từ lâu**. Về gameplay: đây là lúc game mở **vòng quest liên vùng** — hành động ở Đông (giúp / không giúp Bến Mưa) ảnh hưởng ai sẽ đón người chơi ở Bến Bùn.
 
 Sâu hơn: Morvain gửi một lá thư ướt không ký tên về Đông — *"Trụ của các người đã nứt thì trụ của ta cũng không giữ được bao lâu. Tới mà xem cái giá, nếu dám."* Đó là lời mời, không phải lời tuyên chiến.
 
@@ -251,7 +251,7 @@ Sâu hơn: Morvain gửi một lá thư ướt không ký tên về Đông — *
 
 ---
 
-### 2.3. TÂY — Thành Hồng Sa (Level 13–18)
+### 2.3. TÂY — Solmaris (Level 13–18)
 
 #### 2.3.1. Khí hậu, địa hình, palette
 
@@ -265,7 +265,7 @@ Sâu hơn: Morvain gửi một lá thư ướt không ký tên về Đông — *
 
 Tây là vùng **sinh tồn và đàm phán**: quản lý nước / nhiệt ban ngày, lạnh ban đêm, bão cát như sự kiện thời tiết có gameplay, và lần đầu tiên một boss thành có **đường không giết** thực sự ngang giá trị với đường giết.
 
-#### 2.3.2. Thành Hồng Sa
+#### 2.3.2. Solmaris
 
 | Hạng mục | Chi tiết |
 |---|---|
@@ -291,7 +291,7 @@ Tây là vùng **sinh tồn và đàm phán**: quản lý nước / nhiệt ban 
 | **Bọ Cát** | Dưới cát, quanh xác caravan | Địch ẩn dưới cát, trồi lên theo bầy khi người chơi đứng yên / chạy thẳng quá lâu. Dạy di chuyển liên tục + nghe âm thanh báo hiệu (cát sủi). | Vỏ bọ (giáp nhẹ kháng nhiệt), ngòi cát |
 | **Chiến Binh Sa Mạc** (kẻ cướp / lính đánh thuê lạc phe) | Hẻm đá, đường caravan | Địch người có kỷ luật: dùng khiên, phối hợp 2–3 người, có thể **thương lượng / đầu hàng / được thuê lại** ở một số encounter. Dạy đánh với địch có block + parry đơn giản. | Xu caravan, vũ khí đá đỏ cấp thấp, thư / bản đồ |
 | **Golem Đá Đỏ** | Cao nguyên đá, cửa Lăng Cát Chôn | Elite chậm, giáp cực dày, điểm yếu là khe đá phát sáng khi quá nhiệt. Dạy dùng môi trường: dụ vào bóng râm / nước ốc đảo để làm nứt giáp, hoặc dùng vũ khí blunt. | Lõi đá đỏ, mảnh giáp |
-| **Rồng Cát Con** | Tổ cát quanh Thành Hồng Sa | Địch bay thấp / đào cát, phun cát làm mù tạm thời. **Đánh chúng làm giảm điểm đàm phán với Vesskar** — game ghi lại, NPC nhắc. Dạy hệ quả sinh thái của việc farm quái vô tội vạ. | Vảy cát con (giá trị cao — cám dỗ cố ý), cánh cát |
+| **Rồng Cát Con** | Tổ cát quanh Solmaris | Địch bay thấp / đào cát, phun cát làm mù tạm thời. **Đánh chúng làm giảm điểm đàm phán với Vesskar** — game ghi lại, NPC nhắc. Dạy hệ quả sinh thái của việc farm quái vô tội vạ. | Vảy cát con (giá trị cao — cám dỗ cố ý), cánh cát |
 
 #### 2.3.5. Dungeon riêng — Tây
 
@@ -303,7 +303,7 @@ Tây là vùng **sinh tồn và đàm phán**: quản lý nước / nhiệt ban 
 
 Hai lý do chồng nhau:
 
-1. **Đường vòng bắt buộc:** Sau biến cố Nam, đường thẳng về phía Bắc qua trung tâm bị đất chết lan rộng cắt đứt. Caravan Tây là đường bộ duy nhất còn đi được lên Bắc — và caravan chỉ đi khi Thành Hồng Sa cấp phép + có người giải quyết chuyện "rồng chặn cổng".
+1. **Đường vòng bắt buộc:** Sau biến cố Nam, đường thẳng về phía Bắc qua trung tâm bị đất chết lan rộng cắt đứt. Caravan Tây là đường bộ duy nhất còn đi được lên Bắc — và caravan chỉ đi khi Solmaris cấp phép + có người giải quyết chuyện "rồng chặn cổng".
 2. **Tin về vua:** Thương nhân ở Làng Muối Đắng và Chợ Đêm đều kể cùng một chuyện: *đoàn người của vua đã đi qua Tây nhiều năm trước, vào Lăng Cát Chôn, và mang ra một thứ khiến Vesskar gầm suốt 3 đêm.* Người chơi đến Tây để tìm chìa, nhưng ở lại vì câu hỏi: vua đã lấy gì khỏi phong ấn trước cả khi người chơi bắt đầu?
 
 #### 2.3.7. Cái giá dark riêng của Tây — "Người gác cổng bị đối xử như quái vật vì nó không nói được tiếng người"
@@ -315,7 +315,7 @@ Hai lý do chồng nhau:
 
 ---
 
-### 2.4. BẮC — Thành Hàn Thiết (Level 19–24)
+### 2.4. BẮC — Frostgard (Level 19–24)
 
 #### 2.4.1. Khí hậu, địa hình, palette
 
@@ -329,7 +329,7 @@ Hai lý do chồng nhau:
 
 Bắc là vùng **khắc nghiệt và đạo đức xám nhất trước endgame**: kẻ địch mạnh nhất vòng ngoài, cơ chế lạnh / bão tuyết, và một boss thành là tấm gương méo mó của chính nhân vật chính.
 
-#### 2.4.2. Thành Hàn Thiết
+#### 2.4.2. Frostgard
 
 | Hạng mục | Chi tiết |
 |---|---|
@@ -338,7 +338,7 @@ Bắc là vùng **khắc nghiệt và đạo đức xám nhất trước endgame
 | Kiến trúc | Tường đá đen + băng gia cố, lò rèn khổng lồ cháy ngày đêm ở trung tâm thành (vừa sưởi vừa rèn), cổng sắt nặng phải nhiều người kéo, nhà thấp mái dày chống tuyết. Đẹp theo kiểu khắc khổ, không trang trí thừa. |
 | Chức năng gameplay | Hub cấp 4 / hub cuối trước tháp: shop vũ khí & giáp **tốt nhất vòng ngoài**, thợ rèn master (nâng cấp tối đa trước endgame), nhà trọ lò sưởi (buff kháng lạnh), bảng quest quân sự / săn wight, NPC dạy **combat nâng cao** (parry, phá thế, đánh boss người). |
 | Khu vực nội bộ | Lò Lớn Trung Tâm / Doanh Trại Hiệp Sĩ Băng / Kho Thép / Tường Bắc (ca gác đêm — quest phòng thủ) / Nhà Nguyện Không Chuông. |
-| Bí mật | Trụ Hàn không nằm *trong* thành — trụ là **đội gác băng tự nó**: mỗi đời, một số hiệp sĩ được "đóng băng vào ấn" — đứng gác ở Pháo Đài Băng Nứt và **dần hóa thành hiệp sĩ băng / wight có kỷ luật**. Thành Hàn Thiết tồn tại để **cung cấp người** cho trụ. Đó là bí mật quân sự lâu đời nhất vương quốc. |
+| Bí mật | Trụ Hàn không nằm *trong* thành — trụ là **đội gác băng tự nó**: mỗi đời, một số hiệp sĩ được "đóng băng vào ấn" — đứng gác ở Pháo Đài Băng Nứt và **dần hóa thành hiệp sĩ băng / wight có kỷ luật**. Frostgard tồn tại để **cung cấp người** cho trụ. Đó là bí mật quân sự lâu đời nhất vương quốc. |
 
 #### 2.4.3. Làng vệ tinh — Bắc
 
@@ -365,7 +365,7 @@ Bắc là vùng **khắc nghiệt và đạo đức xám nhất trước endgame
 
 #### 2.4.6. Lý do cốt truyện phải đến Bắc
 
-- **Chìa cuối cùng:** Không có Chìa Sắt Băng, cổng Tháp Vương Ấn không mở — dù người chơi có mạnh đến đâu (hard gate, xem Mục 4).
+- **Chìa cuối cùng:** Không có Chìa Sắt Băng, cổng Sigilspire không mở — dù người chơi có mạnh đến đâu (hard gate, xem Mục 4).
 - **Quân của vua đã rút khỏi Bắc:** Hiệp Sĩ Đen giữ thành nhưng không còn nhận lệnh từ tháp từ nhiều năm. Người chơi đến Bắc mang theo tin / bằng chứng từ Tây (vua đã vào lăng, vua đang chuẩn bị phá ấn) và buộc Bắc phải chọn: tiếp tục gác một phong ấn mà vua sắp tự phá, hay mở cổng cho người chơi vào tháp trước khi vua ra tay.
 - Về gameplay: Bắc là **bài kiểm tra tốt nghiệp** của vòng ngoài — mọi cơ chế đã học (trạng thái xấu, đàm phán, sinh tồn, dungeon dài, boss người) đều xuất hiện ở mức cao nhất trước endgame.
 
@@ -377,7 +377,7 @@ Bắc là vùng **khắc nghiệt và đạo đức xám nhất trước endgame
 
 ---
 
-## 3. THÁP VƯƠNG ẤN — TRUNG TÂM & ENDGAME (Level 25)
+## 3. SIGILSPIRE — TRUNG TÂM & ENDGAME (Level 25)
 
 ### 3.1. Vùng đất chết xung quanh tháp
 
@@ -387,7 +387,7 @@ Bắc là vùng **khắc nghiệt và đạo đức xám nhất trước endgame
 | Palette | Xám tro, đen cháy, trắng xương, đỏ thẫm âm ỉ ở các khe nứt. Màu bão hòa gần như bằng 0 — tháp và nhân vật là thứ có màu nhất trong khung hình. |
 | Khí hậu | **Không khí hậu tự nhiên.** Ban ngày xám như ban đêm. Nhiệt độ trung tính một cách sai trái. Đây là nơi phong ấn đã "ăn" thời tiết. |
 | Quái | Không quái tự nhiên. Chỉ có **Bóng Ấn** — hình người / thú méo mó sinh ra từ ký ức của phong ấn (dùng lại model quái các vùng ở dạng xám tro, như game đang nhớ lại). Xuất hiện thưa, mạnh, không farm được gì đáng giá — cố ý để người chơi không grind ở endgame. |
-| Chức năng gameplay | Vùng đệm / hành lang cuối: 1 điểm save duy nhất ở Trạm Gác Tro, không shop (shop cuối là ở Thành Hàn Thiết), không NPC thân thiện ngoài 1–2 nhân vật theo người chơi lên tháp tùy lựa chọn các vùng trước. Đây là điểm **point of no return được báo rõ**: NPC ở Trạm Gác Tro nói thẳng "vào tháp thì không ra bằng đường này nữa" và game hiện xác nhận lưu game. |
+| Chức năng gameplay | Vùng đệm / hành lang cuối: 1 điểm save duy nhất ở Trạm Gác Tro, không shop (shop cuối là ở Frostgard), không NPC thân thiện ngoài 1–2 nhân vật theo người chơi lên tháp tùy lựa chọn các vùng trước. Đây là điểm **point of no return được báo rõ**: NPC ở Trạm Gác Tro nói thẳng "vào tháp thì không ra bằng đường này nữa" và game hiện xác nhận lưu game. |
 | Ý nghĩa cốt truyện | Đất chết không phải do boss cuối phá hoại. Nó là **vết sẹo của lần phong ấn đầu tiên** — và nó đang **lan rộng chậm** mỗi khi một trụ yếu đi. Người chơi đi qua nó sau khi đã chạm vào cả 4 trụ sẽ hiểu: dù chọn ending nào, vùng này cũng đã là cái giá phải trả rồi. |
 
 ### 3.2. Điều kiện mở cổng tháp
@@ -399,27 +399,27 @@ Xem chi tiết cổng chặn ở Mục 4. Tóm tắt hard gate vào tháp:
 3. Level khuyến nghị **25** — dưới mức này cổng vẫn mở nếu đủ chìa (không hard-lock level), nhưng Bóng Ấn và tầng đầu tháp sẽ là soft wall rất gắt.
 4. Đã xem / kích hoạt cảnh **Vua lên tiếng** ở Cổng Tháp (cutscene bắt buộc, vua nói qua ấn — lần đầu người chơi nghe giọng vua rõ ràng).
 
-### 3.3. Cấu trúc tầng của Tháp Vương Ấn
+### 3.3. Cấu trúc tầng của Sigilspire
 
 Tháp là **dungeon cuối dạng leo tháp nhiều tầng** — mỗi tầng là một lớp lịch sử / một đời gác ấn / một chức năng của phong ấn. Leo lên đỉnh để gặp vua, nhưng sự thật nằm ở chiều ngược lại: càng lên cao, càng biết thứ bị giam ở **dưới** tháp đang được neo bởi người ở **trong** tháp.
 
 | Tầng | Tên tầng | Theme & Gameplay | Boss / Đỉnh điểm | Sự thật lộ ra ở tầng này |
 |---|---|---|---|---|
 | **Cổng — Tầng 0** | Cổng Bốn Chìa | Sảnh đá khổng lồ với 4 ổ khóa trụ. Dùng 4 chìa ở đây (trạng thái chìa ảnh hưởng hiệu ứng: chìa nứt = phòng có rò rỉ ấn, địch Bóng Ấn mạnh hơn nhưng có đường tắt). | Không boss — kiểm tra điều kiện + cutscene vua lên tiếng | Vua biết tên người chơi và biết người chơi đã làm gì ở từng thành (game đọc lựa chọn đã lưu, đọc thành thoại). |
-| **Tầng 1–2** | Tầng Ký Ức Đông & Nam | Phòng biến đổi theo 2 vùng đầu: rừng trong nhà kính chết, đầm nước đen không phản chiếu. Địch: Bóng Ấn dạng quái Đông/Nam ở mức Lv.25. Puzzle nhẹ ôn lại cơ chế rễ / triều. | Mini-boss: **Hồi Âm Của Morvain / Cổ Thụ** (dạng bóng — không phải nhân vật thật, là ấn nhớ lại họ) | Phong ấn **ghi lại** mọi người gác nó. Không ai thực sự rời khỏi tháp. |
+| **Tầng 1–2** | Tầng Ký Ức Đông & Nam | Phòng biến đổi theo 2 vùng đầu: rừng trong nhà kính chết, đầm nước đen không phản chiếu. Địch: Bóng Ấn dạng quái Đông/Nam ở mức Lv.25. Puzzle nhẹ ôn lại cơ chế rễ / triều. | Mini-boss: **Hồi Âm Của Morvain / Elder Tree** (dạng bóng — không phải nhân vật thật, là ấn nhớ lại họ) | Phong ấn **ghi lại** mọi người gác nó. Không ai thực sự rời khỏi tháp. |
 | **Tầng 3–4** | Tầng Ký Ức Tây & Bắc | Sa mạc trong nhà không gió, hành lang băng không lạnh. Địch Bóng Ấn dạng Tây/Bắc. Nếu Vesskar còn sống / thỏa thuận Bắc còn hiệu lực, tầng tương ứng có **sự trợ giúp** (Vesskar gầm làm sập một phòng khó; hiệp sĩ được giải thoát mở cửa tắt). | Mini-boss: **Hồi Âm Của Vesskar / Hiệp Sĩ Đen** (dạng bóng) | Vua đời đầu không đánh thắng thứ dưới tháp. Ông ta **thương lượng** với nó — và phong ấn là bản hợp đồng, không phải nhà tù một chiều. |
 | **Tầng 5** | Tầng Sử Ấn | Thư viện / phòng bia đá vòng tròn: toàn bộ lịch sử phong ấn khắc quanh tường, càng lên cao chữ càng mới. Không combat bắt buộc — tầng lore thuần, có NPC **Người Ghi Ấn Cuối Cùng** (già, mù, sống trong tháp từ nhỏ). | Không boss — đối thoại dài, lựa chọn hỏi / không hỏi | Tên thật, tuổi thật và vai trò của công chúa; vua hiện tại là **hậu duệ kiêm người thừa kế hợp đồng**, không phải kẻ tạo ra nó. |
 | **Tầng 6** | Tầng Công Chúa — Phòng Phong Ấn Sống | Phòng ấm áp, có cây, có ánh sáng như một phòng ngủ bình thường giữa tháp chết — sự bình thường này gây khó chịu nhất tháp. **Công chúa ở đây.** Không phải phòng giam xiềng xích: là phòng neo ấn, nơi công chúa sống, đọc sách, biết hết mọi chuyện, và **không thể rời phòng quá vài bước** mà không làm tháp rung. | Không boss — **đối thoại quyết định (decision dialogue)** dài nhất game. Công chúa đưa ra yêu cầu của chính cô (xem 3.4). | Twist chính (3.5). |
-| **Tầng 7 — Đỉnh Tháp** | Đài Vương Ấn | Sân thượng tròn nhìn xuống toàn bộ bản đồ 4 vùng (người chơi thấy lại cả 4 thành ở xa). **Vua ở đỉnh tháp.** Đối thoại → lựa chọn → boss cuối kích hoạt theo lựa chọn. | **Vua** (giai đoạn đối thoại / có thể đánh một phần) → **Boss cuối** (3.4) | Kế hoạch thật của vua; cái giá nếu vua thành công / thất bại. |
+| **Tầng 7 — Đỉnh Tháp** | Đài Sigilspire | Sân thượng tròn nhìn xuống toàn bộ bản đồ 4 vùng (người chơi thấy lại cả 4 thành ở xa). **Vua ở đỉnh tháp.** Đối thoại → lựa chọn → boss cuối kích hoạt theo lựa chọn. | **Vua** (giai đoạn đối thoại / có thể đánh một phần) → **Boss cuối** (3.4) | Kế hoạch thật của vua; cái giá nếu vua thành công / thất bại. |
 | **Dưới Tháp (ẩn)** | Giếng Ấn — Đáy Ngược | Sau lựa chọn ở đỉnh, một trong các nhánh mở đường **xuống** Giếng Ấn dưới tháp (không phải leo lên nữa — đi xuống vào lòng đất chết). Không gian phi Euclid nhẹ: cầu thang dài hơn chiều cao tháp. | **Boss cuối — dạng thật của thứ bị giam** (ở một số ending) | Thứ bị giam nói chuyện lần đầu bằng ngôn ngữ người chơi hiểu. Nó đưa ra **đề nghị của nó**. Ending được quyết định ở đây, không chỉ ở đỉnh. |
 
 **Nguyên tắc thời lượng tháp:** 2,5–4 giờ chơi, có điểm save / nghỉ ở Tầng 0, Tầng 5 và trước Tầng 6. Không bắt người chơi leo một mạch không nghỉ — độ khó đến từ lựa chọn và boss, không từ việc hành xác.
 
-### 3.4. Công chúa, Vua, Boss cuối — vai trò chính xác
+### 3.4. Công chúa Seraphine, Vua, Boss cuối — vai trò chính xác
 
 | Nhân vật | Vị trí | Vai trò bề ngoài (người chơi tưởng) | Vai trò thật (twist — xem 3.5) | Gameplay |
 |---|---|---|---|---|
-| **Công chúa** | Tầng 6 — Phòng Phong Ấn Sống, **trong tháp** | Công chúa bị vua / thế lực ác giam trong tháp, chờ hiệp sĩ cứu (mô-típ cổ tích game cố ý dựng lên ở Hồi I) | **Vật phong ấn sống** — người neo ấn hiện tại. Sinh ra / được chọn để cơ thể và tên của cô là khóa trung tâm. Cô sống thì ấn giữ; cô rời tháp hoặc chết thì ấn vỡ theo cách không kiểm soát. Cô **biết hết** và có ý chí, mong muốn riêng — không phải vật phẩm thụ động. | NPC đối thoại quyết định. Thái độ của cô với người chơi phụ thuộc vào việc người chơi đã làm gì ở 4 trụ (phá / giữ / thay thế). Cô có thể xin người chơi 1 trong 3 việc mâu thuẫn nhau tùy trạng thái thế giới — game không đánh dấu cái nào là "đúng". |
+| **Công chúa Seraphine** | Tầng 6 — Phòng Phong Ấn Sống, **trong tháp** | Công chúa bị vua / thế lực ác giam trong tháp, chờ hiệp sĩ cứu (mô-típ cổ tích game cố ý dựng lên ở Hồi I) | **Vật phong ấn sống** — người neo ấn hiện tại. Sinh ra / được chọn để cơ thể và tên của cô là khóa trung tâm. Cô sống thì ấn giữ; cô rời tháp hoặc chết thì ấn vỡ theo cách không kiểm soát. Cô **biết hết** và có ý chí, mong muốn riêng — không phải vật phẩm thụ động. | NPC đối thoại quyết định. Thái độ của cô với người chơi phụ thuộc vào việc người chơi đã làm gì ở 4 trụ (phá / giữ / thay thế). Cô có thể xin người chơi 1 trong 3 việc mâu thuẫn nhau tùy trạng thái thế giới — game không đánh dấu cái nào là "đúng". |
 | **Vua** | **Đỉnh tháp (Tầng 7)** | Vua độc tài giam công chúa, muốn sức mạnh của thứ bị giam (tin đồn Hồi I–II) | **Không đơn thuần là ác.** Vua muốn **phá phong ấn một cách có kiểm soát** — theo GDD v1: để cứu nước / lấy sức mạnh — nhưng ở v2 làm rõ động cơ kép: (a) phong ấn đang giết vương quốc chậm rãi qua 4 cái giá ở 4 vùng, vua tin phá ấn có kiểm soát còn ít chết người hơn giữ ấn thêm 100 năm; (b) công chúa là **con gái / người thân của vua** (giữ đúng quan hệ theo GDD nhân vật chính thức khi chốt — tài liệu này không tự đổi quan hệ), vua không chịu nổi việc cô làm vật neo sống cả đời. Đồng thời vua **cũng** muốn sức mạnh của thứ bị giam để vương quốc không bị nuốt sau khi ấn vỡ — tham vọng và cứu nước quện vào nhau, không tách sạch được. | Đối thoại boss + boss fight một phần. Vua **không phải boss cuối thuần túy**: đánh thắng vua không tự động cho ending tốt; giết vua ở đỉnh có thể làm mất người duy nhất biết nghi lễ phá ấn có kiểm soát. |
 | **Thứ bị giam / Boss cuối** | **Dưới tháp (Giếng Ấn) và ở đỉnh tháp khi ấn nứt** — boss cuối xuất hiện ở đỉnh/dưới tháp tùy nhánh ending | "Quái vật cổ đại thuần ác bị phong ấn vì suýt hủy diệt thế giới" (sử sách trong game) | Một thực thể cổ, có trí tuệ, từng **đồng ý** bản hợp đồng phong ấn đầu tiên (đổi lấy một điều nó muốn — để mở ở tài liệu lore sâu, không chốt cứng ở đây để tránh mâu thuẫn). Nó đã bị các đời vua **đơn phương sửa hợp đồng** (thêm người gác, thêm nghi lễ chết người, đổi vật neo thành người sống) mà nó coi là bội ước. Nó muốn ra — và theo logic của nó, nó **có lý**. Nó cũng thực sự nguy hiểm cho con người theo cách không cần ác ý: như lũ lụt nguy hiểm, không phải như sát nhân. | **Boss cuối.** Hình dạng / bộ chiêu thay đổi theo trạng thái 4 trụ và lựa chọn với công chúa / vua. Có nhánh **không đánh boss cuối ở dạng đầy đủ** nếu người chơi đạt thỏa thuận mới (điều kiện rất khắt khe — cần trạng thái tốt ở cả 4 vùng) — nhưng nhánh này vẫn có một trận đánh (với Vua, hoặc với Bóng Ấn của chính người chơi) chứ không "bỏ qua endgame". |
 
@@ -448,22 +448,22 @@ Mọi ending đều phải **nhắc lại cụ thể** lựa chọn ở Đông, 
 ### 4.1. Thứ tự bắt buộc & Lý do
 
 ```text
-ĐÔNG (1–6) ──► NAM (7–12) ──► TÂY (13–18) ──► BẮC (19–24) ──► THÁP VƯƠNG ẤN (25)
-  Xuân Lâm       Triều Ẩm        Hồng Sa          Hàn Thiết
+ĐÔNG (1–6) ──► NAM (7–12) ──► TÂY (13–18) ──► BẮC (19–24) ──► SIGILSPIRE (25)
+  Aldenmere       Fenmire        Solmaris          Frostgard
 ```
 
-Thứ tự này là **bắt buộc về cốt truyện (hard order)**, không phải gợi ý. Lý do trong thế giới: đường đi, thời tiết, uy tín và chuỗi tin tức chỉ mở theo chiều này (đò Bến Mưa bị lũ chặn cho đến khi xong Đông; caravan Tây chỉ chạy sau biến cố Nam; đèo Bắc chỉ mở khi có phép của Hồng Sa; cổng tháp cần cả 4 chìa). Người chơi vẫn có **tự do nội vùng** rất rộng: trong mỗi vùng, làm làng nào trước, dungeon phụ trước hay sau boss thành (trong giới hạn), quest phụ lúc nào — đều tự chọn.
+Thứ tự này là **bắt buộc về cốt truyện (hard order)**, không phải gợi ý. Lý do trong thế giới: đường đi, thời tiết, uy tín và chuỗi tin tức chỉ mở theo chiều này (đò Bến Mưa bị lũ chặn cho đến khi xong Đông; caravan Tây chỉ chạy sau biến cố Nam; đèo Bắc chỉ mở khi có phép của Solmaris; cổng tháp cần cả 4 chìa). Người chơi vẫn có **tự do nội vùng** rất rộng: trong mỗi vùng, làm làng nào trước, dungeon phụ trước hay sau boss thành (trong giới hạn), quest phụ lúc nào — đều tự chọn.
 
 ### 4.2. Bảng cổng chặn (gate) chi tiết
 
 | Chuyển đoạn | Cổng cứng (Hard Gate) — không qua được nếu thiếu | Cổng mềm (Soft Gate) — qua được nhưng rất khổ / thiếu nội dung nếu bỏ | Level khuyến nghị | Hệ thống dạy ở cổng này |
 |---|---|---|---|---|
-| Vào game → Đông tự do | Hoàn thành tutorial ở Làng Tân Diệp (có kiếm đầu tiên) | — | 1 | Combat, quest, uy tín |
-| Đông → **Ra khỏi Đông / sang Nam** | Hoàn thành **Main Quest Đông 4** (boss Thành Xuân Lâm) + có **Chìa Rễ Xanh** (ở trạng thái quest chốt) + đò Bến Mưa được mở | Uy tín Đông ≥ mức "Được Tin" để có giá trọ / shop tốt ở Nam; chưa làm Mỏ Rêu Cổ vẫn đi được nhưng boss Đông khó hơn và thiếu lore | 6 khi rời Đông | Cổng theo **boss + chìa**, không theo level thuần |
+| Vào game → Đông tự do | Hoàn thành tutorial ở Elmford (có kiếm đầu tiên) | — | 1 | Combat, quest, uy tín |
+| Đông → **Ra khỏi Đông / sang Nam** | Hoàn thành **Main Quest Đông 4** (boss Aldenmere) + có **Chìa Rễ Xanh** (ở trạng thái quest chốt) + đò Bến Mưa được mở | Uy tín Aldenmere ≥ mức "Được Tin" để có giá trọ / shop tốt ở Nam; chưa làm Ancient Moss Mine vẫn đi được nhưng boss Đông khó hơn và thiếu lore | 6 khi rời Đông | Cổng theo **boss + chìa**, không theo level thuần |
 | Nam → **sang Tây** | Hoàn thành **Main Quest Nam 4** (boss Morvain) + có **Chìa Triều Ngọc** + đường caravan / thuyền từ Làng Muối Đắng được mở | Có thuốc / kháng độc dự trữ; uy tín Nam ảnh hưởng giá caravan. Thiếu Làng Đèn Lồng (hub) thì Tây mở đầu thiếu thông tin quan trọng | 12 khi rời Nam | Cổng theo **chuỗi sự kiện liên vùng** (biến cố Nam mở đường Tây) |
-| Tây → **sang Bắc** | Hoàn thành **Main Quest Tây 4** (Vesskar — giết **hoặc** thỏa thuận) + có **Chìa Vảy Cát** (hoặc vật thay thế theo đường đàm phán) + giấy phép caravan Hồng Sa qua đèo | Uy tín Tây cao mở đường tắt / giá rèn đá đỏ; giết Rồng Cát Con quá nhiều làm đàm phán Vesskar khó hơn rõ rệt (soft gate đạo đức) | 18 khi rời Tây | Cổng có **hai đường hợp lệ** (giết / không giết) cho cùng một chìa |
+| Tây → **sang Bắc** | Hoàn thành **Main Quest Tây 4** (Vesskar — giết **hoặc** thỏa thuận) + có **Chìa Vảy Cát** (hoặc vật thay thế theo đường đàm phán) + giấy phép caravan Solmaris qua đèo | Uy tín Tây cao mở đường tắt / giá rèn đá đỏ; giết Rồng Cát Con quá nhiều làm đàm phán Vesskar khó hơn rõ rệt (soft gate đạo đức) | 18 khi rời Tây | Cổng có **hai đường hợp lệ** (giết / không giết) cho cùng một chìa |
 | Bắc → **vào Đất Chết / Tháp** | Hoàn thành **Main Quest Bắc 4** (Hiệp Sĩ Đen) + có **Chìa Sắt Băng** + đã đủ **cả 4 chìa** (game kiểm tra ở Cổng Bốn Chìa, Tầng 0) | Trạng thái 4 vùng (ai sống, thỏa thuận nào còn) ảnh hưởng tầng tháp, đồng minh, ending — không chặn vào, nhưng chặn **ending tốt** (soft gate kết cục) | 24 khi rời Bắc, **25** cho tháp | Cổng cuối kiểm tra **toàn bộ hành trình**, không chỉ sức mạnh |
-| Trong tháp → Đỉnh / Giếng Ấn | Xem hết đối thoại bắt buộc Tầng 5 + Tầng 6 (không skip lần đầu) | Mang đủ hồi phục từ Hàn Thiết (không shop trong tháp) | 25 | Point of no return có cảnh báo rõ |
+| Trong tháp → Đỉnh / Giếng Ấn | Xem hết đối thoại bắt buộc Tầng 5 + Tầng 6 (không skip lần đầu) | Mang đủ hồi phục từ Frostgard (không shop trong tháp) | 25 | Point of no return có cảnh báo rõ |
 
 **Nguyên tắc cổng chặn:**
 
@@ -479,7 +479,7 @@ Thứ tự này là **bắt buộc về cốt truyện (hard order)**, không ph
 | Nam (7–12) | 4–5 giờ | 3–4 giờ | **7–9 giờ** | Dungeon triều tốn thời gian chờ chu kỳ — đã tính vào |
 | Tây (13–18) | 5–6 giờ | 4–5 giờ | **9–11 giờ** | Đường đàm phán Vesskar dài hơn đường giết khoảng 1–1,5 giờ |
 | Bắc (19–24) | 5–6 giờ | 4–5 giờ | **9–11 giờ** | Dungeon dài nhất vòng ngoài |
-| Tháp Vương Ấn (25) | 2,5–4 giờ | + epilogue | **3–4 giờ** | Không quest phụ trong tháp |
+| Sigilspire (25) | 2,5–4 giờ | + epilogue | **3–4 giờ** | Không quest phụ trong tháp |
 | **Tổng** | — | — | **≈ 33–42 giờ** (main + phụ vừa phải) / **≈ 22–26 giờ** (chỉ main, bỏ phụ tối đa cho phép) | Khung cho game solo dev: cắt phụ trước, không cắt main / dungeon riêng |
 
 ---
@@ -497,10 +497,10 @@ Thứ tự này là **bắt buộc về cốt truyện (hard order)**, không ph
 
 | Hướng | Trụ | Biểu hiện vật lý của trụ | Chìa | Ai / Cái gì giữ trụ hằng ngày | Chuyện gì xảy ra khi trụ bị phá / kích hoạt / lấy chìa |
 |---|---|---|---|---|---|
-| **Đông** | **Trụ Mộc** | Cổ Thụ Trung Tâm ở Thành Xuân Lâm + hệ rễ xuyên Mỏ Rêu Cổ | **Chìa Rễ Xanh** — lõi gỗ sống không bao giờ khô, phải giữ ẩm / bọc rêu mới mang đi được | Lãnh chúa Lâm Nhược + các đời thợ vườn / thợ mỏ vô tình nuôi rễ | Rễ ngừng mọc nuốt nhà (tốt ngắn hạn) nhưng cây bắt đầu **héo lần đầu tiên trong lịch sử thành**; mùa xuân vĩnh cửu kết thúc — vùng Đông sẽ có mùa đông đầu tiên ở epilogue. Thời gian bị kẹt ở Đông bắt đầu chảy lại: người và vật "già" nhanh hơn trong một thời gian. |
-| **Nam** | **Trụ Thủy** | Chu kỳ triều nhân tạo + Đền Chìm Triều ở Thành Triều Ẩm | **Chìa Triều Ngọc** — viên ngọc luôn ướt, nghe như có tiếng nước bên trong | Các đời Người Giữ Triều (nghi lễ chết người) → Morvain phá vỡ chu kỳ | Triều **quay về tự nhiên một cách dữ dội**: một đợt triều lớn cuối cùng, sau đó nước ổn định hơn nhưng Đền Chìm Triều chìm hẳn / hoặc nổi hẳn tùy lựa chọn. Thành Triều Ẩm mất đặc quyền kiểm soát nước — phải học sống như cảng bình thường. |
-| **Tây** | **Trụ Sa** | Vesskar + chu kỳ bão cát quanh Thành Hồng Sa + Lăng Cát Chôn | **Chìa Vảy Cát** — một vảy rồng cát cổ (tự rụng / được tặng / bị lấy khi giết — trạng thái khác nhau theo đường đi) | **Rồng Cát Vesskar** — người gác duy nhất không phải con người | Nếu thỏa thuận: Vesskar **tự cho chìa** và vẫn giữ bão cát có kiểm soát — trụ chuyển thành "trụ tự nguyện", trạng thái tốt nhất của bất kỳ trụ nào. Nếu giết: chìa lấy từ xác, bão cát **mất kiểm soát vĩnh viễn**, Lăng Cát Chôn bị cát nuốt hẳn sau một thời gian. |
-| **Bắc** | **Trụ Hàn** | Đội Gác Băng ở Pháo Đài Băng Nứt + Lò Lớn ở Thành Hàn Thiết | **Chìa Sắt Băng** — thanh sắt đen lạnh không tan trong lửa thường, chỉ ấm lên khi ở gần tháp | Các đời hiệp sĩ bị trưng thu đi gác băng, dưới quyền Hiệp Sĩ Đen | Đội gác được **đứng xuống** lần đầu: người còn sống thì thaw dần (một số không qua khỏi, một số không nhớ mình là ai), wight mất kỷ luật và tan dần / hoặc tràn xuống tùy lựa chọn. Bắc mất tuyến phòng thủ quái — nhưng lần đầu tiên không phải gửi con em đi đóng băng nữa. |
+| **Đông** | **Trụ Mộc** | Great Elder Tree ở Aldenmere + hệ rễ xuyên Ancient Moss Mine | **Chìa Rễ Xanh** — lõi gỗ sống không bao giờ khô, phải giữ ẩm / bọc rêu mới mang đi được | Lãnh chúa Lâm Nhược + các đời thợ vườn / thợ mỏ vô tình nuôi rễ | Rễ ngừng mọc nuốt nhà (tốt ngắn hạn) nhưng cây bắt đầu **héo lần đầu tiên trong lịch sử thành**; mùa xuân vĩnh cửu kết thúc — vùng Đông sẽ có mùa đông đầu tiên ở epilogue. Thời gian bị kẹt ở Đông bắt đầu chảy lại: người và vật "già" nhanh hơn trong một thời gian. |
+| **Nam** | **Trụ Thủy** | Chu kỳ triều nhân tạo + Đền Chìm Triều ở Fenmire | **Chìa Triều Ngọc** — viên ngọc luôn ướt, nghe như có tiếng nước bên trong | Các đời Người Giữ Triều (nghi lễ chết người) → Morvain phá vỡ chu kỳ | Triều **quay về tự nhiên một cách dữ dội**: một đợt triều lớn cuối cùng, sau đó nước ổn định hơn nhưng Đền Chìm Triều chìm hẳn / hoặc nổi hẳn tùy lựa chọn. Fenmire mất đặc quyền kiểm soát nước — phải học sống như cảng bình thường. |
+| **Tây** | **Trụ Sa** | Vesskar + chu kỳ bão cát quanh Solmaris + Lăng Cát Chôn | **Chìa Vảy Cát** — một vảy rồng cát cổ (tự rụng / được tặng / bị lấy khi giết — trạng thái khác nhau theo đường đi) | **Rồng Cát Vesskar** — người gác duy nhất không phải con người | Nếu thỏa thuận: Vesskar **tự cho chìa** và vẫn giữ bão cát có kiểm soát — trụ chuyển thành "trụ tự nguyện", trạng thái tốt nhất của bất kỳ trụ nào. Nếu giết: chìa lấy từ xác, bão cát **mất kiểm soát vĩnh viễn**, Lăng Cát Chôn bị cát nuốt hẳn sau một thời gian. |
+| **Bắc** | **Trụ Hàn** | Đội Gác Băng ở Pháo Đài Băng Nứt + Lò Lớn ở Frostgard | **Chìa Sắt Băng** — thanh sắt đen lạnh không tan trong lửa thường, chỉ ấm lên khi ở gần tháp | Các đời hiệp sĩ bị trưng thu đi gác băng, dưới quyền Hiệp Sĩ Đen | Đội gác được **đứng xuống** lần đầu: người còn sống thì thaw dần (một số không qua khỏi, một số không nhớ mình là ai), wight mất kỷ luật và tan dần / hoặc tràn xuống tùy lựa chọn. Bắc mất tuyến phòng thủ quái — nhưng lần đầu tiên không phải gửi con em đi đóng băng nữa. |
 
 ### 5.3. Chuỗi hệ quả khi từng trụ thay đổi (cho dev làm sự kiện thế giới)
 
@@ -533,19 +533,19 @@ Thiết kế này tốn ít tài nguyên (chủ yếu là thoại + vài prop / 
 
 | # | Tên quest | Mục tiêu gameplay | Lựa chọn / Hậu quả |
 |---|---|---|---|
-| **Đông 1** | **Hai Bàn Tay Trắng** | Tỉnh / đến Làng Tân Diệp không vũ khí, không vàng. Làm 3 việc vỡ lòng theo thứ tự tự chọn: chặt củi (học tương tác), đuổi Slime Cỏ khỏi vườn (combat đầu tiên bằng gậy gỗ), tìm thùng đồ mất ở bìa rừng (học khám phá / goblin đầu tiên). Nhận **kiếm gỗ tập + áo vải**, mở bảng quest làng. | Không lựa chọn lớn. Lựa chọn nhỏ: trả thùng đồ nguyên vẹn hay lấy trộm ít vàng trong thùng (NPC không biết ngay, nhưng uy tín Tân Diệp tăng chậm hơn — lần đầu game dạy "hành động không ai thấy vẫn có sổ"). |
-| **Đông 2** | **Sổ Nợ Hạt Giống** | Đi Làng Mạch Lúa + Làng Bến Mưa. Giúp Mạch Lúa xử lý **Hầm Rượu Chuột Chúa** (dungeon tutorial, boss Chuột Chúa) để cứu kho lúa; giúp Bến Mưa dọn goblin ở bến đò. Gom đủ uy tín 2 làng để được giới thiệu vào Thành Xuân Lâm. | Giúp làng nào trước ảnh hưởng ai giới thiệu người chơi nồng nhiệt hơn (thoại + giá shop). Nếu chỉ làm 1 làng và "mua" thư giới thiệu bằng vàng farm được: vào thành được nhưng ở trạng thái *Được Biết* thay vì *Được Tin* — giá rèn đắt hơn, thiếu 1 quest phụ thành. |
-| **Đông 3** | **Rễ Ăn Vào Nhà** | Trong Thành Xuân Lâm: điều tra khu dân cư bị rễ Cổ Thụ nuốt. Xuống **Mỏ Rêu Cổ**, đánh phân thân Lõi Rễ Mỏ, đọc nhật ký thợ mỏ, mang **Mảnh Chìa Rễ Xanh 1/2** về. Đối thoại với Lãnh chúa Lâm Nhược — lần đầu nghe chữ "trụ" (ông ta nói lỡ rồi lái đi). | Chọn báo sự thật về mỏ cho dân (dân hoang mang, uy tín dân tăng, uy tín với lãnh chúa giảm, mở quest phụ sơ tán) **hoặc** giữ bí mật cùng lãnh chúa (uy tín lãnh chúa tăng, mở đường vào Gốc Cổ Thụ sớm hơn, dân sau này trách người chơi ở Hồi III nếu quay lại). Flag: `dong_su_that_mo`. |
-| **Đông 4** | **Golem Rêu Cổ Thụ** ⭐ Boss thành | Vào Gốc Cổ Thụ. **Boss: Golem Rêu Cổ Thụ** — golem hình thành từ rễ + đá mộ + tượng cũ, 2 phase: Phase 1 đánh rễ phụ / lõi lộ; Phase 2 golem "nhớ" nó từng là người gác (đòn chậm lại, có khoảng ngừng như do dự — chi tiết kể chuyện bằng animation). Sau boss, nhận **Chìa Rễ Xanh** hoàn chỉnh. | **Lựa chọn cuối vùng:** (A) *Cắt rễ chính* — cứu khu dân cư ngay, trụ yếu hẳn, Cổ Thụ héo một phần ngay trước mắt; (B) *Chặt rễ phụ + gia cố nhà* — giữ trụ tốt hơn, khu dân cư phải sơ tán, mất nhà nhưng giữ mộ. Cả hai đều mở đường sang Nam. Khác nhau ở trạng thái Đông trong epilogue + thoại công chúa ở Tầng 6. Flag: `dong_cat_re / dong_so_tan`. |
+| **Đông 1** | **Hai Bàn Tay Trắng** | Tỉnh / đến Elmford không vũ khí, không vàng. Làm 3 việc vỡ lòng theo thứ tự tự chọn: chặt củi (học tương tác), đuổi Slime Cỏ khỏi vườn (combat đầu tiên bằng gậy gỗ), tìm thùng đồ mất ở bìa rừng (học khám phá / goblin đầu tiên). Nhận **kiếm gỗ tập + áo vải**, mở bảng quest làng. | Không lựa chọn lớn. Lựa chọn nhỏ: trả thùng đồ nguyên vẹn hay lấy trộm ít vàng trong thùng (NPC không biết ngay, nhưng uy tín Elmford tăng chậm hơn — lần đầu game dạy "hành động không ai thấy vẫn có sổ"). |
+| **Đông 2** | **Sổ Nợ Hạt Giống** | Đi Barleyfield + Làng Bến Mưa. Giúp Barleyfield xử lý **Elmford Cellar (The Rat King)** (dungeon tutorial, boss The Rat King) để cứu kho lúa; giúp Bến Mưa dọn goblin ở bến đò. Gom đủ uy tín 2 làng để được giới thiệu vào Aldenmere. | Giúp làng nào trước ảnh hưởng ai giới thiệu người chơi nồng nhiệt hơn (thoại + giá shop). Nếu chỉ làm 1 làng và "mua" thư giới thiệu bằng vàng farm được: vào thành được nhưng ở trạng thái *Được Biết* thay vì *Được Tin* — giá rèn đắt hơn, thiếu 1 quest phụ thành. |
+| **Đông 3** | **Rễ Ăn Vào Nhà** | Trong Aldenmere: điều tra khu dân cư bị rễ Elder Tree nuốt. Xuống **Ancient Moss Mine**, đánh phân thân Lõi Rễ Mỏ, đọc nhật ký thợ mỏ, mang **Mảnh Chìa Rễ Xanh 1/2** về. Đối thoại với Lãnh chúa Lâm Nhược — lần đầu nghe chữ "trụ" (ông ta nói lỡ rồi lái đi). | Chọn báo sự thật về mỏ cho dân (dân hoang mang, uy tín dân tăng, uy tín với lãnh chúa giảm, mở quest phụ sơ tán) **hoặc** giữ bí mật cùng lãnh chúa (uy tín lãnh chúa tăng, mở đường vào Gốc Elder Tree sớm hơn, dân sau này trách người chơi ở Hồi III nếu quay lại). Flag: `dong_su_that_mo`. |
+| **Đông 4** | **Mossback, the Moss Golem** ⭐ Boss thành | Vào Gốc Elder Tree. **Boss: Mossback, the Moss Golem** — golem hình thành từ rễ + đá mộ + tượng cũ, 2 phase: Phase 1 đánh rễ phụ / lõi lộ; Phase 2 golem "nhớ" nó từng là người gác (đòn chậm lại, có khoảng ngừng như do dự — chi tiết kể chuyện bằng animation). Sau boss, nhận **Chìa Rễ Xanh** hoàn chỉnh. | **Lựa chọn cuối vùng:** (A) *Cắt rễ chính* — cứu khu dân cư ngay, trụ yếu hẳn, Elder Tree héo một phần ngay trước mắt; (B) *Chặt rễ phụ + gia cố nhà* — giữ trụ tốt hơn, khu dân cư phải sơ tán, mất nhà nhưng giữ mộ. Cả hai đều mở đường sang Nam. Khác nhau ở trạng thái Đông trong epilogue + thoại công chúa ở Tầng 6. Flag: `dong_cat_re / dong_so_tan`. |
 
 **Quest phụ gợi ý — Đông:**
 
 | Tên phụ | Làng / Nơi | Nội dung ngắn | Phần thưởng / Ý nghĩa |
 |---|---|---|---|
-| Lá Không Héo | Làng Tân Diệp | Tìm nguồn gốc chiếc lá không tàn của đứa bé | Lore phong ấn sớm; vật phẩm kỷ niệm không bán được |
-| Sổ Nợ Của Góa Phụ | Làng Mạch Lúa | Trả nợ hạt giống bằng vàng / bằng công / bằng cách phanh phui chủ vựa | Dạy quest nhiều cách giải; uy tín Mạch Lúa |
+| Lá Không Héo | Elmford | Tìm nguồn gốc chiếc lá không tàn của đứa bé | Lore phong ấn sớm; vật phẩm kỷ niệm không bán được |
+| Sổ Nợ Của Góa Phụ | Barleyfield | Trả nợ hạt giống bằng vàng / bằng công / bằng cách phanh phui chủ vựa | Dạy quest nhiều cách giải; uy tín Barleyfield |
 | Lão Chèo Đò Kể Chuyện | Làng Bến Mưa | Nghe đủ 3 câu chuyện của lão đò vào 3 ngày mưa khác nhau | Tin sớm về Nam + Morvain; giảm giá đò vĩnh viễn |
-| Chuột Thứ Hai | Hầm Rượu (quay lại) | Sau boss, đàn chuột con còn lại — giết / thả / giao cho chủ hầm nuôi đuổi mèo | Quest đạo đức nhỏ, không thưởng xịn — cố ý |
+| Chuột Thứ Hai | Elmford Cellar (quay lại) | Sau boss, đàn chuột con còn lại — giết / thả / giao cho chủ hầm nuôi đuổi mèo | Quest đạo đức nhỏ, không thưởng xịn — cố ý |
 
 ### 6.2. NAM — Main Quest (Level 7–12)
 
@@ -553,8 +553,8 @@ Thiết kế này tốn ít tài nguyên (chủ yếu là thoại + vài prop / 
 |---|---|---|---|
 | **Nam 1** | **Triều Không Nghe Trăng** | Từ Làng Bến Bùn vào Nam: học địa hình đầm, chế / mua thuốc giải độc, đến Làng Đèn Lồng đúng lúc **đêm giữ đèn** (quest phòng thủ: giữ 3 cụm đèn không tắt trước sóng Quái Bùn + Rắn Đầm trong 1 đêm). Sáng hôm sau Hội Đèn chính thức nhờ việc. | Nếu để 1 cụm đèn tắt: khu nhà tương ứng bị quái tràn, 1 NPC bị thương (không chết), quest vẫn qua nhưng Làng Đèn Lồng ở trạng thái hư hại đến hết vùng. Flag: `nam_den_tat_so`. |
 | **Nam 2** | **Thư Ướt Không Ký Tên** | Điều tra thư của Morvain: hỏi ở Làng Đèn Lồng, Làng Muối Đắng; vào **Đền Chìm Triều** lần 1 (đến phòng triều, gặp Morvain giai đoạn đối thoại / đánh thăm dò, bà ta làm ngập phòng và rút). Mang vật chứng về. | Tha / giết **Phù Thủy Tập Sự** bị bắt trong đền ảnh hưởng trực tiếp: tha → có nhân chứng sống về nghi lễ giữ triều, Morvain mềm hơn ở Nam 4; giết / không cứu → chỉ còn bia đá làm chứng, Morvain coi người chơi là "kẻ của vua". Flag: `nam_tha_tap_su`. |
-| **Nam 3** | **Tên Khắc Dưới Nước** | Vào lại Đền Chìm Triều lúc triều rút sâu (puzzle triều hoàn chỉnh), đọc danh sách tên Người Giữ Triều dưới mực nước, lấy **Chìa Triều Ngọc (dạng thô)**. Quay về Thành Triều Ẩm qua Cống Ngập, chứng kiến thành ngập cục bộ / thí nghiệm của Morvain thất bại trong cutscene. | Chọn mang danh sách tên công bố ở chợ thành (dân nổi giận với cả Morvain *và* các đời lãnh chúa trước, mở đường kết cục C ở Nam 4) **hoặc** giao danh sách riêng cho Morvain (bà ta lần đầu mất bình tĩnh — mở đối thoại riêng, giảm độ khó thuyết phục ở Nam 4, nhưng dân vẫn không biết sự thật). Flag: `nam_cong_bo_ten`. |
-| **Nam 4** | **Phù Thủy Đầm Lầy Morvain** ⭐ Boss thành | Đối đầu ở Thành Triều Ẩm / Đền Triều trong thành. **Boss: Phù Thủy Đầm Lầy Morvain** — boss phép 3 phase theo mực nước phòng boss: nước cạn (phép độc), nước lưng chừng (phép nước + triệu hồi Quái Bùn), nước ngập (bơi / đứng trên cọc, Morvain mạnh nhất nhưng cũng đang tự làm hại mình). Trước phase cuối có **khoảng đối thoại** — có thể chuyển sang kết cục đàm phán nếu đủ điều kiện. Nhận **Chìa Triều Ngọc** hoàn chỉnh. | **3 kết cục vùng:** (A) *Khôi phục nghi lễ* — cần 1 Người Giữ Triều mới: Morvain tự nhận (nếu đã tha tập sự + đối thoại đủ) hoặc một NPC tình nguyện gây tranh cãi đạo đức lớn; thành yên, người chơi mang tiếng đã đồng ý cái chết nghi lễ. (B) *Đi theo thí nghiệm của Morvain* — Morvain sống làm lãnh chúa–y sư, thành đánh cược, kết quả để ngỏ đến epilogue. (C) *Phá chu kỳ triều* — không ai giữ triều nữa, một phần thành bỏ hoang vì ngập / khô, Morvain bị trục xuất hoặc tự rời đi. Mọi kết cục đều cho chìa và mở đường Tây. Flags: `nam_nghi_le / nam_thi_nghiem / nam_pha_trieu`. |
+| **Nam 3** | **Tên Khắc Dưới Nước** | Vào lại Đền Chìm Triều lúc triều rút sâu (puzzle triều hoàn chỉnh), đọc danh sách tên Người Giữ Triều dưới mực nước, lấy **Chìa Triều Ngọc (dạng thô)**. Quay về Fenmire qua Cống Ngập, chứng kiến thành ngập cục bộ / thí nghiệm của Morvain thất bại trong cutscene. | Chọn mang danh sách tên công bố ở chợ thành (dân nổi giận với cả Morvain *và* các đời lãnh chúa trước, mở đường kết cục C ở Nam 4) **hoặc** giao danh sách riêng cho Morvain (bà ta lần đầu mất bình tĩnh — mở đối thoại riêng, giảm độ khó thuyết phục ở Nam 4, nhưng dân vẫn không biết sự thật). Flag: `nam_cong_bo_ten`. |
+| **Nam 4** | **Phù Thủy Đầm Lầy Morvain** ⭐ Boss thành | Đối đầu ở Fenmire / Đền Triều trong thành. **Boss: Phù Thủy Đầm Lầy Morvain** — boss phép 3 phase theo mực nước phòng boss: nước cạn (phép độc), nước lưng chừng (phép nước + triệu hồi Quái Bùn), nước ngập (bơi / đứng trên cọc, Morvain mạnh nhất nhưng cũng đang tự làm hại mình). Trước phase cuối có **khoảng đối thoại** — có thể chuyển sang kết cục đàm phán nếu đủ điều kiện. Nhận **Chìa Triều Ngọc** hoàn chỉnh. | **3 kết cục vùng:** (A) *Khôi phục nghi lễ* — cần 1 Người Giữ Triều mới: Morvain tự nhận (nếu đã tha tập sự + đối thoại đủ) hoặc một NPC tình nguyện gây tranh cãi đạo đức lớn; thành yên, người chơi mang tiếng đã đồng ý cái chết nghi lễ. (B) *Đi theo thí nghiệm của Morvain* — Morvain sống làm lãnh chúa–y sư, thành đánh cược, kết quả để ngỏ đến epilogue. (C) *Phá chu kỳ triều* — không ai giữ triều nữa, một phần thành bỏ hoang vì ngập / khô, Morvain bị trục xuất hoặc tự rời đi. Mọi kết cục đều cho chìa và mở đường Tây. Flags: `nam_nghi_le / nam_thi_nghiem / nam_pha_trieu`. |
 
 **Quest phụ gợi ý — Nam:**
 
@@ -563,14 +563,14 @@ Thiết kế này tốn ít tài nguyên (chủ yếu là thoại + vài prop / 
 | Bùa Bùn | Làng Bến Bùn | Kiểm chứng "bùa bùn" của trẻ con: vô dụng — nói thật hay để chúng tin? | Quest thoại thuần; ảnh hưởng 1 thoại ở epilogue làng |
 | Đèn Của Người Chết | Làng Đèn Lồng | Thắp lại đèn cho khu nhà đã bỏ sau một đêm đèn tắt nhiều năm trước | Lore Người Giữ Triều; vật phẩm đèn dầu nâng cấp cho Đền Chìm Triều |
 | Muối Đắng | Làng Muối Đắng | Tìm nguồn vị đắng của muối (mạch phong ấn rò vào ruộng muối) | Kháng độc vĩnh viễn +; thương nhân mở đường Tây sớm hơn |
-| Bệnh Triều | Thành Triều Ẩm | Giúp / từ chối làm mẫu thử an toàn cho Morvain | Buff hoặc debuff tạm thời; Morvain nhớ việc này ở Nam 4 |
+| Bệnh Triều | Fenmire | Giúp / từ chối làm mẫu thử an toàn cho Morvain | Buff hoặc debuff tạm thời; Morvain nhớ việc này ở Nam 4 |
 
 ### 6.3. TÂY — Main Quest (Level 13–18)
 
 | # | Tên quest | Mục tiêu gameplay | Lựa chọn / Hậu quả |
 |---|---|---|---|
 | **Tây 1** | **Nước Có Giá** | Từ Làng Giếng Cạn học sinh tồn sa mạc (nước, nóng ngày / lạnh đêm). Hộ tống caravan nhỏ đến **Làng Chợ Đêm**, lần đầu nghe bão cát do Vesskar đổi hướng bất thường. Kiếm uy tín caravan. | Chia / không chia nước của mình cho caravan giữa đường (tốn tài nguyên thật): chia → caravan tôn trọng, mở giá tốt + tin quan trọng miễn phí; không chia → 1 người khuân vác gục (không chết nếu người chơi cứu sau bằng thuốc — tốn hơn). Flag: `tay_chia_nuoc`. |
-| **Tây 2** | **Hàm Rồng Đóng Cửa** | Đến Thành Hồng Sa, gặp Thống Lĩnh Caravan. Điều tra vì sao cổng Hàm Rồng đóng: Vesskar tuần tra sát thành bất thường. Làm quest caravan / bounty để đạt uy tín *Được Nhờ Cậy*, được phép ra bãi cát gặp dấu vết Vesskar (không đánh — sự kiện truy vết + lần đầu thấy rõ kích thước / trí tuệ của nó qua cách nó tránh làng). | Chọn nhận bounty **săn Rồng Cát Con** (thưởng cao, giảm điểm đàm phán) hay **bounty thay thế khó hơn** (dọn Golem Đá Đỏ ở đường caravan). Game không khóa lựa chọn nào, chỉ ghi sổ sinh thái. Flag: `tay_san_rong_con_so_luong`. |
+| **Tây 2** | **Hàm Rồng Đóng Cửa** | Đến Solmaris, gặp Thống Lĩnh Caravan. Điều tra vì sao cổng Hàm Rồng đóng: Vesskar tuần tra sát thành bất thường. Làm quest caravan / bounty để đạt uy tín *Được Nhờ Cậy*, được phép ra bãi cát gặp dấu vết Vesskar (không đánh — sự kiện truy vết + lần đầu thấy rõ kích thước / trí tuệ của nó qua cách nó tránh làng). | Chọn nhận bounty **săn Rồng Cát Con** (thưởng cao, giảm điểm đàm phán) hay **bounty thay thế khó hơn** (dọn Golem Đá Đỏ ở đường caravan). Game không khóa lựa chọn nào, chỉ ghi sổ sinh thái. Flag: `tay_san_rong_con_so_luong`. |
 | **Tây 3** | **Lăng Cát Chôn** | Vào **Lăng Cát Chôn** (dungeon), vượt phòng cát chảy, gặp **Người Gác Lăng Không Tên**, lấy bằng chứng: tên thật của người gác + ghi chép lời hứa của vua đời trước với Vesskar + (nếu đi hết nhánh sâu) **Chìa Vảy Cát dự phòng trong lăng** (chìa này yếu / không hoàn chỉnh — dùng được để qua cổng nhưng không thay được chìa do Vesskar cho ở trạng thái tốt nhất). | Với Người Gác Lăng: đánh bại / **trả lại tên để giải thoát** (cần manh mối tên từ phòng phụ — bỏ qua phòng phụ = mất lựa chọn này). Giải thoát → ông ta cho biết điểm yếu *và* điểm "yếu lòng" của Vesskar; đánh bại → chỉ lấy được vật chứng giấy. Flag: `tay_giai_thoat_gac_lang`. |
 | **Tây 4** | **Rồng Cát Vesskar** ⭐ Boss thành — có đường không giết | Đối đầu ở bãi cát / Cổng Hàm Rồng. **Boss: Rồng Cát Vesskar.** Đường đánh: boss lớn 3 phase (đào cát / bay thấp phun cát / trồi lên nuốt địa hình — đấu trường thay đổi hình dạng). Đường không giết: chuỗi sự kiện thay cho phase 2–3 (trình bằng chứng lăng → thực hiện lại nghi lễ lời thề ở 3 điểm quanh thành trong lúc Vesskar quan sát / thử thách → đối thoại bằng hành động, không phải chọn 1 câu thoại "thuyết phục thành công"). Nhận **Chìa Vảy Cát**. | **2 kết cục chính:** (A) *Giết Vesskar* — chìa từ xác, danh hiệu Diệt Rồng, bão cát mất kiểm soát (đóng 1 số đường / làng bị hại về sau), mất đồng minh endgame. (B) *Thỏa thuận mới với Vesskar* — cần uy tín Tây cao + bằng chứng lăng (+ điểm đàm phán không bị trừ quá mức do săn rồng con); Vesskar tự cho vảy, vẫn canh cổng, mở trợ giúp ở tháp. Kết cục B khó hơn và dài hơn có chủ ý — không phải "đường tốt miễn phí". Flags: `tay_giet_vesskar / tay_thoa_thuan_vesskar`. |
 
@@ -581,16 +581,16 @@ Thiết kế này tốn ít tài nguyên (chủ yếu là thoại + vài prop / 
 | Bản Đồ Lăng Thật | Làng Chợ Đêm | Mua / vạch trần / hợp tác với kẻ bán bản đồ nửa thật | Giảm độ khó Lăng Cát Chôn hoặc mất vàng — bài học tin đồn |
 | Cát Phổi | Làng Ốc Đảo Cát Trắng | Tìm thuốc cho gia tộc giữ ốc đảo | Mở shop cao cấp ốc đảo; lore mạch phong ấn dưới ốc đảo |
 | Caravan Mất Tích | Đường caravan | Tìm caravan mất tích trong bão cát — cứu người hay cứu hàng theo lệnh chủ caravan? | Lựa chọn người / của; uy tín phe thương nhân vs. dân làng |
-| Vảy Con | Quanh Thành Hồng Sa | (Ngược với săn) Bảo vệ tổ Rồng Cát Con khỏi thợ săn trộm trong 1 đêm | Điểm đàm phán Vesskar +; vảy tự rụng làm quà |
+| Vảy Con | Quanh Solmaris | (Ngược với săn) Bảo vệ tổ Rồng Cát Con khỏi thợ săn trộm trong 1 đêm | Điểm đàm phán Vesskar +; vảy tự rụng làm quà |
 
 ### 6.4. BẮC — Main Quest (Level 19–24)
 
 | # | Tên quest | Mục tiêu gameplay | Lựa chọn / Hậu quả |
 |---|---|---|---|
 | **Bắc 1** | **Lò Không Được Tắt** | Vào Làng Lò Sưởi, học cơ chế lạnh / bão tuyết, tham gia **đêm bão gác làng** (phòng thủ + giữ lò: chia người / tài nguyên giữa đánh wight và châm lò — lò tắt là làng thua dù đánh thắng quái). Được nghe lần đầu về "đi gác băng" như một bản án. | Phân bổ ở đêm gác: ưu tiên lò (ít loot, làng nguyên vẹn) hay ưu tiên săn wight ra ngoài bão (loot tốt, lò suýt tắt, 1 nhà bị cháy / lạnh). Flag: `bac_lo_dem_bao`. |
-| **Bắc 2** | **Danh Sách Không Ai Đọc** | Ở Làng Săn Tuyết + Thành Hàn Thiết: làm quest quân sự / săn elite để đạt uy tín vào Doanh Trại Hiệp Sĩ Băng. Đánh cắp / được giao / tìm thấy **danh sách trưng thu gác băng** (tùy cách chơi: stealth, đối thoại, hay đánh). Gặp **Hiệp Sĩ Đen (Hiệp Sĩ Băng)** lần đầu trong cutscene không đánh — ông ta biết tên người chơi qua tin từ các vùng trước. | Cách lấy danh sách ảnh hưởng thái độ Hiệp Sĩ Đen ở Bắc 4: lấy bằng đối thoại / được giao → ông ta tôn trọng; đánh cắp → ông ta coi người chơi là kẻ phá kỷ luật (boss khó hơn 1 cơ chế); công bố danh sách ngay → dân Bắc náo loạn, mở đường kết cục khó nhất ở Bắc 4. Flag: `bac_lay_danh_sach_bang`. |
+| **Bắc 2** | **Danh Sách Không Ai Đọc** | Ở Làng Săn Tuyết + Frostgard: làm quest quân sự / săn elite để đạt uy tín vào Doanh Trại Hiệp Sĩ Băng. Đánh cắp / được giao / tìm thấy **danh sách trưng thu gác băng** (tùy cách chơi: stealth, đối thoại, hay đánh). Gặp **Hiệp Sĩ Đen (Hiệp Sĩ Băng)** lần đầu trong cutscene không đánh — ông ta biết tên người chơi qua tin từ các vùng trước. | Cách lấy danh sách ảnh hưởng thái độ Hiệp Sĩ Đen ở Bắc 4: lấy bằng đối thoại / được giao → ông ta tôn trọng; đánh cắp → ông ta coi người chơi là kẻ phá kỷ luật (boss khó hơn 1 cơ chế); công bố danh sách ngay → dân Bắc náo loạn, mở đường kết cục khó nhất ở Bắc 4. Flag: `bac_lay_danh_sach_bang`. |
 | **Bắc 3** | **Pháo Đài Băng Nứt** | Vào **Pháo Đài Băng Nứt** (dungeon dài nhất vòng ngoài, cơ chế lạnh tích lũy), gặp Đội Trưởng Gác Băng Đầu Tiên, thu thập danh sách tên các đời gác ấn + tên thật của Hiệp Sĩ Đen, lấy **Chìa Sắt Băng (phần trong pháo đài)**. Trên đường ra, bão tuyết lớn nhất game — sự kiện sinh tồn có đồng đội NPC tùy vùng trước. | Giải thoát / để nguyên các hiệp sĩ đóng băng có thể thaw trên đường (mỗi người tốn vật phẩm hiếm): giải thoát nhiều → phòng boss Bắc 4 ít địch hỗ trợ hơn + có nhân chứng sống; để nguyên → giữ tài nguyên cho boss, nhưng Hiệp Sĩ Đen sẽ nhắc từng người người chơi đã đi ngang mà không cứu. Flag: `bac_thaw_so_luong`. |
-| **Bắc 4** | **Hiệp Sĩ Đen (Hiệp Sĩ Băng)** ⭐ Boss thành | Đối đầu ở Tường Bắc / Lò Lớn, Thành Hàn Thiết, vào ban đêm có cực quang. **Boss: Hiệp Sĩ Đen (Hiệp Sĩ Băng)** — boss người khó nhất vòng ngoài: khiên + kiếm băng, parry người chơi, phase 2 cởi mũ (lộ mặt người già mệt mỏi — không phải quái), phase 3 gọi đội gác băng (số lượng tùy `bac_thaw_so_luong`). Trước phase cuối, nếu có tên thật + danh sách đầy đủ, mở **đối thoại gọi tên** làm thay đổi kết cục. Nhận **Chìa Sắt Băng** hoàn chỉnh, mở đường vào Đất Chết. | **3 kết cục vùng:** (A) *Đánh bại / giết Hiệp Sĩ Đen* — đội gác tan rã hỗn loạn, chìa lấy được, Bắc mất chỉ huy giữa mùa bão (epilogue nặng). (B) *Thỏa thuận thay ca* — cần uy tín Bắc tối đa + danh sách + tên thật: Hiệp Sĩ Đen tự đứng xuống, đội gác được luân phiên / giải thoát dần, ông ta có thể xuất hiện ở tháp. (C) *Chỉ lấy chìa, giữ nguyên trụ* — đánh đến khi ông ta nhường đường (không kết cục đàm phán, không giết): nhanh nhất ở phase cuối, nhưng Bắc tiếp tục trưng thu — lựa chọn này bị công chúa nhắc thẳng ở Tầng 6. Flags: `bac_giet_hiep_si / bac_thoa_thuan_thay_ca / bac_giu_nguyen_tru`. |
+| **Bắc 4** | **Hiệp Sĩ Đen (Hiệp Sĩ Băng)** ⭐ Boss thành | Đối đầu ở Tường Bắc / Lò Lớn, Frostgard, vào ban đêm có cực quang. **Boss: Hiệp Sĩ Đen (Hiệp Sĩ Băng)** — boss người khó nhất vòng ngoài: khiên + kiếm băng, parry người chơi, phase 2 cởi mũ (lộ mặt người già mệt mỏi — không phải quái), phase 3 gọi đội gác băng (số lượng tùy `bac_thaw_so_luong`). Trước phase cuối, nếu có tên thật + danh sách đầy đủ, mở **đối thoại gọi tên** làm thay đổi kết cục. Nhận **Chìa Sắt Băng** hoàn chỉnh, mở đường vào Đất Chết. | **3 kết cục vùng:** (A) *Đánh bại / giết Hiệp Sĩ Đen* — đội gác tan rã hỗn loạn, chìa lấy được, Bắc mất chỉ huy giữa mùa bão (epilogue nặng). (B) *Thỏa thuận thay ca* — cần uy tín Bắc tối đa + danh sách + tên thật: Hiệp Sĩ Đen tự đứng xuống, đội gác được luân phiên / giải thoát dần, ông ta có thể xuất hiện ở tháp. (C) *Chỉ lấy chìa, giữ nguyên trụ* — đánh đến khi ông ta nhường đường (không kết cục đàm phán, không giết): nhanh nhất ở phase cuối, nhưng Bắc tiếp tục trưng thu — lựa chọn này bị công chúa nhắc thẳng ở Tầng 6. Flags: `bac_giet_hiep_si / bac_thoa_thuan_thay_ca / bac_giu_nguyen_tru`. |
 
 **Quest phụ gợi ý — Bắc:**
 
@@ -599,9 +599,9 @@ Thiết kế này tốn ít tài nguyên (chủ yếu là thoại + vài prop / 
 | Củi Cho Lò Người Khác | Làng Lò Sưởi | Mang củi cho nhà neo đơn ngoài làng giữa bão — đi dễ, về khó | Không loot xịn; NPC này là mẹ của một hiệp sĩ đóng băng ở Pháo Đài |
 | Săn Để Không Bị Chọn | Làng Săn Tuyết | Giúp đứa trẻ săn đủ chiến tích để thoát danh sách trưng thu — hoặc tìm cách khác công bằng hơn? | Quest đạo đức về đặc quyền; ảnh hưởng danh sách ở Bắc 2 |
 | Chữ Trong Cực Quang | Làng Cực Quang | Ghi lại / giải mã hình cực quang bất thường cùng thầy điềm | Lore vua + hợp đồng gốc; vật phẩm kháng băng |
-| Nhà Nguyện Không Chuông | Thành Hàn Thiết | Tìm vì sao chuông nhà nguyện bị tháo (đáp án: chuông làm băng ấn nứt khi rung) | Lore cơ chế ấn bằng âm thanh; mở đường tắt trong thành |
+| Nhà Nguyện Không Chuông | Frostgard | Tìm vì sao chuông nhà nguyện bị tháo (đáp án: chuông làm băng ấn nứt khi rung) | Lore cơ chế ấn bằng âm thanh; mở đường tắt trong thành |
 
-### 6.5. THÁP VƯƠNG ẤN — Main Quest Endgame (Level 25)
+### 6.5. SIGILSPIRE — Main Quest Endgame (Level 25)
 
 | # | Tên quest | Mục tiêu gameplay | Lựa chọn / Hậu quả |
 |---|---|---|---|
@@ -629,17 +629,17 @@ Thiết kế này tốn ít tài nguyên (chủ yếu là thoại + vài prop / 
 
 | ID vùng (gợi ý code) | Hướng | Tên chuẩn — Thành / Khu vực chính | Tên chuẩn — Boss thành | Dải Level chuẩn | Tên chuẩn — Tháp / Khu vực cuối |
 |---|---|---|---|---|---|
-| `dong` | ĐÔNG | **Thành Xuân Lâm** | **Golem Rêu Cổ Thụ** | **1–6** | — |
-| `nam` | NAM | **Thành Triều Ẩm** | **Phù Thủy Đầm Lầy Morvain** | **7–12** | — |
-| `tay` | TÂY | **Thành Hồng Sa** | **Rồng Cát Vesskar** | **13–18** | — |
-| `bac` | BẮC | **Thành Hàn Thiết** | **Hiệp Sĩ Đen (Hiệp Sĩ Băng)** | **19–24** | — |
-| `trung_tam` | TRUNG TÂM | **Tháp Vương Ấn** | **Vua (đỉnh tháp) / Boss cuối (đỉnh–dưới tháp)** | **25** | **Tháp Vương Ấn** |
+| `dong` | ĐÔNG | **Aldenmere** | **Mossback, the Moss Golem** | **1–6** | — |
+| `nam` | NAM | **Fenmire** | **Phù Thủy Đầm Lầy Morvain** | **7–12** | — |
+| `tay` | TÂY | **Solmaris** | **Rồng Cát Vesskar** | **13–18** | — |
+| `bac` | BẮC | **Frostgard** | **Hiệp Sĩ Đen (Hiệp Sĩ Băng)** | **19–24** | — |
+| `trung_tam` | TRUNG TÂM | **Sigilspire** | **Vua (đỉnh tháp) / Boss cuối (đỉnh–dưới tháp)** | **25** | **Sigilspire** |
 
 ### 7.2. Bảng đối chiếu làng vệ tinh
 
 | Vùng | Làng 1 | Làng 2 | Làng 3 | Ghi chú |
 |---|---|---|---|---|
-| ĐÔNG | **Làng Tân Diệp** ★ khởi đầu | **Làng Mạch Lúa** | **Làng Bến Mưa** | ★ = spawn point của người chơi |
+| ĐÔNG | **Elmford** ★ khởi đầu | **Barleyfield** | **Làng Bến Mưa** | ★ = spawn point của người chơi |
 | NAM | **Làng Bến Bùn** | **Làng Đèn Lồng** | **Làng Muối Đắng** | — |
 | TÂY | **Làng Giếng Cạn** | **Làng Chợ Đêm** | **Làng Ốc Đảo Cát Trắng** | Tên đầy đủ có "Ốc Đảo" — không rút gọn thành "Làng Cát Trắng" |
 | BẮC | **Làng Lò Sưởi** | **Làng Săn Tuyết** | **Làng Cực Quang** | — |
@@ -651,29 +651,29 @@ Tổng: **4 thành + 1 tháp, 12 làng vệ tinh**, mỗi vùng đúng 3 làng.
 
 | Vùng | Quái chuẩn (đúng 4 loại / vùng) |
 |---|---|
-| ĐÔNG | Goblin Rừng, Slime Cỏ, Sói Rừng, Golem Rêu |
+| ĐÔNG | Goblin Rừng, Slime Cỏ, Sói Rừng, Moss Golem |
 | NAM | Quái Bùn, Phù Thủy Tập Sự, Quái Độc, Rắn Đầm |
 | TÂY | Chiến Binh Sa Mạc, Bọ Cát, Golem Đá Đỏ, Rồng Cát Con |
 | BẮC | Sói Tuyết, Hiệp Sĩ Băng, Quái Băng, Wight |
 | TRUNG TÂM | Bóng Ấn (dạng xám tro của quái các vùng — không tính là quái mới) |
 
-*Lưu ý:* Chuột Chúa (Hầm Rượu Chuột Chúa) là boss dungeon, **không** nằm trong danh sách quái đặc trưng vùng Đông ở bảng này — tránh nhầm khi làm bảng loot / bestiary.
+*Lưu ý:* The Rat King (Elmford Cellar (The Rat King)) là boss dungeon, **không** nằm trong danh sách quái đặc trưng vùng Đông ở bảng này — tránh nhầm khi làm bảng loot / bestiary.
 
 ### 7.4. Bảng đối chiếu dungeon
 
 | Vùng | Dungeon chuẩn | Số lượng | Boss / đỉnh điểm trong dungeon |
 |---|---|---|---|
-| ĐÔNG | **Hầm Rượu Chuột Chúa**, **Mỏ Rêu Cổ** | 2 | Chuột Chúa; Lõi Rễ Mỏ / phân thân Golem Rêu Cổ Thụ |
+| ĐÔNG | **Elmford Cellar (The Rat King)**, **Ancient Moss Mine** | 2 | The Rat King; Lõi Rễ Mỏ / phân thân Mossback, the Moss Golem |
 | NAM | **Đền Chìm Triều** | 1 | Morvain — Giai đoạn 1 (boss hoàn chỉnh ở thành) |
 | TÂY | **Lăng Cát Chôn** | 1 | Người Gác Lăng Không Tên (mini-boss) |
 | BẮC | **Pháo Đài Băng Nứt** | 1 | Đội Trưởng Gác Băng Đầu Tiên (mini-boss) |
-| TRUNG TÂM | **Tháp Vương Ấn** (leo tháp nhiều tầng) | 1 (endgame) | Vua / Boss cuối — xem Mục 3.4 |
+| TRUNG TÂM | **Sigilspire** (leo tháp nhiều tầng) | 1 (endgame) | Vua / Boss cuối — xem Mục 3.4 |
 
 ### 7.5. Bảng đối chiếu phong ấn
 
 | Hướng | Trụ chuẩn | Chìa chuẩn | Boss thành giữ / liên quan |
 |---|---|---|---|
-| ĐÔNG | Trụ Mộc | **Chìa Rễ Xanh** | Golem Rêu Cổ Thụ |
+| ĐÔNG | Trụ Mộc | **Chìa Rễ Xanh** | Mossback, the Moss Golem |
 | NAM | Trụ Thủy | **Chìa Triều Ngọc** | Phù Thủy Đầm Lầy Morvain |
 | TÂY | Trụ Sa | **Chìa Vảy Cát** | Rồng Cát Vesskar |
 | BẮC | Trụ Hàn | **Chìa Sắt Băng** | Hiệp Sĩ Đen (Hiệp Sĩ Băng) |
@@ -681,11 +681,11 @@ Tổng: **4 thành + 1 tháp, 12 làng vệ tinh**, mỗi vùng đúng 3 làng.
 
 ### 7.6. Kiểm tra nhất quán cuối tài liệu (checklist cho người duyệt)
 
-- [x] ĐÔNG = Thành Xuân Lâm, Lv.1–6, Golem Rêu Cổ Thụ, làng Tân Diệp / Mạch Lúa / Bến Mưa — khớp ở Mục 1, 2.1, 6.1, 7.
-- [x] NAM = Thành Triều Ẩm, Lv.7–12, Phù Thủy Đầm Lầy Morvain, làng Bến Bùn / Đèn Lồng / Muối Đắng, dungeon Đền Chìm Triều — khớp ở Mục 1, 2.2, 6.2, 7.
-- [x] TÂY = Thành Hồng Sa, Lv.13–18, Rồng Cát Vesskar (có đường không giết), làng Giếng Cạn / Chợ Đêm / Ốc Đảo Cát Trắng, dungeon Lăng Cát Chôn — khớp ở Mục 1, 2.3, 6.3, 7.
-- [x] BẮC = Thành Hàn Thiết, Lv.19–24, Hiệp Sĩ Đen (Hiệp Sĩ Băng), làng Lò Sưởi / Săn Tuyết / Cực Quang, dungeon Pháo Đài Băng Nứt — khớp ở Mục 1, 2.4, 6.4, 7.
-- [x] TRUNG TÂM = Tháp Vương Ấn, Lv.25, công chúa trong tháp (vật phong ấn sống), vua ở đỉnh tháp, boss cuối ở đỉnh/dưới tháp — khớp ở Mục 1, 3, 6.5, 7.
+- [x] ĐÔNG = Aldenmere, Lv.1–6, Mossback, the Moss Golem, làng Elmford / Barleyfield / Bến Mưa — khớp ở Mục 1, 2.1, 6.1, 7.
+- [x] NAM = Fenmire, Lv.7–12, Phù Thủy Đầm Lầy Morvain, làng Bến Bùn / Đèn Lồng / Muối Đắng, dungeon Đền Chìm Triều — khớp ở Mục 1, 2.2, 6.2, 7.
+- [x] TÂY = Solmaris, Lv.13–18, Rồng Cát Vesskar (có đường không giết), làng Giếng Cạn / Chợ Đêm / Ốc Đảo Cát Trắng, dungeon Lăng Cát Chôn — khớp ở Mục 1, 2.3, 6.3, 7.
+- [x] BẮC = Frostgard, Lv.19–24, Hiệp Sĩ Đen (Hiệp Sĩ Băng), làng Lò Sưởi / Săn Tuyết / Cực Quang, dungeon Pháo Đài Băng Nứt — khớp ở Mục 1, 2.4, 6.4, 7.
+- [x] TRUNG TÂM = Sigilspire, Lv.25, công chúa trong tháp (vật phong ấn sống), vua ở đỉnh tháp, boss cuối ở đỉnh/dưới tháp — khớp ở Mục 1, 3, 6.5, 7.
 - [x] Thứ tự tiến triển Đông → Nam → Tây → Bắc → Tháp ở mọi mục (1, 4, 5, 6).
 - [x] Không vùng nào bị đổi khí hậu: Đông ôn đới/xuân, Nam nhiệt đới/đầm lầy, Tây sa mạc, Bắc hàn đới, Trung tâm đất chết.
 
@@ -696,8 +696,8 @@ Tổng: **4 thành + 1 tháp, 12 làng vệ tinh**, mỗi vùng đúng 3 làng.
 ### 8.1. Timeline tóm tắt — một đời người chơi trong thế giới
 
 ```text
-Ngày 0      Trắng tay ở Làng Tân Diệp (Đông). Không ai biết người chơi là ai — kể cả người chơi.
-Hồi I       Làm thuê → có uy tín → Golem Rêu Cổ Thụ → triều điên ở Nam → Morvain.
+Ngày 0      Trắng tay ở Elmford (Đông). Không ai biết người chơi là ai — kể cả người chơi.
+Hồi I       Làm thuê → có uy tín → Mossback, the Moss Golem → triều điên ở Nam → Morvain.
             Thế giới còn giống cổ tích, nhưng hóa đơn đầu tiên đã xuất hiện.
 Hồi II      Sa mạc dạy đàm phán, Vesskar dạy rằng "quái" có thể là người gác.
             Bắc dạy rằng trụ có thể làm bằng người. Tin về vua ngày càng không giống tin đồn.
@@ -710,7 +710,7 @@ Kết         Người chơi quyết định bản thỏa thuận tiếp theo c�
 
 | Motif | Đông | Nam | Tây | Bắc | Tháp |
 |---|---|---|---|---|---|
-| **Thứ không được tắt** | Cổ Thụ không được héo | Đèn lồng không được tắt | Giếng / bão cát theo hơi thở rồng | Lò sưởi không được tắt | Ấn không được vỡ |
+| **Thứ không được tắt** | Elder Tree không được héo | Đèn lồng không được tắt | Giếng / bão cát theo hơi thở rồng | Lò sưởi không được tắt | Ấn không được vỡ |
 | **Danh sách tên** | Tên trên mộ bị rễ nuốt | Tên khắc dưới nước trong đền | Tên thật của người gác lăng bị xóa | Danh sách trưng thu gác băng | Bia Sử Ấn khắc tên mọi đời gác |
 | **Nước / thiếu nước** | Mưa phùn thừa nước | Nước dâng giết người | Thiếu nước giết người | Nước đóng băng không dùng được | Không có nước — đất chết |
 
@@ -718,9 +718,9 @@ Khi làm art / level cho vùng mới, kiểm tra 3 motif này trước: nếu m�
 
 ### 8.3. Việc cố ý để mở (không phải thiếu sót)
 
-- Họ tên đầy đủ của Thống Lĩnh Caravan ở Thành Hồng Sa, Người Ghi Ấn Cuối Cùng, và điều thứ bị giam muốn trong hợp đồng gốc: để mở cho tài liệu nhân vật / lore sâu, tài liệu này chỉ chốt **chức năng** của họ để tránh mâu thuẫn.
+- Họ tên đầy đủ của Thống Lĩnh Caravan ở Solmaris, Người Ghi Ấn Cuối Cùng, và điều thứ bị giam muốn trong hợp đồng gốc: để mở cho tài liệu nhân vật / lore sâu, tài liệu này chỉ chốt **chức năng** của họ để tránh mâu thuẫn.
 - Quan hệ huyết thống chính xác vua–công chúa: theo GDD nhân vật chính thức khi chốt; tài liệu này chỉ chốt rằng quan hệ đó **tồn tại và là một phần động cơ của vua**, không tự đặt mới.
-- Quá khứ / thân phận thật của nhân vật chính trước khi đến Làng Tân Diệp: giữ mơ hồ theo GDD v1; thế giới được thiết kế để **không cần** đáp án đó mới vận hành được, nhưng có chỗ chứa nó ở Tầng Sử Ấn nếu GDD sau này chốt.
+- Quá khứ / thân phận thật của nhân vật chính trước khi đến Elmford: giữ mơ hồ theo GDD v1; thế giới được thiết kế để **không cần** đáp án đó mới vận hành được, nhưng có chỗ chứa nó ở Tầng Sử Ấn nếu GDD sau này chốt.
 
 ---
 

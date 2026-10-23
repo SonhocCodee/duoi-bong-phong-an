@@ -15,3 +15,7 @@ Thumbs.db
 game/assets/sprites/*.png
 design/sprite_preview_v3.png
 design/sprite_mockup_v3.png
+
+# Python
+__pycache__/
+*.pyc

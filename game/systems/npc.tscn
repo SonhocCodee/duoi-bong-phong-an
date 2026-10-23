@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://systems/npc.gd" id="1_npc"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/player_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(24, 24)
+
+[node name="NPC" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 1
+collision_mask = 1
+script = ExtResource("1_npc")
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-12, 8, 12, 8, 16, 11, 12, 14, -12, 14, -16, 11)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -23)
+scale = Vector2(0.75, 0.75)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = -70.0
+offset_top = -84.0
+offset_right = 70.0
+offset_bottom = -62.0
+theme_override_colors/font_color = Color(1, 0.95, 0.75, 1)
+theme_override_font_sizes/font_size = 13
+text = "NPC"
+horizontal_alignment = 1
+
+[node name="PromptLabel" type="Label" parent="."]
+visible = false
+offset_left = -80.0
+offset_top = -108.0
+offset_right = 80.0
+offset_bottom = -86.0
+theme_override_colors/font_color = Color(0.85, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "[E] Nói chuyện"
+horizontal_alignment = 1

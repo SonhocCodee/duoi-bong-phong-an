@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/stone_spirit.gd" id="1_spirit"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/golem_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(36, 28)
+
+[node name="StoneSpirit" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_spirit")
+enemy_type = "stone_spirit"
+display_name = "Thạch linh núi"
+max_hp = 90
+damage = 16
+speed = 45.0
+xp_reward = 26
+gold_reward = 8
+sprite_frames = ExtResource("2_frames")
+sprite_modulate = Color(0.8, 0.88, 1, 1)
+sprite_scale = 1.4
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-18, 10, 18, 10, 21, 13, 18, 15, -18, 15, -21, 13)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -24)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")

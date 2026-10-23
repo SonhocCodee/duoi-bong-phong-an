@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://systems/portal.gd" id="1_portal"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_area"]
+size = Vector2(36, 36)
+
+[node name="Portal" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_portal")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_area")
+
+[node name="Glow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0.65, 0.45, 1, 0.35)
+polygon = PackedVector2Array(-18, -18, 18, -18, 18, 18, -18, 18)
+
+[node name="TargetLabel" type="Label" parent="."]
+offset_left = -90.0
+offset_top = -48.0
+offset_right = 90.0
+offset_bottom = -26.0
+theme_override_colors/font_color = Color(0.9, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "Cổng"
+horizontal_alignment = 1
+
+[node name="LockedLabel" type="Label" parent="."]
+visible = false
+offset_left = -130.0
+offset_top = -82.0
+offset_right = 130.0
+offset_bottom = -52.0
+theme_override_colors/font_color = Color(1, 0.45, 0.4, 1)
+theme_override_font_sizes/font_size = 14
+text = "Bị khóa"
+horizontal_alignment = 1

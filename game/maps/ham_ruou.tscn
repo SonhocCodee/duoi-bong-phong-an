@@ -1,0 +1,766 @@
+[gd_scene load_steps=28 format=3]
+
+[ext_resource type="Script" path="res://systems/map_root.gd" id="1_maproot"]
+[ext_resource type="Texture2D" path="res://assets/props/wine_barrel.png" id="2_de2sb"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_hud"]
+[ext_resource type="Texture2D" path="res://assets/props/barrel.png" id="3_lhttv"]
+[ext_resource type="PackedScene" path="res://enemies/rat.tscn" id="4_rat"]
+[ext_resource type="Script" path="res://systems/portal.gd" id="5_0ur8y"]
+[ext_resource type="PackedScene" path="res://enemies/boss_rat_king.tscn" id="5_boss"]
+[ext_resource type="PackedScene" path="res://systems/portal.tscn" id="6_portal"]
+[ext_resource type="Script" path="res://enemies/enemy_base.gd" id="7_28jd5"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/rat_frames.tres" id="8_b0tmr"]
+[ext_resource type="Script" path="res://enemies/boss_rat_king.gd" id="10_j4rs1"]
+[ext_resource type="Script" path="res://player/player.gd" id="12_2ecmy"]
+[ext_resource type="Script" path="res://ui/hud.gd" id="14_igat2"]
+[ext_resource type="TileSet" path="res://assets/tilesets/interior_tavern_v1.tres" id="15_icr1y"]
+[ext_resource type="Texture2D" path="res://assets/props/table.png" id="16_5eqnd"]
+[ext_resource type="Texture2D" path="res://assets/props/shelf.png" id="17_081lh"]
+[ext_resource type="Texture2D" path="res://assets/props/lamp.png" id="18_gckyc"]
+
+[sub_resource type="RectangleShape2D" id="Rect_1"]
+size = Vector2(1480, 40)
+
+[sub_resource type="RectangleShape2D" id="Rect_2"]
+size = Vector2(40, 1000)
+
+[sub_resource type="RectangleShape2D" id="Rect_3"]
+size = Vector2(570, 36)
+
+[sub_resource type="RectangleShape2D" id="Rect_4"]
+size = Vector2(14, 52)
+
+[sub_resource type="CircleShape2D" id="Circle_1"]
+radius = 26.0
+
+[sub_resource type="RectangleShape2D" id="Rect_5"]
+size = Vector2(44, 44)
+
+[sub_resource type="RectangleShape2D" id="Rect_6"]
+size = Vector2(60, 42)
+
+[sub_resource type="Gradient" id="Gradient_light"]
+colors = PackedColorArray(1, 0.85, 0.55, 1, 1, 0.85, 0.55, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture_light"]
+gradient = SubResource("Gradient_light")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="HamRuou" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_maproot")
+
+[node name="Darken" type="CanvasModulate" parent="."]
+color = Color(0.34, 0.3, 0.32, 1)
+
+[node name="Borders" type="StaticBody2D" parent="."]
+
+[node name="ColTop" type="CollisionShape2D" parent="Borders"]
+position = Vector2(0, -520)
+shape = SubResource("Rect_1")
+
+[node name="ColBottom" type="CollisionShape2D" parent="Borders"]
+position = Vector2(0, 520)
+shape = SubResource("Rect_1")
+
+[node name="ColLeft" type="CollisionShape2D" parent="Borders"]
+position = Vector2(-720, 0)
+shape = SubResource("Rect_2")
+
+[node name="ColRight" type="CollisionShape2D" parent="Borders"]
+position = Vector2(720, 0)
+shape = SubResource("Rect_2")
+
+[node name="PartitionL" type="Node2D" parent="."]
+position = Vector2(-375, -180)
+
+[node name="Body" type="StaticBody2D" parent="PartitionL"]
+
+[node name="Col" type="CollisionShape2D" parent="PartitionL/Body"]
+shape = SubResource("Rect_3")
+
+[node name="PartitionR" type="Node2D" parent="."]
+position = Vector2(375, -180)
+
+[node name="Body" type="StaticBody2D" parent="PartitionR"]
+
+[node name="Col" type="CollisionShape2D" parent="PartitionR/Body"]
+shape = SubResource("Rect_3")
+
+[node name="DoorPostL" type="Node2D" parent="."]
+position = Vector2(-96, -180)
+
+[node name="Post" type="Polygon2D" parent="DoorPostL"]
+color = Color(0.45, 0.33, 0.2, 1)
+polygon = PackedVector2Array(-7, -26, 7, -26, 7, 26, -7, 26)
+
+[node name="Body" type="StaticBody2D" parent="DoorPostL"]
+
+[node name="Col" type="CollisionShape2D" parent="DoorPostL/Body"]
+shape = SubResource("Rect_4")
+
+[node name="DoorPostR" type="Node2D" parent="."]
+position = Vector2(96, -180)
+
+[node name="Post" type="Polygon2D" parent="DoorPostR"]
+color = Color(0.45, 0.33, 0.2, 1)
+polygon = PackedVector2Array(-7, -26, 7, -26, 7, 26, -7, 26)
+
+[node name="Body" type="StaticBody2D" parent="DoorPostR"]
+
+[node name="Col" type="CollisionShape2D" parent="DoorPostR/Body"]
+shape = SubResource("Rect_4")
+
+[node name="Barrel1" type="Node2D" parent="."]
+position = Vector2(-520, 60)
+
+[node name="Body" type="StaticBody2D" parent="Barrel1"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel1/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropWineBarrel" type="Sprite2D" parent="Barrel1"]
+position = Vector2(0, -4)
+texture = ExtResource("2_de2sb")
+
+[node name="Barrel2" type="Node2D" parent="."]
+position = Vector2(-380, 60)
+
+[node name="Body" type="StaticBody2D" parent="Barrel2"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel2/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropBarrel" type="Sprite2D" parent="Barrel2"]
+position = Vector2(0, -1)
+texture = ExtResource("3_lhttv")
+
+[node name="Barrel3" type="Node2D" parent="."]
+position = Vector2(240, 60)
+
+[node name="Body" type="StaticBody2D" parent="Barrel3"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel3/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropWineBarrel" type="Sprite2D" parent="Barrel3"]
+position = Vector2(0, -4)
+texture = ExtResource("2_de2sb")
+
+[node name="Barrel4" type="Node2D" parent="."]
+position = Vector2(380, 60)
+
+[node name="Body" type="StaticBody2D" parent="Barrel4"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel4/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropBarrel" type="Sprite2D" parent="Barrel4"]
+position = Vector2(0, -1)
+texture = ExtResource("3_lhttv")
+
+[node name="Barrel5" type="Node2D" parent="."]
+position = Vector2(-240, -60)
+
+[node name="Body" type="StaticBody2D" parent="Barrel5"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel5/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropWineBarrel" type="Sprite2D" parent="Barrel5"]
+position = Vector2(0, -4)
+texture = ExtResource("2_de2sb")
+
+[node name="Barrel6" type="Node2D" parent="."]
+position = Vector2(-100, -60)
+
+[node name="Body" type="StaticBody2D" parent="Barrel6"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel6/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropBarrel" type="Sprite2D" parent="Barrel6"]
+position = Vector2(0, -1)
+texture = ExtResource("3_lhttv")
+
+[node name="Barrel7" type="Node2D" parent="."]
+position = Vector2(460, -60)
+
+[node name="Body" type="StaticBody2D" parent="Barrel7"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel7/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropWineBarrel" type="Sprite2D" parent="Barrel7"]
+position = Vector2(0, -4)
+texture = ExtResource("2_de2sb")
+
+[node name="Barrel8" type="Node2D" parent="."]
+position = Vector2(-560, -110)
+
+[node name="Body" type="StaticBody2D" parent="Barrel8"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel8/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropBarrel" type="Sprite2D" parent="Barrel8"]
+position = Vector2(0, -1)
+texture = ExtResource("3_lhttv")
+
+[node name="Barrel9" type="Node2D" parent="."]
+position = Vector2(560, -110)
+
+[node name="Body" type="StaticBody2D" parent="Barrel9"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel9/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropWineBarrel" type="Sprite2D" parent="Barrel9"]
+position = Vector2(0, -4)
+texture = ExtResource("2_de2sb")
+
+[node name="Barrel10" type="Node2D" parent="."]
+position = Vector2(-180, 300)
+
+[node name="Body" type="StaticBody2D" parent="Barrel10"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel10/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropBarrel" type="Sprite2D" parent="Barrel10"]
+position = Vector2(0, -1)
+texture = ExtResource("3_lhttv")
+
+[node name="Barrel11" type="Node2D" parent="."]
+position = Vector2(180, 300)
+
+[node name="Body" type="StaticBody2D" parent="Barrel11"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel11/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropWineBarrel" type="Sprite2D" parent="Barrel11"]
+position = Vector2(0, -4)
+texture = ExtResource("2_de2sb")
+
+[node name="Barrel12" type="Node2D" parent="."]
+position = Vector2(-300, -300)
+
+[node name="Body" type="StaticBody2D" parent="Barrel12"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel12/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropBarrel" type="Sprite2D" parent="Barrel12"]
+position = Vector2(0, -1)
+texture = ExtResource("3_lhttv")
+
+[node name="Barrel13" type="Node2D" parent="."]
+position = Vector2(300, -300)
+
+[node name="Body" type="StaticBody2D" parent="Barrel13"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel13/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropWineBarrel" type="Sprite2D" parent="Barrel13"]
+position = Vector2(0, -4)
+texture = ExtResource("2_de2sb")
+
+[node name="Barrel14" type="Node2D" parent="."]
+position = Vector2(-430, -380)
+
+[node name="Body" type="StaticBody2D" parent="Barrel14"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel14/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropBarrel" type="Sprite2D" parent="Barrel14"]
+position = Vector2(0, -1)
+texture = ExtResource("3_lhttv")
+
+[node name="Barrel15" type="Node2D" parent="."]
+position = Vector2(430, -380)
+
+[node name="Body" type="StaticBody2D" parent="Barrel15"]
+
+[node name="Col" type="CollisionShape2D" parent="Barrel15/Body"]
+shape = SubResource("Circle_1")
+
+[node name="PropWineBarrel" type="Sprite2D" parent="Barrel15"]
+position = Vector2(0, -4)
+texture = ExtResource("2_de2sb")
+
+[node name="BrokenBarrel" type="Node2D" parent="."]
+position = Vector2(-60, 180)
+
+[node name="PropBrokenBarrel" type="Sprite2D" parent="BrokenBarrel"]
+position = Vector2(1, 12)
+rotation = 1.5708
+texture = ExtResource("2_de2sb")
+
+[node name="Crate1" type="Node2D" parent="."]
+position = Vector2(560, -400)
+
+[node name="Body" type="StaticBody2D" parent="Crate1"]
+
+[node name="Col" type="CollisionShape2D" parent="Crate1/Body"]
+shape = SubResource("Rect_5")
+
+[node name="PropBarrel" type="Sprite2D" parent="Crate1"]
+position = Vector2(0, -5)
+texture = ExtResource("3_lhttv")
+
+[node name="Crate2" type="Node2D" parent="."]
+position = Vector2(612, -400)
+
+[node name="Body" type="StaticBody2D" parent="Crate2"]
+
+[node name="Col" type="CollisionShape2D" parent="Crate2/Body"]
+shape = SubResource("Rect_5")
+
+[node name="PropBarrel" type="Sprite2D" parent="Crate2"]
+position = Vector2(0, -5)
+texture = ExtResource("3_lhttv")
+
+[node name="Crate3" type="Node2D" parent="."]
+position = Vector2(-600, 380)
+
+[node name="Body" type="StaticBody2D" parent="Crate3"]
+
+[node name="Col" type="CollisionShape2D" parent="Crate3/Body"]
+shape = SubResource("Rect_5")
+
+[node name="PropBarrel" type="Sprite2D" parent="Crate3"]
+position = Vector2(0, -5)
+texture = ExtResource("3_lhttv")
+
+[node name="Crate4" type="Node2D" parent="."]
+position = Vector2(600, 380)
+
+[node name="Body" type="StaticBody2D" parent="Crate4"]
+
+[node name="Col" type="CollisionShape2D" parent="Crate4/Body"]
+shape = SubResource("Rect_5")
+
+[node name="PropBarrel" type="Sprite2D" parent="Crate4"]
+position = Vector2(0, -5)
+texture = ExtResource("3_lhttv")
+
+[node name="Chest" type="Node2D" parent="."]
+position = Vector2(-560, -400)
+
+[node name="BodyBox" type="Polygon2D" parent="Chest"]
+color = Color(0.5, 0.32, 0.15, 1)
+polygon = PackedVector2Array(-30, -6, 30, -6, 30, 20, -30, 20)
+
+[node name="Lid" type="Polygon2D" parent="Chest"]
+color = Color(0.6, 0.4, 0.2, 1)
+polygon = PackedVector2Array(-30, -6, 30, -6, 22, -22, -22, -22)
+
+[node name="Trim" type="Polygon2D" parent="Chest"]
+color = Color(0.9, 0.72, 0.25, 1)
+polygon = PackedVector2Array(-4, -20, 4, -20, 4, 20, -4, 20)
+
+[node name="Body" type="StaticBody2D" parent="Chest"]
+
+[node name="Col" type="CollisionShape2D" parent="Chest/Body"]
+shape = SubResource("Rect_6")
+
+[node name="Torch1" type="Node2D" parent="."]
+position = Vector2(-640, -320)
+
+[node name="Stick" type="Polygon2D" parent="Torch1"]
+color = Color(0.35, 0.22, 0.1, 1)
+polygon = PackedVector2Array(-3, 0, 3, 0, 3, 18, -3, 18)
+
+[node name="Flame" type="Polygon2D" parent="Torch1"]
+color = Color(0.98, 0.55, 0.15, 1)
+polygon = PackedVector2Array(-8, 2, 0, -18, 8, 2, 4, 8, -4, 8)
+
+[node name="FlameCore" type="Polygon2D" parent="Torch1"]
+color = Color(1, 0.88, 0.4, 1)
+polygon = PackedVector2Array(-4, 2, 0, -10, 4, 2, 2, 6, -2, 6)
+
+[node name="Light" type="PointLight2D" parent="Torch1"]
+color = Color(1, 0.72, 0.4, 1)
+energy = 1.3
+texture = SubResource("GradientTexture_light")
+texture_scale = 2.6
+
+[node name="Torch2" type="Node2D" parent="."]
+position = Vector2(640, -320)
+
+[node name="Stick" type="Polygon2D" parent="Torch2"]
+color = Color(0.35, 0.22, 0.1, 1)
+polygon = PackedVector2Array(-3, 0, 3, 0, 3, 18, -3, 18)
+
+[node name="Flame" type="Polygon2D" parent="Torch2"]
+color = Color(0.98, 0.55, 0.15, 1)
+polygon = PackedVector2Array(-8, 2, 0, -18, 8, 2, 4, 8, -4, 8)
+
+[node name="FlameCore" type="Polygon2D" parent="Torch2"]
+color = Color(1, 0.88, 0.4, 1)
+polygon = PackedVector2Array(-4, 2, 0, -10, 4, 2, 2, 6, -2, 6)
+
+[node name="Light" type="PointLight2D" parent="Torch2"]
+color = Color(1, 0.72, 0.4, 1)
+energy = 1.3
+texture = SubResource("GradientTexture_light")
+texture_scale = 2.6
+
+[node name="Torch3" type="Node2D" parent="."]
+position = Vector2(-150, -205)
+
+[node name="Stick" type="Polygon2D" parent="Torch3"]
+color = Color(0.35, 0.22, 0.1, 1)
+polygon = PackedVector2Array(-3, 0, 3, 0, 3, 18, -3, 18)
+
+[node name="Flame" type="Polygon2D" parent="Torch3"]
+color = Color(0.98, 0.55, 0.15, 1)
+polygon = PackedVector2Array(-8, 2, 0, -18, 8, 2, 4, 8, -4, 8)
+
+[node name="FlameCore" type="Polygon2D" parent="Torch3"]
+color = Color(1, 0.88, 0.4, 1)
+polygon = PackedVector2Array(-4, 2, 0, -10, 4, 2, 2, 6, -2, 6)
+
+[node name="Light" type="PointLight2D" parent="Torch3"]
+color = Color(1, 0.72, 0.4, 1)
+energy = 1.3
+texture = SubResource("GradientTexture_light")
+texture_scale = 2.6
+
+[node name="Torch4" type="Node2D" parent="."]
+position = Vector2(150, -205)
+
+[node name="Stick" type="Polygon2D" parent="Torch4"]
+color = Color(0.35, 0.22, 0.1, 1)
+polygon = PackedVector2Array(-3, 0, 3, 0, 3, 18, -3, 18)
+
+[node name="Flame" type="Polygon2D" parent="Torch4"]
+color = Color(0.98, 0.55, 0.15, 1)
+polygon = PackedVector2Array(-8, 2, 0, -18, 8, 2, 4, 8, -4, 8)
+
+[node name="FlameCore" type="Polygon2D" parent="Torch4"]
+color = Color(1, 0.88, 0.4, 1)
+polygon = PackedVector2Array(-4, 2, 0, -10, 4, 2, 2, 6, -2, 6)
+
+[node name="Light" type="PointLight2D" parent="Torch4"]
+color = Color(1, 0.72, 0.4, 1)
+energy = 1.3
+texture = SubResource("GradientTexture_light")
+texture_scale = 2.6
+
+[node name="Torch5" type="Node2D" parent="."]
+position = Vector2(-640, 200)
+
+[node name="Stick" type="Polygon2D" parent="Torch5"]
+color = Color(0.35, 0.22, 0.1, 1)
+polygon = PackedVector2Array(-3, 0, 3, 0, 3, 18, -3, 18)
+
+[node name="Flame" type="Polygon2D" parent="Torch5"]
+color = Color(0.98, 0.55, 0.15, 1)
+polygon = PackedVector2Array(-8, 2, 0, -18, 8, 2, 4, 8, -4, 8)
+
+[node name="FlameCore" type="Polygon2D" parent="Torch5"]
+color = Color(1, 0.88, 0.4, 1)
+polygon = PackedVector2Array(-4, 2, 0, -10, 4, 2, 2, 6, -2, 6)
+
+[node name="Light" type="PointLight2D" parent="Torch5"]
+color = Color(1, 0.72, 0.4, 1)
+energy = 1.3
+texture = SubResource("GradientTexture_light")
+texture_scale = 2.6
+
+[node name="Torch6" type="Node2D" parent="."]
+position = Vector2(640, 200)
+
+[node name="Stick" type="Polygon2D" parent="Torch6"]
+color = Color(0.35, 0.22, 0.1, 1)
+polygon = PackedVector2Array(-3, 0, 3, 0, 3, 18, -3, 18)
+
+[node name="Flame" type="Polygon2D" parent="Torch6"]
+color = Color(0.98, 0.55, 0.15, 1)
+polygon = PackedVector2Array(-8, 2, 0, -18, 8, 2, 4, 8, -4, 8)
+
+[node name="FlameCore" type="Polygon2D" parent="Torch6"]
+color = Color(1, 0.88, 0.4, 1)
+polygon = PackedVector2Array(-4, 2, 0, -10, 4, 2, 2, 6, -2, 6)
+
+[node name="Light" type="PointLight2D" parent="Torch6"]
+color = Color(1, 0.72, 0.4, 1)
+energy = 1.3
+texture = SubResource("GradientTexture_light")
+texture_scale = 2.6
+
+[node name="Torch7" type="Node2D" parent="."]
+position = Vector2(0, -440)
+
+[node name="Stick" type="Polygon2D" parent="Torch7"]
+color = Color(0.35, 0.22, 0.1, 1)
+polygon = PackedVector2Array(-3, 0, 3, 0, 3, 18, -3, 18)
+
+[node name="Flame" type="Polygon2D" parent="Torch7"]
+color = Color(0.98, 0.55, 0.15, 1)
+polygon = PackedVector2Array(-8, 2, 0, -18, 8, 2, 4, 8, -4, 8)
+
+[node name="FlameCore" type="Polygon2D" parent="Torch7"]
+color = Color(1, 0.88, 0.4, 1)
+polygon = PackedVector2Array(-4, 2, 0, -10, 4, 2, 2, 6, -2, 6)
+
+[node name="Light" type="PointLight2D" parent="Torch7"]
+color = Color(1, 0.72, 0.4, 1)
+energy = 1.3
+texture = SubResource("GradientTexture_light")
+texture_scale = 2.6
+
+[node name="LabelCellar" type="Label" parent="."]
+offset_left = -170.0
+offset_top = 268.0
+offset_right = 170.0
+offset_bottom = 304.0
+theme_override_colors/font_color = Color(0.92, 0.75, 0.4, 1)
+theme_override_font_sizes/font_size = 24
+text = "ELMFORD CELLAR"
+horizontal_alignment = 1
+
+[node name="LabelBossRoom" type="Label" parent="."]
+offset_left = -200.0
+offset_top = -446.0
+offset_right = 200.0
+offset_bottom = -420.0
+theme_override_colors/font_color = Color(0.85, 0.6, 0.45, 1)
+theme_override_font_sizes/font_size = 14
+text = "Kho Sâu — coi chừng The Rat King!"
+horizontal_alignment = 1
+
+[node name="LabelExit" type="Label" parent="."]
+offset_left = -120.0
+offset_top = 412.0
+offset_right = 120.0
+offset_bottom = 438.0
+theme_override_colors/font_color = Color(0.9, 0.8, 0.55, 1)
+theme_override_font_sizes/font_size = 14
+text = "↑ Về thành Aldenmere"
+horizontal_alignment = 1
+
+[node name="Spawn_start" type="Marker2D" parent="."]
+position = Vector2(0, 350)
+
+[node name="Spawn_from_village" type="Marker2D" parent="."]
+position = Vector2(0, 350)
+
+[node name="PortalToVillage" parent="." instance=ExtResource("6_portal")]
+position = Vector2(0, 415)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_0ur8y")
+target_scene = "res://maps/thanh_xuan_lam.tscn"
+target_spawn = "from_cave"
+required_flag = ""
+locked_text = ""
+label_text = "↑ Aldenmere"
+
+[node name="Rat1" parent="." instance=ExtResource("4_rat")]
+y_sort_enabled = true
+position = Vector2(-450, -60)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("7_28jd5")
+enemy_type = "rat"
+display_name = "Chuột"
+max_hp = 15
+damage = 5
+speed = 130.0
+xp_reward = 8
+gold_reward = 2
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("8_b0tmr")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+
+[node name="Rat2" parent="." instance=ExtResource("4_rat")]
+y_sort_enabled = true
+position = Vector2(350, -90)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("7_28jd5")
+enemy_type = "rat"
+display_name = "Chuột"
+max_hp = 15
+damage = 5
+speed = 130.0
+xp_reward = 8
+gold_reward = 2
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("8_b0tmr")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+
+[node name="Rat3" parent="." instance=ExtResource("4_rat")]
+y_sort_enabled = true
+position = Vector2(-200, 130)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("7_28jd5")
+enemy_type = "rat"
+display_name = "Chuột"
+max_hp = 15
+damage = 5
+speed = 130.0
+xp_reward = 8
+gold_reward = 2
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("8_b0tmr")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+
+[node name="Rat4" parent="." instance=ExtResource("4_rat")]
+y_sort_enabled = true
+position = Vector2(480, 190)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("7_28jd5")
+enemy_type = "rat"
+display_name = "Chuột"
+max_hp = 15
+damage = 5
+speed = 130.0
+xp_reward = 8
+gold_reward = 2
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("8_b0tmr")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+
+[node name="Rat5" parent="." instance=ExtResource("4_rat")]
+y_sort_enabled = true
+position = Vector2(-520, 270)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("7_28jd5")
+enemy_type = "rat"
+display_name = "Chuột"
+max_hp = 15
+damage = 5
+speed = 130.0
+xp_reward = 8
+gold_reward = 2
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("8_b0tmr")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+
+[node name="Rat6" parent="." instance=ExtResource("4_rat")]
+y_sort_enabled = true
+position = Vector2(170, -330)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("7_28jd5")
+enemy_type = "rat"
+display_name = "Chuột"
+max_hp = 15
+damage = 5
+speed = 130.0
+xp_reward = 8
+gold_reward = 2
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("8_b0tmr")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+
+[node name="BossRatKing" parent="." instance=ExtResource("5_boss")]
+y_sort_enabled = true
+position = Vector2(0, -330)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("10_j4rs1")
+summon_interval = 6.0
+max_summons = 3
+minions_per_summon = 2
+enemy_type = "boss_rat_king"
+display_name = "The Rat King"
+max_hp = 220
+damage = 14
+speed = 95.0
+xp_reward = 120
+gold_reward = 80
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("8_b0tmr")
+sprite_modulate = Color(1, 0.82, 0.82, 1)
+sprite_scale = 2.2
+wander = true
+death_anim_duration = 0.5
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+y_sort_enabled = true
+position = Vector2(0, 350)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("12_2ecmy")
+speed = 220.0
+max_hp = 100
+max_stamina = 100.0
+stamina_regen = 28.0
+dodge_stamina_cost = 25.0
+dodge_speed = 520.0
+dodge_duration = 0.28
+attack_range = 56.0
+attack_damage = Array[int]([10, 12, 18])
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+script = ExtResource("14_igat2")
+
+[node name="GroundTiles" type="TileMap" parent="."]
+z_index = -10
+position = Vector2(-704, -512)
+tile_set = ExtResource("15_icr1y")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 1, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 1, 327680, 0, 1, 393216, 0, 1, 458752, 0, 1, 524288, 0, 1, 589824, 0, 1, 655360, 0, 1, 720896, 0, 1, 786432, 0, 1, 851968, 0, 1, 917504, 0, 1, 983040, 0, 1, 1, 196608, 0, 65537, 65536, 1, 131073, 65536, 1, 196609, 65536, 1, 262145, 65536, 1, 327681, 196608, 0, 393217, 0, 0, 458753, 0, 0, 524289, 196608, 1, 589825, 0, 0, 655361, 0, 0, 720897, 0, 0, 786433, 196608, 1, 851969, 196608, 1, 917505, 0, 0, 983041, 196608, 0, 2, 196608, 0, 65538, 65536, 1, 131074, 65536, 1, 196610, 65536, 1, 262146, 65536, 1, 327682, 196608, 0, 393218, 0, 0, 458754, 196608, 1, 524290, 0, 0, 589826, 196608, 1, 655362, 65536, 0, 720898, 0, 0, 786434, 0, 0, 851970, 65536, 0, 917506, 0, 0, 983042, 196608, 0, 3, 196608, 0, 65539, 65536, 1, 131075, 65536, 1, 196611, 65536, 1, 262147, 65536, 1, 327683, 196608, 0, 393219, 196608, 1, 458755, 0, 0, 524291, 0, 0, 589827, 0, 0, 655363, 65536, 0, 720899, 0, 0, 786435, 0, 0, 851971, 0, 0, 917507, 0, 0, 983043, 196608, 0, 4, 196608, 0, 65540, 65536, 1, 131076, 65536, 1, 196612, 65536, 1, 262148, 65536, 1, 327684, 196608, 0, 393220, 0, 0, 458756, 0, 0, 524292, 0, 0, 589828, 0, 0, 655364, 0, 0, 720900, 196608, 1, 786436, 0, 0, 851972, 0, 0, 917508, 196608, 1, 983044, 196608, 0, 5, 196608, 0, 65541, 65536, 1, 131077, 65536, 1, 196613, 65536, 1, 262149, 65536, 1, 327685, 196608, 0, 393221, 0, 0, 458757, 0, 0, 524293, 0, 0, 589829, 0, 0, 655365, 196608, 1, 720901, 0, 0, 786437, 0, 0, 851973, 0, 0, 917509, 0, 0, 983045, 196608, 0, 6, 196608, 0, 65542, 65536, 1, 131078, 65536, 1, 196614, 65536, 1, 262150, 65536, 1, 327686, 196608, 0, 393222, 0, 0, 458758, 0, 0, 524294, 0, 0, 589830, 0, 0, 655366, 65536, 0, 720902, 0, 0, 786438, 0, 0, 851974, 65536, 0, 917510, 0, 0, 983046, 196608, 0, 7, 196608, 0, 65543, 65536, 1, 131079, 65536, 1, 196615, 65536, 1, 262151, 65536, 1, 327687, 196608, 0, 393223, 0, 0, 458759, 0, 0, 524295, 0, 0, 589831, 0, 0, 655367, 0, 0, 720903, 196608, 1, 786439, 0, 0, 851975, 65536, 0, 917511, 0, 0, 983047, 196608, 0, 8, 196608, 0, 65544, 65536, 1, 131080, 65536, 1, 196616, 65536, 1, 262152, 65536, 1, 327688, 196608, 0, 393224, 0, 0, 458760, 196608, 1, 524296, 0, 0, 589832, 0, 0, 655368, 0, 0, 720904, 0, 0, 786440, 65536, 0, 851976, 0, 0, 917512, 0, 0, 983048, 196608, 0, 9, 196608, 0, 65545, 65536, 1, 131081, 65536, 1, 196617, 65536, 1, 262153, 65536, 1, 327689, 196608, 0, 393225, 0, 0, 458761, 65536, 0, 524297, 65536, 0, 589833, 0, 0, 655369, 0, 0, 720905, 0, 0, 786441, 0, 0, 851977, 0, 0, 917513, 0, 0, 983049, 196608, 0, 10, 196608, 0, 65546, 65536, 1, 131082, 65536, 1, 196618, 65536, 1, 262154, 65536, 1, 327690, 131072, 1, 393226, 131072, 1, 458762, 131072, 1, 524298, 131072, 1, 589834, 131072, 1, 655370, 131072, 1, 720906, 131072, 1, 786442, 131072, 1, 851978, 131072, 1, 917514, 131072, 1, 983050, 131072, 1, 11, 196608, 0, 65547, 65536, 1, 131083, 65536, 1, 196619, 65536, 1, 262155, 65536, 1, 327691, 131072, 1, 393227, 131072, 1, 458763, 131072, 1, 524299, 131072, 1, 589835, 131072, 1, 655371, 131072, 1, 720907, 131072, 1, 786443, 131072, 1, 851979, 131072, 1, 917515, 131072, 1, 983051, 131072, 1, 12, 196608, 0, 65548, 65536, 1, 131084, 65536, 1, 196620, 65536, 1, 262156, 65536, 1, 327692, 196608, 0, 393228, 0, 0, 458764, 0, 0, 524300, 0, 0, 589836, 65536, 0, 655372, 0, 0, 720908, 65536, 0, 786444, 0, 0, 851980, 0, 0, 917516, 0, 0, 983052, 196608, 0, 13, 196608, 0, 65549, 65536, 1, 131085, 65536, 1, 196621, 65536, 1, 262157, 65536, 1, 327693, 196608, 0, 393229, 196608, 1, 458765, 0, 0, 524301, 0, 0, 589837, 196608, 1, 655373, 0, 0, 720909, 65536, 0, 786445, 0, 0, 851981, 0, 0, 917517, 0, 0, 983053, 196608, 0, 14, 196608, 0, 65550, 65536, 1, 131086, 65536, 1, 196622, 65536, 1, 262158, 65536, 1, 327694, 196608, 0, 393230, 0, 0, 458766, 0, 0, 524302, 0, 0, 589838, 0, 0, 655374, 0, 0, 720910, 0, 0, 786446, 65536, 0, 851982, 0, 0, 917518, 0, 0, 983054, 196608, 0, 15, 196608, 0, 65551, 65536, 1, 131087, 65536, 1, 196623, 65536, 1, 262159, 65536, 1, 327695, 196608, 0, 393231, 0, 0, 458767, 0, 0, 524303, 0, 0, 589839, 0, 0, 655375, 0, 0, 720911, 0, 0, 786447, 0, 0, 851983, 0, 0, 917519, 0, 0, 983055, 196608, 0, 16, 196608, 0, 65552, 65536, 1, 131088, 65536, 1, 196624, 65536, 1, 262160, 65536, 1, 327696, 196608, 0, 393232, 0, 0, 458768, 0, 0, 524304, 0, 0, 589840, 0, 0, 655376, 0, 0, 720912, 0, 0, 786448, 0, 0, 851984, 0, 0, 917520, 0, 0, 983056, 196608, 0, 17, 196608, 0, 65553, 65536, 1, 131089, 65536, 1, 196625, 65536, 1, 262161, 65536, 1, 327697, 196608, 0, 393233, 65536, 0, 458769, 0, 0, 524305, 0, 0, 589841, 0, 0, 655377, 196608, 1, 720913, 0, 0, 786449, 0, 0, 851985, 0, 0, 917521, 196608, 1, 983057, 196608, 0, 18, 196608, 0, 65554, 65536, 1, 131090, 65536, 1, 196626, 65536, 1, 262162, 65536, 1, 327698, 196608, 0, 393234, 0, 0, 458770, 0, 0, 524306, 0, 0, 589842, 0, 0, 655378, 196608, 1, 720914, 0, 0, 786450, 0, 0, 851986, 0, 0, 917522, 0, 0, 983058, 196608, 0, 19, 196608, 0, 65555, 65536, 1, 131091, 65536, 1, 196627, 65536, 1, 262163, 65536, 1, 327699, 196608, 0, 393235, 0, 0, 458771, 65536, 0, 524307, 0, 0, 589843, 0, 0, 655379, 0, 0, 720915, 0, 0, 786451, 0, 0, 851987, 0, 0, 917523, 0, 0, 983059, 196608, 0, 20, 196608, 0, 65556, 65536, 1, 131092, 65536, 1, 196628, 65536, 1, 262164, 65536, 1, 327700, 196608, 0, 393236, 0, 0, 458772, 0, 0, 524308, 0, 0, 589844, 0, 0, 655380, 65536, 0, 720916, 65536, 0, 786452, 0, 0, 851988, 0, 0, 917524, 0, 0, 983060, 196608, 0, 21, 0, 1, 65557, 0, 1, 131093, 0, 1, 196629, 0, 1, 262165, 0, 1, 327701, 0, 1, 393237, 0, 1, 458773, 0, 1, 524309, 0, 1, 589845, 0, 1, 655381, 0, 1, 720917, 0, 1, 786453, 0, 1, 851989, 0, 1, 917525, 0, 1, 983061, 0, 1)
+
+[node name="PropTable" type="Sprite2D" parent="."]
+position = Vector2(-400, 150)
+texture = ExtResource("16_5eqnd")
+
+[node name="PropShelf" type="Sprite2D" parent="."]
+position = Vector2(-600, -260)
+texture = ExtResource("17_081lh")
+
+[node name="PropLampA" type="Sprite2D" parent="."]
+position = Vector2(-300, -100)
+texture = ExtResource("18_gckyc")
+
+[node name="PropLampB" type="Sprite2D" parent="."]
+position = Vector2(300, -100)
+texture = ExtResource("18_gckyc")

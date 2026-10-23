@@ -1,0 +1,371 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://enemies/rat.tscn" id="6_rat"]
+[ext_resource type="PackedScene" path="res://enemies/boss_golem.tscn" id="11_golem"]
+[ext_resource type="PackedScene" path="res://systems/portal.tscn" id="8_portal"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_hud"]
+[ext_resource type="Script" path="res://systems/map_root.gd" id="1_maproot"]
+
+[sub_resource type="RectangleShape2D" id="Shape_1"]
+size = Vector2(1680, 40)
+
+[sub_resource type="RectangleShape2D" id="Shape_2"]
+size = Vector2(40, 1280)
+
+[sub_resource type="RectangleShape2D" id="Shape_3"]
+size = Vector2(740, 36)
+
+[sub_resource type="RectangleShape2D" id="Shape_4"]
+size = Vector2(16, 60)
+
+[sub_resource type="CircleShape2D" id="Shape_5"]
+radius = 24
+
+[sub_resource type="CircleShape2D" id="Shape_6"]
+radius = 20.8
+
+[sub_resource type="CircleShape2D" id="Shape_7"]
+radius = 16
+
+[sub_resource type="CircleShape2D" id="Shape_8"]
+radius = 17.6
+
+[sub_resource type="Gradient" id="Gradient_glow"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(0.6, 1, 0.75, 1, 0.6, 1, 0.75, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture_glow"]
+gradient = SubResource("Gradient_glow")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="HangGolem" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_maproot")
+
+[node name="Darken" type="CanvasModulate" parent="."]
+color = Color(0.45, 0.47, 0.52, 1)
+[node name="CaveFloor" type="Polygon2D" parent="."]
+z_index = -100
+color = Color(0.3, 0.29, 0.3, 1)
+polygon = PackedVector2Array(-800, -600, 800, -600, 800, 600, -800, 600)
+[node name="FloorShade" type="Polygon2D" parent="."]
+z_index = -99
+color = Color(0.26, 0.25, 0.27, 1)
+polygon = PackedVector2Array(-800, 80, 800, 80, 800, 600, -800, 600)
+[node name="BossArena" type="Polygon2D" parent="."]
+z_index = -98
+color = Color(0.36, 0.35, 0.34, 1)
+polygon = PackedVector2Array(230, -320, 199.19, -225, 115, -155.46, 0, -130, -115, -155.46, -199.19, -225, -230, -320, -199.19, -415, -115, -484.54, -0, -510, 115, -484.54, 199.19, -415)
+[node name="MossPatch1" type="Polygon2D" parent="."]
+z_index = -97
+color = Color(0.3, 0.6, 0.35, 0.7)
+polygon = PackedVector2Array(-310, -420, -324.74, -390, -365, -368.04, -420, -360, -475, -368.04, -515.26, -390, -530, -420, -515.26, -450, -475, -471.96, -420, -480, -365, -471.96, -324.74, -450)
+[node name="MossPatch2" type="Polygon2D" parent="."]
+z_index = -97
+color = Color(0.3, 0.6, 0.35, 0.7)
+polygon = PackedVector2Array(550, 300, 533.92, 332.5, 490, 356.29, 430, 365, 370, 356.29, 326.08, 332.5, 310, 300, 326.08, 267.5, 370, 243.71, 430, 235, 490, 243.71, 533.92, 267.5)
+[node name="MossPatch3" type="Polygon2D" parent="."]
+z_index = -97
+color = Color(0.32, 0.62, 0.36, 0.6)
+polygon = PackedVector2Array(80, 480, 61.24, 507.5, 10, 527.63, -60, 535, -130, 527.63, -181.24, 507.5, -200, 480, -181.24, 452.5, -130, 432.37, -60, 425, 10, 432.37, 61.24, 452.5)
+[node name="WallTop" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.18, 0.17, 0.19, 1)
+polygon = PackedVector2Array(-840, -640, 840, -640, 840, -600, -840, -600)
+[node name="Body_WallTop" type="StaticBody2D" parent="."]
+position = Vector2(0, -620)
+[node name="Col" type="CollisionShape2D" parent="Body_WallTop"]
+shape = SubResource("Shape_1")
+[node name="WallBottom" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.18, 0.17, 0.19, 1)
+polygon = PackedVector2Array(-840, 600, 840, 600, 840, 640, -840, 640)
+[node name="Body_WallBottom" type="StaticBody2D" parent="."]
+position = Vector2(0, 620)
+[node name="Col" type="CollisionShape2D" parent="Body_WallBottom"]
+shape = SubResource("Shape_1")
+[node name="WallLeft" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.18, 0.17, 0.19, 1)
+polygon = PackedVector2Array(-840, -640, -800, -640, -800, 640, -840, 640)
+[node name="Body_WallLeft" type="StaticBody2D" parent="."]
+position = Vector2(-820, 0)
+[node name="Col" type="CollisionShape2D" parent="Body_WallLeft"]
+shape = SubResource("Shape_2")
+[node name="WallRight" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.18, 0.17, 0.19, 1)
+polygon = PackedVector2Array(800, -640, 840, -640, 840, 640, 800, 640)
+[node name="Body_WallRight" type="StaticBody2D" parent="."]
+position = Vector2(820, 0)
+[node name="Col" type="CollisionShape2D" parent="Body_WallRight"]
+shape = SubResource("Shape_2")
+[node name="PartitionL" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.38, 0.36, 0.37, 1)
+polygon = PackedVector2Array(-800, 62, -60, 62, -60, 98, -800, 98)
+[node name="Body_PartitionL" type="StaticBody2D" parent="."]
+position = Vector2(-430, 80)
+[node name="Col" type="CollisionShape2D" parent="Body_PartitionL"]
+shape = SubResource("Shape_3")
+[node name="PartitionR" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.38, 0.36, 0.37, 1)
+polygon = PackedVector2Array(60, 62, 800, 62, 800, 98, 60, 98)
+[node name="Body_PartitionR" type="StaticBody2D" parent="."]
+position = Vector2(430, 80)
+[node name="Col" type="CollisionShape2D" parent="Body_PartitionR"]
+shape = SubResource("Shape_3")
+[node name="DoorPostL" type="Node2D" parent="."]
+position = Vector2(-68, 80)
+[node name="Body" type="StaticBody2D" parent="DoorPostL"]
+[node name="Col" type="CollisionShape2D" parent="DoorPostL/Body"]
+shape = SubResource("Shape_4")
+[node name="Post" type="Polygon2D" parent="DoorPostL"]
+color = Color(0.44, 0.42, 0.43, 1)
+polygon = PackedVector2Array(-8, -30, 8, -30, 8, 30, -8, 30)
+[node name="DoorPostR" type="Node2D" parent="."]
+position = Vector2(68, 80)
+[node name="Body" type="StaticBody2D" parent="DoorPostR"]
+[node name="Col" type="CollisionShape2D" parent="DoorPostR/Body"]
+shape = SubResource("Shape_4")
+[node name="Post" type="Polygon2D" parent="DoorPostR"]
+color = Color(0.44, 0.42, 0.43, 1)
+polygon = PackedVector2Array(-8, -30, 8, -30, 8, 30, -8, 30)
+[node name="Column0" type="Node2D" parent="."]
+position = Vector2(-330, -300)
+[node name="Body" type="StaticBody2D" parent="Column0"]
+[node name="Col" type="CollisionShape2D" parent="Column0/Body"]
+shape = SubResource("Shape_5")
+[node name="Shaft" type="Polygon2D" parent="Column0"]
+color = Color(0.45, 0.43, 0.44, 1)
+polygon = PackedVector2Array(-20, -34, 20, -34, 20, 34, -20, 34)
+[node name="Base" type="Polygon2D" parent="Column0"]
+color = Color(0.36, 0.34, 0.36, 1)
+polygon = PackedVector2Array(-27, 22, 27, 22, 27, 36, -27, 36)
+[node name="Cap" type="Polygon2D" parent="Column0"]
+color = Color(0.36, 0.34, 0.36, 1)
+polygon = PackedVector2Array(-27, -38, 27, -38, 27, -24, -27, -24)
+[node name="Column1" type="Node2D" parent="."]
+position = Vector2(330, -300)
+[node name="Body" type="StaticBody2D" parent="Column1"]
+[node name="Col" type="CollisionShape2D" parent="Column1/Body"]
+shape = SubResource("Shape_5")
+[node name="Shaft" type="Polygon2D" parent="Column1"]
+color = Color(0.45, 0.43, 0.44, 1)
+polygon = PackedVector2Array(-20, -34, 20, -34, 20, 34, -20, 34)
+[node name="Base" type="Polygon2D" parent="Column1"]
+color = Color(0.36, 0.34, 0.36, 1)
+polygon = PackedVector2Array(-27, 22, 27, 22, 27, 36, -27, 36)
+[node name="Cap" type="Polygon2D" parent="Column1"]
+color = Color(0.36, 0.34, 0.36, 1)
+polygon = PackedVector2Array(-27, -38, 27, -38, 27, -24, -27, -24)
+[node name="Column2" type="Node2D" parent="."]
+position = Vector2(-330, -520)
+[node name="Body" type="StaticBody2D" parent="Column2"]
+[node name="Col" type="CollisionShape2D" parent="Column2/Body"]
+shape = SubResource("Shape_5")
+[node name="Shaft" type="Polygon2D" parent="Column2"]
+color = Color(0.45, 0.43, 0.44, 1)
+polygon = PackedVector2Array(-20, -34, 20, -34, 20, 34, -20, 34)
+[node name="Base" type="Polygon2D" parent="Column2"]
+color = Color(0.36, 0.34, 0.36, 1)
+polygon = PackedVector2Array(-27, 22, 27, 22, 27, 36, -27, 36)
+[node name="Cap" type="Polygon2D" parent="Column2"]
+color = Color(0.36, 0.34, 0.36, 1)
+polygon = PackedVector2Array(-27, -38, 27, -38, 27, -24, -27, -24)
+[node name="Column3" type="Node2D" parent="."]
+position = Vector2(330, -520)
+[node name="Body" type="StaticBody2D" parent="Column3"]
+[node name="Col" type="CollisionShape2D" parent="Column3/Body"]
+shape = SubResource("Shape_5")
+[node name="Shaft" type="Polygon2D" parent="Column3"]
+color = Color(0.45, 0.43, 0.44, 1)
+polygon = PackedVector2Array(-20, -34, 20, -34, 20, 34, -20, 34)
+[node name="Base" type="Polygon2D" parent="Column3"]
+color = Color(0.36, 0.34, 0.36, 1)
+polygon = PackedVector2Array(-27, 22, 27, 22, 27, 36, -27, 36)
+[node name="Cap" type="Polygon2D" parent="Column3"]
+color = Color(0.36, 0.34, 0.36, 1)
+polygon = PackedVector2Array(-27, -38, 27, -38, 27, -24, -27, -24)
+[node name="Column4" type="Node2D" parent="."]
+position = Vector2(-480, 300)
+[node name="Body" type="StaticBody2D" parent="Column4"]
+[node name="Col" type="CollisionShape2D" parent="Column4/Body"]
+shape = SubResource("Shape_5")
+[node name="Shaft" type="Polygon2D" parent="Column4"]
+color = Color(0.45, 0.43, 0.44, 1)
+polygon = PackedVector2Array(-20, -34, 20, -34, 20, 34, -20, 34)
+[node name="Base" type="Polygon2D" parent="Column4"]
+color = Color(0.36, 0.34, 0.36, 1)
+polygon = PackedVector2Array(-27, 22, 27, 22, 27, 36, -27, 36)
+[node name="Cap" type="Polygon2D" parent="Column4"]
+color = Color(0.36, 0.34, 0.36, 1)
+polygon = PackedVector2Array(-27, -38, 27, -38, 27, -24, -27, -24)
+[node name="Column5" type="Node2D" parent="."]
+position = Vector2(480, 300)
+[node name="Body" type="StaticBody2D" parent="Column5"]
+[node name="Col" type="CollisionShape2D" parent="Column5/Body"]
+shape = SubResource("Shape_5")
+[node name="Shaft" type="Polygon2D" parent="Column5"]
+color = Color(0.45, 0.43, 0.44, 1)
+polygon = PackedVector2Array(-20, -34, 20, -34, 20, 34, -20, 34)
+[node name="Base" type="Polygon2D" parent="Column5"]
+color = Color(0.36, 0.34, 0.36, 1)
+polygon = PackedVector2Array(-27, 22, 27, 22, 27, 36, -27, 36)
+[node name="Cap" type="Polygon2D" parent="Column5"]
+color = Color(0.36, 0.34, 0.36, 1)
+polygon = PackedVector2Array(-27, -38, 27, -38, 27, -24, -27, -24)
+[node name="Stalactite0" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.4, 0.39, 0.41, 1)
+polygon = PackedVector2Array(-623, -600, -577, -600, -600, -521.8)
+[node name="Stalactite1" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.4, 0.39, 0.41, 1)
+polygon = PackedVector2Array(-217, -600, -183, -600, -200, -542.2)
+[node name="Stalactite2" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.4, 0.39, 0.41, 1)
+polygon = PackedVector2Array(160, -600, 200, -600, 180, -532)
+[node name="Stalactite3" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.4, 0.39, 0.41, 1)
+polygon = PackedVector2Array(545, -600, 575, -600, 560, -549)
+[node name="Stalactite4" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.4, 0.39, 0.41, 1)
+polygon = PackedVector2Array(-93, 80, -67, 80, -80, 124.2)
+[node name="Stalactite5" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.4, 0.39, 0.41, 1)
+polygon = PackedVector2Array(225, 80, 255, 80, 240, 131)
+[node name="MossGlow0" type="Polygon2D" parent="."]
+z_index = -96
+color = Color(0.55, 0.95, 0.65, 0.8)
+polygon = PackedVector2Array(-386, -420, -390.56, -410, -403, -402.68, -420, -400, -437, -402.68, -449.44, -410, -454, -420, -449.44, -430, -437, -437.32, -420, -440, -403, -437.32, -390.56, -430)
+[node name="MossLight0" type="PointLight2D" parent="."]
+position = Vector2(-420, -420)
+color = Color(0.6, 1, 0.75, 1)
+energy = 0.9
+texture = SubResource("GradientTexture_glow")
+texture_scale = 1.6
+[node name="MossGlow1" type="Polygon2D" parent="."]
+z_index = -96
+color = Color(0.55, 0.95, 0.65, 0.8)
+polygon = PackedVector2Array(464, 300, 459.44, 310, 447, 317.32, 430, 320, 413, 317.32, 400.56, 310, 396, 300, 400.56, 290, 413, 282.68, 430, 280, 447, 282.68, 459.44, 290)
+[node name="MossLight1" type="PointLight2D" parent="."]
+position = Vector2(430, 300)
+color = Color(0.6, 1, 0.75, 1)
+energy = 0.9
+texture = SubResource("GradientTexture_glow")
+texture_scale = 1.6
+[node name="MossGlow2" type="Polygon2D" parent="."]
+z_index = -96
+color = Color(0.55, 0.95, 0.65, 0.8)
+polygon = PackedVector2Array(-26, 480, -30.56, 490, -43, 497.32, -60, 500, -77, 497.32, -89.44, 490, -94, 480, -89.44, 470, -77, 462.68, -60, 460, -43, 462.68, -30.56, 470)
+[node name="MossLight2" type="PointLight2D" parent="."]
+position = Vector2(-60, 480)
+color = Color(0.6, 1, 0.75, 1)
+energy = 0.9
+texture = SubResource("GradientTexture_glow")
+texture_scale = 1.6
+[node name="MossGlow3" type="Polygon2D" parent="."]
+z_index = -96
+color = Color(0.55, 0.95, 0.65, 0.8)
+polygon = PackedVector2Array(34, -560, 29.44, -550, 17, -542.68, 0, -540, -17, -542.68, -29.44, -550, -34, -560, -29.44, -570, -17, -577.32, -0, -580, 17, -577.32, 29.44, -570)
+[node name="MossLight3" type="PointLight2D" parent="."]
+position = Vector2(0, -560)
+color = Color(0.6, 1, 0.75, 1)
+energy = 0.9
+texture = SubResource("GradientTexture_glow")
+texture_scale = 1.6
+[node name="FallenRock1" type="Node2D" parent="."]
+position = Vector2(-180, 300)
+[node name="Body" type="StaticBody2D" parent="FallenRock1"]
+[node name="Col" type="CollisionShape2D" parent="FallenRock1/Body"]
+shape = SubResource("Shape_6")
+[node name="Stone" type="Polygon2D" parent="FallenRock1"]
+color = Color(0.42, 0.4, 0.42, 1)
+polygon = PackedVector2Array(26, 0, 22.52, 9.75, 13, 16.89, 0, 19.5, -13, 16.89, -22.52, 9.75, -26, 0, -22.52, -9.75, -13, -16.89, -0, -19.5, 13, -16.89, 22.52, -9.75)
+[node name="StoneHi" type="Polygon2D" parent="FallenRock1"]
+color = Color(0.65, 0.65, 0.67, 1)
+polygon = PackedVector2Array(5.2, -7.8, 3.63, -3.9, -0.65, -1.05, -6.5, 0, -12.35, -1.05, -16.63, -3.9, -18.2, -7.8, -16.63, -11.7, -12.35, -14.55, -6.5, -15.6, -0.65, -14.55, 3.63, -11.7)
+[node name="FallenRock2" type="Node2D" parent="."]
+position = Vector2(220, 420)
+[node name="Body" type="StaticBody2D" parent="FallenRock2"]
+[node name="Col" type="CollisionShape2D" parent="FallenRock2/Body"]
+shape = SubResource("Shape_7")
+[node name="Stone" type="Polygon2D" parent="FallenRock2"]
+color = Color(0.42, 0.4, 0.42, 1)
+polygon = PackedVector2Array(20, 0, 17.32, 7.5, 10, 12.99, 0, 15, -10, 12.99, -17.32, 7.5, -20, 0, -17.32, -7.5, -10, -12.99, -0, -15, 10, -12.99, 17.32, -7.5)
+[node name="StoneHi" type="Polygon2D" parent="FallenRock2"]
+color = Color(0.65, 0.65, 0.67, 1)
+polygon = PackedVector2Array(4, -6, 2.79, -3, -0.5, -0.8, -5, 0, -9.5, -0.8, -12.79, -3, -14, -6, -12.79, -9, -9.5, -11.2, -5, -12, -0.5, -11.2, 2.79, -9)
+[node name="FallenRock3" type="Node2D" parent="."]
+position = Vector2(-560, -120)
+[node name="Body" type="StaticBody2D" parent="FallenRock3"]
+[node name="Col" type="CollisionShape2D" parent="FallenRock3/Body"]
+shape = SubResource("Shape_8")
+[node name="Stone" type="Polygon2D" parent="FallenRock3"]
+color = Color(0.42, 0.4, 0.42, 1)
+polygon = PackedVector2Array(22, 0, 19.05, 8.25, 11, 14.29, 0, 16.5, -11, 14.29, -19.05, 8.25, -22, 0, -19.05, -8.25, -11, -14.29, -0, -16.5, 11, -14.29, 19.05, -8.25)
+[node name="StoneHi" type="Polygon2D" parent="FallenRock3"]
+color = Color(0.65, 0.65, 0.67, 1)
+polygon = PackedVector2Array(4.4, -6.6, 3.07, -3.3, -0.55, -0.88, -5.5, 0, -10.45, -0.88, -14.07, -3.3, -15.4, -6.6, -14.07, -9.9, -10.45, -12.32, -5.5, -13.2, -0.55, -12.32, 3.07, -9.9)
+[node name="LabelHang" type="Label" parent="."]
+offset_left = -280
+offset_top = 400
+offset_right = 280
+offset_bottom = 432
+theme_override_colors/font_color = Color(0.75, 0.95, 0.8, 1)
+theme_override_font_sizes/font_size = 22
+text = "MOSS DEN"
+horizontal_alignment = 1
+[node name="LabelBossRoom" type="Label" parent="."]
+offset_left = -280
+offset_top = -580
+offset_right = 280
+offset_bottom = -556
+theme_override_colors/font_color = Color(0.95, 0.8, 0.75, 1)
+theme_override_font_sizes/font_size = 14
+text = "Sân Golem — cẩn thận!"
+horizontal_alignment = 1
+[node name="Rat1" parent="." instance=ExtResource("6_rat")]
+position = Vector2(-350, 250)
+[node name="Rat2" parent="." instance=ExtResource("6_rat")]
+position = Vector2(300, 350)
+[node name="Rat3" parent="." instance=ExtResource("6_rat")]
+position = Vector2(60, 200)
+[node name="BossGolem" parent="." instance=ExtResource("11_golem")]
+position = Vector2(0, -320)
+[node name="Spawn_start" type="Marker2D" parent="."]
+position = Vector2(0, 490)
+[node name="Spawn_from_nui" type="Marker2D" parent="."]
+position = Vector2(0, 490)
+[node name="PortalExit" parent="." instance=ExtResource("8_portal")]
+position = Vector2(0, 550)
+target_scene = "res://maps/nui_thanh_van.tscn"
+target_spawn = "from_hang"
+label_text = "↑ Cloudpeak"
+[node name="Borders" type="StaticBody2D" parent="."]
+[node name="ColTop" type="CollisionShape2D" parent="Borders"]
+position = Vector2(0, -618)
+shape = SubResource("Shape_1")
+[node name="ColBottom" type="CollisionShape2D" parent="Borders"]
+position = Vector2(0, 618)
+shape = SubResource("Shape_1")
+[node name="ColLeft" type="CollisionShape2D" parent="Borders"]
+position = Vector2(-818, 0)
+shape = SubResource("Shape_2")
+[node name="ColRight" type="CollisionShape2D" parent="Borders"]
+position = Vector2(818, 0)
+shape = SubResource("Shape_2")
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(0, 490)
+[node name="HUD" parent="." instance=ExtResource("3_hud")]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/boss_rat_king.gd" id="1_boss"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/rat_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(52, 40)
+
+[node name="BossRatKing" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_boss")
+enemy_type = "boss_rat_king"
+display_name = "The Rat King"
+max_hp = 220
+damage = 14
+speed = 95.0
+xp_reward = 120
+gold_reward = 80
+sprite_frames = ExtResource("2_frames")
+sprite_modulate = Color(1, 0.82, 0.82, 1)
+sprite_scale = 2.2
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-26, 16, 26, 16, 31, 21, 26, 25, -26, 25, -31, 21)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -22)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")

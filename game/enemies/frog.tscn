@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/enemy_base.gd" id="1_base"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/slime_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(28, 20)
+
+[node name="Frog" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_base")
+editor_description = "Ech doc Ho Suong: doc nhe o prototype = damage thuong (chua co DoT), chi khac mau/hinh slime."
+enemy_type = "frog"
+display_name = "Ếch độc Mistlake"
+max_hp = 18
+damage = 7
+speed = 95.0
+xp_reward = 9
+gold_reward = 2
+attack_range = 40.0
+sprite_frames = ExtResource("2_frames")
+sprite_modulate = Color(0.55, 0.95, 1.05, 1)
+sprite_scale = 0.9
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-13, 8, 13, 8, 16, 11, 13, 13, -13, 13, -16, 11)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -18)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")
