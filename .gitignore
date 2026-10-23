@@ -1,0 +1,17 @@
+# Godot 4
+.godot/
+*.tmp
+export/
+builds/
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+# Muse local
+*.zip
+
+# Asset nhị phân lưu dạng .b64 trong repo (xem tools/restore_assets.py)
+game/assets/sprites/*.png
+design/sprite_preview_v3.png
+design/sprite_mockup_v3.png

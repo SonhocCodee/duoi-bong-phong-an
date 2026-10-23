@@ -1,0 +1,176 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://maps/world_test.gd" id="1_world"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://enemies/goblin.tscn" id="3_goblin"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="4_hud"]
+
+[node name="WorldTest" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_world")
+
+[node name="Background" type="Polygon2D" parent="."]
+z_index = -100
+color = Color(0.12, 0.13, 0.11, 1)
+polygon = PackedVector2Array(-1300, -950, 1300, -950, 1300, 950, -1300, 950)
+
+[node name="ZoneBac" type="Polygon2D" parent="."]
+z_index = -90
+color = Color(0.82, 0.9, 0.97, 1)
+polygon = PackedVector2Array(-450, -950, 450, -950, 450, -260, -450, -260)
+
+[node name="ZoneNam" type="Polygon2D" parent="."]
+z_index = -90
+color = Color(0.28, 0.45, 0.32, 1)
+polygon = PackedVector2Array(-450, 260, 450, 260, 450, 950, -450, 950)
+
+[node name="ZoneTay" type="Polygon2D" parent="."]
+z_index = -90
+color = Color(0.88, 0.68, 0.35, 1)
+polygon = PackedVector2Array(-1300, -450, -260, -450, -260, 450, -1300, 450)
+
+[node name="ZoneDong" type="Polygon2D" parent="."]
+z_index = -90
+color = Color(0.45, 0.78, 0.42, 1)
+polygon = PackedVector2Array(260, -450, 1300, -450, 1300, 450, 260, 450)
+
+[node name="ZoneTrungTam" type="Polygon2D" parent="."]
+z_index = -80
+color = Color(0.32, 0.28, 0.36, 1)
+polygon = PackedVector2Array(300, 0, 212, 212, 0, 300, -212, 212, -300, 0, -212, -212, 0, -300, 212, -212)
+
+[node name="ThapVuongAn" type="Polygon2D" parent="."]
+y_sort_enabled = true
+z_index = 10
+color = Color(0.45, 0.4, 0.55, 1)
+polygon = PackedVector2Array(-42, 90, 42, 90, 26, -60, -26, -60)
+
+[node name="ThapDinh" type="Polygon2D" parent="."]
+y_sort_enabled = true
+z_index = 11
+color = Color(0.6, 0.52, 0.75, 1)
+polygon = PackedVector2Array(-28, -58, 28, -58, 0, -175)
+
+[node name="LabelBac" type="Label" parent="."]
+offset_left = -130.0
+offset_top = -760.0
+offset_right = 130.0
+offset_bottom = -720.0
+theme_override_colors/font_color = Color(0.1, 0.2, 0.35, 1)
+theme_override_font_sizes/font_size = 28
+text = "BẮC - Thành Hàn Thiết"
+horizontal_alignment = 1
+
+[node name="LabelBacSub" type="Label" parent="."]
+offset_left = -130.0
+offset_top = -720.0
+offset_right = 130.0
+offset_bottom = -695.0
+theme_override_colors/font_color = Color(0.2, 0.35, 0.5, 1)
+theme_override_font_sizes/font_size = 14
+text = "(Vùng băng tuyết)"
+horizontal_alignment = 1
+
+[node name="LabelNam" type="Label" parent="."]
+offset_left = -130.0
+offset_top = 620.0
+offset_right = 130.0
+offset_bottom = 660.0
+theme_override_colors/font_color = Color(0.05, 0.2, 0.1, 1)
+theme_override_font_sizes/font_size = 28
+text = "NAM - Thành Triều Ẩm"
+horizontal_alignment = 1
+
+[node name="LabelNamSub" type="Label" parent="."]
+offset_left = -130.0
+offset_top = 660.0
+offset_right = 130.0
+offset_bottom = 685.0
+theme_override_colors/font_color = Color(0.08, 0.3, 0.15, 1)
+theme_override_font_sizes/font_size = 14
+text = "(Đầm lầy / rừng rêu)"
+horizontal_alignment = 1
+
+[node name="LabelTay" type="Label" parent="."]
+offset_left = -980.0
+offset_top = -40.0
+offset_right = -560.0
+offset_bottom = 0.0
+theme_override_colors/font_color = Color(0.45, 0.15, 0.05, 1)
+theme_override_font_sizes/font_size = 28
+text = "TÂY - Thành Hồng Sa"
+horizontal_alignment = 1
+
+[node name="LabelTaySub" type="Label" parent="."]
+offset_left = -980.0
+offset_top = 0.0
+offset_right = -560.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.5, 0.25, 0.08, 1)
+theme_override_font_sizes/font_size = 14
+text = "(Sa mạc cát vàng / đỏ)"
+horizontal_alignment = 1
+
+[node name="LabelDong" type="Label" parent="."]
+offset_left = 760.0
+offset_top = -260.0
+offset_right = 1180.0
+offset_bottom = -220.0
+theme_override_colors/font_color = Color(0.05, 0.3, 0.08, 1)
+theme_override_font_sizes/font_size = 28
+text = "ĐÔNG - Thành Xuân Lâm"
+horizontal_alignment = 1
+
+[node name="LabelDongSub" type="Label" parent="."]
+offset_left = 760.0
+offset_top = -220.0
+offset_right = 1180.0
+offset_bottom = -195.0
+theme_override_colors/font_color = Color(0.08, 0.4, 0.12, 1)
+theme_override_font_sizes/font_size = 14
+text = "(Rừng xuân xanh)"
+horizontal_alignment = 1
+
+[node name="LabelThap" type="Label" parent="."]
+offset_left = -140.0
+offset_top = -230.0
+offset_right = 140.0
+offset_bottom = -195.0
+theme_override_colors/font_color = Color(0.95, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 26
+text = "Tháp Vương Ấn"
+horizontal_alignment = 1
+
+[node name="LabelThapSub" type="Label" parent="."]
+offset_left = -140.0
+offset_top = 105.0
+offset_right = 140.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0.85, 0.8, 0.95, 1)
+theme_override_font_sizes/font_size = 13
+text = "(Đất chết - Trùm cuối)"
+horizontal_alignment = 1
+
+[node name="LabelLangTanDiep" type="Label" parent="."]
+offset_left = 540.0
+offset_top = 105.0
+offset_right = 760.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0.05, 0.25, 0.05, 1)
+theme_override_font_sizes/font_size = 18
+text = "Làng Tân Diệp (xuất phát)"
+horizontal_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(650, 60)
+
+[node name="Goblin1" parent="." instance=ExtResource("3_goblin")]
+position = Vector2(770, -60)
+
+[node name="Goblin2" parent="." instance=ExtResource("3_goblin")]
+position = Vector2(830, 95)
+
+[node name="Goblin3" parent="." instance=ExtResource("3_goblin")]
+position = Vector2(710, 180)
+
+[node name="HUD" parent="." instance=ExtResource("4_hud")]
