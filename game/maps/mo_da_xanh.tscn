@@ -1,12 +1,19 @@
-[gd_scene format=3]
+[gd_scene load_steps=39 format=3]
 
 [ext_resource type="Script" path="res://systems/map_root.gd" id="1_e"]
 [ext_resource type="PackedScene" path="res://player/player.tscn" id="2_e"]
+[ext_resource type="Script" path="res://systems/npc.gd" id="3_252gd"]
 [ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_e"]
 [ext_resource type="PackedScene" path="res://systems/portal.tscn" id="4_e"]
+[ext_resource type="Script" path="res://enemies/enemy_base.gd" id="5_8u3vv"]
 [ext_resource type="PackedScene" path="res://systems/npc.tscn" id="5_e"]
 [ext_resource type="PackedScene" path="res://enemies/bandit.tscn" id="6_e"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/player_frames.tres" id="6_waovs"]
 [ext_resource type="PackedScene" path="res://enemies/rat.tscn" id="7_e"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/rat_frames.tres" id="8_agmsy"]
+[ext_resource type="Script" path="res://systems/portal.gd" id="10_dgd8t"]
+[ext_resource type="Script" path="res://player/player.gd" id="12_b62yx"]
+[ext_resource type="Script" path="res://ui/hud.gd" id="14_6d6jb"]
 
 [sub_resource type="RectangleShape2D" id="R1"]
 size = Vector2(1888, 32)
@@ -51,13 +58,13 @@ size = Vector2(32, 32)
 size = Vector2(32, 32)
 
 [sub_resource type="CircleShape2D" id="C15"]
-radius = 24
+radius = 24.0
 
 [sub_resource type="CircleShape2D" id="C16"]
-radius = 24
+radius = 24.0
 
 [sub_resource type="CircleShape2D" id="C17"]
-radius = 24
+radius = 24.0
 
 [sub_resource type="RectangleShape2D" id="R18"]
 size = Vector2(256, 32)
@@ -262,36 +269,222 @@ text = "↑ Miệng mỏ — Cloudpeak"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="NPC_PhuMo" parent="." instance=ExtResource("5_e")]
+[node name="NPC_PhuMo" type="CharacterBody2D" parent="." instance=ExtResource("5_e")]
+y_sort_enabled = true
 position = Vector2(-608, 448)
+script = ExtResource("3_252gd")
 npc_id = "phu_mo"
 display_name = "Phu mỏ bị giam"
-quest_ids = Array[String]([])
+quest_ids = Array[String](["dong_08_cong_ngam"])
+dialogue_before = Array[String]([])
+dialogue_active = Array[String]([])
+dialogue_ready = Array[String]([])
+dialogue_done = Array[String](["Chúng bắt phu mỏ chúng ta đào đá xanh ngày đêm, đá ấy phát sáng, nghe nói để nộp lên tháp trung tâm...", "Sau khu lán có đường cống cũ thông thẳng vào trong thành. Kháng chiến biết lối, ta thì không dám đi.", "Đốc công là bọn sơn tặc được thuê. Cẩn thận dao của chúng."])
 shop_enabled = false
 tint = Color(0.9, 0.85, 0.8, 1)
+sprite_scale = 0.75
 wander_radius = 0.0
-dialogue_done = Array[String](["Chúng bắt phu mỏ chúng ta đào đá xanh ngày đêm, đá ấy phát sáng, nghe nói để nộp lên tháp trung tâm...", "Sau khu lán có đường cống cũ thông thẳng vào trong thành. Kháng chiến biết lối, ta thì không dám đi.", "Đốc công là bọn sơn tặc được thuê. Cẩn thận dao của chúng."])
+wander_speed = 30.0
+schedule = Array[String]([])
+schedule_enabled = false
+work_anim = "work"
+speed = 55.0
 
-[node name="Bandit1" parent="." instance=ExtResource("6_e")]
+[node name="Bandit1" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
 position = Vector2(-512, 288)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8u3vv")
+enemy_type = "bandit"
+display_name = "Sơn tặc"
+max_hp = 40
+damage = 12
+speed = 120.0
+xp_reward = 18
+gold_reward = 12
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_waovs")
+sprite_modulate = Color(0.85, 0.6, 0.55, 1)
+sprite_scale = 1.05
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 0.0
+is_elite = false
+key_flag = ""
 
-[node name="Bandit2" parent="." instance=ExtResource("6_e")]
+[node name="Bandit2" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
 position = Vector2(-96, -64)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8u3vv")
+enemy_type = "bandit"
+display_name = "Sơn tặc"
+max_hp = 40
+damage = 12
+speed = 120.0
+xp_reward = 18
+gold_reward = 12
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_waovs")
+sprite_modulate = Color(0.85, 0.6, 0.55, 1)
+sprite_scale = 1.05
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 0.0
+is_elite = false
+key_flag = ""
 
-[node name="Bandit3" parent="." instance=ExtResource("6_e")]
+[node name="Bandit3" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
 position = Vector2(288, -288)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8u3vv")
+enemy_type = "bandit"
+display_name = "Sơn tặc"
+max_hp = 40
+damage = 12
+speed = 120.0
+xp_reward = 18
+gold_reward = 12
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_waovs")
+sprite_modulate = Color(0.85, 0.6, 0.55, 1)
+sprite_scale = 1.05
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 0.0
+is_elite = false
+key_flag = ""
 
-[node name="Bandit4" parent="." instance=ExtResource("6_e")]
+[node name="Bandit4" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
 position = Vector2(608, -384)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8u3vv")
+enemy_type = "bandit"
+display_name = "Sơn tặc"
+max_hp = 40
+damage = 12
+speed = 120.0
+xp_reward = 18
+gold_reward = 12
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_waovs")
+sprite_modulate = Color(0.85, 0.6, 0.55, 1)
+sprite_scale = 1.05
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 0.0
+is_elite = false
+key_flag = ""
 
-[node name="Rat1" parent="." instance=ExtResource("7_e")]
+[node name="Rat1" type="CharacterBody2D" parent="." instance=ExtResource("7_e")]
+y_sort_enabled = true
 position = Vector2(-192, 480)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8u3vv")
+enemy_type = "rat"
+display_name = "Chuột"
+max_hp = 15
+damage = 5
+speed = 130.0
+xp_reward = 8
+gold_reward = 2
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("8_agmsy")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
-[node name="Rat2" parent="." instance=ExtResource("7_e")]
+[node name="Rat2" type="CharacterBody2D" parent="." instance=ExtResource("7_e")]
+y_sort_enabled = true
 position = Vector2(160, -480)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8u3vv")
+enemy_type = "rat"
+display_name = "Chuột"
+max_hp = 15
+damage = 5
+speed = 130.0
+xp_reward = 8
+gold_reward = 2
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("8_agmsy")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
-[node name="Rat3" parent="." instance=ExtResource("7_e")]
+[node name="Rat3" type="CharacterBody2D" parent="." instance=ExtResource("7_e")]
+y_sort_enabled = true
 position = Vector2(576, 128)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8u3vv")
+enemy_type = "rat"
+display_name = "Chuột"
+max_hp = 15
+damage = 5
+speed = 130.0
+xp_reward = 8
+gold_reward = 2
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("8_agmsy")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
 [node name="Spawn_start" type="Marker2D" parent="."]
 position = Vector2(0, -544)
@@ -302,22 +495,183 @@ position = Vector2(0, -544)
 [node name="Spawn_from_cong" type="Marker2D" parent="."]
 position = Vector2(608, 480)
 
-[node name="PortalMouth" parent="." instance=ExtResource("4_e")]
+[node name="PortalMouth" type="Area2D" parent="." instance=ExtResource("4_e")]
 position = Vector2(0, -608)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("10_dgd8t")
 target_scene = "res://maps/nui_thanh_van.tscn"
 target_spawn = "from_mo"
+required_flag = ""
+locked_text = ""
 label_text = "↑ Cloudpeak"
 
-[node name="PortalSewer" parent="." instance=ExtResource("4_e")]
+[node name="PortalSewer" type="Area2D" parent="." instance=ExtResource("4_e")]
 position = Vector2(672, 576)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("10_dgd8t")
 target_scene = "res://maps/cong_ngam.tscn"
 target_spawn = "from_mo"
-label_text = "↓ Đường cống (ẩn)"
 required_flag = "co_duong_cong"
 locked_text = "Đường cống sau mỏ — kháng chiến chưa chỉ lối."
+label_text = "↓ Đường cống (ẩn)"
 
-[node name="Player" parent="." instance=ExtResource("2_e")]
+[node name="Player" type="CharacterBody2D" parent="." instance=ExtResource("2_e")]
+y_sort_enabled = true
 position = Vector2(0, -544)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("12_b62yx")
+speed = 220.0
+max_hp = 100
+max_stamina = 100.0
+stamina_regen = 28.0
+dodge_stamina_cost = 25.0
+dodge_speed = 520.0
+dodge_duration = 0.28
+attack_range = 56.0
+attack_damage = Array[int]([10, 12, 18])
 
-[node name="HUD" parent="." instance=ExtResource("3_e")]
+[node name="HUD" type="CanvasLayer" parent="." instance=ExtResource("3_e")]
+script = ExtResource("14_6d6jb")
 
+[node name="bandit_extra_1" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
+position = Vector2(378, -508)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8u3vv")
+enemy_type = "bandit"
+display_name = "Sơn tặc"
+max_hp = 40
+damage = 12
+speed = 120.0
+xp_reward = 18
+gold_reward = 12
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_waovs")
+sprite_modulate = Color(0.85, 0.6, 0.55, 1)
+sprite_scale = 1.05
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 0.0
+is_elite = false
+key_flag = ""
+
+[node name="bandit_extra_2" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
+position = Vector2(114, 26)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8u3vv")
+enemy_type = "bandit"
+display_name = "Sơn tặc"
+max_hp = 40
+damage = 12
+speed = 120.0
+xp_reward = 18
+gold_reward = 12
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_waovs")
+sprite_modulate = Color(0.85, 0.6, 0.55, 1)
+sprite_scale = 1.05
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 0.0
+is_elite = false
+key_flag = ""
+
+[node name="bandit_extra_3" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
+position = Vector2(-136, -254)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8u3vv")
+enemy_type = "bandit"
+display_name = "Sơn tặc"
+max_hp = 40
+damage = 12
+speed = 120.0
+xp_reward = 18
+gold_reward = 12
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_waovs")
+sprite_modulate = Color(0.85, 0.6, 0.55, 1)
+sprite_scale = 1.05
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 0.0
+is_elite = false
+key_flag = ""
+
+[node name="rat_extra_4" type="CharacterBody2D" parent="." instance=ExtResource("7_e")]
+y_sort_enabled = true
+position = Vector2(80, -590)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8u3vv")
+enemy_type = "rat"
+display_name = "Chuột"
+max_hp = 15
+damage = 5
+speed = 130.0
+xp_reward = 8
+gold_reward = 2
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("8_agmsy")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="rat_extra_5" type="CharacterBody2D" parent="." instance=ExtResource("7_e")]
+y_sort_enabled = true
+position = Vector2(386, 108)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8u3vv")
+enemy_type = "rat"
+display_name = "Chuột"
+max_hp = 15
+damage = 5
+speed = 130.0
+xp_reward = 8
+gold_reward = 2
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("8_agmsy")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""

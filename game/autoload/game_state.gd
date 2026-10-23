@@ -11,6 +11,7 @@ signal player_hp_changed(new_hp: int, max_hp: int)
 signal part1_completed
 signal potions_changed(new_count: int)
 signal boss_changed(display_name: String, hp: int, max_hp: int)
+signal stats_changed(attack_bonus: int, defense_bonus: int)
 
 var player_hp: int = 100
 var player_max_hp: int = 100
@@ -44,6 +45,9 @@ var spawn_point: String = "start"
 var current_map: String = ""
 # Đang mở hộp thoại / shop: player.gd kiểm tra cờ này để khóa di chuyển
 var in_dialogue: bool = false
+# --- Chỉ số trang bị (cộng dồn từ add_equipment: rơi từ quái / rương) ---
+var attack_bonus: int = 0
+var defense_bonus: int = 0
 
 
 func _ready() -> void:
@@ -74,6 +78,9 @@ func reset_game() -> void:
 	spawn_point = "start"
 	current_map = ""
 	in_dialogue = false
+	attack_bonus = 0
+	defense_bonus = 0
+	stats_changed.emit(attack_bonus, defense_bonus)
 	gold_changed.emit(gold)
 	xp_changed.emit(xp, level)
 	level_changed.emit(level)
@@ -119,6 +126,18 @@ func add_reputation(region: String, amount: int) -> void:
 
 func get_reputation(region: String) -> int:
 	return int(reputation.get(region, 0))
+
+
+# --- Trang bị / chỉ số -----------------------------------------------------
+
+## Cộng dồn chỉ số từ một món trang bị (rơi từ quái hoặc mở rương).
+## name chỉ để log/hiển thị; chỉ số cộng thẳng vào attack_bonus/defense_bonus.
+func add_equipment(equip_name: String, atk: int, def: int) -> void:
+	attack_bonus += atk
+	defense_bonus += def
+	stats_changed.emit(attack_bonus, defense_bonus)
+	print("[GameState] Nhận trang bị '%s' (+%d ATK, +%d DEF) -> ATK bonus %d, DEF bonus %d" % [
+		equip_name, atk, def, attack_bonus, defense_bonus])
 
 
 # --- Bình máu ------------------------------------------------------------
@@ -194,6 +213,8 @@ func to_dict() -> Dictionary:
 		"flags": flags.duplicate(true),
 		"spawn_point": spawn_point,
 		"current_map": current_map,
+		"attack_bonus": attack_bonus,
+		"defense_bonus": defense_bonus,
 	}
 
 
@@ -214,6 +235,9 @@ func from_dict(data: Dictionary) -> void:
 		flags = data["flags"].duplicate(true)
 	spawn_point = str(data.get("spawn_point", "start"))
 	current_map = str(data.get("current_map", ""))
+	attack_bonus = int(data.get("attack_bonus", 0))
+	defense_bonus = int(data.get("defense_bonus", 0))
+	stats_changed.emit(attack_bonus, defense_bonus)
 	clear_boss_display()
 	gold_changed.emit(gold)
 	potions_changed.emit(potions)

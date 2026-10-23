@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" path="res://player/player.tscn" id="2_player"]
 [ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_hud"]
 [ext_resource type="Script" path="res://systems/map_root.gd" id="1_maproot"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/tho_ren_frames.tres" id="10_thoren"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/linh_tuan_frames.tres" id="11_linhtuan"]
 
 [sub_resource type="RectangleShape2D" id="Shape_1"]
 size = Vector2(1030, 30)
@@ -536,6 +538,8 @@ dialogue_before = Array[String](["Quán Liên Hoa lúc nào cũng có phòng và
 dialogue_active = Array[String](["Elmford Cellar ở ngay dưới quán. Nghe nói còn một con Rat King to lắm ở kho sâu..."])
 dialogue_ready = Array[String](["Hết chuột rồi sao? Mũi ta không còn ngửi thấy mùi hôi nữa!"])
 dialogue_done = Array[String](["Cần nghỉ ngơi hay mua đồ, cứ ghé quán Liên Hoa. Thảo dược quanh Barleyfield cũng tốt cho thuốc của quán lắm."])
+schedule = Array[Dictionary]([{"x": -368.0, "y": -82.0, "action": "work", "time": 6.0}, {"x": -292.0, "y": -82.0, "action": "idle", "time": 4.0}])
+schedule_enabled = true
 [node name="NPC_ThoRen" parent="." instance=ExtResource("7_npc")]
 position = Vector2(430, -85)
 npc_id = "tho_ren"
@@ -547,6 +551,11 @@ dialogue_before = Array[String](["Slime cỏ tràn ra ruộng ở Barleyfield, �
 dialogue_active = Array[String](["Slime ở ruộng phía nam thành, qua Barleyfield là thấy."])
 dialogue_ready = Array[String](["Ruộng yên rồi à? Tay nghề ngươi khá đấy!"])
 dialogue_done = Array[String](["Kiếm cùn thì mang qua đây, ta mài cho."])
+schedule = Array[Dictionary]([{"x": 392.0, "y": -88.0, "action": "work", "time": 12.0}, {"x": 480.0, "y": -50.0, "action": "idle", "time": 4.0}, {"x": 430.0, "y": -85.0, "action": "walk", "time": 8.0}])
+schedule_enabled = true
+
+[node name="AnimatedSprite2D" parent="NPC_ThoRen"]
+sprite_frames = ExtResource("10_thoren")
 [node name="NPC_LinhGac" parent="." instance=ExtResource("7_npc")]
 position = Vector2(62, -672)
 npc_id = "linh_gac"
@@ -558,6 +567,11 @@ dialogue_before = Array[String](["Trên Cloudpeak có hang Moss Den — con gole
 dialogue_active = Array[String](["Đường leo núi gấp khúc, hai bên là vách đá. Cứ men theo đường đất sáng là tới miệng hang golem."])
 dialogue_ready = Array[String](["Ngươi thật sự hạ được Mossback sao? Cả thành này nợ ngươi một chén rượu!"])
 dialogue_done = Array[String](["Cloudpeak Summit nhìn rõ Sigilspire lắm. Người già nói rồng sẽ đáp xuống đó một ngày kia..."])
+schedule = Array[Dictionary]([{"x": -46.0, "y": -678.0, "action": "idle", "time": 4.0}, {"x": 46.0, "y": -678.0, "action": "walk", "time": 6.0}, {"x": 0.0, "y": -636.0, "action": "idle", "time": 4.0}])
+schedule_enabled = true
+
+[node name="AnimatedSprite2D" parent="NPC_LinhGac"]
+sprite_frames = ExtResource("11_linhtuan")
 [node name="NPC_LinhGacNam" parent="." instance=ExtResource("7_npc")]
 position = Vector2(62, 672)
 npc_id = "linh_gac_nam"
@@ -566,6 +580,11 @@ quest_ids = Array[String]([])
 shop_enabled = false
 tint = Color(0.85, 0.9, 1, 1)
 dialogue_done = Array[String](["Cổng nam này ra Barleyfield. Đi thêm về nam là Elmford, làng khởi đầu của bao hiệp sĩ."])
+schedule = Array[Dictionary]([{"x": -46.0, "y": 678.0, "action": "idle", "time": 4.0}, {"x": 46.0, "y": 678.0, "action": "walk", "time": 6.0}, {"x": 0.0, "y": 636.0, "action": "idle", "time": 4.0}])
+schedule_enabled = true
+
+[node name="AnimatedSprite2D" parent="NPC_LinhGacNam"]
+sprite_frames = ExtResource("11_linhtuan")
 [node name="Spawn_start" type="Marker2D" parent="."]
 position = Vector2(0, 640)
 [node name="Spawn_from_ngoai" type="Marker2D" parent="."]

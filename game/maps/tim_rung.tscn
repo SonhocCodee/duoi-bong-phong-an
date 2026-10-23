@@ -1,12 +1,24 @@
-[gd_scene format=3]
+[gd_scene load_steps=65 format=3]
 
 [ext_resource type="Script" path="res://systems/map_root.gd" id="1_e"]
 [ext_resource type="PackedScene" path="res://player/player.tscn" id="2_e"]
 [ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_e"]
+[ext_resource type="Script" path="res://enemies/spider.gd" id="3_y7wgt"]
 [ext_resource type="PackedScene" path="res://systems/portal.tscn" id="4_e"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/spider_frames.tres" id="4_t0duu"]
 [ext_resource type="PackedScene" path="res://enemies/spider.tscn" id="5_e"]
 [ext_resource type="PackedScene" path="res://enemies/goblin.tscn" id="6_e"]
+[ext_resource type="Script" path="res://enemies/goblin.gd" id="6_vdyc3"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/goblin_frames.tres" id="7_4v21u"]
 [ext_resource type="PackedScene" path="res://enemies/thu_yeu.tscn" id="7_e"]
+[ext_resource type="Script" path="res://enemies/thu_yeu.gd" id="9_d30mj"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/golem_frames.tres" id="10_dpudr"]
+[ext_resource type="Script" path="res://systems/portal.gd" id="12_edanm"]
+[ext_resource type="Script" path="res://player/player.gd" id="14_x5evj"]
+[ext_resource type="Script" path="res://ui/hud.gd" id="16_kihhw"]
+[ext_resource type="PackedScene" path="res://enemies/slime.tscn" id="17_g0v15"]
+[ext_resource type="Script" path="res://enemies/enemy_base.gd" id="18_o7w8h"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/slime_frames.tres" id="19_7tsho"]
 
 [sub_resource type="RectangleShape2D" id="R1"]
 size = Vector2(2080, 32)
@@ -21,127 +33,127 @@ size = Vector2(32, 1664)
 size = Vector2(32, 1664)
 
 [sub_resource type="CircleShape2D" id="C5"]
-radius = 44
+radius = 44.0
 
 [sub_resource type="CircleShape2D" id="C6"]
-radius = 20
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id="C7"]
-radius = 20
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id="C8"]
-radius = 20
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id="C9"]
-radius = 20
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id="C10"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C11"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C12"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C13"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C14"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C15"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C16"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C17"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C18"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C19"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C20"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C21"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C22"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C23"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C24"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C25"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C26"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C27"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C28"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C29"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C30"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C31"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C32"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C33"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C34"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C35"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C36"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C37"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C38"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C39"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C40"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C41"]
-radius = 16
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="C42"]
-radius = 18
+radius = 18.0
 
 [sub_resource type="CircleShape2D" id="C43"]
-radius = 18
+radius = 18.0
 
 [sub_resource type="CircleShape2D" id="C44"]
-radius = 18
+radius = 18.0
 
 [sub_resource type="CircleShape2D" id="C45"]
-radius = 18
+radius = 18.0
 
 [node name="TimRung" type="Node2D"]
 y_sort_enabled = true
@@ -374,29 +386,251 @@ text = "← Rìa Elderwood"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Spider1" parent="." instance=ExtResource("5_e")]
+[node name="Spider1" type="CharacterBody2D" parent="." instance=ExtResource("5_e")]
+y_sort_enabled = true
 position = Vector2(-416, -256)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("3_y7wgt")
+keep_min_dist = 120.0
+keep_max_dist = 200.0
+shoot_band_max = 220.0
+shoot_range = 260.0
+shoot_interval = 1.8
+enemy_type = "spider"
+display_name = "Nhện rừng"
+max_hp = 22
+damage = 8
+speed = 105.0
+xp_reward = 13
+gold_reward = 4
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("4_t0duu")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
-[node name="Spider2" parent="." instance=ExtResource("5_e")]
+[node name="Spider2" type="CharacterBody2D" parent="." instance=ExtResource("5_e")]
+y_sort_enabled = true
 position = Vector2(288, -288)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("3_y7wgt")
+keep_min_dist = 120.0
+keep_max_dist = 200.0
+shoot_band_max = 220.0
+shoot_range = 260.0
+shoot_interval = 1.8
+enemy_type = "spider"
+display_name = "Nhện rừng"
+max_hp = 22
+damage = 8
+speed = 105.0
+xp_reward = 13
+gold_reward = 4
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("4_t0duu")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
-[node name="Spider3" parent="." instance=ExtResource("5_e")]
+[node name="Spider3" type="CharacterBody2D" parent="." instance=ExtResource("5_e")]
+y_sort_enabled = true
 position = Vector2(-192, 256)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("3_y7wgt")
+keep_min_dist = 120.0
+keep_max_dist = 200.0
+shoot_band_max = 220.0
+shoot_range = 260.0
+shoot_interval = 1.8
+enemy_type = "spider"
+display_name = "Nhện rừng"
+max_hp = 22
+damage = 8
+speed = 105.0
+xp_reward = 13
+gold_reward = 4
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("4_t0duu")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
-[node name="Spider4" parent="." instance=ExtResource("5_e")]
+[node name="Spider4" type="CharacterBody2D" parent="." instance=ExtResource("5_e")]
+y_sort_enabled = true
 position = Vector2(480, 192)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("3_y7wgt")
+keep_min_dist = 120.0
+keep_max_dist = 200.0
+shoot_band_max = 220.0
+shoot_range = 260.0
+shoot_interval = 1.8
+enemy_type = "spider"
+display_name = "Nhện rừng"
+max_hp = 22
+damage = 8
+speed = 105.0
+xp_reward = 13
+gold_reward = 4
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("4_t0duu")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
-[node name="Goblin1" parent="." instance=ExtResource("6_e")]
+[node name="Goblin1" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
 position = Vector2(-704, -96)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("6_vdyc3")
+enemy_type = "goblin"
+display_name = "Goblin"
+max_hp = 30
+damage = 8
+speed = 110.0
+xp_reward = 15
+gold_reward = 5
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("7_4v21u")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.6
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
-[node name="Goblin2" parent="." instance=ExtResource("6_e")]
+[node name="Goblin2" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
 position = Vector2(640, -416)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("6_vdyc3")
+enemy_type = "goblin"
+display_name = "Goblin"
+max_hp = 30
+damage = 8
+speed = 110.0
+xp_reward = 15
+gold_reward = 5
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("7_4v21u")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.6
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
-[node name="Goblin3" parent="." instance=ExtResource("6_e")]
+[node name="Goblin3" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
 position = Vector2(-352, 512)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("6_vdyc3")
+enemy_type = "goblin"
+display_name = "Goblin"
+max_hp = 30
+damage = 8
+speed = 110.0
+xp_reward = 15
+gold_reward = 5
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("7_4v21u")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.6
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
-[node name="ThuYeuBoss" parent="." instance=ExtResource("7_e")]
+[node name="ThuYeuBoss" type="CharacterBody2D" parent="." instance=ExtResource("7_e")]
+y_sort_enabled = true
 position = Vector2(0, -224)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("9_d30mj")
+summon_interval = 7.0
+max_summons = 3
+enemy_type = "thu_yeu"
+display_name = "Heartwood Treant"
+max_hp = 300
+damage = 16
+speed = 50.0
+xp_reward = 150
+gold_reward = 60
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("10_dpudr")
+sprite_modulate = Color(0.55, 0.9, 0.5, 1)
+sprite_scale = 2.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 0.0
+is_elite = false
+key_flag = ""
 
 [node name="Spawn_start" type="Marker2D" parent="."]
 position = Vector2(-896, 96)
@@ -404,14 +638,243 @@ position = Vector2(-896, 96)
 [node name="Spawn_from_ria" type="Marker2D" parent="."]
 position = Vector2(-896, 96)
 
-[node name="PortalWest" parent="." instance=ExtResource("4_e")]
+[node name="PortalWest" type="Area2D" parent="." instance=ExtResource("4_e")]
 position = Vector2(-960, 96)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("12_edanm")
 target_scene = "res://maps/rung_co_thu.tscn"
 target_spawn = "from_tim"
+required_flag = ""
+locked_text = ""
 label_text = "← Elderwood"
 
-[node name="Player" parent="." instance=ExtResource("2_e")]
+[node name="Player" type="CharacterBody2D" parent="." instance=ExtResource("2_e")]
+y_sort_enabled = true
 position = Vector2(-896, 96)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("14_x5evj")
+speed = 220.0
+max_hp = 100
+max_stamina = 100.0
+stamina_regen = 28.0
+dodge_stamina_cost = 25.0
+dodge_speed = 520.0
+dodge_duration = 0.28
+attack_range = 56.0
+attack_damage = Array[int]([10, 12, 18])
 
-[node name="HUD" parent="." instance=ExtResource("3_e")]
+[node name="HUD" type="CanvasLayer" parent="." instance=ExtResource("3_e")]
+script = ExtResource("16_kihhw")
 
+[node name="spider_extra_1" type="CharacterBody2D" parent="." instance=ExtResource("5_e")]
+y_sort_enabled = true
+position = Vector2(650, 152)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("3_y7wgt")
+keep_min_dist = 120.0
+keep_max_dist = 200.0
+shoot_band_max = 220.0
+shoot_range = 260.0
+shoot_interval = 1.8
+enemy_type = "spider"
+display_name = "Nhện rừng"
+max_hp = 22
+damage = 8
+speed = 105.0
+xp_reward = 13
+gold_reward = 4
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("4_t0duu")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="spider_extra_2" type="CharacterBody2D" parent="." instance=ExtResource("5_e")]
+y_sort_enabled = true
+position = Vector2(98, -308)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("3_y7wgt")
+keep_min_dist = 120.0
+keep_max_dist = 200.0
+shoot_band_max = 220.0
+shoot_range = 260.0
+shoot_interval = 1.8
+enemy_type = "spider"
+display_name = "Nhện rừng"
+max_hp = 22
+damage = 8
+speed = 105.0
+xp_reward = 13
+gold_reward = 4
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("4_t0duu")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="spider_extra_3" type="CharacterBody2D" parent="." instance=ExtResource("5_e")]
+y_sort_enabled = true
+position = Vector2(360, 392)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("3_y7wgt")
+keep_min_dist = 120.0
+keep_max_dist = 200.0
+shoot_band_max = 220.0
+shoot_range = 260.0
+shoot_interval = 1.8
+enemy_type = "spider"
+display_name = "Nhện rừng"
+max_hp = 22
+damage = 8
+speed = 105.0
+xp_reward = 13
+gold_reward = 4
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("4_t0duu")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="goblin_extra_4" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
+position = Vector2(850, -326)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("6_vdyc3")
+enemy_type = "goblin"
+display_name = "Goblin"
+max_hp = 30
+damage = 8
+speed = 110.0
+xp_reward = 15
+gold_reward = 5
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("7_4v21u")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.6
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="goblin_extra_5" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
+position = Vector2(-582, 622)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("6_vdyc3")
+enemy_type = "goblin"
+display_name = "Goblin"
+max_hp = 30
+damage = 8
+speed = 110.0
+xp_reward = 15
+gold_reward = 5
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("7_4v21u")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.6
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="slime_extra_6" type="CharacterBody2D" parent="." instance=ExtResource("17_g0v15")]
+y_sort_enabled = true
+position = Vector2(-772, 602)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("18_o7w8h")
+enemy_type = "slime"
+display_name = "Slime Cỏ"
+max_hp = 25
+damage = 6
+speed = 60.0
+xp_reward = 10
+gold_reward = 3
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("19_7tsho")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="slime_extra_7" type="CharacterBody2D" parent="." instance=ExtResource("17_g0v15")]
+y_sort_enabled = true
+position = Vector2(350, 262)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("18_o7w8h")
+enemy_type = "slime"
+display_name = "Slime Cỏ"
+max_hp = 25
+damage = 6
+speed = 60.0
+xp_reward = 10
+gold_reward = 3
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("19_7tsho")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""

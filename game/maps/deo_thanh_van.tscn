@@ -1,11 +1,21 @@
-[gd_scene format=3]
+[gd_scene load_steps=33 format=3]
 
 [ext_resource type="Script" path="res://systems/map_root.gd" id="1_e"]
 [ext_resource type="PackedScene" path="res://player/player.tscn" id="2_e"]
 [ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_e"]
+[ext_resource type="Script" path="res://enemies/stone_spirit.gd" id="3_olsp1"]
 [ext_resource type="PackedScene" path="res://systems/portal.tscn" id="4_e"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/golem_frames.tres" id="4_x8qes"]
 [ext_resource type="PackedScene" path="res://enemies/stone_spirit.tscn" id="5_e"]
+[ext_resource type="Script" path="res://enemies/wolf.gd" id="6_3miol"]
 [ext_resource type="PackedScene" path="res://enemies/wolf.tscn" id="6_e"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/wolf_frames.tres" id="7_053a0"]
+[ext_resource type="Script" path="res://systems/portal.gd" id="9_lkhur"]
+[ext_resource type="Script" path="res://player/player.gd" id="11_1o7gc"]
+[ext_resource type="Script" path="res://ui/hud.gd" id="13_kr6r0"]
+[ext_resource type="PackedScene" path="res://enemies/goblin.tscn" id="14_8gw7g"]
+[ext_resource type="Script" path="res://enemies/goblin.gd" id="15_vaeop"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/goblin_frames.tres" id="16_f8ema"]
 
 [sub_resource type="RectangleShape2D" id="R1"]
 size = Vector2(1664, 32)
@@ -44,16 +54,16 @@ size = Vector2(1024, 352)
 size = Vector2(416, 352)
 
 [sub_resource type="CircleShape2D" id="C13"]
-radius = 26
+radius = 26.0
 
 [sub_resource type="CircleShape2D" id="C14"]
-radius = 26
+radius = 26.0
 
 [sub_resource type="CircleShape2D" id="C15"]
-radius = 26
+radius = 26.0
 
 [sub_resource type="CircleShape2D" id="C16"]
-radius = 26
+radius = 26.0
 
 [node name="DeoThanhVan" type="Node2D"]
 y_sort_enabled = true
@@ -189,17 +199,125 @@ text = "Tuyết bắt đầu dày — gió mạnh"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="StoneSpirit1" parent="." instance=ExtResource("5_e")]
+[node name="StoneSpirit1" type="CharacterBody2D" parent="." instance=ExtResource("5_e")]
+y_sort_enabled = true
 position = Vector2(384, 192)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("3_olsp1")
+flat_reduction = 4
+enemy_type = "stone_spirit"
+display_name = "Thạch linh núi"
+max_hp = 90
+damage = 16
+speed = 45.0
+xp_reward = 26
+gold_reward = 8
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("4_x8qes")
+sprite_modulate = Color(0.8, 0.88, 1, 1)
+sprite_scale = 1.4
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
-[node name="StoneSpirit2" parent="." instance=ExtResource("5_e")]
+[node name="StoneSpirit2" type="CharacterBody2D" parent="." instance=ExtResource("5_e")]
+y_sort_enabled = true
 position = Vector2(-384, -480)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("3_olsp1")
+flat_reduction = 4
+enemy_type = "stone_spirit"
+display_name = "Thạch linh núi"
+max_hp = 90
+damage = 16
+speed = 45.0
+xp_reward = 26
+gold_reward = 8
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("4_x8qes")
+sprite_modulate = Color(0.8, 0.88, 1, 1)
+sprite_scale = 1.4
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
-[node name="Wolf1" parent="." instance=ExtResource("6_e")]
+[node name="Wolf1" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
 position = Vector2(-512, 608)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("6_3miol")
+pack_radius = 260.0
+pack_scan_interval = 0.25
+pack_call_cooldown = 1.0
+enemy_type = "wolf"
+display_name = "Sói xám"
+max_hp = 30
+damage = 9
+speed = 165.0
+xp_reward = 14
+gold_reward = 4
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("7_053a0")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
-[node name="Wolf2" parent="." instance=ExtResource("6_e")]
+[node name="Wolf2" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
 position = Vector2(288, -768)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("6_3miol")
+pack_radius = 260.0
+pack_scan_interval = 0.25
+pack_call_cooldown = 1.0
+enemy_type = "wolf"
+display_name = "Sói xám"
+max_hp = 30
+damage = 9
+speed = 165.0
+xp_reward = 14
+gold_reward = 4
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("7_053a0")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
 
 [node name="Spawn_start" type="Marker2D" parent="."]
 position = Vector2(-512, 992)
@@ -210,20 +328,338 @@ position = Vector2(-512, 992)
 [node name="Spawn_from_dinh" type="Marker2D" parent="."]
 position = Vector2(288, -992)
 
-[node name="PortalFoot" parent="." instance=ExtResource("4_e")]
+[node name="PortalFoot" type="Area2D" parent="." instance=ExtResource("4_e")]
 position = Vector2(-512, 1056)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_lkhur")
 target_scene = "res://maps/nui_thanh_van.tscn"
 target_spawn = "from_deo"
+required_flag = ""
+locked_text = ""
 label_text = "↓ Cloudpeak"
 
-[node name="PortalTop" parent="." instance=ExtResource("4_e")]
+[node name="PortalTop" type="Area2D" parent="." instance=ExtResource("4_e")]
 position = Vector2(288, -1056)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_lkhur")
 target_scene = "res://maps/dinh_thanh_van.tscn"
 target_spawn = "from_deo"
+required_flag = ""
+locked_text = ""
 label_text = "↑ Cloudpeak Summit"
 
-[node name="Player" parent="." instance=ExtResource("2_e")]
+[node name="Player" type="CharacterBody2D" parent="." instance=ExtResource("2_e")]
+y_sort_enabled = true
 position = Vector2(-512, 992)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("11_1o7gc")
+speed = 220.0
+max_hp = 100
+max_stamina = 100.0
+stamina_regen = 28.0
+dodge_stamina_cost = 25.0
+dodge_speed = 520.0
+dodge_duration = 0.28
+attack_range = 56.0
+attack_damage = Array[int]([10, 12, 18])
 
-[node name="HUD" parent="." instance=ExtResource("3_e")]
+[node name="HUD" type="CanvasLayer" parent="." instance=ExtResource("3_e")]
+script = ExtResource("13_kr6r0")
 
+[node name="stone_spirit_extra_1" type="CharacterBody2D" parent="." instance=ExtResource("5_e")]
+y_sort_enabled = true
+position = Vector2(264, 392)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("3_olsp1")
+flat_reduction = 4
+enemy_type = "stone_spirit"
+display_name = "Thạch linh núi"
+max_hp = 90
+damage = 16
+speed = 45.0
+xp_reward = 26
+gold_reward = 8
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("4_x8qes")
+sprite_modulate = Color(0.8, 0.88, 1, 1)
+sprite_scale = 1.4
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="stone_spirit_extra_2" type="CharacterBody2D" parent="." instance=ExtResource("5_e")]
+y_sort_enabled = true
+position = Vector2(-174, -390)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("3_olsp1")
+flat_reduction = 4
+enemy_type = "stone_spirit"
+display_name = "Thạch linh núi"
+max_hp = 90
+damage = 16
+speed = 45.0
+xp_reward = 26
+gold_reward = 8
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("4_x8qes")
+sprite_modulate = Color(0.8, 0.88, 1, 1)
+sprite_scale = 1.4
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="stone_spirit_extra_3" type="CharacterBody2D" parent="." instance=ExtResource("5_e")]
+y_sort_enabled = true
+position = Vector2(-274, -430)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("3_olsp1")
+flat_reduction = 4
+enemy_type = "stone_spirit"
+display_name = "Thạch linh núi"
+max_hp = 90
+damage = 16
+speed = 45.0
+xp_reward = 26
+gold_reward = 8
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("4_x8qes")
+sprite_modulate = Color(0.8, 0.88, 1, 1)
+sprite_scale = 1.4
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="wolf_extra_4" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
+position = Vector2(378, -988)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("6_3miol")
+pack_radius = 260.0
+pack_scan_interval = 0.25
+pack_call_cooldown = 1.0
+enemy_type = "wolf"
+display_name = "Sói xám"
+max_hp = 30
+damage = 9
+speed = 165.0
+xp_reward = 14
+gold_reward = 4
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("7_053a0")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="wolf_extra_5" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
+position = Vector2(-302, 698)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("6_3miol")
+pack_radius = 260.0
+pack_scan_interval = 0.25
+pack_call_cooldown = 1.0
+enemy_type = "wolf"
+display_name = "Sói xám"
+max_hp = 30
+damage = 9
+speed = 165.0
+xp_reward = 14
+gold_reward = 4
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("7_053a0")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="wolf_extra_6" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
+position = Vector2(-592, 498)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("6_3miol")
+pack_radius = 260.0
+pack_scan_interval = 0.25
+pack_call_cooldown = 1.0
+enemy_type = "wolf"
+display_name = "Sói xám"
+max_hp = 30
+damage = 9
+speed = 165.0
+xp_reward = 14
+gold_reward = 4
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("7_053a0")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="wolf_extra_7" type="CharacterBody2D" parent="." instance=ExtResource("6_e")]
+y_sort_enabled = true
+position = Vector2(-702, 588)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("6_3miol")
+pack_radius = 260.0
+pack_scan_interval = 0.25
+pack_call_cooldown = 1.0
+enemy_type = "wolf"
+display_name = "Sói xám"
+max_hp = 30
+damage = 9
+speed = 165.0
+xp_reward = 14
+gold_reward = 4
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("7_053a0")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="goblin_extra_8" type="CharacterBody2D" parent="." instance=ExtResource("14_8gw7g")]
+y_sort_enabled = true
+position = Vector2(-642, 678)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("15_vaeop")
+enemy_type = "goblin"
+display_name = "Goblin"
+max_hp = 30
+damage = 8
+speed = 110.0
+xp_reward = 15
+gold_reward = 5
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("16_f8ema")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.6
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="goblin_extra_9" type="CharacterBody2D" parent="." instance=ExtResource("14_8gw7g")]
+y_sort_enabled = true
+position = Vector2(-422, 388)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("15_vaeop")
+enemy_type = "goblin"
+display_name = "Goblin"
+max_hp = 30
+damage = 8
+speed = 110.0
+xp_reward = 15
+gold_reward = 5
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("16_f8ema")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.6
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="goblin_extra_10" type="CharacterBody2D" parent="." instance=ExtResource("14_8gw7g")]
+y_sort_enabled = true
+position = Vector2(-314, -620)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("15_vaeop")
+enemy_type = "goblin"
+display_name = "Goblin"
+max_hp = 30
+damage = 8
+speed = 110.0
+xp_reward = 15
+gold_reward = 5
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("16_f8ema")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.6
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""

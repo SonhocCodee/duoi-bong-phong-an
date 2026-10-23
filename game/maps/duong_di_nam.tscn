@@ -1,0 +1,104 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://systems/map_root.gd" id="1_e"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="2_e"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_e"]
+[ext_resource type="PackedScene" path="res://systems/portal.tscn" id="4_e"]
+
+[sub_resource type="RectangleShape2D" id="R1"]
+size = Vector2(960, 32)
+
+[sub_resource type="RectangleShape2D" id="R2"]
+size = Vector2(960, 32)
+
+[sub_resource type="RectangleShape2D" id="R3"]
+size = Vector2(32, 992)
+
+[sub_resource type="RectangleShape2D" id="R4"]
+size = Vector2(32, 992)
+
+[node name="DuongDiNam" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_e")
+
+[node name="BackgroundPlaceholder" type="ColorRect" parent="."]
+z_index = -100
+offset_left = -450.0
+offset_top = -480.0
+offset_right = 450.0
+offset_bottom = 480.0
+mouse_filter = 2
+color = Color(0.45, 0.5, 0.38, 1)
+
+[node name="Trail" type="Polygon2D" parent="."]
+z_index = -99
+color = Color(0.62, 0.55, 0.42, 1)
+polygon = PackedVector2Array(-64, -480, 64, -480, 64, 480, -64, 480)
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="BorderTop" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, -480)
+shape = SubResource("R1")
+
+[node name="BorderBottom" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(0, 480)
+shape = SubResource("R2")
+
+[node name="BorderLeft" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-464, 0)
+shape = SubResource("R3")
+
+[node name="BorderRight" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(464, 0)
+shape = SubResource("R4")
+
+[node name="LabelMap" type="Label" parent="."]
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = -170.0
+theme_override_colors/font_color = Color(0.25, 0.22, 0.18, 1)
+theme_override_font_sizes/font_size = 20
+text = "ĐƯỜNG ĐI NAM"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelSign" type="Label" parent="."]
+offset_left = -400.0
+offset_top = 40.0
+offset_right = 400.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.4, 0.25, 0.1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Đường về Fenmire — PHẦN 2 (đợt phát triển sau)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelBack" type="Label" parent="."]
+offset_left = -250.0
+offset_top = -400.0
+offset_right = 250.0
+offset_bottom = -376.0
+theme_override_colors/font_color = Color(0.95, 0.9, 0.75, 1)
+theme_override_font_sizes/font_size = 14
+text = "↑ Về Cổng Nam Khung"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Spawn_start" type="Marker2D" parent="."]
+position = Vector2(0, -320)
+
+[node name="Spawn_from_khung" type="Marker2D" parent="."]
+position = Vector2(0, -320)
+
+[node name="PortalBack" parent="." instance=ExtResource("4_e")]
+position = Vector2(0, -440)
+target_scene = "res://maps/cong_nam_khung.tscn"
+target_spawn = "from_duong"
+label_text = "↑ Cổng Nam Khung"
+
+[node name="Player" parent="." instance=ExtResource("2_e")]
+position = Vector2(0, -320)
+
+[node name="HUD" parent="." instance=ExtResource("3_e")]

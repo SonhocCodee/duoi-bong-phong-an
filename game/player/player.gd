@@ -209,6 +209,15 @@ func _try_dodge(input_dir: Vector2) -> void:
 	print("[Player] Dodge! i-frame %.2fs" % dodge_duration)
 
 
+## Damage hiệu dụng của hit combo_index: damage gốc + ATK trang bị
+## (GameState.attack_bonus) + 2 mỗi cấp trên cấp 1.
+func effective_damage(combo_index: int = 0) -> int:
+	var base: int = attack_damage[combo_index] if combo_index >= 0 and combo_index < attack_damage.size() else attack_damage[0]
+	if has_node("/root/GameState"):
+		base += GameState.attack_bonus + (GameState.level - 1) * 2
+	return base
+
+
 func _try_attack() -> void:
 	if _attack_cooldown > 0.0 or is_dodging:
 		return
@@ -219,7 +228,7 @@ func _try_attack() -> void:
 	_attack_anim_timer = attack_cooldown_time
 	_anim_current = &""
 	_play_anim(StringName("attack_" + _facing_suffix()))
-	var dmg: int = attack_damage[_combo_index] if _combo_index < attack_damage.size() else attack_damage[0]
+	var dmg: int = effective_damage(_combo_index)
 	print("[Player] Chém hit %d - damage %d" % [_combo_index + 1, dmg])
 
 	# Đặt hitbox về phía đang nhìn rồi kiểm tra enemy trong vùng
@@ -293,14 +302,18 @@ func _use_skill(skill_id: int) -> void:
 func take_damage(amount: int, _from_position: Vector2 = Vector2.ZERO) -> void:
 	if is_invincible or hp <= 0:
 		return
-	hp = max(0, hp - amount)
+	# DEF trang bị giảm damage nhận vào, tối thiểu vẫn mất 1 HP.
+	var effective: int = amount
+	if has_node("/root/GameState"):
+		effective = maxi(1, amount - GameState.defense_bonus)
+	hp = max(0, hp - effective)
 	health_changed.emit(hp, max_hp)
 	if has_node("/root/GameState"):
 		GameState.set_player_hp(hp, max_hp)
 	# Hiệu ứng trúng đòn: flash đỏ + animation hurt (i-frame không đổi)
 	_hurt_flash_timer = 0.12
 	_hurt_timer = 0.18
-	print("[Player] Nhận %d damage, HP còn %d/%d" % [amount, hp, max_hp])
+	print("[Player] Nhận %d damage, HP còn %d/%d" % [effective, hp, max_hp])
 	if hp <= 0:
 		died.emit()
 		print("[Player] Đã gục! (Respawn stub)")

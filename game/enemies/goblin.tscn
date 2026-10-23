@@ -11,13 +11,25 @@ y_sort_enabled = true
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_goblin")
+enemy_type = "goblin"
+display_name = "Goblin"
+max_hp = 30
+damage = 8
+speed = 110.0
+xp_reward = 15
+gold_reward = 5
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+death_anim_duration = 0.6
+sprite_frames = ExtResource("2_frames")
 
 [node name="Shadow" type="Polygon2D" parent="."]
 z_index = -1
 color = Color(0, 0, 0, 0.3)
 polygon = PackedVector2Array(-11, 8, 11, 8, 14, 11, 11, 13, -11, 13, -14, 11)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 2
 position = Vector2(0, -22)
 scale = Vector2(0.72, 0.72)

@@ -1,12 +1,18 @@
-[gd_scene format=3]
+[gd_scene load_steps=24 format=3]
 
-[ext_resource type="PackedScene" path="res://systems/npc.tscn" id="7_npc"]
-[ext_resource type="PackedScene" path="res://enemies/frog.tscn" id="10_frog"]
-[ext_resource type="PackedScene" path="res://enemies/slime.tscn" id="5_slime"]
-[ext_resource type="PackedScene" path="res://systems/portal.tscn" id="8_portal"]
+[ext_resource type="Script" path="res://systems/map_root.gd" id="1_maproot"]
 [ext_resource type="PackedScene" path="res://player/player.tscn" id="2_player"]
 [ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_hud"]
-[ext_resource type="Script" path="res://systems/map_root.gd" id="1_maproot"]
+[ext_resource type="Script" path="res://systems/npc.gd" id="3_scs3u"]
+[ext_resource type="Script" path="res://enemies/enemy_base.gd" id="5_8mh15"]
+[ext_resource type="PackedScene" path="res://enemies/slime.tscn" id="5_slime"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/slime_frames.tres" id="6_63ja7"]
+[ext_resource type="PackedScene" path="res://systems/npc.tscn" id="7_npc"]
+[ext_resource type="PackedScene" path="res://systems/portal.tscn" id="8_portal"]
+[ext_resource type="Script" path="res://systems/portal.gd" id="9_t6tkt"]
+[ext_resource type="PackedScene" path="res://enemies/frog.tscn" id="10_frog"]
+[ext_resource type="Script" path="res://player/player.gd" id="11_atj67"]
+[ext_resource type="Script" path="res://ui/hud.gd" id="13_fpbnt"]
 
 [sub_resource type="RectangleShape2D" id="Shape_1"]
 size = Vector2(815, 1400)
@@ -41,390 +47,962 @@ size = Vector2(40, 1480)
 [node name="HoSuong" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_maproot")
+
 [node name="GrassBase" type="Polygon2D" parent="."]
 z_index = -100
 color = Color(0.36, 0.6, 0.3, 1)
 polygon = PackedVector2Array(-1000, -700, 1000, -700, 1000, 700, -1000, 700)
+
 [node name="SandShore" type="Polygon2D" parent="."]
 z_index = -95
 color = Color(0.82, 0.74, 0.55, 1)
 polygon = PackedVector2Array(-190, -700, -110, -700, -140, 700, -200, 700)
+
 [node name="Lake" type="Polygon2D" parent="."]
 z_index = -93
 color = Color(0.24, 0.5, 0.76, 1)
 polygon = PackedVector2Array(-1000, -700, -180, -700, -150, 700, -1000, 700)
+
 [node name="LakeNorthArm" type="Polygon2D" parent="."]
 z_index = -93
 color = Color(0.24, 0.5, 0.76, 1)
 polygon = PackedVector2Array(-180, -700, 300, -700, 300, -350, -180, -350)
+
 [node name="LakeShine1" type="Polygon2D" parent="."]
 z_index = -92
 color = Color(0.45, 0.68, 0.88, 0.55)
 polygon = PackedVector2Array(-820, -560, -790, -560, -790, 420, -820, 420)
+
 [node name="LakeShine2" type="Polygon2D" parent="."]
 z_index = -92
 color = Color(0.45, 0.68, 0.88, 0.45)
 polygon = PackedVector2Array(-560, -640, -540, -640, -540, -80, -560, -80)
+
 [node name="Channel" type="Polygon2D" parent="."]
 z_index = -93
 color = Color(0.24, 0.5, 0.76, 1)
 polygon = PackedVector2Array(-170, -95, 430, -95, 430, -25, -170, -25)
+
 [node name="RoadEW" type="Polygon2D" parent="."]
 z_index = -88
 color = Color(0.76, 0.66, 0.47, 1)
 polygon = PackedVector2Array(-160, -45, 1000, -45, 1000, 45, -160, 45)
+
 [node name="RoadShore" type="Polygon2D" parent="."]
 z_index = -88
 color = Color(0.76, 0.66, 0.47, 1)
 polygon = PackedVector2Array(-160, 45, -100, 45, -100, 620, -160, 620)
+
 [node name="WaterColMain" type="Polygon2D" parent="."]
 z_index = -80
 color = Color(0.24, 0.5, 0.76, 0)
 polygon = PackedVector2Array(-997.5, -700, -182.5, -700, -182.5, 700, -997.5, 700)
+
 [node name="Body_WaterColMain" type="StaticBody2D" parent="."]
 position = Vector2(-590, 0)
+
 [node name="Col" type="CollisionShape2D" parent="Body_WaterColMain"]
 shape = SubResource("Shape_1")
+
 [node name="WaterColNorth" type="Polygon2D" parent="."]
 z_index = -80
 color = Color(0.24, 0.5, 0.76, 0)
 polygon = PackedVector2Array(-180, -700, 300, -700, 300, -350, -180, -350)
+
 [node name="Body_WaterColNorth" type="StaticBody2D" parent="."]
 position = Vector2(60, -525)
+
 [node name="Col" type="CollisionShape2D" parent="Body_WaterColNorth"]
 shape = SubResource("Shape_2")
+
 [node name="WaterColChanW" type="Polygon2D" parent="."]
 z_index = -80
 color = Color(0.24, 0.5, 0.76, 0)
 polygon = PackedVector2Array(-169.5, -95, 45.5, -95, 45.5, -25, -169.5, -25)
+
 [node name="Body_WaterColChanW" type="StaticBody2D" parent="."]
 position = Vector2(-62, -60)
+
 [node name="Col" type="CollisionShape2D" parent="Body_WaterColChanW"]
 shape = SubResource("Shape_3")
+
 [node name="WaterColChanE" type="Polygon2D" parent="."]
 z_index = -80
 color = Color(0.24, 0.5, 0.76, 0)
 polygon = PackedVector2Array(114.5, -95, 429.5, -95, 429.5, -25, 114.5, -25)
+
 [node name="Body_WaterColChanE" type="StaticBody2D" parent="."]
 position = Vector2(272, -60)
+
 [node name="Col" type="CollisionShape2D" parent="Body_WaterColChanE"]
 shape = SubResource("Shape_4")
+
 [node name="Bridge" type="Node2D" parent="."]
 position = Vector2(80, -60)
+
 [node name="Planks" type="Polygon2D" parent="Bridge"]
 color = Color(0.6, 0.45, 0.28, 1)
 polygon = PackedVector2Array(-36, -55, 36, -55, 36, 55, -36, 55)
+
 [node name="PlankLine0" type="Polygon2D" parent="Bridge"]
 color = Color(0.45, 0.33, 0.19, 1)
 polygon = PackedVector2Array(-36, -38, 36, -38, 36, -34, -36, -34)
+
 [node name="PlankLine1" type="Polygon2D" parent="Bridge"]
 color = Color(0.45, 0.33, 0.19, 1)
 polygon = PackedVector2Array(-36, -13, 36, -13, 36, -9, -36, -9)
+
 [node name="PlankLine2" type="Polygon2D" parent="Bridge"]
 color = Color(0.45, 0.33, 0.19, 1)
 polygon = PackedVector2Array(-36, 13, 36, 13, 36, 17, -36, 17)
+
 [node name="PlankLine3" type="Polygon2D" parent="Bridge"]
 color = Color(0.45, 0.33, 0.19, 1)
 polygon = PackedVector2Array(-36, 38, 36, 38, 36, 42, -36, 42)
+
 [node name="LabelHo" type="Label" parent="."]
-offset_left = -790
-offset_top = -300
-offset_right = -330
-offset_bottom = -266
+offset_left = -790.0
+offset_top = -300.0
+offset_right = -330.0
+offset_bottom = -266.0
 theme_override_colors/font_color = Color(0.08, 0.25, 0.4, 1)
 theme_override_font_sizes/font_size = 24
 text = "MISTLAKE"
 horizontal_alignment = 1
+
 [node name="FisherHouse1" type="Node2D" parent="."]
 position = Vector2(560, -300)
+
 [node name="Body" type="StaticBody2D" parent="FisherHouse1"]
+
 [node name="Col" type="CollisionShape2D" parent="FisherHouse1/Body"]
 shape = SubResource("Shape_5")
+
 [node name="Wall" type="Polygon2D" parent="FisherHouse1"]
 color = Color(0.82, 0.74, 0.6, 1)
 polygon = PackedVector2Array(-59, -42, 59, -42, 59, 42, -59, 42)
+
 [node name="WallShade" type="Polygon2D" parent="FisherHouse1"]
 color = Color(0, 0, 0, 0.12)
 polygon = PackedVector2Array(-59, 28, 59, 28, 59, 42, -59, 42)
+
 [node name="Roof" type="Polygon2D" parent="FisherHouse1"]
 color = Color(0.45, 0.35, 0.28, 1)
 polygon = PackedVector2Array(-71, -42, 71, -42, 0, -79.8)
+
 [node name="RoofShade" type="Polygon2D" parent="FisherHouse1"]
 color = Color(0, 0, 0, 0.15)
 polygon = PackedVector2Array(0, -79.8, 71, -42, 0, -42)
+
 [node name="Door" type="Polygon2D" parent="FisherHouse1"]
 color = Color(0.23, 0.14, 0.07, 1)
 polygon = PackedVector2Array(-13, 6, 13, 6, 13, 42, -13, 42)
+
 [node name="WinL" type="Polygon2D" parent="FisherHouse1"]
 color = Color(0.95, 0.8, 0.4, 1)
 polygon = PackedVector2Array(-41, -24, -23, -24, -23, -6, -41, -6)
+
 [node name="WinR" type="Polygon2D" parent="FisherHouse1"]
 color = Color(0.95, 0.8, 0.4, 1)
 polygon = PackedVector2Array(23, -24, 41, -24, 41, -6, 23, -6)
+
 [node name="FisherHouse1StiltL" type="Polygon2D" parent="."]
 z_index = -86
 color = Color(0.42, 0.29, 0.16, 1)
 polygon = PackedVector2Array(512, -258, 520, -258, 520, -234, 512, -234)
+
 [node name="FisherHouse1StiltR" type="Polygon2D" parent="."]
 z_index = -86
 color = Color(0.42, 0.29, 0.16, 1)
 polygon = PackedVector2Array(600, -258, 608, -258, 608, -234, 600, -234)
+
 [node name="FisherHouse2" type="Node2D" parent="."]
 position = Vector2(730, -170)
+
 [node name="Body" type="StaticBody2D" parent="FisherHouse2"]
+
 [node name="Col" type="CollisionShape2D" parent="FisherHouse2/Body"]
 shape = SubResource("Shape_5")
+
 [node name="Wall" type="Polygon2D" parent="FisherHouse2"]
 color = Color(0.82, 0.74, 0.6, 1)
 polygon = PackedVector2Array(-59, -42, 59, -42, 59, 42, -59, 42)
+
 [node name="WallShade" type="Polygon2D" parent="FisherHouse2"]
 color = Color(0, 0, 0, 0.12)
 polygon = PackedVector2Array(-59, 28, 59, 28, 59, 42, -59, 42)
+
 [node name="Roof" type="Polygon2D" parent="FisherHouse2"]
 color = Color(0.45, 0.35, 0.28, 1)
 polygon = PackedVector2Array(-71, -42, 71, -42, 0, -79.8)
+
 [node name="RoofShade" type="Polygon2D" parent="FisherHouse2"]
 color = Color(0, 0, 0, 0.15)
 polygon = PackedVector2Array(0, -79.8, 71, -42, 0, -42)
+
 [node name="Door" type="Polygon2D" parent="FisherHouse2"]
 color = Color(0.23, 0.14, 0.07, 1)
 polygon = PackedVector2Array(-13, 6, 13, 6, 13, 42, -13, 42)
+
 [node name="WinL" type="Polygon2D" parent="FisherHouse2"]
 color = Color(0.95, 0.8, 0.4, 1)
 polygon = PackedVector2Array(-41, -24, -23, -24, -23, -6, -41, -6)
+
 [node name="WinR" type="Polygon2D" parent="FisherHouse2"]
 color = Color(0.95, 0.8, 0.4, 1)
 polygon = PackedVector2Array(23, -24, 41, -24, 41, -6, 23, -6)
+
 [node name="FisherHouse2StiltL" type="Polygon2D" parent="."]
 z_index = -86
 color = Color(0.42, 0.29, 0.16, 1)
 polygon = PackedVector2Array(682, -128, 690, -128, 690, -104, 682, -104)
+
 [node name="FisherHouse2StiltR" type="Polygon2D" parent="."]
 z_index = -86
 color = Color(0.42, 0.29, 0.16, 1)
 polygon = PackedVector2Array(770, -128, 778, -128, 778, -104, 770, -104)
+
 [node name="FisherHouse3" type="Node2D" parent="."]
 position = Vector2(590, 190)
+
 [node name="Body" type="StaticBody2D" parent="FisherHouse3"]
+
 [node name="Col" type="CollisionShape2D" parent="FisherHouse3/Body"]
 shape = SubResource("Shape_5")
+
 [node name="Wall" type="Polygon2D" parent="FisherHouse3"]
 color = Color(0.82, 0.74, 0.6, 1)
 polygon = PackedVector2Array(-59, -42, 59, -42, 59, 42, -59, 42)
+
 [node name="WallShade" type="Polygon2D" parent="FisherHouse3"]
 color = Color(0, 0, 0, 0.12)
 polygon = PackedVector2Array(-59, 28, 59, 28, 59, 42, -59, 42)
+
 [node name="Roof" type="Polygon2D" parent="FisherHouse3"]
 color = Color(0.45, 0.35, 0.28, 1)
 polygon = PackedVector2Array(-71, -42, 71, -42, 0, -79.8)
+
 [node name="RoofShade" type="Polygon2D" parent="FisherHouse3"]
 color = Color(0, 0, 0, 0.15)
 polygon = PackedVector2Array(0, -79.8, 71, -42, 0, -42)
+
 [node name="Door" type="Polygon2D" parent="FisherHouse3"]
 color = Color(0.23, 0.14, 0.07, 1)
 polygon = PackedVector2Array(-13, 6, 13, 6, 13, 42, -13, 42)
+
 [node name="WinL" type="Polygon2D" parent="FisherHouse3"]
 color = Color(0.95, 0.8, 0.4, 1)
 polygon = PackedVector2Array(-41, -24, -23, -24, -23, -6, -41, -6)
+
 [node name="WinR" type="Polygon2D" parent="FisherHouse3"]
 color = Color(0.95, 0.8, 0.4, 1)
 polygon = PackedVector2Array(23, -24, 41, -24, 41, -6, 23, -6)
+
 [node name="FisherHouse3StiltL" type="Polygon2D" parent="."]
 z_index = -86
 color = Color(0.42, 0.29, 0.16, 1)
 polygon = PackedVector2Array(542, 232, 550, 232, 550, 256, 542, 256)
+
 [node name="FisherHouse3StiltR" type="Polygon2D" parent="."]
 z_index = -86
 color = Color(0.42, 0.29, 0.16, 1)
 polygon = PackedVector2Array(630, 232, 638, 232, 638, 256, 630, 256)
+
 [node name="LabelLangChai" type="Label" parent="."]
-offset_left = 450
-offset_top = 300
-offset_right = 790
-offset_bottom = 325
+offset_left = 450.0
+offset_top = 300.0
+offset_right = 790.0
+offset_bottom = 325.0
 theme_override_colors/font_color = Color(0.15, 0.3, 0.35, 1)
 theme_override_font_sizes/font_size = 15
 text = "Misthaven"
 horizontal_alignment = 1
+
 [node name="Dock" type="Polygon2D" parent="."]
 z_index = -86
 color = Color(0.6, 0.45, 0.28, 1)
 polygon = PackedVector2Array(-330, 295, -130, 295, -130, 330, -330, 330)
+
 [node name="DockLine" type="Polygon2D" parent="."]
 z_index = -85
 color = Color(0.45, 0.33, 0.19, 1)
 polygon = PackedVector2Array(-330, 310, -130, 310, -130, 314, -330, 314)
+
 [node name="Boat" type="Node2D" parent="."]
 position = Vector2(-390, 350)
+
 [node name="Hull" type="Polygon2D" parent="Boat"]
 color = Color(0.5, 0.33, 0.18, 1)
 polygon = PackedVector2Array(-58, -14, 58, -14, 38, 16, -38, 16)
+
 [node name="HullIn" type="Polygon2D" parent="Boat"]
 color = Color(0.65, 0.47, 0.27, 1)
 polygon = PackedVector2Array(-44, -9, 44, -9, 30, 9, -30, 9)
+
 [node name="Mast" type="Polygon2D" parent="Boat"]
 color = Color(0.4, 0.27, 0.14, 1)
 polygon = PackedVector2Array(-3, -52, 3, -52, 3, -10, -3, -10)
+
 [node name="NetRack" type="Node2D" parent="."]
 position = Vector2(480, 330)
+
 [node name="PostL" type="Polygon2D" parent="NetRack"]
 color = Color(0.42, 0.29, 0.16, 1)
 polygon = PackedVector2Array(-62, -34, -56, -34, -56, 26, -62, 26)
+
 [node name="PostR" type="Polygon2D" parent="NetRack"]
 color = Color(0.42, 0.29, 0.16, 1)
 polygon = PackedVector2Array(56, -34, 62, -34, 62, 26, 56, 26)
+
 [node name="Net" type="Polygon2D" parent="NetRack"]
 color = Color(0.85, 0.87, 0.8, 0.55)
 polygon = PackedVector2Array(-56, -30, 56, -30, 56, 18, -56, 18)
+
 [node name="NetLine1" type="Polygon2D" parent="NetRack"]
 color = Color(0.6, 0.6, 0.55, 0.7)
 polygon = PackedVector2Array(-56, -12, 56, -12, 56, -9, -56, -9)
+
 [node name="NetLine2" type="Polygon2D" parent="NetRack"]
 color = Color(0.6, 0.6, 0.55, 0.7)
 polygon = PackedVector2Array(-56, 2, 56, 2, 56, 5, -56, 5)
+
 [node name="Tree0" type="Node2D" parent="."]
 position = Vector2(900, -560)
+
 [node name="Body" type="StaticBody2D" parent="Tree0"]
+
 [node name="Col" type="CollisionShape2D" parent="Tree0/Body"]
 position = Vector2(0, 16)
 shape = SubResource("Shape_6")
+
 [node name="Trunk" type="Polygon2D" parent="Tree0"]
 color = Color(0.4, 0.27, 0.15, 1)
 polygon = PackedVector2Array(-7, 26, 7, 26, 4, -16, -4, -16)
+
 [node name="CanopyL" type="Polygon2D" parent="Tree0"]
 color = Color(0.16, 0.42, 0.18, 1)
 polygon = PackedVector2Array(2, -38, -1.75, -24, -12, -13.75, -26, -10, -40, -13.75, -50.25, -24, -54, -38, -50.25, -52, -40, -62.25, -26, -66, -12, -62.25, -1.75, -52)
+
 [node name="CanopyR" type="Polygon2D" parent="Tree0"]
 color = Color(0.16, 0.42, 0.18, 1)
 polygon = PackedVector2Array(54, -38, 50.25, -24, 40, -13.75, 26, -10, 12, -13.75, 1.75, -24, -2, -38, 1.75, -52, 12, -62.25, 26, -66, 40, -62.25, 50.25, -52)
+
 [node name="CanopyC" type="Polygon2D" parent="Tree0"]
 color = Color(0.2, 0.5, 0.22, 1)
-polygon = PackedVector2Array(38, -58, 32.91, -39, 19, -25.09, 0, -20, -19, -25.09, -32.91, -39, -38, -58, -32.91, -77, -19, -90.91, -0, -96, 19, -90.91, 32.91, -77)
+polygon = PackedVector2Array(38, -58, 32.91, -39, 19, -25.09, 0, -20, -19, -25.09, -32.91, -39, -38, -58, -32.91, -77, -19, -90.91, 0, -96, 19, -90.91, 32.91, -77)
+
 [node name="CanopyHi" type="Polygon2D" parent="Tree0"]
 color = Color(0.26, 0.58, 0.26, 1)
 polygon = PackedVector2Array(8, -70, 5.59, -61, -1, -54.41, -10, -52, -19, -54.41, -25.59, -61, -28, -70, -25.59, -79, -19, -85.59, -10, -88, -1, -85.59, 5.59, -79)
+
 [node name="Tree1" type="Node2D" parent="."]
 position = Vector2(880, 560)
+
 [node name="Body" type="StaticBody2D" parent="Tree1"]
+
 [node name="Col" type="CollisionShape2D" parent="Tree1/Body"]
 position = Vector2(0, 17.6)
 shape = SubResource("Shape_7")
+
 [node name="Trunk" type="Polygon2D" parent="Tree1"]
 color = Color(0.4, 0.27, 0.15, 1)
 polygon = PackedVector2Array(-7.7, 28.6, 7.7, 28.6, 4.4, -17.6, -4.4, -17.6)
+
 [node name="CanopyL" type="Polygon2D" parent="Tree1"]
 color = Color(0.16, 0.42, 0.18, 1)
 polygon = PackedVector2Array(2.2, -41.8, -1.93, -26.4, -13.2, -15.13, -28.6, -11, -44, -15.13, -55.27, -26.4, -59.4, -41.8, -55.27, -57.2, -44, -68.47, -28.6, -72.6, -13.2, -68.47, -1.93, -57.2)
+
 [node name="CanopyR" type="Polygon2D" parent="Tree1"]
 color = Color(0.16, 0.42, 0.18, 1)
 polygon = PackedVector2Array(59.4, -41.8, 55.27, -26.4, 44, -15.13, 28.6, -11, 13.2, -15.13, 1.93, -26.4, -2.2, -41.8, 1.93, -57.2, 13.2, -68.47, 28.6, -72.6, 44, -68.47, 55.27, -57.2)
+
 [node name="CanopyC" type="Polygon2D" parent="Tree1"]
 color = Color(0.2, 0.5, 0.22, 1)
-polygon = PackedVector2Array(41.8, -63.8, 36.2, -42.9, 20.9, -27.6, 0, -22, -20.9, -27.6, -36.2, -42.9, -41.8, -63.8, -36.2, -84.7, -20.9, -100, -0, -105.6, 20.9, -100, 36.2, -84.7)
+polygon = PackedVector2Array(41.8, -63.8, 36.2, -42.9, 20.9, -27.6, 0, -22, -20.9, -27.6, -36.2, -42.9, -41.8, -63.8, -36.2, -84.7, -20.9, -100, 0, -105.6, 20.9, -100, 36.2, -84.7)
+
 [node name="CanopyHi" type="Polygon2D" parent="Tree1"]
 color = Color(0.26, 0.58, 0.26, 1)
 polygon = PackedVector2Array(8.8, -77, 6.15, -67.1, -1.1, -59.85, -11, -57.2, -20.9, -59.85, -28.15, -67.1, -30.8, -77, -28.15, -86.9, -20.9, -94.15, -11, -96.8, -1.1, -94.15, 6.15, -86.9)
+
 [node name="Tree2" type="Node2D" parent="."]
 position = Vector2(380, -560)
+
 [node name="Body" type="StaticBody2D" parent="Tree2"]
+
 [node name="Col" type="CollisionShape2D" parent="Tree2/Body"]
 position = Vector2(0, 14.4)
 shape = SubResource("Shape_8")
+
 [node name="Trunk" type="Polygon2D" parent="Tree2"]
 color = Color(0.4, 0.27, 0.15, 1)
 polygon = PackedVector2Array(-6.3, 23.4, 6.3, 23.4, 3.6, -14.4, -3.6, -14.4)
+
 [node name="CanopyL" type="Polygon2D" parent="Tree2"]
 color = Color(0.16, 0.42, 0.18, 1)
 polygon = PackedVector2Array(1.8, -34.2, -1.58, -21.6, -10.8, -12.38, -23.4, -9, -36, -12.38, -45.22, -21.6, -48.6, -34.2, -45.22, -46.8, -36, -56.02, -23.4, -59.4, -10.8, -56.02, -1.58, -46.8)
+
 [node name="CanopyR" type="Polygon2D" parent="Tree2"]
 color = Color(0.16, 0.42, 0.18, 1)
 polygon = PackedVector2Array(48.6, -34.2, 45.22, -21.6, 36, -12.38, 23.4, -9, 10.8, -12.38, 1.58, -21.6, -1.8, -34.2, 1.58, -46.8, 10.8, -56.02, 23.4, -59.4, 36, -56.02, 45.22, -46.8)
+
 [node name="CanopyC" type="Polygon2D" parent="Tree2"]
 color = Color(0.2, 0.5, 0.22, 1)
-polygon = PackedVector2Array(34.2, -52.2, 29.62, -35.1, 17.1, -22.58, 0, -18, -17.1, -22.58, -29.62, -35.1, -34.2, -52.2, -29.62, -69.3, -17.1, -81.82, -0, -86.4, 17.1, -81.82, 29.62, -69.3)
+polygon = PackedVector2Array(34.2, -52.2, 29.62, -35.1, 17.1, -22.58, 0, -18, -17.1, -22.58, -29.62, -35.1, -34.2, -52.2, -29.62, -69.3, -17.1, -81.82, 0, -86.4, 17.1, -81.82, 29.62, -69.3)
+
 [node name="CanopyHi" type="Polygon2D" parent="Tree2"]
 color = Color(0.26, 0.58, 0.26, 1)
 polygon = PackedVector2Array(7.2, -63, 5.03, -54.9, -0.9, -48.97, -9, -46.8, -17.1, -48.97, -23.03, -54.9, -25.2, -63, -23.03, -71.1, -17.1, -77.03, -9, -79.2, -0.9, -77.03, 5.03, -71.1)
+
 [node name="Tree3" type="Node2D" parent="."]
 position = Vector2(860, -60)
+
 [node name="Body" type="StaticBody2D" parent="Tree3"]
+
 [node name="Col" type="CollisionShape2D" parent="Tree3/Body"]
 position = Vector2(0, 16)
 shape = SubResource("Shape_6")
+
 [node name="Trunk" type="Polygon2D" parent="Tree3"]
 color = Color(0.4, 0.27, 0.15, 1)
 polygon = PackedVector2Array(-7, 26, 7, 26, 4, -16, -4, -16)
+
 [node name="CanopyL" type="Polygon2D" parent="Tree3"]
 color = Color(0.16, 0.42, 0.18, 1)
 polygon = PackedVector2Array(2, -38, -1.75, -24, -12, -13.75, -26, -10, -40, -13.75, -50.25, -24, -54, -38, -50.25, -52, -40, -62.25, -26, -66, -12, -62.25, -1.75, -52)
+
 [node name="CanopyR" type="Polygon2D" parent="Tree3"]
 color = Color(0.16, 0.42, 0.18, 1)
 polygon = PackedVector2Array(54, -38, 50.25, -24, 40, -13.75, 26, -10, 12, -13.75, 1.75, -24, -2, -38, 1.75, -52, 12, -62.25, 26, -66, 40, -62.25, 50.25, -52)
+
 [node name="CanopyC" type="Polygon2D" parent="Tree3"]
 color = Color(0.2, 0.5, 0.22, 1)
-polygon = PackedVector2Array(38, -58, 32.91, -39, 19, -25.09, 0, -20, -19, -25.09, -32.91, -39, -38, -58, -32.91, -77, -19, -90.91, -0, -96, 19, -90.91, 32.91, -77)
+polygon = PackedVector2Array(38, -58, 32.91, -39, 19, -25.09, 0, -20, -19, -25.09, -32.91, -39, -38, -58, -32.91, -77, -19, -90.91, 0, -96, 19, -90.91, 32.91, -77)
+
 [node name="CanopyHi" type="Polygon2D" parent="Tree3"]
 color = Color(0.26, 0.58, 0.26, 1)
 polygon = PackedVector2Array(8, -70, 5.59, -61, -1, -54.41, -10, -52, -19, -54.41, -25.59, -61, -28, -70, -25.59, -79, -19, -85.59, -10, -88, -1, -85.59, 5.59, -79)
+
 [node name="SignEast" type="Node2D" parent="."]
 position = Vector2(880, -80)
+
 [node name="Post" type="Polygon2D" parent="SignEast"]
 color = Color(0.42, 0.29, 0.16, 1)
 polygon = PackedVector2Array(-4, -6, 4, -6, 4, 22, -4, 22)
+
 [node name="Board" type="Polygon2D" parent="SignEast"]
 color = Color(0.62, 0.47, 0.28, 1)
 polygon = PackedVector2Array(-52, -30, 52, -30, 52, -6, -52, -6)
+
 [node name="Label_SignEast" type="Label" parent="."]
-offset_left = 720
-offset_top = -138
-offset_right = 1040
-offset_bottom = -114
+offset_left = 720.0
+offset_top = -138.0
+offset_right = 1040.0
+offset_bottom = -114.0
 theme_override_colors/font_color = Color(0.25, 0.16, 0.07, 1)
 theme_override_font_sizes/font_size = 14
 text = "Barleyfield →"
 horizontal_alignment = 1
-[node name="NPC_NguDan" parent="." instance=ExtResource("7_npc")]
+
+[node name="NPC_NguDan" type="CharacterBody2D" parent="." instance=ExtResource("7_npc")]
+y_sort_enabled = true
 position = Vector2(-90, 260)
+script = ExtResource("3_scs3u")
 npc_id = "ngu_dan"
 display_name = "Ngư dân Mistlake"
 quest_ids = Array[String]([])
+dialogue_before = Array[String]([])
+dialogue_active = Array[String]([])
+dialogue_ready = Array[String]([])
+dialogue_done = Array[String](["Mistlake sáng nào cũng phủ sương, cá thì nhiều mà ếch độc ven bờ cũng nhiều — coi chừng chân.", "Thuyền của ta chỉ chở cá thôi. Muốn sang Barleyfield cứ đi cổng đông, đường đất rõ ràng."])
 shop_enabled = false
 tint = Color(0.8, 0.92, 1, 1)
-dialogue_done = Array[String](["Mistlake sáng nào cũng phủ sương, cá thì nhiều mà ếch độc ven bờ cũng nhiều — coi chừng chân.", "Thuyền của ta chỉ chở cá thôi. Muốn sang Barleyfield cứ đi cổng đông, đường đất rõ ràng."])
-[node name="Frog1" parent="." instance=ExtResource("10_frog")]
+sprite_scale = 0.75
+wander_radius = 24.0
+wander_speed = 30.0
+schedule = Array[String]([])
+schedule_enabled = false
+work_anim = "work"
+speed = 55.0
+
+[node name="Frog1" type="CharacterBody2D" parent="." instance=ExtResource("10_frog")]
+editor_description = "Ech doc Ho Suong: doc nhe o prototype = damage thuong (chua co DoT), chi khac mau/hinh slime."
+y_sort_enabled = true
 position = Vector2(-90, -290)
-[node name="Frog2" parent="." instance=ExtResource("10_frog")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "frog"
+display_name = "Ếch độc Mistlake"
+max_hp = 18
+damage = 7
+speed = 95.0
+xp_reward = 9
+gold_reward = 2
+detect_range = 220.0
+attack_range = 40.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(0.55, 0.95, 1.05, 1)
+sprite_scale = 0.9
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="Frog2" type="CharacterBody2D" parent="." instance=ExtResource("10_frog")]
+editor_description = "Ech doc Ho Suong: doc nhe o prototype = damage thuong (chua co DoT), chi khac mau/hinh slime."
+y_sort_enabled = true
 position = Vector2(-90, 130)
-[node name="Frog3" parent="." instance=ExtResource("10_frog")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "frog"
+display_name = "Ếch độc Mistlake"
+max_hp = 18
+damage = 7
+speed = 95.0
+xp_reward = 9
+gold_reward = 2
+detect_range = 220.0
+attack_range = 40.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(0.55, 0.95, 1.05, 1)
+sprite_scale = 0.9
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="Frog3" type="CharacterBody2D" parent="." instance=ExtResource("10_frog")]
+editor_description = "Ech doc Ho Suong: doc nhe o prototype = damage thuong (chua co DoT), chi khac mau/hinh slime."
+y_sort_enabled = true
 position = Vector2(-80, 520)
-[node name="Frog4" parent="." instance=ExtResource("10_frog")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "frog"
+display_name = "Ếch độc Mistlake"
+max_hp = 18
+damage = 7
+speed = 95.0
+xp_reward = 9
+gold_reward = 2
+detect_range = 220.0
+attack_range = 40.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(0.55, 0.95, 1.05, 1)
+sprite_scale = 0.9
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="Frog4" type="CharacterBody2D" parent="." instance=ExtResource("10_frog")]
+editor_description = "Ech doc Ho Suong: doc nhe o prototype = damage thuong (chua co DoT), chi khac mau/hinh slime."
+y_sort_enabled = true
 position = Vector2(210, -300)
-[node name="Slime1" parent="." instance=ExtResource("5_slime")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "frog"
+display_name = "Ếch độc Mistlake"
+max_hp = 18
+damage = 7
+speed = 95.0
+xp_reward = 9
+gold_reward = 2
+detect_range = 220.0
+attack_range = 40.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(0.55, 0.95, 1.05, 1)
+sprite_scale = 0.9
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="Slime1" type="CharacterBody2D" parent="." instance=ExtResource("5_slime")]
+y_sort_enabled = true
 position = Vector2(360, 460)
-[node name="Slime2" parent="." instance=ExtResource("5_slime")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "slime"
+display_name = "Slime Cỏ"
+max_hp = 25
+damage = 6
+speed = 60.0
+xp_reward = 10
+gold_reward = 3
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="Slime2" type="CharacterBody2D" parent="." instance=ExtResource("5_slime")]
+y_sort_enabled = true
 position = Vector2(810, 520)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "slime"
+display_name = "Slime Cỏ"
+max_hp = 25
+damage = 6
+speed = 60.0
+xp_reward = 10
+gold_reward = 3
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
 [node name="Spawn_start" type="Marker2D" parent="."]
 position = Vector2(905, 0)
+
 [node name="Spawn_from_machnha" type="Marker2D" parent="."]
 position = Vector2(905, 0)
-[node name="PortalEast" parent="." instance=ExtResource("8_portal")]
+
+[node name="PortalEast" type="Area2D" parent="." instance=ExtResource("8_portal")]
 position = Vector2(955, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_t6tkt")
 target_scene = "res://maps/dong_mach_nha.tscn"
 target_spawn = "from_hosuong"
+required_flag = ""
+locked_text = ""
 label_text = "→ Barleyfield"
+
 [node name="Borders" type="StaticBody2D" parent="."]
+
 [node name="ColTop" type="CollisionShape2D" parent="Borders"]
 position = Vector2(0, -718)
 shape = SubResource("Shape_9")
+
 [node name="ColBottom" type="CollisionShape2D" parent="Borders"]
 position = Vector2(0, 718)
 shape = SubResource("Shape_9")
+
 [node name="ColLeft" type="CollisionShape2D" parent="Borders"]
 position = Vector2(-1018, 0)
 shape = SubResource("Shape_10")
+
 [node name="ColRight" type="CollisionShape2D" parent="Borders"]
 position = Vector2(1018, 0)
 shape = SubResource("Shape_10")
-[node name="Player" parent="." instance=ExtResource("2_player")]
+
+[node name="Player" type="CharacterBody2D" parent="." instance=ExtResource("2_player")]
+y_sort_enabled = true
 position = Vector2(905, 0)
-[node name="HUD" parent="." instance=ExtResource("3_hud")]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("11_atj67")
+speed = 220.0
+max_hp = 100
+max_stamina = 100.0
+stamina_regen = 28.0
+dodge_stamina_cost = 25.0
+dodge_speed = 520.0
+dodge_duration = 0.28
+attack_range = 56.0
+attack_damage = Array[int]([10, 12, 18])
+
+[node name="HUD" type="CanvasLayer" parent="." instance=ExtResource("3_hud")]
+script = ExtResource("13_fpbnt")
+
+[node name="frog_extra_1" type="CharacterBody2D" parent="." instance=ExtResource("10_frog")]
+editor_description = "Ech doc Ho Suong: doc nhe o prototype = damage thuong (chua co DoT), chi khac mau/hinh slime."
+y_sort_enabled = true
+position = Vector2(20, 180)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "frog"
+display_name = "Ếch độc Mistlake"
+max_hp = 18
+damage = 7
+speed = 95.0
+xp_reward = 9
+gold_reward = 2
+detect_range = 220.0
+attack_range = 40.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(0.55, 0.95, 1.05, 1)
+sprite_scale = 0.9
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="frog_extra_2" type="CharacterBody2D" parent="." instance=ExtResource("10_frog")]
+editor_description = "Ech doc Ho Suong: doc nhe o prototype = damage thuong (chua co DoT), chi khac mau/hinh slime."
+y_sort_enabled = true
+position = Vector2(120, 220)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "frog"
+display_name = "Ếch độc Mistlake"
+max_hp = 18
+damage = 7
+speed = 95.0
+xp_reward = 9
+gold_reward = 2
+detect_range = 220.0
+attack_range = 40.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(0.55, 0.95, 1.05, 1)
+sprite_scale = 0.9
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="frog_extra_3" type="CharacterBody2D" parent="." instance=ExtResource("10_frog")]
+editor_description = "Ech doc Ho Suong: doc nhe o prototype = damage thuong (chua co DoT), chi khac mau/hinh slime."
+y_sort_enabled = true
+position = Vector2(-130, -60)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "frog"
+display_name = "Ếch độc Mistlake"
+max_hp = 18
+damage = 7
+speed = 95.0
+xp_reward = 9
+gold_reward = 2
+detect_range = 220.0
+attack_range = 40.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(0.55, 0.95, 1.05, 1)
+sprite_scale = 0.9
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="frog_extra_4" type="CharacterBody2D" parent="." instance=ExtResource("10_frog")]
+editor_description = "Ech doc Ho Suong: doc nhe o prototype = damage thuong (chua co DoT), chi khac mau/hinh slime."
+y_sort_enabled = true
+position = Vector2(80, -330)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "frog"
+display_name = "Ếch độc Mistlake"
+max_hp = 18
+damage = 7
+speed = 95.0
+xp_reward = 9
+gold_reward = 2
+detect_range = 220.0
+attack_range = 40.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(0.55, 0.95, 1.05, 1)
+sprite_scale = 0.9
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="frog_extra_5" type="CharacterBody2D" parent="." instance=ExtResource("10_frog")]
+editor_description = "Ech doc Ho Suong: doc nhe o prototype = damage thuong (chua co DoT), chi khac mau/hinh slime."
+y_sort_enabled = true
+position = Vector2(-120, 330)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "frog"
+display_name = "Ếch độc Mistlake"
+max_hp = 18
+damage = 7
+speed = 95.0
+xp_reward = 9
+gold_reward = 2
+detect_range = 220.0
+attack_range = 40.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(0.55, 0.95, 1.05, 1)
+sprite_scale = 0.9
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="slime_extra_6" type="CharacterBody2D" parent="." instance=ExtResource("5_slime")]
+y_sort_enabled = true
+position = Vector2(770, 330)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "slime"
+display_name = "Slime Cỏ"
+max_hp = 25
+damage = 6
+speed = 60.0
+xp_reward = 10
+gold_reward = 3
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="slime_extra_7" type="CharacterBody2D" parent="." instance=ExtResource("5_slime")]
+y_sort_enabled = true
+position = Vector2(390, 620)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "slime"
+display_name = "Slime Cỏ"
+max_hp = 25
+damage = 6
+speed = 60.0
+xp_reward = 10
+gold_reward = 3
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="slime_extra_8" type="CharacterBody2D" parent="." instance=ExtResource("5_slime")]
+y_sort_enabled = true
+position = Vector2(580, 630)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "slime"
+display_name = "Slime Cỏ"
+max_hp = 25
+damage = 6
+speed = 60.0
+xp_reward = 10
+gold_reward = 3
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""
+
+[node name="slime_extra_9" type="CharacterBody2D" parent="." instance=ExtResource("5_slime")]
+y_sort_enabled = true
+position = Vector2(900, 300)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("5_8mh15")
+enemy_type = "slime"
+display_name = "Slime Cỏ"
+max_hp = 25
+damage = 6
+speed = 60.0
+xp_reward = 10
+gold_reward = 3
+detect_range = 220.0
+attack_range = 42.0
+attack_cooldown_time = 1.0
+sprite_frames = ExtResource("6_63ja7")
+sprite_modulate = Color(1, 1, 1, 1)
+sprite_scale = 1.0
+wander = true
+death_anim_duration = 0.5
+drop_potion_chance = 0.15
+drop_herb_chance = 0.2
+drop_equip_chance = 0.06
+respawn_time = 45.0
+is_elite = false
+key_flag = ""

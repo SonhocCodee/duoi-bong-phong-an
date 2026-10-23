@@ -29,6 +29,21 @@ enum State { IDLE, CHASE, ATTACK, DEAD }
 @export var sprite_scale: float = 1.0
 @export var wander: bool = true
 @export var death_anim_duration: float = 0.5 # chờ animation death rồi mới queue_free
+# --- Rơi vật phẩm / elite / respawn (Gameplay Systems) ---
+@export var drop_potion_chance: float = 0.15 # tỉ lệ rơi 1 bình máu khi chết
+@export var drop_herb_chance: float = 0.20 # tỉ lệ rơi thảo dược (quest collect "herb")
+@export var drop_equip_chance: float = 0.06 # tỉ lệ rơi 1 trang bị ngẫu nhiên
+@export var respawn_time: float = 0.0 # 0 = chết hẳn; >0 = hồi sinh tại điểm gốc sau N giây
+@export var is_elite: bool = false # biến thể tinh nhuệ: HP/dmg/thưởng x3/x1.5/x3, to + vàng hơn
+@export var key_flag: String = "" # flag GameState set khi chết (vd chìa khoá mở cửa khoá)
+
+# Bảng trang bị rơi ngẫu nhiên: [tên, +ATK, +DEF]
+const EQUIP_TABLE: Array = [
+	["Dao Găm Sắt", 2, 0],
+	["Kiếm Ngắn Cũ", 3, 0],
+	["Áo Da Cứng", 0, 2],
+	["Găng Da Thú", 1, 1],
+]
 
 var hp: int = 20
 var state: State = State.IDLE
@@ -45,21 +60,44 @@ var _attack_anim_timer: float = 0.0
 var _hurt_timer: float = 0.0
 var _hurt_flash_timer: float = 0.0
 var _base_sprite_scale: Vector2 = Vector2.ONE
+# Lưu gốc cho respawn (sau khi đã áp elite trong _ready)
+var _elite_applied: bool = false
+var _respawn_modulate: Color = Color(1, 1, 1, 1)
+var _respawn_sprite_scale: Vector2 = Vector2.ONE
+var _orig_collision_layer: int = 0
+var _orig_collision_mask: int = 0
+var _loot_text_count: int = 0
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 
 func _ready() -> void:
+	# Elite: áp hệ số TRƯỚC khi chốt hp / scale / modulate gốc.
+	if is_elite and not _elite_applied:
+		_elite_applied = true
+		max_hp *= 3
+		damage = int(round(float(damage) * 1.5))
+		xp_reward *= 3
+		gold_reward *= 3
+		sprite_scale *= 1.25
+		sprite_modulate = Color(sprite_modulate.r * 1.15, sprite_modulate.g * 1.05,
+			sprite_modulate.b * 0.8, sprite_modulate.a)
 	hp = max_hp
 	add_to_group("enemy")
 	_home_position = global_position
+	_orig_collision_layer = collision_layer
+	_orig_collision_mask = collision_mask
 	if sprite != null:
 		_base_sprite_scale = sprite.scale
 		if sprite_frames != null:
 			sprite.sprite_frames = sprite_frames
 		sprite.scale = _base_sprite_scale * sprite_scale
 		sprite.modulate = sprite_modulate
+	# Gốc để respawn khôi phục (đã gồm elite tint/scale nếu có)
+	_respawn_modulate = sprite_modulate
+	if sprite != null:
+		_respawn_sprite_scale = sprite.scale
 	health_changed.emit(hp, max_hp)
 	_update_animation()
 
@@ -233,6 +271,97 @@ func _on_death() -> void:
 	pass
 
 
+# --- Rơi vật phẩm --------------------------------------------------------
+
+## Chữ loot bay lên + mờ dần tại vị trí quái (phản hồi nhìn thấy được).
+## Label thêm vào parent của enemy để không bị queue_free theo xác quái.
+func _spawn_loot_text(text: String, color: Color) -> void:
+	var parent_node := get_parent()
+	if parent_node == null:
+		return
+	var lbl := Label.new()
+	lbl.text = text
+	lbl.z_index = 100
+	lbl.add_theme_color_override("font_color", color)
+	lbl.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.85))
+	lbl.add_theme_constant_override("shadow_offset_x", 1)
+	lbl.add_theme_constant_override("shadow_offset_y", 1)
+	lbl.add_theme_font_size_override("font_size", 15)
+	lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var stack_offset := float(_loot_text_count) * 18.0
+	_loot_text_count += 1
+	lbl.position = global_position + Vector2(-70.0, -64.0 - stack_offset)
+	lbl.size = Vector2(140, 22)
+	parent_node.add_child(lbl)
+	var tw := lbl.create_tween()
+	tw.set_parallel(true)
+	tw.tween_property(lbl, "position:y", lbl.position.y - 42.0, 1.2)
+	tw.tween_property(lbl, "modulate:a", 0.0, 1.2)
+	tw.chain().tween_callback(lbl.queue_free)
+
+
+## Roll rơi vật phẩm khi chết (gọi đồng bộ trong _die trước mọi await,
+## để thưởng/loot áp dụng ngay trong frame chết như XP/gold).
+func _roll_drops() -> void:
+	_loot_text_count = 0
+	# Bình máu: elite chắc chắn rơi, thường theo tỉ lệ
+	var got_potion: bool = is_elite or randf() < drop_potion_chance
+	if got_potion and has_node("/root/GameState"):
+		GameState.add_potions(1)
+		_spawn_loot_text("+1 Bình máu", Color(1.0, 0.55, 0.6))
+		print("[%s] Rơi: Bình máu" % display_name)
+	# Thảo dược (vật phẩm quest "herb")
+	if randf() < drop_herb_chance and has_node("/root/QuestManager"):
+		QuestManager.on_item_collected("herb")
+		_spawn_loot_text("Thảo dược!", Color(0.55, 1.0, 0.55))
+		print("[%s] Rơi: Thảo dược" % display_name)
+	# Trang bị ngẫu nhiên trong bảng nhỏ
+	if randf() < drop_equip_chance and has_node("/root/GameState"):
+		var row: Array = EQUIP_TABLE[randi() % EQUIP_TABLE.size()]
+		var e_name := str(row[0])
+		var e_atk := int(row[1])
+		var e_def := int(row[2])
+		GameState.add_equipment(e_name, e_atk, e_def)
+		var bonus_txt := ""
+		if e_atk > 0:
+			bonus_txt += "+%d ATK" % e_atk
+		if e_def > 0:
+			bonus_txt += (" " if bonus_txt != "" else "") + "+%d DEF" % e_def
+		_spawn_loot_text("Trang bị: %s (%s)" % [e_name, bonus_txt], Color(0.65, 0.85, 1.0))
+		print("[%s] Rơi trang bị: %s (%s)" % [display_name, e_name, bonus_txt])
+	# Chìa khoá / flag sự kiện từ quái (vd elite giữ chìa hầm)
+	if key_flag != "" and has_node("/root/GameState"):
+		GameState.set_flag(key_flag)
+		_spawn_loot_text("Nhận: Chìa khóa!", Color(1.0, 0.85, 0.3))
+		print("[%s] Rơi chìa khoá -> set_flag('%s')" % [display_name, key_flag])
+
+
+## Hồi sinh sau respawn_time: về điểm gốc, đầy máu, bật lại va chạm.
+func _do_respawn() -> void:
+	global_position = _home_position
+	hp = max_hp
+	state = State.IDLE
+	velocity = Vector2.ZERO
+	_attack_timer = 0.0
+	_hurt_flash_timer = 0.0
+	_hurt_timer = 0.0
+	sprite_modulate = _respawn_modulate
+	if sprite != null:
+		sprite.scale = _respawn_sprite_scale
+		sprite.modulate = _respawn_modulate
+		sprite.visible = true
+	if collision_shape:
+		collision_shape.set_deferred("disabled", false)
+	set_deferred("collision_layer", _orig_collision_layer)
+	set_deferred("collision_mask", _orig_collision_mask)
+	visible = true
+	_anim_current = &""
+	health_changed.emit(hp, max_hp)
+	_update_animation()
+	_apply_modulate()
+	print("[%s] Đã hồi sinh tại điểm gốc (HP %d/%d)" % [display_name, hp, max_hp])
+
+
 func _die() -> void:
 	state = State.DEAD
 	velocity = Vector2.ZERO
@@ -244,6 +373,7 @@ func _die() -> void:
 		GameState.add_gold(gold_reward)
 	if has_node("/root/QuestManager"):
 		QuestManager.on_enemy_killed(enemy_type)
+	_roll_drops()
 	_on_death()
 	# Tắt va chạm ngay (không chắn đường / không bị đánh tiếp) nhưng giữ xác
 	# trên đất cho animation death chạy hết rồi mới biến mất.
@@ -260,4 +390,15 @@ func _die() -> void:
 	else:
 		# SpriteFrames thiếu animation death: fallback chờ 0.4s rồi free
 		await get_tree().create_timer(0.4).timeout
+	if respawn_time > 0.0:
+		# Không biến mất: ẩn xác, chờ respawn_time rồi hồi sinh tại điểm gốc.
+		# state vẫn DEAD trong lúc chờ -> take_damage bị chặn, không tính kill thêm.
+		visible = false
+		if sprite != null:
+			sprite.visible = false
+		await get_tree().create_timer(respawn_time).timeout
+		if not is_inside_tree():
+			return
+		_do_respawn()
+		return
 	queue_free()

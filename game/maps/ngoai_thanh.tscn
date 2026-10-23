@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" path="res://systems/portal.tscn" id="4_e"]
 [ext_resource type="PackedScene" path="res://systems/npc.tscn" id="5_e"]
 [ext_resource type="PackedScene" path="res://enemies/soldier.tscn" id="6_e"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/linh_tuan_frames.tres" id="7_lt"]
 
 [sub_resource type="RectangleShape2D" id="R1"]
 size = Vector2(2496, 32)
@@ -198,6 +199,11 @@ shop_enabled = false
 tint = Color(0.95, 0.9, 0.8, 1)
 wander_radius = 0.0
 dialogue_done = Array[String](["Cổng thành chỉ mở cho dân có giấy thông hành đóng dấu của phủ.", "Không giấy thì quay lại làng mà xin trưởng làng xác nhận. Lệnh trên, ta không tự quyết được.", "Dạo này trong thành nhiều chuyện lạ... thôi, ngươi đi đi."])
+schedule = Array[Dictionary]([{"x": -190.0, "y": -460.0, "action": "idle", "time": 3.0}, {"x": 0.0, "y": -495.0, "action": "idle", "time": 3.0}, {"x": 270.0, "y": -465.0, "action": "walk", "time": 10.0}, {"x": 96.0, "y": -480.0, "action": "idle", "time": 3.0}])
+schedule_enabled = true
+
+[node name="AnimatedSprite2D" parent="NPC_LinhGac"]
+sprite_frames = ExtResource("7_lt")
 
 [node name="Soldier1" parent="." instance=ExtResource("6_e")]
 position = Vector2(-608, -224)

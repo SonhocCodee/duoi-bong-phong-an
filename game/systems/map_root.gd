@@ -27,3 +27,6 @@ func _ready() -> void:
 			# Autosave theo map: mỗi lần vào map đều lưu lại để "Tiếp tục" quay đúng map.
 			if has_node("/root/SaveSystem"):
 				SaveSystem.save_game()
+			# Quest theo map (vd dong_08_cong_ngam: vào tới hoang_cung)
+			if has_node("/root/QuestManager") and QuestManager.has_method("on_map_entered"):
+				QuestManager.on_map_entered(cs.scene_file_path.get_file().get_basename())

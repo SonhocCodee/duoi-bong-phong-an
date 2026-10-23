@@ -95,4 +95,6 @@ func _clear_boss_display() -> void:
 
 func _on_death() -> void:
 	_clear_boss_display()
-	print("[The Rat King] Bị hạ! Boss display đã clear.")
+	if has_node("/root/GameState"):
+		GameState.set_flag("rat_king_dead")
+	print("[The Rat King] Bị hạ! Boss display đã clear, flag rat_king_dead = true.")

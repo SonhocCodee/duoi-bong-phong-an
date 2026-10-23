@@ -122,11 +122,22 @@ position = Vector2(0, 320)
 [node name="Spawn_from_tandiep" type="Marker2D" parent="."]
 position = Vector2(0, 320)
 
+[node name="Spawn_from_duong" type="Marker2D" parent="."]
+position = Vector2(0, 360)
+
 [node name="PortalBack" parent="." instance=ExtResource("4_e")]
 position = Vector2(-512, 384)
 target_scene = "res://maps/lang_tan_diep.tscn"
 target_spawn = "from_khung"
 label_text = "← Elmford"
+
+[node name="PortalSouthFenmire" parent="." instance=ExtResource("4_e")]
+position = Vector2(0, 440)
+target_scene = "res://maps/duong_di_nam.tscn"
+target_spawn = "from_khung"
+label_text = "Đường về Fenmire"
+required_flag = "dong_giai_phong"
+locked_text = "Cổng Nam bị lính canh chặn: chỉ khi Aldenmere được giải phóng mới qua được."
 
 [node name="Player" parent="." instance=ExtResource("2_e")]
 position = Vector2(0, 320)

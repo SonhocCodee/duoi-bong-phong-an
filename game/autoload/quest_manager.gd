@@ -119,12 +119,12 @@ func _register_starter_quests() -> void:
 		"id": "dong_04_golem",
 		"title": "Mossback, the Moss Golem",
 		"region": "dong",
-		"description": "Hạ Mossback, the Moss Golem trong hang dưới Cloudpeak, lấy lại bình yên cho thành.",
+		"description": "Hạ Mossback, the Moss Golem trong Moss Den — hang rêu dưới chân Cloudpeak, nơi BossGolem đang ở — lấy lại bình yên cho thành.",
 		"quest_type": "main",
 		"target_type": "boss_golem",
 		"target_count": 1,
 		"progress": 0,
-		"required_quest": "dong_03_chuot_chua",
+		"required_quest": "dong_06_giai_phu",
 		"requires_turn_in": true,
 		"turn_in_npc": "linh_gac",
 		"xp_reward": 200,
@@ -169,6 +169,24 @@ func _register_starter_quests() -> void:
 		"status": "available",
 	})
 	_add_quest({
+		"id": "dong_08_cong_ngam",
+		"title": "Đột nhập qua Aldenmere Sewers",
+		"region": "dong",
+		"description": "Phu mỏ được giải phóng tiết lộ đường cống nối Bluestone Mine → Aldenmere Sewers → thẳng vào Royal Palace; hãy theo đường cống vào tới Royal Palace.",
+		"quest_type": "main",
+		"target_map": "hoang_cung",
+		"target_count": 1,
+		"progress": 0,
+		"required_quest": "dong_04_golem",
+		"requires_turn_in": false,
+		"turn_in_npc": "",
+		"set_flag": "da_dot_nhap",
+		"xp_reward": 150,
+		"gold_reward": 50,
+		"reputation_reward": 10,
+		"status": "available",
+	})
+	_add_quest({
 		"id": "dong_07_vua",
 		"title": "Lật đổ King Aldric",
 		"region": "dong",
@@ -177,7 +195,7 @@ func _register_starter_quests() -> void:
 		"target_type": "boss_vua",
 		"target_count": 1,
 		"progress": 0,
-		"required_quest": "dong_06_giai_phu",
+		"required_quest": "dong_08_cong_ngam",
 		"requires_turn_in": false,
 		"turn_in_npc": "",
 		"set_flag": "dong_giai_phong",
@@ -250,6 +268,16 @@ func on_enemy_killed(enemy_type: String) -> void:
 	for qid in quests.keys():
 		var q: Dictionary = quests[qid]
 		if str(q.get("status", "")) == "active" and str(q.get("target_type", "")) == enemy_type:
+			add_quest_progress(qid, 1)
+
+
+# Gọi khi player vào một map — generic theo target_map (basename scene đích,
+# vd "hoang_cung"). Mọi quest đang active có target_map khớp đều +1 tiến độ.
+func on_map_entered(map_key: String) -> void:
+	print("[QuestManager] Player vào map: ", map_key)
+	for qid in quests.keys():
+		var q: Dictionary = quests[qid]
+		if str(q.get("status", "")) == "active" and str(q.get("target_map", "")) == map_key:
 			add_quest_progress(qid, 1)
 
 
