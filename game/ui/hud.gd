@@ -13,18 +13,49 @@ extends CanvasLayer
 @onready var boss_name_label: Label = $BossContainer/BossNameLabel
 @onready var boss_bar: ProgressBar = $BossContainer/BossBar
 
+const QUEST_LOG_SCENE: PackedScene = preload("res://ui/quest_log_panel.tscn")
+
 var _player: Node = null
+var _quest_log: CanvasLayer = null
+var _level_up_label: Label = null
+var _level_up_tween: Tween = null
+var _last_level: int = 1
 
 
 func _ready() -> void:
+	# Sổ quest: preload + add_child bằng code thay vì instance trong hud.tscn
+	# (ít rủi ro vỡ scene text, thứ tự khởi tạo do HUD kiểm soát hoàn toàn).
+	_quest_log = QUEST_LOG_SCENE.instantiate()
+	add_child(_quest_log)
+	# Banner LEVEL UP cũng tạo bằng code (giữa-phía trên màn hình, chữ lớn vàng).
+	_level_up_label = Label.new()
+	_level_up_label.name = "LevelUpLabel"
+	_level_up_label.anchor_left = 0.5
+	_level_up_label.anchor_right = 0.5
+	_level_up_label.anchor_top = 0.0
+	_level_up_label.anchor_bottom = 0.0
+	_level_up_label.offset_left = -460.0
+	_level_up_label.offset_right = 460.0
+	_level_up_label.offset_top = 92.0
+	_level_up_label.offset_bottom = 140.0
+	_level_up_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_level_up_label.add_theme_font_size_override("font_size", 30)
+	_level_up_label.add_theme_color_override("font_color", Color(1.0, 0.85, 0.3))
+	_level_up_label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.9))
+	_level_up_label.add_theme_constant_override("shadow_offset_x", 2)
+	_level_up_label.add_theme_constant_override("shadow_offset_y", 2)
+	_level_up_label.visible = false
+	add_child(_level_up_label)
 	# Nối signal GameState
 	if has_node("/root/GameState"):
+		_last_level = GameState.level
 		GameState.gold_changed.connect(_on_gold_changed)
 		GameState.xp_changed.connect(_on_xp_changed)
 		GameState.level_changed.connect(_on_level_changed)
 		GameState.player_hp_changed.connect(_on_game_hp_changed)
 		GameState.potions_changed.connect(_on_potions_changed)
 		GameState.boss_changed.connect(_on_boss_changed)
+		GameState.stats_changed.connect(_on_stats_changed)
 	if has_node("/root/QuestManager"):
 		QuestManager.quest_updated.connect(_on_quest_updated)
 		QuestManager.quest_completed.connect(_on_quest_completed)
@@ -40,6 +71,12 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if _player == null:
 		_try_connect_player()
+	# Toggle sổ quest bằng phím J (action "quest_log")
+	if _quest_log != null and Input.is_action_just_pressed("quest_log"):
+		if _quest_log.visible:
+			_quest_log.hide_panel()
+		else:
+			_quest_log.show_panel()
 
 
 func _try_connect_player() -> void:
@@ -88,19 +125,44 @@ func _on_gold_changed(_g: int) -> void:
 func _on_xp_changed(_x: int, _l: int) -> void:
 	_refresh_info()
 
-func _on_level_changed(_l: int) -> void:
+func _on_level_changed(l: int) -> void:
 	_refresh_info()
+	# Banner nổi bật CHỈ khi level thực sự tăng (không phải reset/load phát lại).
+	if l > _last_level:
+		_show_level_up_banner(l)
+	_last_level = l
+
+
+func _on_stats_changed(_atk: int, _def: int) -> void:
+	_refresh_info()
+
+
+func _show_level_up_banner(l: int) -> void:
+	if _level_up_label == null:
+		return
+	_level_up_label.text = "★ LEVEL UP! Đạt cấp %d — +10 HP tối đa, +2 Tấn công ★" % l
+	_level_up_label.modulate = Color(1, 1, 1, 1)
+	_level_up_label.visible = true
+	if _level_up_tween != null and _level_up_tween.is_valid():
+		_level_up_tween.kill()
+	_level_up_tween = create_tween()
+	_level_up_tween.tween_interval(2.2)
+	_level_up_tween.tween_property(_level_up_label, "modulate:a", 0.0, 0.8)
+	_level_up_tween.tween_callback(func() -> void: _level_up_label.visible = false)
 
 
 func _refresh_info() -> void:
 	if not is_node_ready():
 		return
 	if has_node("/root/GameState"):
-		info_label.text = "Level %d  |  XP %d / %d  |  Vàng: %d" % [
-			GameState.level, GameState.xp, GameState.xp_to_next_level, GameState.gold
+		# ATK hiệu dụng = damage hit 1 gốc (10) + bonus trang bị + 2/cấp trên 1
+		var atk: int = 10 + GameState.attack_bonus + (GameState.level - 1) * 2
+		info_label.text = "Level %d  |  XP %d / %d  |  Vàng: %d  |  ATK %d  |  DEF %d" % [
+			GameState.level, GameState.xp, GameState.xp_to_next_level, GameState.gold,
+			atk, GameState.defense_bonus
 		]
 	else:
-		info_label.text = "Level 1  |  XP 0  |  Vàng: 0"
+		info_label.text = "Level 1  |  XP 0  |  Vàng: 0  |  ATK 10  |  DEF 0"
 
 
 func _on_potions_changed(_n: int) -> void:

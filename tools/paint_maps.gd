@@ -204,7 +204,40 @@ func _report(label: String, tstats: Dictionary, pstats: Dictionary, removed_coun
     print("[PAINT] ", label, " PROP STATS: ", pstats)
     print("[PAINT] ", label, " REMOVED DECOR COUNT: ", removed_count)
 
-# ---------------- LANG TAN DIEP ----------------
+# ---------------- helpers mo rong (idempotent: chay lai tren scene da paint van dung) ----------------
+
+func _poly_rect(root: Node, nname: String, fallback: Rect2) -> Rect2:
+    if root.has_node(nname) and root.get_node(nname) is Polygon2D:
+        return _poly_global_bbox(root, root.get_node(nname) as Polygon2D)
+    return fallback
+
+func _remove_existing(root: Node, nname: String, removed: Array) -> void:
+    if root.has_node(nname):
+        _remove_node(root, root.get_node(nname), removed)
+
+func _has_sprite(cont: Node) -> bool:
+    for ch in cont.get_children():
+        if ch is Sprite2D:
+            return true
+    return false
+
+func _has_poly(cont: Node) -> bool:
+    for ch in cont.get_children():
+        if ch is Polygon2D:
+            return true
+    return false
+
+## Container nha/cay/da: chi strip polygon + dat prop khi con polygon goc;
+## da co sprite san (scene da paint / node moi) thi giu nguyen.
+func _paint_container(root: Node, cont: Node, tex: String, prop_name: String, width_scale: float, removed: Array, pstats: Dictionary, flip: bool = false) -> void:
+    if _has_poly(cont):
+        var bb := _container_local_bbox(cont)
+        _strip_polygons(root, cont, removed)
+        if not _has_sprite(cont):
+            _prop_fit(cont, root, prop_name, tex, bb, width_scale, pstats, flip)
+
+# ---------------- LANG TAN DIEP (ELMFORD) ----------------
+# Ground moi: Rect2(-1600,-3200,6400,4800) = 100x75 tile. Lang cu la hat nhan Tay-Nam/trung tam.
 
 func _paint_village() -> void:
     var path := "res://maps/lang_tan_diep.tscn"
@@ -218,31 +251,40 @@ func _paint_village() -> void:
     var tstats := {}
     var pstats := {}
 
-    # --- doc bbox cac vung dat truoc khi xoa ---
     var field_rects: Array = []
     for nname in ["FieldRice", "FieldWheat"]:
-        field_rects.append(_poly_global_bbox(root, root.get_node(nname) as Polygon2D))
-    var road_ns := _poly_global_bbox(root, root.get_node("RoadNS") as Polygon2D)
-    var road_ew := _poly_global_bbox(root, root.get_node("RoadEW") as Polygon2D)
-    var plaza := _poly_global_bbox(root, root.get_node("Plaza") as Polygon2D)
+        if root.has_node(nname):
+            field_rects.append(_poly_global_bbox(root, root.get_node(nname) as Polygon2D))
+    if field_rects.is_empty():
+        field_rects = [Rect2(1800, 700, 1000, 600), Rect2(-1200, 800, 1000, 600)]
+    var road_ns := _poly_rect(root, "RoadNS", Rect2(-64, -3200, 128, 4800))
+    var road_ew := _poly_rect(root, "RoadEW", Rect2(-1600, -64, 6400, 128))
+    var road_branch := _poly_rect(root, "RoadBranch", Rect2(0, 736, 3000, 128))
+    var plaza := _poly_rect(root, "Plaza", Rect2(-160, -140, 540, 460))
+    var forest_rects: Array = []
+    for nname in ["ForestEast", "ForestNorth"]:
+        if root.has_node(nname):
+            forest_rects.append(_poly_global_bbox(root, root.get_node(nname) as Polygon2D))
+    if forest_rects.is_empty():
+        forest_rects = [Rect2(2200, -2600, 2500, 2200), Rect2(-1400, -3000, 3200, 1200)]
     var fence_data: Array = []
-    for i in range(5):
-        var f := root.get_node("Fence" + str(i))
-        var fb := _container_local_bbox(f)
-        fence_data.append(Rect2((f as Node2D).position + fb.position, fb.size))
+    for ch in root.get_children():
+        if ch.name.begins_with("Fence") and _has_poly(ch):
+            var fb := _container_local_bbox(ch)
+            fence_data.append(Rect2((ch as Node2D).position + fb.position, fb.size))
 
-    # --- xoa polygon nen duong ruong o root ---
-    var root_decor := ["GrassBase", "VillageGround", "FieldRice", "FieldWheat", "RoadNS", "RoadEW", "Plaza",
+    var root_decor := ["GrassBase", "VillageGround", "FieldRice", "FieldWheat", "RoadNS", "RoadEW", "RoadBranch", "Plaza",
+        "ForestEast", "ForestNorth",
         "RiceLine0", "RiceLine1", "RiceLine2", "RiceLine3", "WheatLine0", "WheatLine1", "WheatLine2"]
     for nname in root_decor:
         if root.has_node(nname):
             _remove_node(root, root.get_node(nname), removed)
+    _remove_existing(root, "GroundTiles", removed)
 
-    # --- TileMap nen ---
-    var tm := _make_tilemap(root, "GroundTiles", "res://assets/tilesets/exterior_v1.tres", Vector2(-960, -704))
+    var tm := _make_tilemap(root, "GroundTiles", "res://assets/tilesets/exterior_v1.tres", Vector2(-1664, -3264))
     var rng := RandomNumberGenerator.new()
     rng.seed = 20261023
-    var ground := Rect2(-900, -700, 1800, 1400)
+    var ground := Rect2(-1600, -3200, 6400, 4800)
     for c in _cells_of_rect(tm, ground):
         var roll := rng.randf()
         var t := "grass"
@@ -253,9 +295,13 @@ func _paint_village() -> void:
         elif roll < 0.12:
             t = "grass_sparse"
         _paint_cell(tm, EXT, tstats, t, c)
+    # ven rung dong/bac: co dam
+    for r in forest_rects:
+        for c in _cells_of_rect(tm, r):
+            var roll2 := rng.randf()
+            _paint_cell(tm, EXT, tstats, "grass_tall" if roll2 < 0.25 else "grass_dark", c)
     for r in field_rects:
         _paint_rect(tm, EXT, tstats, "field", r)
-    # duong NS: 2 cot path_e/path_w
     var ns_cells := _cells_of_rect(tm, road_ns)
     var ns_cols := {}
     for c in ns_cells:
@@ -264,7 +310,6 @@ func _paint_village() -> void:
     sorted_cols.sort()
     for c in ns_cells:
         _paint_cell(tm, EXT, tstats, "path_e" if c.x == sorted_cols[0] else "path_w", c)
-    # duong EW: 2 hang path_s/path_n
     var ew_cells := _cells_of_rect(tm, road_ew)
     var ew_rows := {}
     for c in ew_cells:
@@ -273,12 +318,11 @@ func _paint_village() -> void:
     sorted_rows.sort()
     for c in ew_cells:
         _paint_cell(tm, EXT, tstats, "path_s" if c.y == sorted_rows[0] else "path_n", c)
-    # giao lo + quang truong: dat tron
     for c in ns_cells:
         if ew_rows.has(c.y):
             _paint_cell(tm, EXT, tstats, "dirt", c)
+    _paint_rect(tm, EXT, tstats, "dirt", road_branch)
     _paint_rect(tm, EXT, tstats, "dirt", plaza)
-    # hang rao: tile fence theo truc dai cua bbox cu
     for fr in fence_data:
         var r: Rect2 = fr
         if r.size.y > r.size.x:
@@ -297,38 +341,32 @@ func _paint_village() -> void:
                 if not seen2.has(c.x):
                     seen2[c.x] = true
                     _paint_cell(tm, EXT, tstats, "fence_h", Vector2i(c.x, row))
-    # xoa polygon trong cac fence (khong co collision ben trong)
-    for i in range(5):
-        _strip_polygons(root, root.get_node("Fence" + str(i)), removed)
+    for ch in root.get_children():
+        if ch.name.begins_with("Fence"):
+            _strip_polygons(root, ch, removed)
 
-    # --- prop: nha / gieng / cay / da ---
-    var houses := ["ElderHouse", "House1", "House2", "House3", "House4", "House5", "House6"]
-    for hname in houses:
-        var h := root.get_node(hname)
-        var bb := _container_local_bbox(h)
-        _strip_polygons(root, h, removed)
-        _prop_fit(h, root, "PropHouse", "house", bb, 1.15 if hname == "ElderHouse" else 1.0, pstats)
-    var well := root.get_node("Well")
-    var wbb := _container_local_bbox(well)
-    _strip_polygons(root, well, removed)
-    _prop_fit(well, root, "PropWell", "well", wbb, 1.0, pstats)
-    for i in range(10):
-        var tr := root.get_node("Tree" + str(i))
-        var bb2 := _container_local_bbox(tr)
-        _strip_polygons(root, tr, removed)
-        if i % 2 == 0:
-            _prop_fit(tr, root, "PropOak", "oak", bb2, 1.0, pstats)
-        else:
-            _prop_fit(tr, root, "PropSmallTree", "small_tree", bb2, 1.0, pstats)
-    for i in range(1, 4):
-        var rk := root.get_node("Rock" + str(i))
-        var bb3 := _container_local_bbox(rk)
-        _strip_polygons(root, rk, removed)
-        _prop_fit(rk, root, "PropBoulder", "boulder", bb3, 1.0, pstats)
-    # bui co trang tri them canh gieng / nha truong / nha 3 (khong collision)
-    _add_prop(root, root, "PropBushA", "bush", Vector2(182, 168), Vector2(0.85, 0.85), pstats)
-    _add_prop(root, root, "PropBushB", "bush", Vector2(-168, -78), Vector2(0.9, 0.9), pstats)
-    _add_prop(root, root, "PropBushC", "bush", Vector2(398, 288), Vector2(0.8, 0.8), pstats)
+    for ch in root.get_children():
+        var nm := String(ch.name)
+        if nm == "ElderHouse":
+            _paint_container(root, ch, "house", "PropHouse", 1.15, removed, pstats)
+        elif nm.begins_with("House"):
+            _paint_container(root, ch, "house", "PropHouse", 1.0, removed, pstats)
+        elif nm == "Well":
+            _paint_container(root, ch, "well", "PropWell", 1.0, removed, pstats)
+        elif nm.begins_with("Tree"):
+            var idx := int(nm.trim_prefix("Tree"))
+            if idx % 2 == 0:
+                _paint_container(root, ch, "oak", "PropOak", 1.0, removed, pstats)
+            else:
+                _paint_container(root, ch, "small_tree", "PropSmallTree", 1.0, removed, pstats)
+        elif nm.begins_with("Rock"):
+            _paint_container(root, ch, "boulder", "PropBoulder", 1.0, removed, pstats)
+    if not root.has_node("PropBushA"):
+        _add_prop(root, root, "PropBushA", "bush", Vector2(182, 168), Vector2(0.85, 0.85), pstats)
+    if not root.has_node("PropBushB"):
+        _add_prop(root, root, "PropBushB", "bush", Vector2(-168, -78), Vector2(0.9, 0.9), pstats)
+    if not root.has_node("PropBushC"):
+        _add_prop(root, root, "PropBushC", "bush", Vector2(398, 288), Vector2(0.8, 0.8), pstats)
 
     print("[PAINT] LangTanDiep collision truoc: bodies=", bodies0, " shapes=", cols0,
         " sau: bodies=", _count_type(root, "StaticBody2D"), " shapes=", _count_type(root, "CollisionShape2D"))
@@ -336,7 +374,8 @@ func _paint_village() -> void:
     _report("LangTanDiep", tstats, pstats, removed.size())
     _save_scene(root, path, "LangTanDiep")
 
-# ---------------- DONG MACH NHA ----------------
+# ---------------- DONG MACH NHA (BARLEYFIELD) ----------------
+# Ground moi: Rect2(-2800,-3264,9088,6528) = 142x102 tile.
 
 func _paint_fields() -> void:
     var path := "res://maps/dong_mach_nha.tscn"
@@ -351,15 +390,32 @@ func _paint_fields() -> void:
     var pstats := {}
 
     var field_rects: Array = []
-    for nname in ["FieldA", "FieldB", "FieldC", "FieldD"]:
-        field_rects.append(_poly_global_bbox(root, root.get_node(nname) as Polygon2D))
-    var road_ns := _poly_global_bbox(root, root.get_node("RoadNS") as Polygon2D)
-    var road_ew := _poly_global_bbox(root, root.get_node("RoadEW") as Polygon2D)
-    var road_vil := _poly_global_bbox(root, root.get_node("RoadVillage") as Polygon2D)
-    var canal := _poly_global_bbox(root, root.get_node("Canal") as Polygon2D)
+    var trail_pts := PackedVector2Array()
+    var forest_strip := Rect2()
+    var has_strip := false
+    for ch in root.get_children():
+        if ch is Polygon2D:
+            var nm := String(ch.name)
+            if nm.begins_with("Field"):
+                field_rects.append(_poly_global_bbox(root, ch as Polygon2D))
+            elif nm == "TrailShortcut":
+                trail_pts = (ch as Polygon2D).polygon
+            elif nm == "ForestStrip":
+                forest_strip = _poly_global_bbox(root, ch as Polygon2D)
+                has_strip = true
+    if field_rects.is_empty():
+        field_rects = [Rect2(600, -1600, 2000, 1200), Rect2(-2400, -1800, 1800, 1200), Rect2(-2200, 700, 2400, 1200), Rect2(2800, 600, 2000, 1200), Rect2(3200, -2400, 2000, 1200)]
+    if not has_strip:
+        forest_strip = Rect2(1500, -3264, 800, 6528)
+        has_strip = true
+    if trail_pts.size() < 3:
+        trail_pts = PackedVector2Array([Vector2(1500, 1200), Vector2(2300, 400), Vector2(2364, 464), Vector2(1564, 1264)])
+    var road_ns := _poly_rect(root, "RoadNS", Rect2(-64, -3264, 128, 6528))
+    var road_ew := _poly_rect(root, "RoadEW", Rect2(-2800, -64, 9088, 128))
+    var road_vil := _poly_rect(root, "RoadVillage", Rect2(400, -640, 600, 480))
+    var canal := _poly_rect(root, "Canal", Rect2(-2800, 149, 9088, 56))
     var bridge_pos: Vector2 = (root.get_node("Bridge") as Node2D).position
 
-    # xoa toan bo polygon trang tri o root (Grass/Field*/Road*/Canal*)
     var root_targets := []
     for ch in root.get_children():
         if ch is Polygon2D:
@@ -367,11 +423,13 @@ func _paint_fields() -> void:
     for t in root_targets:
         _remove_node(root, t, removed)
     _strip_polygons(root, root.get_node("Bridge"), removed)
+    _remove_existing(root, "GroundTiles", removed)
+    _remove_existing(root, "BridgeTiles", removed)
 
-    var tm := _make_tilemap(root, "GroundTiles", "res://assets/tilesets/exterior_v1.tres", Vector2(-1024, -704))
+    var tm := _make_tilemap(root, "GroundTiles", "res://assets/tilesets/exterior_v1.tres", Vector2(-2816, -3264))
     var rng := RandomNumberGenerator.new()
     rng.seed = 20261024
-    var ground := Rect2(-1000, -700, 2000, 1400)
+    var ground := Rect2(-2800, -3264, 9088, 6528)
     for c in _cells_of_rect(tm, ground):
         var roll := rng.randf()
         var t := "grass"
@@ -382,9 +440,12 @@ func _paint_fields() -> void:
         elif roll < 0.12:
             t = "grass_sparse"
         _paint_cell(tm, EXT, tstats, t, c)
+    if has_strip:
+        for c in _cells_of_rect(tm, forest_strip):
+            var roll3 := rng.randf()
+            _paint_cell(tm, EXT, tstats, "grass_tall" if roll3 < 0.25 else "grass_dark", c)
     for r in field_rects:
         _paint_rect(tm, EXT, tstats, "field", r)
-    # duong NS
     var ns_cells := _cells_of_rect(tm, road_ns)
     var ns_cols := {}
     for c in ns_cells:
@@ -393,7 +454,6 @@ func _paint_fields() -> void:
     scol.sort()
     for c in ns_cells:
         _paint_cell(tm, EXT, tstats, "path_e" if c.x == scol[0] else "path_w", c)
-    # duong EW (chi doan tay theo bbox cu)
     var ew_cells := _cells_of_rect(tm, road_ew)
     var ew_rows := {}
     for c in ew_cells:
@@ -405,52 +465,52 @@ func _paint_fields() -> void:
     for c in ns_cells:
         if ew_rows.has(c.y):
             _paint_cell(tm, EXT, tstats, "dirt", c)
-    # duong vao lang Mach Nha: dat tron
     _paint_rect(tm, EXT, tstats, "dirt", road_vil)
-    # kenh nuoc: 1 hang tile nuoc tai hang chua tam kenh, xen water_a/b
+    # loi tat xuyen dai cay: paint dirt cac o co tam nam trong polygon cheo
+    if trail_pts.size() >= 3:
+        var tb := Rect2(trail_pts[0], Vector2.ZERO)
+        for p in trail_pts:
+            tb = tb.expand(p)
+        for c in _cells_of_rect(tm, tb):
+            var center := tm.position + Vector2(c) * TILE + Vector2(TILE * 0.5, TILE * 0.5)
+            if Geometry2D.is_point_in_polygon(center, trail_pts):
+                _paint_cell(tm, EXT, tstats, "dirt", c)
     var canal_row := _cell_of(tm, canal.get_center()).y
     var canal_c0 := _cell_of(tm, Vector2(canal.position.x, canal.get_center().y)).x
     var canal_c1 := _cell_of(tm, Vector2(canal.end.x - 0.01, canal.get_center().y)).x
     for cx in range(canal_c0, canal_c1 + 1):
         _paint_cell(tm, EXT, tstats, "water_a" if cx % 2 == 0 else "water_b", Vector2i(cx, canal_row))
-    # cau: nen dat + mat cau go (TileMap rieng dung tileset noi that - van go)
     var bridge_col0 := _cell_of(tm, bridge_pos + Vector2(-60, 0)).x
     var bridge_col1 := _cell_of(tm, bridge_pos + Vector2(59, 0)).x
     for cx in range(bridge_col0, bridge_col1 + 1):
         _paint_cell(tm, EXT, tstats, "dirt", Vector2i(cx, canal_row))
-    var btm := _make_tilemap(root, "BridgeTiles", "res://assets/tilesets/interior_tavern_v1.tres", Vector2(-1024, -704))
+    var btm := _make_tilemap(root, "BridgeTiles", "res://assets/tilesets/interior_tavern_v1.tres", Vector2(-2816, -3264))
     btm.z_index = -9
     var bstats := {}
     for cx in range(bridge_col0, bridge_col1 + 1):
         _paint_cell(btm, INT, bstats, "floor_a" if cx % 2 == 0 else "floor_b", Vector2i(cx, canal_row))
     print("[PAINT] DongMachNha BRIDGE TILE STATS: ", bstats)
 
-    # nha lang Mach Nha + kho thoc
-    var mh := ["MachHouse1", "MachHouse2", "MachHouse3"]
-    for idx in range(mh.size()):
-        var h := root.get_node(mh[idx])
-        var bb := _container_local_bbox(h)
-        _strip_polygons(root, h, removed)
-        _prop_fit(h, root, "PropHouse", "house", bb, 1.0, pstats, idx == 1)
-    var gr := root.get_node("Granary")
-    var gbb := _container_local_bbox(gr)
-    _strip_polygons(root, gr, removed)
-    _prop_fit(gr, root, "PropGranary", "house", gbb, 0.85, pstats)
-    _add_prop(gr, root, "PropSack", "sack", Vector2(gbb.end.x + 24, gbb.end.y - 25), Vector2.ONE, pstats)
-    _add_prop(gr, root, "PropBarrel", "barrel", Vector2(gbb.end.x + 52, gbb.end.y - 27), Vector2.ONE, pstats)
-    # cay thua
-    for i in range(6):
-        var tr := root.get_node("Tree" + str(i))
-        var bb2 := _container_local_bbox(tr)
-        _strip_polygons(root, tr, removed)
-        if i % 2 == 0:
-            _prop_fit(tr, root, "PropOak", "oak", bb2, 1.0, pstats)
-        else:
-            _prop_fit(tr, root, "PropSmallTree", "small_tree", bb2, 1.0, pstats)
-    # bui co canh cay (khong collision)
-    _add_prop(root, root, "PropBushA", "bush", Vector2(178, 578), Vector2(0.85, 0.85), pstats)
-    _add_prop(root, root, "PropBushB", "bush", Vector2(-938, 572), Vector2(0.9, 0.9), pstats)
-    _add_prop(root, root, "PropBushC", "bush", Vector2(-82, -602), Vector2(0.8, 0.8), pstats)
+    for ch in root.get_children():
+        var nm := String(ch.name)
+        if nm.begins_with("MachHouse"):
+            _paint_container(root, ch, "house", "PropHouse", 1.0, removed, pstats, nm == "MachHouse2")
+        elif nm == "Granary":
+            _paint_container(root, ch, "house", "PropGranary", 0.85, removed, pstats)
+            if not ch.has_node("PropSack"):
+                var gbb := Rect2(-75, -50, 150, 100)
+                _add_prop(ch, root, "PropSack", "sack", Vector2(gbb.end.x + 24, gbb.end.y - 25), Vector2.ONE, pstats)
+            if not ch.has_node("PropBarrel"):
+                _add_prop(ch, root, "PropBarrel", "barrel", Vector2(139, 23), Vector2.ONE, pstats)
+        elif nm.begins_with("Tree") or nm == "OldTree":
+            _paint_container(root, ch, "oak" if nm == "OldTree" or int(nm.trim_prefix("Tree")) % 2 == 0 else "small_tree",
+                "PropOak" if nm == "OldTree" or int(nm.trim_prefix("Tree")) % 2 == 0 else "PropSmallTree", 1.0, removed, pstats)
+    if not root.has_node("PropBushA"):
+        _add_prop(root, root, "PropBushA", "bush", Vector2(178, 578), Vector2(0.85, 0.85), pstats)
+    if not root.has_node("PropBushB"):
+        _add_prop(root, root, "PropBushB", "bush", Vector2(-938, 572), Vector2(0.9, 0.9), pstats)
+    if not root.has_node("PropBushC"):
+        _add_prop(root, root, "PropBushC", "bush", Vector2(-82, -602), Vector2(0.8, 0.8), pstats)
 
     print("[PAINT] DongMachNha collision truoc: bodies=", bodies0, " shapes=", cols0,
         " sau: bodies=", _count_type(root, "StaticBody2D"), " shapes=", _count_type(root, "CollisionShape2D"))
@@ -458,7 +518,9 @@ func _paint_fields() -> void:
     _report("DongMachNha", tstats, pstats, removed.size())
     _save_scene(root, path, "DongMachNha")
 
-# ---------------- HAM RUOU ----------------
+# ---------------- HAM RUOU (ELMFORD CELLAR) ----------------
+# Dungeon 80x60 tile (-2560..2560, -1920..1920): 8 phong + hanh lang chu thap.
+# San = cac polygon Floor*/Corr*; con lai la tuong (wall_stone) + Walls collision trong scene.
 
 func _paint_cellar() -> void:
     var path := "res://maps/ham_ruou.tscn"
@@ -472,96 +534,88 @@ func _paint_cellar() -> void:
     var tstats := {}
     var pstats := {}
 
-    var boss_rect := _poly_global_bbox(root, root.get_node("BossFloor") as Polygon2D)
-    var carpet_rect := _poly_global_bbox(root, root.get_node("Carpet") as Polygon2D)
-    var part_l := _poly_global_bbox(root, root.get_node("PartitionL/WallPoly") as Polygon2D)
-    var part_r := _poly_global_bbox(root, root.get_node("PartitionR/WallPoly") as Polygon2D)
+    var floor_rects: Array = []
+    for ch in root.get_children():
+        if ch is Polygon2D:
+            var nm := String(ch.name)
+            if nm.begins_with("Floor") or nm.begins_with("Corr"):
+                floor_rects.append(_poly_global_bbox(root, ch as Polygon2D))
+    if floor_rects.is_empty():
+        floor_rects = [Rect2(-384, 1024, 768, 704), Rect2(-2176, 1024, 1600, 704), Rect2(576, 1024, 1600, 704),
+            Rect2(-2176, -192, 1600, 768), Rect2(576, -192, 1600, 768),
+            Rect2(-2176, -1408, 1600, 768), Rect2(576, -1408, 1600, 768), Rect2(-384, -1408, 768, 768),
+            Rect2(-96, -1408, 192, 3136), Rect2(-1472, -1408, 128, 3136), Rect2(1344, -1408, 128, 3136),
+            Rect2(-2176, 704, 4352, 320)]
+    var boss_rect := _poly_rect(root, "BossFloor", Rect2(576, -1408, 1600, 768))
+    var carpet_rect := _poly_rect(root, "Carpet", Rect2(-64, 200, 128, 800))
+    var pool_rect := _poly_rect(root, "PoolWater", Rect2(1024, 0, 768, 384))
 
-    # xoa polygon san/tuong o root
     var root_targets := []
     for ch in root.get_children():
         if ch is Polygon2D:
             root_targets.append(ch)
     for t in root_targets:
         _remove_node(root, t, removed)
-    # vach ngan: xoa hinh, giu Body collision; tuong duoc paint bang tile o duoi
-    _strip_polygons(root, root.get_node("PartitionL"), removed)
-    _strip_polygons(root, root.get_node("PartitionR"), removed)
+    _remove_existing(root, "GroundTiles", removed)
+    _remove_existing(root, "PoolTiles", removed)
 
-    var tm := _make_tilemap(root, "GroundTiles", "res://assets/tilesets/interior_tavern_v1.tres", Vector2(-704, -512))
+    var tm := _make_tilemap(root, "GroundTiles", "res://assets/tilesets/interior_tavern_v1.tres", Vector2(-2560, -1920))
     var rng := RandomNumberGenerator.new()
     rng.seed = 20261025
-    var all := Rect2(-704, -512, 1408, 1024)
+    var all := Rect2(-2560, -1920, 5120, 3840)
     var all_cells := _cells_of_rect(tm, all)
     for c in all_cells:
-        var roll := rng.randf()
-        var t := "floor_a"
-        if roll < 0.10:
-            t = "floor_b"
-        elif roll < 0.20:
-            t = "floor_c"
-        _paint_cell(tm, INT, tstats, t, c)
-    # phong boss: san da
-    var boss_cells := _cells_of_rect(tm, boss_rect)
-    var boss_rows := {}
-    var boss_cols := {}
-    for c in boss_cells:
-        boss_rows[c.y] = true
-        boss_cols[c.x] = true
-    var brow := boss_rows.keys()
-    brow.sort()
-    var bcol := boss_cols.keys()
-    bcol.sort()
-    # chi paint hang/cot ben trong (tru hang tuong bao + hang vach ngan)
-    for c in boss_cells:
-        if c.y > brow[0] and c.y < brow[brow.size() - 1] and c.x > bcol[0] and c.x < bcol[bcol.size() - 1]:
-            _paint_cell(tm, INT, tstats, "stone_floor", c)
-    # tuong bao: hang tren/duoi = wall_plank, cot trai/phai = wall_stone
-    var min_c := Vector2i(999, 999)
-    var max_c := Vector2i(-999, -999)
-    for c in all_cells:
-        min_c.x = mini(min_c.x, c.x)
-        min_c.y = mini(min_c.y, c.y)
-        max_c.x = maxi(max_c.x, c.x)
-        max_c.y = maxi(max_c.y, c.y)
-    for cx in range(min_c.x, max_c.x + 1):
-        _paint_cell(tm, INT, tstats, "wall_stone" if cx == min_c.x or cx == max_c.x else "wall_plank", Vector2i(cx, min_c.y))
-        _paint_cell(tm, INT, tstats, "wall_stone" if cx == min_c.x or cx == max_c.x else "wall_plank", Vector2i(cx, max_c.y))
-    for cy in range(min_c.y + 1, max_c.y):
-        _paint_cell(tm, INT, tstats, "wall_stone", Vector2i(min_c.x, cy))
-        _paint_cell(tm, INT, tstats, "wall_stone", Vector2i(max_c.x, cy))
-    # vach ngan boss/cellar: wall_plank theo bbox WallPoly cu (tru cot tuong bao)
-    for pr in [part_l, part_r]:
-        var row := _cell_of(tm, pr.get_center()).y
-        var c0 := _cell_of(tm, pr.position).x
-        var c1 := _cell_of(tm, pr.end - Vector2(0.01, 0)).x
-        for cx in range(c0, c1 + 1):
-            if cx > min_c.x and cx < max_c.x:
-                _paint_cell(tm, INT, tstats, "wall_plank", Vector2i(cx, row))
-    # tham do doc loi di giua
+        _paint_cell(tm, INT, tstats, "wall_stone", c)
+    for r in floor_rects:
+        for c in _cells_of_rect(tm, r):
+            var roll := rng.randf()
+            var t := "floor_a"
+            if roll < 0.10:
+                t = "floor_b"
+            elif roll < 0.20:
+                t = "floor_c"
+            _paint_cell(tm, INT, tstats, t, c)
+    _paint_rect(tm, INT, tstats, "stone_floor", boss_rect)
     _paint_rect(tm, INT, tstats, "rug", carpet_rect)
+    # ao nuoc ngam trong phong Pool: TileMap rieng dung tileset exterior (nuoc)
+    var ptm := _make_tilemap(root, "PoolTiles", "res://assets/tilesets/exterior_v1.tres", Vector2(-2560, -1920))
+    ptm.z_index = -9
+    var pstats2 := {}
+    for c in _cells_of_rect(ptm, pool_rect):
+        _paint_cell(ptm, EXT, pstats2, "water_a" if (c.x + c.y) % 2 == 0 else "water_b", c)
+    print("[PAINT] HamRuou POOL TILE STATS: ", pstats2)
 
-    # thung ruou / thung vo / crate
+    # thung/crate: chi dat prop khi container chua co sprite (scene da paint thi giu nguyen)
     for i in range(1, 16):
-        var b := root.get_node("Barrel" + str(i))
-        _strip_polygons(root, b, removed)
-        if i % 2 == 1:
-            _add_prop(b, root, "PropWineBarrel", "wine_barrel", Vector2(0, -4), Vector2.ONE, pstats)
-        else:
-            _add_prop(b, root, "PropBarrel", "barrel", Vector2(0, -1), Vector2.ONE, pstats)
-    var broken := root.get_node("BrokenBarrel")
-    var bbb := _container_local_bbox(broken)
-    _strip_polygons(root, broken, removed)
-    _add_prop(broken, root, "PropBrokenBarrel", "wine_barrel", bbb.get_center(), Vector2.ONE, pstats, 90.0)
+        var bname := "Barrel" + str(i)
+        if root.has_node(bname):
+            var b := root.get_node(bname)
+            _strip_polygons(root, b, removed)
+            if not _has_sprite(b):
+                if i % 2 == 1:
+                    _add_prop(b, root, "PropWineBarrel", "wine_barrel", Vector2(0, -4), Vector2.ONE, pstats)
+                else:
+                    _add_prop(b, root, "PropBarrel", "barrel", Vector2(0, -1), Vector2.ONE, pstats)
+    if root.has_node("BrokenBarrel"):
+        var broken := root.get_node("BrokenBarrel")
+        _strip_polygons(root, broken, removed)
+        if not _has_sprite(broken):
+            _add_prop(broken, root, "PropBrokenBarrel", "wine_barrel", Vector2(1, 12), Vector2.ONE, pstats, 90.0)
     for i in range(1, 5):
-        var cr := root.get_node("Crate" + str(i))
-        _strip_polygons(root, cr, removed)
-        _add_prop(cr, root, "PropBarrel", "barrel", Vector2(0, -5), Vector2.ONE, pstats)
-    # ban + ke + den (trang tri, khong collision)
-    _add_prop(root, root, "PropTable", "table", Vector2(-400, 150), Vector2.ONE, pstats)
-    _add_prop(root, root, "PropShelf", "shelf", Vector2(-600, -260), Vector2.ONE, pstats)
-    _add_prop(root, root, "PropLampA", "lamp", Vector2(-300, -100), Vector2.ONE, pstats)
-    _add_prop(root, root, "PropLampB", "lamp", Vector2(300, -100), Vector2.ONE, pstats)
+        var crname := "Crate" + str(i)
+        if root.has_node(crname):
+            var cr := root.get_node(crname)
+            _strip_polygons(root, cr, removed)
+            if not _has_sprite(cr):
+                _add_prop(cr, root, "PropBarrel", "barrel", Vector2(0, -5), Vector2.ONE, pstats)
+    if not root.has_node("PropTable"):
+        _add_prop(root, root, "PropTable", "table", Vector2(1200, 1500), Vector2.ONE, pstats)
+    if not root.has_node("PropShelf"):
+        _add_prop(root, root, "PropShelf", "shelf", Vector2(-250, -1350), Vector2.ONE, pstats)
+    if not root.has_node("PropLampA"):
+        _add_prop(root, root, "PropLampA", "lamp", Vector2(-300, 1100), Vector2.ONE, pstats)
+    if not root.has_node("PropLampB"):
+        _add_prop(root, root, "PropLampB", "lamp", Vector2(2000, -700), Vector2.ONE, pstats)
 
     print("[PAINT] HamRuou collision truoc: bodies=", bodies0, " shapes=", cols0,
         " sau: bodies=", _count_type(root, "StaticBody2D"), " shapes=", _count_type(root, "CollisionShape2D"))

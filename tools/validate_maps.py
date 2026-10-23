@@ -12,7 +12,7 @@ def parse(path):
     markers = set(re.findall(r'\[node name="(Spawn_[^"]+)" type="Marker2D"', txt))
     portal_ids = set(re.findall(r'\[ext_resource type="PackedScene" path="res://systems/portal.tscn" id="([^"]+)"\]', txt))
     portals = []
-    for m in re.finditer(r'\[node name="([^"]+)" parent="\." instance=ExtResource\("([^"]+)"\)\](.*?)(?=\n\[node |\Z)', txt, re.S):
+    for m in re.finditer(r'\[node name="([^"]+)"(?: type="[^"]+")? parent="\." instance=ExtResource\("([^"]+)"\)\](.*?)(?=\n\[node |\Z)', txt, re.S):
         if m.group(2) not in portal_ids:
             continue
         body = m.group(3)

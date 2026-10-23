@@ -181,7 +181,7 @@ func _physics_process(_delta: float) -> void:
 			_check(_player_hp0 > 24, "Player dummy sẵn sàng cho slam (hp=%d)" % _player_hp0)
 
 
-# --- Tuyến giải phóng Đông qua API QuestManager: dong_01 -> dong_07 ---------
+# --- Tuyến giải phóng Đông qua API: 01->02->03->05->06->04->08->07 ---------
 
 func _quest_status(qid: String) -> String:
 	return str(QuestManager.get_quest(qid).get("status", ""))
@@ -204,11 +204,22 @@ func _run_liberation_chain() -> void:
 	_finish_kill_quest("dong_01_goblin", "goblin", 3)
 	_finish_kill_quest("dong_02_ham_ruou", "rat", 5)
 	_finish_kill_quest("dong_03_chuot_chua", "boss_rat_king", 1)
-	_finish_kill_quest("dong_04_golem", "boss_golem", 1)
+	# Gating thứ tự MỚI: dong_04 cần dong_06 xong trước
+	_check(not QuestManager.accept_quest("dong_04_golem"),
+		"Gating: accept dong_04_golem == false khi dong_06 chưa xong")
 	_finish_kill_quest("dong_05_tram_thue", "soldier", 3)
 	_check(GameState.get_flag("tram_thue_pha"), "Xong dong_05 -> flag tram_thue_pha = true")
 	_finish_kill_quest("dong_06_giai_phu", "bandit", 4)
 	_check(GameState.get_flag("co_duong_cong"), "Xong dong_06 -> flag co_duong_cong = true")
+	_finish_kill_quest("dong_04_golem", "boss_golem", 1)
+	# Gating: dong_07 cần dong_08 xong trước
+	_check(not QuestManager.accept_quest("dong_07_vua"),
+		"Gating: accept dong_07_vua == false khi dong_08 chưa xong")
+	# dong_08: hoàn thành bằng on_map_entered("hoang_cung"), requires_turn_in=false
+	_check(QuestManager.accept_quest("dong_08_cong_ngam"), "Nhận quest dong_08_cong_ngam")
+	QuestManager.on_map_entered("hoang_cung")
+	_check(_quest_status("dong_08_cong_ngam") == "completed", "dong_08 -> completed sau on_map_entered(hoang_cung)")
+	_check(GameState.get_flag("da_dot_nhap"), "Xong dong_08 -> flag da_dot_nhap = true")
 	# dong_07: requires_turn_in = false -> on_enemy_killed tự complete,
 	# QuestManager tự set flag dong_giai_phong (boss KHÔNG tự set).
 	_check(QuestManager.accept_quest("dong_07_vua"), "Nhận quest dong_07_vua")
