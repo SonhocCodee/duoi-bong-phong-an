@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3]
+[gd_scene load_steps=58 format=3]
 
 [ext_resource type="Script" path="res://systems/map_root.gd" id="1_maproot"]
 [ext_resource type="Texture2D" path="res://assets/props/house.png" id="2_gikbr"]
@@ -29,6 +29,13 @@
 [ext_resource type="Script" path="res://enemies/boar.gd" id="26_7vgoj"]
 [ext_resource type="PackedScene" path="res://enemies/boar.tscn" id="26_boar"]
 [ext_resource type="SpriteFrames" path="res://assets/sprites/rat_frames.tres" id="27_wi6hl"]
+[ext_resource type="Texture2D" path="res://assets/props/flower_bed.png" id="den_flower_bed"]
+[ext_resource type="Texture2D" path="res://assets/props/sack.png" id="den_sack"]
+[ext_resource type="Texture2D" path="res://assets/props/barrel.png" id="den_barrel"]
+[ext_resource type="Texture2D" path="res://assets/props/wine_barrel.png" id="den_wine_barrel"]
+[ext_resource type="Texture2D" path="res://assets/props/decal_moss.png" id="den_decal_moss"]
+[ext_resource type="Texture2D" path="res://assets/props/decal_crack.png" id="den_decal_crack"]
+[ext_resource type="Texture2D" path="res://assets/props/decal_stain.png" id="den_decal_stain"]
 
 [sub_resource type="RectangleShape2D" id="Shape_1"]
 size = Vector2(170, 100)
@@ -1209,3 +1216,2033 @@ layer_0/tile_data = PackedInt32Array(65537, 65536, 0, 131073, 0, 0, 196609, 0, 0
 [node name="CraftStation" type="Area2D" parent="." instance=ExtResource("31_craft")]
 position = Vector2(196, 96)
 station_name = "Lò Rèn Elmford"
+
+
+[node name="NPC_Density_PhuHo" type="CharacterBody2D" parent="." instance=ExtResource("7_npc")]
+y_sort_enabled = true
+position = Vector2(560, 470)
+script = ExtResource("8_eushh")
+npc_id = "dan_tandiep_2"
+display_name = "Anh Tu — phu ho Elmford"
+quest_ids = Array[String]([])
+dialogue_before = Array[String]([])
+dialogue_active = Array[String]([])
+dialogue_ready = Array[String]([])
+dialogue_done = Array[String](["Ranh thi giup ta xep may bao gao nhe. Lang minh dao nay yen hon truoc nhieu roi.", "Co cao ven duong la ta trong day — dung dam len nhe!"])
+shop_enabled = false
+tint = Color(1, 0.85, 0.7, 1)
+sprite_scale = 0.75
+wander_radius = 24.0
+wander_speed = 30.0
+schedule = Array[Dictionary]([{"x": 560.0, "y": 470.0, "action": "work", "time": 7.0}, {"x": 700.0, "y": 520.0, "action": "walk", "time": 6.0}, {"x": 700.0, "y": 520.0, "action": "idle", "time": 5.0}, {"x": 560.0, "y": 640.0, "action": "walk", "time": 6.0}, {"x": 560.0, "y": 640.0, "action": "idle", "time": 4.0}, {"x": 560.0, "y": 470.0, "action": "walk", "time": 6.0}])
+schedule_enabled = true
+work_anim = "work"
+speed = 55.0
+
+[node name="NPC_Density_BanRau" type="CharacterBody2D" parent="." instance=ExtResource("7_npc")]
+y_sort_enabled = true
+position = Vector2(-60, 700)
+script = ExtResource("8_eushh")
+npc_id = "dan_tandiep_3"
+display_name = "Co Sau — ban rau Elmford"
+quest_ids = Array[String]([])
+dialogue_before = Array[String]([])
+dialogue_active = Array[String]([])
+dialogue_ready = Array[String]([])
+dialogue_done = Array[String](["Rau sang nay tuoi lam, cat tu vuon sau lang day.", "Duong len Barleyfield dao nay bot slime hon truoc, di ban hang cung do so."])
+shop_enabled = false
+tint = Color(0.9, 1, 0.85, 1)
+sprite_scale = 0.75
+wander_radius = 24.0
+wander_speed = 30.0
+schedule = Array[Dictionary]([{"x": -60.0, "y": 700.0, "action": "idle", "time": 5.0}, {"x": 140.0, "y": 760.0, "action": "walk", "time": 6.0}, {"x": 140.0, "y": 760.0, "action": "work", "time": 7.0}, {"x": -60.0, "y": 700.0, "action": "walk", "time": 6.0}])
+schedule_enabled = true
+work_anim = "work"
+speed = 55.0
+
+[node name="DensityProps" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="D_small_tree_000" type="Node2D" parent="DensityProps"]
+position = Vector2(865.2734, -1412.0876)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_000"]
+position = Vector2(0, -59.5339)
+scale = Vector2(0.8886, 0.8886)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_bush_001" type="Node2D" parent="DensityProps"]
+position = Vector2(902.6574, -1513.3646)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_001"]
+position = Vector2(0, -26.0003)
+scale = Vector2(0.8947, 0.8947)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_flower_bed_002" type="Node2D" parent="DensityProps"]
+position = Vector2(809.12, -1299.55)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_002"]
+position = Vector2(0, -34.6506)
+scale = Vector2(0.8886, 0.8886)
+texture = ExtResource("den_flower_bed")
+flip_h = true
+
+[node name="D_small_tree_003" type="Node2D" parent="DensityProps"]
+position = Vector2(4174.1489, 1360.7368)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_003"]
+position = Vector2(0, -51.6651)
+scale = Vector2(0.7851, 0.7851)
+texture = ExtResource("5_sth5j")
+
+[node name="D_sack_004" type="Node2D" parent="DensityProps"]
+position = Vector2(4199.2432, 1236.739)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_sack_004"]
+position = Vector2(0, -19.0671)
+scale = Vector2(1.0827, 1.0827)
+texture = ExtResource("den_sack")
+flip_h = true
+
+[node name="D_small_tree_005" type="Node2D" parent="DensityProps"]
+position = Vector2(4287.1343, 1315.7299)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_005"]
+position = Vector2(0, -51.1737)
+scale = Vector2(0.7786, 0.7786)
+texture = ExtResource("5_sth5j")
+
+[node name="D_sack_006" type="Node2D" parent="DensityProps"]
+position = Vector2(4217.748, 1292.8523)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_sack_006"]
+position = Vector2(0, -14.8036)
+scale = Vector2(0.9121, 0.9121)
+texture = ExtResource("den_sack")
+
+[node name="D_bush_007" type="Node2D" parent="DensityProps"]
+position = Vector2(4265.75, 1416.355)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_007"]
+position = Vector2(0, -25.3518)
+scale = Vector2(0.8777, 0.8777)
+texture = ExtResource("23_dac4j")
+
+[node name="D_small_tree_008" type="Node2D" parent="DensityProps"]
+position = Vector2(2316.5808, -322.6846)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_008"]
+position = Vector2(0, -57.3342)
+scale = Vector2(0.8597, 0.8597)
+texture = ExtResource("5_sth5j")
+
+[node name="D_small_tree_009" type="Node2D" parent="DensityProps"]
+position = Vector2(2372.7603, -254.5397)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_009"]
+position = Vector2(0, -59.6889)
+scale = Vector2(0.8906, 0.8906)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_boulder_010" type="Node2D" parent="DensityProps"]
+position = Vector2(-102.7081, 1033.7915)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_010"]
+position = Vector2(0, -20.7662)
+scale = Vector2(0.8717, 0.8717)
+texture = ExtResource("6_s2h8y")
+flip_h = true
+
+[node name="D_boulder_011" type="Node2D" parent="DensityProps"]
+position = Vector2(-70.2875, 935.0266)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_011"]
+position = Vector2(0, -20.9617)
+scale = Vector2(0.8776, 0.8776)
+texture = ExtResource("6_s2h8y")
+
+[node name="D_small_tree_012" type="Node2D" parent="DensityProps"]
+position = Vector2(-1310.6619, -2112.1726)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_012"]
+position = Vector2(0, -56.9025)
+scale = Vector2(0.854, 0.854)
+texture = ExtResource("5_sth5j")
+
+[node name="D_oak_013" type="Node2D" parent="DensityProps"]
+position = Vector2(2011.314, -807.499)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_013"]
+position = Vector2(0, -47.1655)
+scale = Vector2(0.5108, 0.5108)
+texture = ExtResource("4_jjmdu")
+
+[node name="D_bush_014" type="Node2D" parent="DensityProps"]
+position = Vector2(1968.9845, -764.6826)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_014"]
+position = Vector2(0, -29.9048)
+scale = Vector2(0.9975, 0.9975)
+texture = ExtResource("23_dac4j")
+
+[node name="D_oak_015" type="Node2D" parent="DensityProps"]
+position = Vector2(1990.5497, -855.5751)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_015"]
+position = Vector2(0, -65.1928)
+scale = Vector2(0.6777, 0.6777)
+texture = ExtResource("4_jjmdu")
+flip_h = true
+
+[node name="D_oak_016" type="Node2D" parent="DensityProps"]
+position = Vector2(-524.7758, -2332.7732)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_016"]
+position = Vector2(0, -57.7244)
+scale = Vector2(0.6086, 0.6086)
+texture = ExtResource("4_jjmdu")
+
+[node name="D_bush_017" type="Node2D" parent="DensityProps"]
+position = Vector2(-580.8857, -2277.7183)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_017"]
+position = Vector2(0, -27.1212)
+scale = Vector2(0.9242, 0.9242)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_bush_018" type="Node2D" parent="DensityProps"]
+position = Vector2(-404.0665, -2370.3186)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_018"]
+position = Vector2(0, -24.9907)
+scale = Vector2(0.8682, 0.8682)
+texture = ExtResource("23_dac4j")
+
+[node name="D_barrel_019" type="Node2D" parent="DensityProps"]
+position = Vector2(-631.0225, -2337.8821)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_019"]
+position = Vector2(0, -18.1383)
+scale = Vector2(0.9681, 0.9681)
+texture = ExtResource("den_barrel")
+
+[node name="D_flower_bed_020" type="Node2D" parent="DensityProps"]
+position = Vector2(224.12, -2470.0535)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_020"]
+position = Vector2(0, -29.5555)
+scale = Vector2(0.7824, 0.7824)
+texture = ExtResource("den_flower_bed")
+
+[node name="D_bush_021" type="Node2D" parent="DensityProps"]
+position = Vector2(774.5193, -1145.7837)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_021"]
+position = Vector2(0, -28.8564)
+scale = Vector2(0.9699, 0.9699)
+texture = ExtResource("23_dac4j")
+
+[node name="D_bush_022" type="Node2D" parent="DensityProps"]
+position = Vector2(786.743, -1095.9331)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_022"]
+position = Vector2(0, -23.7668)
+scale = Vector2(0.836, 0.836)
+texture = ExtResource("23_dac4j")
+
+[node name="D_wine_barrel_023" type="Node2D" parent="DensityProps"]
+position = Vector2(709.8286, -1084.0854)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_wine_barrel_023"]
+position = Vector2(0, -24.6452)
+scale = Vector2(1.0882, 1.0882)
+texture = ExtResource("den_wine_barrel")
+
+[node name="D_sack_024" type="Node2D" parent="DensityProps"]
+position = Vector2(725.4313, -1178.0349)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_sack_024"]
+position = Vector2(0, -14.9988)
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("den_sack")
+
+[node name="D_bush_025" type="Node2D" parent="DensityProps"]
+position = Vector2(856.9215, -1183.3619)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_025"]
+position = Vector2(0, -26.4347)
+scale = Vector2(0.9062, 0.9062)
+texture = ExtResource("23_dac4j")
+
+[node name="D_barrel_026" type="Node2D" parent="DensityProps"]
+position = Vector2(-340.6497, -922.4814)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_026"]
+position = Vector2(0, -17.1058)
+scale = Vector2(0.9298, 0.9298)
+texture = ExtResource("den_barrel")
+
+[node name="D_oak_027" type="Node2D" parent="DensityProps"]
+position = Vector2(-396.7089, -877.2855)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_027"]
+position = Vector2(0, -56.0686)
+scale = Vector2(0.5932, 0.5932)
+texture = ExtResource("4_jjmdu")
+flip_h = true
+
+[node name="D_bush_028" type="Node2D" parent="DensityProps"]
+position = Vector2(-373.3812, -987.6657)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_028"]
+position = Vector2(0, -24.9128)
+scale = Vector2(0.8661, 0.8661)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_boulder_029" type="Node2D" parent="DensityProps"]
+position = Vector2(1964.6848, -1183.0867)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_029"]
+position = Vector2(0, -18.7648)
+scale = Vector2(0.8111, 0.8111)
+texture = ExtResource("6_s2h8y")
+flip_h = true
+
+[node name="D_small_tree_030" type="Node2D" parent="DensityProps"]
+position = Vector2(1898.2523, -1206.2612)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_030"]
+position = Vector2(0, -48.7643)
+scale = Vector2(0.7469, 0.7469)
+texture = ExtResource("5_sth5j")
+
+[node name="D_bush_031" type="Node2D" parent="DensityProps"]
+position = Vector2(1999.0659, -1060.7671)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_031"]
+position = Vector2(0, -24.1225)
+scale = Vector2(0.8453, 0.8453)
+texture = ExtResource("23_dac4j")
+
+[node name="D_small_tree_032" type="Node2D" parent="DensityProps"]
+position = Vector2(2052.6003, -1165.2045)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_032"]
+position = Vector2(0, -60.1587)
+scale = Vector2(0.8968, 0.8968)
+texture = ExtResource("5_sth5j")
+
+[node name="D_barrel_033" type="Node2D" parent="DensityProps"]
+position = Vector2(2836.0898, -1125.683)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_033"]
+position = Vector2(0, -20.6838)
+scale = Vector2(1.0624, 1.0624)
+texture = ExtResource("den_barrel")
+
+[node name="D_barrel_034" type="Node2D" parent="DensityProps"]
+position = Vector2(2749.6001, -1207.0033)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_034"]
+position = Vector2(0, -19.8794)
+scale = Vector2(1.0326, 1.0326)
+texture = ExtResource("den_barrel")
+
+[node name="D_small_tree_035" type="Node2D" parent="DensityProps"]
+position = Vector2(2908.8127, -1077.4896)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_035"]
+position = Vector2(0, -54.4939)
+scale = Vector2(0.8223, 0.8223)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_small_tree_036" type="Node2D" parent="DensityProps"]
+position = Vector2(773.1401, -2306.9731)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_036"]
+position = Vector2(0, -57.977)
+scale = Vector2(0.8681, 0.8681)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_bush_037" type="Node2D" parent="DensityProps"]
+position = Vector2(861.9366, -2262.4702)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_037"]
+position = Vector2(0, -23.5585)
+scale = Vector2(0.8305, 0.8305)
+texture = ExtResource("23_dac4j")
+
+[node name="D_small_tree_038" type="Node2D" parent="DensityProps"]
+position = Vector2(783.4084, -2242.4038)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_038"]
+position = Vector2(0, -51.7571)
+scale = Vector2(0.7863, 0.7863)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_sack_039" type="Node2D" parent="DensityProps"]
+position = Vector2(818.4608, -2197.325)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_sack_039"]
+position = Vector2(0, -18.6538)
+scale = Vector2(1.0662, 1.0662)
+texture = ExtResource("den_sack")
+flip_h = true
+
+[node name="D_small_tree_040" type="Node2D" parent="DensityProps"]
+position = Vector2(698.3462, -2405.9258)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_040"]
+position = Vector2(0, -49.5446)
+scale = Vector2(0.7572, 0.7572)
+texture = ExtResource("5_sth5j")
+
+[node name="D_bush_041" type="Node2D" parent="DensityProps"]
+position = Vector2(640.6177, 219.501)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_041"]
+position = Vector2(0, -29.6657)
+scale = Vector2(0.9912, 0.9912)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_small_tree_042" type="Node2D" parent="DensityProps"]
+position = Vector2(846.596, 143.582)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_042"]
+position = Vector2(0, -45.4414)
+scale = Vector2(0.7032, 0.7032)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_bush_043" type="Node2D" parent="DensityProps"]
+position = Vector2(900.6438, 99.0591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_043"]
+position = Vector2(0, -23.4156)
+scale = Vector2(0.8267, 0.8267)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_flower_bed_044" type="Node2D" parent="DensityProps"]
+position = Vector2(968.0192, 147.8839)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_044"]
+position = Vector2(0, -29.7633)
+scale = Vector2(0.7867, 0.7867)
+texture = ExtResource("den_flower_bed")
+
+[node name="D_small_tree_045" type="Node2D" parent="DensityProps"]
+position = Vector2(842.1864, 65.0001)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_045"]
+position = Vector2(0, -47.765)
+scale = Vector2(0.7337, 0.7337)
+texture = ExtResource("5_sth5j")
+
+[node name="D_boulder_046" type="Node2D" parent="DensityProps"]
+position = Vector2(3165.2764, -1953.3434)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_046"]
+position = Vector2(0, -24.3147)
+scale = Vector2(0.9792, 0.9792)
+texture = ExtResource("6_s2h8y")
+
+[node name="D_boulder_047" type="Node2D" parent="DensityProps"]
+position = Vector2(3203.0317, -1897.7186)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_047"]
+position = Vector2(0, -24.9761)
+scale = Vector2(0.9993, 0.9993)
+texture = ExtResource("6_s2h8y")
+flip_h = true
+
+[node name="D_boulder_048" type="Node2D" parent="DensityProps"]
+position = Vector2(3079.3779, -2034.5892)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_048"]
+position = Vector2(0, -22.8372)
+scale = Vector2(0.9345, 0.9345)
+texture = ExtResource("6_s2h8y")
+
+[node name="D_boulder_049" type="Node2D" parent="DensityProps"]
+position = Vector2(3085.0435, -1868.7035)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_049"]
+position = Vector2(0, -24.0956)
+scale = Vector2(0.9726, 0.9726)
+texture = ExtResource("6_s2h8y")
+
+[node name="D_bush_050" type="Node2D" parent="DensityProps"]
+position = Vector2(2174.4055, -2260.7451)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_050"]
+position = Vector2(0, -29.5969)
+scale = Vector2(0.9894, 0.9894)
+texture = ExtResource("23_dac4j")
+
+[node name="D_wine_barrel_051" type="Node2D" parent="DensityProps"]
+position = Vector2(2127.2351, -2346.646)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_wine_barrel_051"]
+position = Vector2(0, -23.3544)
+scale = Vector2(1.0451, 1.0451)
+texture = ExtResource("den_wine_barrel")
+flip_h = true
+
+[node name="D_boulder_052" type="Node2D" parent="DensityProps"]
+position = Vector2(2273.4712, -2256.4077)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_052"]
+position = Vector2(0, -18.5273)
+scale = Vector2(0.8039, 0.8039)
+texture = ExtResource("6_s2h8y")
+flip_h = true
+
+[node name="D_small_tree_053" type="Node2D" parent="DensityProps"]
+position = Vector2(2313.95, 1423.0435)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_053"]
+position = Vector2(0, -58.6157)
+scale = Vector2(0.8765, 0.8765)
+texture = ExtResource("5_sth5j")
+
+[node name="D_small_tree_054" type="Node2D" parent="DensityProps"]
+position = Vector2(3056.0127, 1225.0498)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_054"]
+position = Vector2(0, -55.0992)
+scale = Vector2(0.8303, 0.8303)
+texture = ExtResource("5_sth5j")
+
+[node name="D_bush_055" type="Node2D" parent="DensityProps"]
+position = Vector2(3168.0625, 1192.7191)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_055"]
+position = Vector2(0, -22.9141)
+scale = Vector2(0.8135, 0.8135)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_flower_bed_056" type="Node2D" parent="DensityProps"]
+position = Vector2(2961.0068, -2850.865)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_056"]
+position = Vector2(0, -32.0837)
+scale = Vector2(0.8351, 0.8351)
+texture = ExtResource("den_flower_bed")
+
+[node name="D_small_tree_057" type="Node2D" parent="DensityProps"]
+position = Vector2(2932.8237, -2740.0867)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_057"]
+position = Vector2(0, -51.7121)
+scale = Vector2(0.7857, 0.7857)
+texture = ExtResource("5_sth5j")
+
+[node name="D_wine_barrel_058" type="Node2D" parent="DensityProps"]
+position = Vector2(3026.3518, -2947.7307)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_wine_barrel_058"]
+position = Vector2(0, -22.2844)
+scale = Vector2(1.0095, 1.0095)
+texture = ExtResource("den_wine_barrel")
+
+[node name="D_flower_bed_059" type="Node2D" parent="DensityProps"]
+position = Vector2(2867.5356, -2774.3433)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_059"]
+position = Vector2(0, -30.8152)
+scale = Vector2(0.8086, 0.8086)
+texture = ExtResource("den_flower_bed")
+flip_h = true
+
+[node name="D_bush_060" type="Node2D" parent="DensityProps"]
+position = Vector2(2903.9619, -2809.9268)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_060"]
+position = Vector2(0, -28.5708)
+scale = Vector2(0.9624, 0.9624)
+texture = ExtResource("23_dac4j")
+
+[node name="D_bush_061" type="Node2D" parent="DensityProps"]
+position = Vector2(3074.7346, -2874.105)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_061"]
+position = Vector2(0, -28.3859)
+scale = Vector2(0.9575, 0.9575)
+texture = ExtResource("23_dac4j")
+
+[node name="D_small_tree_062" type="Node2D" parent="DensityProps"]
+position = Vector2(3256.7695, -1497.3708)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_062"]
+position = Vector2(0, -49.3192)
+scale = Vector2(0.7542, 0.7542)
+texture = ExtResource("5_sth5j")
+
+[node name="D_bush_063" type="Node2D" parent="DensityProps"]
+position = Vector2(4278.9541, 1180.4951)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_063"]
+position = Vector2(0, -25.5388)
+scale = Vector2(0.8826, 0.8826)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_sack_064" type="Node2D" parent="DensityProps"]
+position = Vector2(3114.1177, 1218.248)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_sack_064"]
+position = Vector2(0, -16.6885)
+scale = Vector2(0.9875, 0.9875)
+texture = ExtResource("den_sack")
+flip_h = true
+
+[node name="D_flower_bed_065" type="Node2D" parent="DensityProps"]
+position = Vector2(3106.5283, 1268.5004)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_065"]
+position = Vector2(0, -31.077)
+scale = Vector2(0.8141, 0.8141)
+texture = ExtResource("den_flower_bed")
+
+[node name="D_wine_barrel_066" type="Node2D" parent="DensityProps"]
+position = Vector2(3070.5632, 1153.9788)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_wine_barrel_066"]
+position = Vector2(0, -21.3788)
+scale = Vector2(0.9793, 0.9793)
+texture = ExtResource("den_wine_barrel")
+flip_h = true
+
+[node name="D_bush_067" type="Node2D" parent="DensityProps"]
+position = Vector2(3191.2732, 1306.0049)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_067"]
+position = Vector2(0, -27.6813)
+scale = Vector2(0.939, 0.939)
+texture = ExtResource("23_dac4j")
+
+[node name="D_small_tree_068" type="Node2D" parent="DensityProps"]
+position = Vector2(548.8342, -2146.0432)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_068"]
+position = Vector2(0, -51.4016)
+scale = Vector2(0.7816, 0.7816)
+texture = ExtResource("5_sth5j")
+
+[node name="D_small_tree_069" type="Node2D" parent="DensityProps"]
+position = Vector2(541.326, -2083.1355)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_069"]
+position = Vector2(0, -57.4633)
+scale = Vector2(0.8614, 0.8614)
+texture = ExtResource("5_sth5j")
+
+[node name="D_bush_070" type="Node2D" parent="DensityProps"]
+position = Vector2(539.9766, -2258.5085)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_070"]
+position = Vector2(0, -22.7368)
+scale = Vector2(0.8089, 0.8089)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_boulder_071" type="Node2D" parent="DensityProps"]
+position = Vector2(436.5814, -2170.3396)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_071"]
+position = Vector2(0, -24.7009)
+scale = Vector2(0.9909, 0.9909)
+texture = ExtResource("6_s2h8y")
+flip_h = true
+
+[node name="D_wine_barrel_072" type="Node2D" parent="DensityProps"]
+position = Vector2(4434.0254, -1443.2152)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_wine_barrel_072"]
+position = Vector2(0, -20.5875)
+scale = Vector2(0.9529, 0.9529)
+texture = ExtResource("den_wine_barrel")
+flip_h = true
+
+[node name="D_bush_073" type="Node2D" parent="DensityProps"]
+position = Vector2(4373.2725, -1358.6339)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_073"]
+position = Vector2(0, -26.1903)
+scale = Vector2(0.8997, 0.8997)
+texture = ExtResource("23_dac4j")
+
+[node name="D_bush_074" type="Node2D" parent="DensityProps"]
+position = Vector2(4500.564, -1391.9769)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_074"]
+position = Vector2(0, -25.744)
+scale = Vector2(0.888, 0.888)
+texture = ExtResource("23_dac4j")
+
+[node name="D_small_tree_075" type="Node2D" parent="DensityProps"]
+position = Vector2(961.5244, 697.1907)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_075"]
+position = Vector2(0, -50.8417)
+scale = Vector2(0.7742, 0.7742)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_wine_barrel_076" type="Node2D" parent="DensityProps"]
+position = Vector2(374.0281, -194.0595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_wine_barrel_076"]
+position = Vector2(0, -20.6118)
+scale = Vector2(0.9537, 0.9537)
+texture = ExtResource("den_wine_barrel")
+
+[node name="D_oak_077" type="Node2D" parent="DensityProps"]
+position = Vector2(4638.0879, -1867.0663)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_077"]
+position = Vector2(0, -51.1825)
+scale = Vector2(0.548, 0.548)
+texture = ExtResource("4_jjmdu")
+
+[node name="D_oak_078" type="Node2D" parent="DensityProps"]
+position = Vector2(4596.1562, -1836.3032)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_078"]
+position = Vector2(0, -56.1229)
+scale = Vector2(0.5937, 0.5937)
+texture = ExtResource("4_jjmdu")
+flip_h = true
+
+[node name="D_flower_bed_079" type="Node2D" parent="DensityProps"]
+position = Vector2(3916.9956, -1152.9351)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_079"]
+position = Vector2(0, -36.3446)
+scale = Vector2(0.9238, 0.9238)
+texture = ExtResource("den_flower_bed")
+
+[node name="D_flower_bed_080" type="Node2D" parent="DensityProps"]
+position = Vector2(3902.8477, -1955.1661)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_080"]
+position = Vector2(0, -30.2595)
+scale = Vector2(0.7971, 0.7971)
+texture = ExtResource("den_flower_bed")
+
+[node name="D_bush_081" type="Node2D" parent="DensityProps"]
+position = Vector2(3880.9038, -2080.8088)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_081"]
+position = Vector2(0, -24.5734)
+scale = Vector2(0.8572, 0.8572)
+texture = ExtResource("23_dac4j")
+
+[node name="D_bush_082" type="Node2D" parent="DensityProps"]
+position = Vector2(3908.3867, -2036.2212)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_082"]
+position = Vector2(0, -28.0433)
+scale = Vector2(0.9485, 0.9485)
+texture = ExtResource("23_dac4j")
+
+[node name="D_flower_bed_083" type="Node2D" parent="DensityProps"]
+position = Vector2(3784.4617, -1915.5272)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_083"]
+position = Vector2(0, -34.6389)
+scale = Vector2(0.8883, 0.8883)
+texture = ExtResource("den_flower_bed")
+
+[node name="D_boulder_084" type="Node2D" parent="DensityProps"]
+position = Vector2(3955.5461, -1967.5129)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_084"]
+position = Vector2(0, -19.9)
+scale = Vector2(0.8455, 0.8455)
+texture = ExtResource("6_s2h8y")
+flip_h = true
+
+[node name="D_sack_085" type="Node2D" parent="DensityProps"]
+position = Vector2(-1168.4161, -235.8452)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_sack_085"]
+position = Vector2(0, -16.0223)
+scale = Vector2(0.9609, 0.9609)
+texture = ExtResource("den_sack")
+flip_h = true
+
+[node name="D_bush_086" type="Node2D" parent="DensityProps"]
+position = Vector2(-1198.9938, -562.533)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_086"]
+position = Vector2(0, -26.4247)
+scale = Vector2(0.9059, 0.9059)
+texture = ExtResource("23_dac4j")
+
+[node name="D_boulder_087" type="Node2D" parent="DensityProps"]
+position = Vector2(-1327.6525, -551.7086)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_087"]
+position = Vector2(0, -24.0603)
+scale = Vector2(0.9715, 0.9715)
+texture = ExtResource("6_s2h8y")
+
+[node name="D_small_tree_088" type="Node2D" parent="DensityProps"]
+position = Vector2(-1294.0117, -475.763)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_088"]
+position = Vector2(0, -59.1929)
+scale = Vector2(0.8841, 0.8841)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_flower_bed_089" type="Node2D" parent="DensityProps"]
+position = Vector2(-1152.2947, -585.0291)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_089"]
+position = Vector2(0, -28.3547)
+scale = Vector2(0.7574, 0.7574)
+texture = ExtResource("den_flower_bed")
+
+[node name="D_barrel_090" type="Node2D" parent="DensityProps"]
+position = Vector2(1566.2715, -921.4541)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_090"]
+position = Vector2(0, -19.0455)
+scale = Vector2(1.0017, 1.0017)
+texture = ExtResource("den_barrel")
+
+[node name="D_oak_091" type="Node2D" parent="DensityProps"]
+position = Vector2(1542.0795, -834.7422)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_091"]
+position = Vector2(0, -62.6055)
+scale = Vector2(0.6538, 0.6538)
+texture = ExtResource("4_jjmdu")
+flip_h = true
+
+[node name="D_wine_barrel_092" type="Node2D" parent="DensityProps"]
+position = Vector2(1598.0576, -990.2267)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_wine_barrel_092"]
+position = Vector2(0, -24.8766)
+scale = Vector2(1.0959, 1.0959)
+texture = ExtResource("den_wine_barrel")
+
+[node name="D_barrel_093" type="Node2D" parent="DensityProps"]
+position = Vector2(-1402.6809, 391.229)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_093"]
+position = Vector2(0, -19.9229)
+scale = Vector2(1.0342, 1.0342)
+texture = ExtResource("den_barrel")
+
+[node name="D_small_tree_094" type="Node2D" parent="DensityProps"]
+position = Vector2(4431.9277, -1513.0557)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_094"]
+position = Vector2(0, -56.5888)
+scale = Vector2(0.8499, 0.8499)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_oak_095" type="Node2D" parent="DensityProps"]
+position = Vector2(331.6861, 667.5918)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_095"]
+position = Vector2(0, -50.8256)
+scale = Vector2(0.5447, 0.5447)
+texture = ExtResource("4_jjmdu")
+
+[node name="D_bush_096" type="Node2D" parent="DensityProps"]
+position = Vector2(102.6927, -2087.7559)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_096"]
+position = Vector2(0, -28.7592)
+scale = Vector2(0.9673, 0.9673)
+texture = ExtResource("23_dac4j")
+
+[node name="D_small_tree_097" type="Node2D" parent="DensityProps"]
+position = Vector2(-74.7916, -2143.5098)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_097"]
+position = Vector2(0, -45.9076)
+scale = Vector2(0.7093, 0.7093)
+texture = ExtResource("5_sth5j")
+
+[node name="D_bush_098" type="Node2D" parent="DensityProps"]
+position = Vector2(2256.6255, 557.3799)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_098"]
+position = Vector2(0, -22.4882)
+scale = Vector2(0.8023, 0.8023)
+texture = ExtResource("23_dac4j")
+
+[node name="D_boulder_099" type="Node2D" parent="DensityProps"]
+position = Vector2(2301.8396, 310.4768)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_099"]
+position = Vector2(0, -20.9941)
+scale = Vector2(0.8786, 0.8786)
+texture = ExtResource("6_s2h8y")
+
+[node name="D_barrel_100" type="Node2D" parent="DensityProps"]
+position = Vector2(2256.9087, 365.67)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_100"]
+position = Vector2(0, -19.902)
+scale = Vector2(1.0334, 1.0334)
+texture = ExtResource("den_barrel")
+flip_h = true
+
+[node name="D_small_tree_101" type="Node2D" parent="DensityProps"]
+position = Vector2(2366.2588, 405.6491)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_101"]
+position = Vector2(0, -59.7646)
+scale = Vector2(0.8916, 0.8916)
+texture = ExtResource("5_sth5j")
+
+[node name="D_small_tree_102" type="Node2D" parent="DensityProps"]
+position = Vector2(3046.1172, 934.0125)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_102"]
+position = Vector2(0, -57.3943)
+scale = Vector2(0.8605, 0.8605)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_bush_103" type="Node2D" parent="DensityProps"]
+position = Vector2(3132.5791, 948.3829)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_103"]
+position = Vector2(0, -23.3924)
+scale = Vector2(0.8261, 0.8261)
+texture = ExtResource("23_dac4j")
+
+[node name="D_boulder_104" type="Node2D" parent="DensityProps"]
+position = Vector2(2962.7202, 1019.2456)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_104"]
+position = Vector2(0, -18.5668)
+scale = Vector2(0.8051, 0.8051)
+texture = ExtResource("6_s2h8y")
+
+[node name="D_small_tree_105" type="Node2D" parent="DensityProps"]
+position = Vector2(3058.7566, 836.0571)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_105"]
+position = Vector2(0, -45.377)
+scale = Vector2(0.7023, 0.7023)
+texture = ExtResource("5_sth5j")
+
+[node name="D_oak_106" type="Node2D" parent="DensityProps"]
+position = Vector2(161.3743, 379.269)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_106"]
+position = Vector2(0, -48.0759)
+scale = Vector2(0.5192, 0.5192)
+texture = ExtResource("4_jjmdu")
+
+[node name="D_small_tree_107" type="Node2D" parent="DensityProps"]
+position = Vector2(254.6851, 433.3903)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_107"]
+position = Vector2(0, -54.6512)
+scale = Vector2(0.8244, 0.8244)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_barrel_108" type="Node2D" parent="DensityProps"]
+position = Vector2(3338.3179, 1194.9912)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_108"]
+position = Vector2(0, -18.3685)
+scale = Vector2(0.9766, 0.9766)
+texture = ExtResource("den_barrel")
+
+[node name="D_oak_109" type="Node2D" parent="DensityProps"]
+position = Vector2(-346.3323, -286.4314)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_109"]
+position = Vector2(0, -54.3947)
+scale = Vector2(0.5777, 0.5777)
+texture = ExtResource("4_jjmdu")
+
+[node name="D_oak_110" type="Node2D" parent="DensityProps"]
+position = Vector2(-270.6469, -246.2447)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_110"]
+position = Vector2(0, -50.4091)
+scale = Vector2(0.5408, 0.5408)
+texture = ExtResource("4_jjmdu")
+
+[node name="D_boulder_111" type="Node2D" parent="DensityProps"]
+position = Vector2(1822.3958, -663.4009)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_111"]
+position = Vector2(0, -21.7609)
+scale = Vector2(0.9018, 0.9018)
+texture = ExtResource("6_s2h8y")
+flip_h = true
+
+[node name="D_boulder_112" type="Node2D" parent="DensityProps"]
+position = Vector2(1856.7954, -544.3632)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_112"]
+position = Vector2(0, -20.2531)
+scale = Vector2(0.8562, 0.8562)
+texture = ExtResource("6_s2h8y")
+flip_h = true
+
+[node name="D_bush_113" type="Node2D" parent="DensityProps"]
+position = Vector2(1817.0973, -755.6631)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_113"]
+position = Vector2(0, -24.1239)
+scale = Vector2(0.8454, 0.8454)
+texture = ExtResource("23_dac4j")
+
+[node name="D_small_tree_114" type="Node2D" parent="DensityProps"]
+position = Vector2(1789.6693, -621.5877)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_114"]
+position = Vector2(0, -52.9536)
+scale = Vector2(0.802, 0.802)
+texture = ExtResource("5_sth5j")
+
+[node name="D_small_tree_115" type="Node2D" parent="DensityProps"]
+position = Vector2(77.1899, -1441.4247)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_115"]
+position = Vector2(0, -56.4941)
+scale = Vector2(0.8486, 0.8486)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_wine_barrel_116" type="Node2D" parent="DensityProps"]
+position = Vector2(2266.3467, -2988.4561)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_wine_barrel_116"]
+position = Vector2(0, -19.4982)
+scale = Vector2(0.9166, 0.9166)
+texture = ExtResource("den_wine_barrel")
+
+[node name="D_flower_bed_117" type="Node2D" parent="DensityProps"]
+position = Vector2(2289.7698, -2926.0686)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_117"]
+position = Vector2(0, -31.7891)
+scale = Vector2(0.8289, 0.8289)
+texture = ExtResource("den_flower_bed")
+
+[node name="D_barrel_118" type="Node2D" parent="DensityProps"]
+position = Vector2(3716.2695, 780.7654)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_118"]
+position = Vector2(0, -19.6669)
+scale = Vector2(1.0247, 1.0247)
+texture = ExtResource("den_barrel")
+flip_h = true
+
+[node name="D_small_tree_119" type="Node2D" parent="DensityProps"]
+position = Vector2(3659.5061, 783.1583)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_119"]
+position = Vector2(0, -57.4766)
+scale = Vector2(0.8615, 0.8615)
+texture = ExtResource("5_sth5j")
+
+[node name="D_oak_120" type="Node2D" parent="DensityProps"]
+position = Vector2(3672.4429, 702.7321)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_120"]
+position = Vector2(0, -52.1862)
+scale = Vector2(0.5573, 0.5573)
+texture = ExtResource("4_jjmdu")
+
+[node name="D_barrel_121" type="Node2D" parent="DensityProps"]
+position = Vector2(3732.5027, 903.5732)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_121"]
+position = Vector2(0, -20.695)
+scale = Vector2(1.0628, 1.0628)
+texture = ExtResource("den_barrel")
+
+[node name="D_bush_122" type="Node2D" parent="DensityProps"]
+position = Vector2(2259.7812, -317.0044)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_122"]
+position = Vector2(0, -27.8039)
+scale = Vector2(0.9422, 0.9422)
+texture = ExtResource("23_dac4j")
+
+[node name="D_bush_123" type="Node2D" parent="DensityProps"]
+position = Vector2(2936.3218, -787.6196)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_123"]
+position = Vector2(0, -23.5407)
+scale = Vector2(0.83, 0.83)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_bush_124" type="Node2D" parent="DensityProps"]
+position = Vector2(2988.689, -829.6999)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_124"]
+position = Vector2(0, -24.4609)
+scale = Vector2(0.8542, 0.8542)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_bush_125" type="Node2D" parent="DensityProps"]
+position = Vector2(2916.7224, -669.5056)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_125"]
+position = Vector2(0, -27.9709)
+scale = Vector2(0.9466, 0.9466)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_small_tree_126" type="Node2D" parent="DensityProps"]
+position = Vector2(-1078.1099, -2810.2856)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_126"]
+position = Vector2(0, -59.9756)
+scale = Vector2(0.8944, 0.8944)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_small_tree_127" type="Node2D" parent="DensityProps"]
+position = Vector2(1054.605, -1104.1674)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_127"]
+position = Vector2(0, -57.4773)
+scale = Vector2(0.8615, 0.8615)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="D_bush_128" type="Node2D" parent="DensityProps"]
+position = Vector2(1112.8677, -1082.6675)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_128"]
+position = Vector2(0, -29.5058)
+scale = Vector2(0.987, 0.987)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_bush_129" type="Node2D" parent="DensityProps"]
+position = Vector2(3955.5098, -1526.9774)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_129"]
+position = Vector2(0, -23.9851)
+scale = Vector2(0.8417, 0.8417)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_bush_130" type="Node2D" parent="DensityProps"]
+position = Vector2(348.6364, -1469.2739)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_130"]
+position = Vector2(0, -29.062)
+scale = Vector2(0.9753, 0.9753)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_bush_131" type="Node2D" parent="DensityProps"]
+position = Vector2(423.1144, -1431.1055)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_131"]
+position = Vector2(0, -26.8584)
+scale = Vector2(0.9173, 0.9173)
+texture = ExtResource("23_dac4j")
+
+[node name="D_bush_132" type="Node2D" parent="DensityProps"]
+position = Vector2(471.452, -1464.7421)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_132"]
+position = Vector2(0, -28.4951)
+scale = Vector2(0.9604, 0.9604)
+texture = ExtResource("23_dac4j")
+
+[node name="D_boulder_133" type="Node2D" parent="DensityProps"]
+position = Vector2(3360.293, 1452.894)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_133"]
+position = Vector2(0, -22.4157)
+scale = Vector2(0.9217, 0.9217)
+texture = ExtResource("6_s2h8y")
+
+[node name="D_bush_134" type="Node2D" parent="DensityProps"]
+position = Vector2(1162.2812, -1891.8823)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_134"]
+position = Vector2(0, -22.4797)
+scale = Vector2(0.8021, 0.8021)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_oak_135" type="Node2D" parent="DensityProps"]
+position = Vector2(1105.335, -1965.2777)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_135"]
+position = Vector2(0, -47.9106)
+scale = Vector2(0.5177, 0.5177)
+texture = ExtResource("4_jjmdu")
+
+[node name="D_flower_bed_136" type="Node2D" parent="DensityProps"]
+position = Vector2(1058.6686, -1876.2145)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_136"]
+position = Vector2(0, -32.118)
+scale = Vector2(0.8358, 0.8358)
+texture = ExtResource("den_flower_bed")
+flip_h = true
+
+[node name="D_barrel_137" type="Node2D" parent="DensityProps"]
+position = Vector2(2548.2715, 422.4023)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_137"]
+position = Vector2(0, -17.2069)
+scale = Vector2(0.9336, 0.9336)
+texture = ExtResource("den_barrel")
+
+[node name="D_sack_138" type="Node2D" parent="DensityProps"]
+position = Vector2(2467.9006, 331.6387)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_sack_138"]
+position = Vector2(0, -17.7093)
+scale = Vector2(1.0284, 1.0284)
+texture = ExtResource("den_sack")
+flip_h = true
+
+[node name="D_bush_139" type="Node2D" parent="DensityProps"]
+position = Vector2(2623.4285, 481.3611)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_139"]
+position = Vector2(0, -26.8441)
+scale = Vector2(0.9169, 0.9169)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_sack_140" type="Node2D" parent="DensityProps"]
+position = Vector2(2491.2495, 379.2321)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_sack_140"]
+position = Vector2(0, -15.0703)
+scale = Vector2(0.9228, 0.9228)
+texture = ExtResource("den_sack")
+flip_h = true
+
+[node name="D_barrel_141" type="Node2D" parent="DensityProps"]
+position = Vector2(2645.4312, 358.8958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_141"]
+position = Vector2(0, -19.9656)
+scale = Vector2(1.0358, 1.0358)
+texture = ExtResource("den_barrel")
+flip_h = true
+
+[node name="D_boulder_142" type="Node2D" parent="DensityProps"]
+position = Vector2(2629.0198, 416.1904)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_142"]
+position = Vector2(0, -18.6221)
+scale = Vector2(0.8067, 0.8067)
+texture = ExtResource("6_s2h8y")
+flip_h = true
+
+[node name="D_oak_143" type="Node2D" parent="DensityProps"]
+position = Vector2(-1303.776, -2664.4199)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_143"]
+position = Vector2(0, -48.5866)
+scale = Vector2(0.5239, 0.5239)
+texture = ExtResource("4_jjmdu")
+flip_h = true
+
+[node name="D_boulder_144" type="Node2D" parent="DensityProps"]
+position = Vector2(3607.0815, -719.5071)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_144"]
+position = Vector2(0, -22.6313)
+scale = Vector2(0.9282, 0.9282)
+texture = ExtResource("6_s2h8y")
+flip_h = true
+
+[node name="D_bush_145" type="Node2D" parent="DensityProps"]
+position = Vector2(3537.9619, -650.7696)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_145"]
+position = Vector2(0, -23.8345)
+scale = Vector2(0.8378, 0.8378)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_bush_146" type="Node2D" parent="DensityProps"]
+position = Vector2(3532.3232, -780.3721)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_146"]
+position = Vector2(0, -23.2776)
+scale = Vector2(0.8231, 0.8231)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_sack_147" type="Node2D" parent="DensityProps"]
+position = Vector2(342.16, -517.9546)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_sack_147"]
+position = Vector2(0, -18.1758)
+scale = Vector2(1.047, 1.047)
+texture = ExtResource("den_sack")
+flip_h = true
+
+[node name="D_flower_bed_148" type="Node2D" parent="DensityProps"]
+position = Vector2(3510.1631, -1145.5157)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_148"]
+position = Vector2(0, -34.4958)
+scale = Vector2(0.8853, 0.8853)
+texture = ExtResource("den_flower_bed")
+flip_h = true
+
+[node name="D_oak_149" type="Node2D" parent="DensityProps"]
+position = Vector2(1257.0542, -1763.4944)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_149"]
+position = Vector2(0, -56.7541)
+scale = Vector2(0.5996, 0.5996)
+texture = ExtResource("4_jjmdu")
+flip_h = true
+
+[node name="D_oak_150" type="Node2D" parent="DensityProps"]
+position = Vector2(831.7743, 567.0665)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_150"]
+position = Vector2(0, -59.8931)
+scale = Vector2(0.6286, 0.6286)
+texture = ExtResource("4_jjmdu")
+flip_h = true
+
+[node name="D_bush_151" type="Node2D" parent="DensityProps"]
+position = Vector2(846.803, 483.7603)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_151"]
+position = Vector2(0, -23.6665)
+scale = Vector2(0.8333, 0.8333)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_flower_bed_152" type="Node2D" parent="DensityProps"]
+position = Vector2(706.5627, -321.7587)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_152"]
+position = Vector2(0, -28.9257)
+scale = Vector2(0.7693, 0.7693)
+texture = ExtResource("den_flower_bed")
+
+[node name="D_sack_153" type="Node2D" parent="DensityProps"]
+position = Vector2(780.7351, -367.77)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_sack_153"]
+position = Vector2(0, -16.7475)
+scale = Vector2(0.9899, 0.9899)
+texture = ExtResource("den_sack")
+flip_h = true
+
+[node name="D_barrel_154" type="Node2D" parent="DensityProps"]
+position = Vector2(-454.5371, -674.2101)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_154"]
+position = Vector2(0, -16.336)
+scale = Vector2(0.9013, 0.9013)
+texture = ExtResource("den_barrel")
+
+[node name="D_barrel_155" type="Node2D" parent="DensityProps"]
+position = Vector2(1143.8142, 587.5815)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_barrel_155"]
+position = Vector2(0, -19.2003)
+scale = Vector2(1.0074, 1.0074)
+texture = ExtResource("den_barrel")
+
+[node name="D_wine_barrel_156" type="Node2D" parent="DensityProps"]
+position = Vector2(-926.4089, -453.5464)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_wine_barrel_156"]
+position = Vector2(0, -22.0514)
+scale = Vector2(1.0017, 1.0017)
+texture = ExtResource("den_wine_barrel")
+flip_h = true
+
+[node name="D_flower_bed_157" type="Node2D" parent="DensityProps"]
+position = Vector2(-892.4954, -503.2801)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_157"]
+position = Vector2(0, -30.2061)
+scale = Vector2(0.796, 0.796)
+texture = ExtResource("den_flower_bed")
+
+[node name="D_boulder_158" type="Node2D" parent="DensityProps"]
+position = Vector2(-1018.1696, -398.5573)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_158"]
+position = Vector2(0, -22.4246)
+scale = Vector2(0.922, 0.922)
+texture = ExtResource("6_s2h8y")
+flip_h = true
+
+[node name="D_boulder_159" type="Node2D" parent="DensityProps"]
+position = Vector2(688.4928, -72.916)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_159"]
+position = Vector2(0, -18.5486)
+scale = Vector2(0.8045, 0.8045)
+texture = ExtResource("6_s2h8y")
+flip_h = true
+
+[node name="D_flower_bed_160" type="Node2D" parent="DensityProps"]
+position = Vector2(534.8943, 360.5758)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_flower_bed_160"]
+position = Vector2(0, -28.8328)
+scale = Vector2(0.7674, 0.7674)
+texture = ExtResource("den_flower_bed")
+
+[node name="D_bush_161" type="Node2D" parent="DensityProps"]
+position = Vector2(-865.6641, 693.2116)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_161"]
+position = Vector2(0, -29.2967)
+scale = Vector2(0.9815, 0.9815)
+texture = ExtResource("23_dac4j")
+
+[node name="D_sack_162" type="Node2D" parent="DensityProps"]
+position = Vector2(-587.4435, -371.8424)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_sack_162"]
+position = Vector2(0, -17.2302)
+scale = Vector2(1.0092, 1.0092)
+texture = ExtResource("den_sack")
+flip_h = true
+
+[node name="D_bush_163" type="Node2D" parent="DensityProps"]
+position = Vector2(-192.3174, -380.0213)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_163"]
+position = Vector2(0, -27.4861)
+scale = Vector2(0.9338, 0.9338)
+texture = ExtResource("23_dac4j")
+flip_h = true
+
+[node name="D_bush_164" type="Node2D" parent="DensityProps"]
+position = Vector2(-246.9301, -352.7073)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_164"]
+position = Vector2(0, -29.2309)
+scale = Vector2(0.9798, 0.9798)
+texture = ExtResource("23_dac4j")
+
+[node name="D_small_tree_165" type="Node2D" parent="DensityProps"]
+position = Vector2(-174.6658, -279.8094)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_165"]
+position = Vector2(0, -59.9696)
+scale = Vector2(0.8943, 0.8943)
+texture = ExtResource("5_sth5j")
+
+[node name="D_oak_166" type="Node2D" parent="DensityProps"]
+position = Vector2(559.1077, 173.1234)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_166"]
+position = Vector2(0, -51.0886)
+scale = Vector2(0.5471, 0.5471)
+texture = ExtResource("4_jjmdu")
+
+[node name="D_boulder_167" type="Node2D" parent="DensityProps"]
+position = Vector2(-783.1334, -675.7104)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_167"]
+position = Vector2(0, -23.5991)
+scale = Vector2(0.9575, 0.9575)
+texture = ExtResource("6_s2h8y")
+flip_h = true
+
+[node name="D_oak_168" type="Node2D" parent="DensityProps"]
+position = Vector2(-140.0517, -703.5665)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_oak_168"]
+position = Vector2(0, -54.2003)
+scale = Vector2(0.5759, 0.5759)
+texture = ExtResource("4_jjmdu")
+
+[node name="D_small_tree_169" type="Node2D" parent="DensityProps"]
+position = Vector2(-83.4743, -673.2723)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_small_tree_169"]
+position = Vector2(0, -49.5187)
+scale = Vector2(0.7568, 0.7568)
+texture = ExtResource("5_sth5j")
+flip_h = true
+
+[node name="DDecal_decal_moss_000" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(3733.6943, -1261.8148)
+rotation = 5.734
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_000"]
+scale = Vector2(0.9151, 0.9151)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_moss_001" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(442.7286, 1272.1978)
+rotation = 1.0929
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_001"]
+scale = Vector2(0.8316, 0.8316)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_crack_002" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(414.2976, -2416.3896)
+rotation = 4.0083
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_002"]
+scale = Vector2(0.8718, 0.8718)
+texture = ExtResource("den_decal_crack")
+
+[node name="DDecal_decal_moss_003" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-621.3311, -1810.1099)
+rotation = 1.6438
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_003"]
+scale = Vector2(1.0406, 1.0406)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_crack_004" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(362.2603, -1898.307)
+rotation = 3.845
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_004"]
+scale = Vector2(1.0993, 1.0993)
+texture = ExtResource("den_decal_crack")
+
+[node name="DDecal_decal_moss_005" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(106.1443, 369.4331)
+rotation = 2.3239
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_005"]
+scale = Vector2(0.9398, 0.9398)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_stain_006" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(4472.9668, 1091.1338)
+rotation = 0.6518
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_stain_006"]
+scale = Vector2(0.9375, 0.9375)
+texture = ExtResource("den_decal_stain")
+
+[node name="DDecal_decal_crack_007" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(369.1832, -578.0935)
+rotation = 3.6442
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_007"]
+scale = Vector2(0.9681, 0.9681)
+texture = ExtResource("den_decal_crack")
+flip_h = true
+
+[node name="DDecal_decal_stain_008" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-1173.3818, -1012.0352)
+rotation = 5.868
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_stain_008"]
+scale = Vector2(0.8595, 0.8595)
+texture = ExtResource("den_decal_stain")
+flip_h = true
+
+[node name="DDecal_decal_moss_009" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(538.3083, -284.3301)
+rotation = 2.7101
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_009"]
+scale = Vector2(1.0958, 1.0958)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_stain_010" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(3200.2886, -1654.3545)
+rotation = 6.1056
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_stain_010"]
+scale = Vector2(0.8301, 0.8301)
+texture = ExtResource("den_decal_stain")
+flip_h = true
+
+[node name="DDecal_decal_moss_011" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(4131.7681, 719.4431)
+rotation = 3.3933
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_011"]
+scale = Vector2(0.9057, 0.9057)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_moss_012" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-14.3035, -1597.4413)
+rotation = 0.7936
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_012"]
+scale = Vector2(1.0388, 1.0388)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_stain_013" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(2222.5933, -1849.8293)
+rotation = 2.9354
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_stain_013"]
+scale = Vector2(0.8741, 0.8741)
+texture = ExtResource("den_decal_stain")
+flip_h = true
+
+[node name="DDecal_decal_crack_014" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(4342.3218, -1381.7821)
+rotation = 4.9887
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_014"]
+scale = Vector2(0.8492, 0.8492)
+texture = ExtResource("den_decal_crack")
+
+[node name="DDecal_decal_moss_015" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(261.1241, -104.8743)
+rotation = 2.9873
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_015"]
+scale = Vector2(1.0757, 1.0757)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_moss_016" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(1991.6072, 306.156)
+rotation = 4.6861
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_016"]
+scale = Vector2(0.9137, 0.9137)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_moss_017" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(2781.1328, -2520.3403)
+rotation = 1.1056
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_017"]
+scale = Vector2(0.8986, 0.8986)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_moss_018" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(200.3112, 1302.2754)
+rotation = 0.8557
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_018"]
+scale = Vector2(0.8575, 0.8575)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_moss_019" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(859.1292, -1345.113)
+rotation = 4.8562
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_019"]
+scale = Vector2(0.9014, 0.9014)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_crack_020" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(3275.8374, -2816.0754)
+rotation = 0.0128
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_020"]
+scale = Vector2(1.0995, 1.0995)
+texture = ExtResource("den_decal_crack")
+
+[node name="DDecal_decal_crack_021" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(2709.6768, 639.7437)
+rotation = 0.5464
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_021"]
+scale = Vector2(0.8298, 0.8298)
+texture = ExtResource("den_decal_crack")
+flip_h = true
+
+[node name="DDecal_decal_stain_022" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(3213.918, -2387.2051)
+rotation = 1.394
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_stain_022"]
+scale = Vector2(0.9719, 0.9719)
+texture = ExtResource("den_decal_stain")
+flip_h = true
+
+[node name="DDecal_decal_stain_023" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(3372.4141, -1317.9814)
+rotation = 0.7698
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_stain_023"]
+scale = Vector2(0.8435, 0.8435)
+texture = ExtResource("den_decal_stain")
+flip_h = true
+
+[node name="DDecal_decal_moss_024" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(3855.6943, -2214.9219)
+rotation = 5.2211
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_024"]
+scale = Vector2(0.9444, 0.9444)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_moss_025" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(288.1146, -622.9524)
+rotation = 4.044
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_025"]
+scale = Vector2(0.8775, 0.8775)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_crack_026" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-1214.54, 242.4343)
+rotation = 5.3464
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_026"]
+scale = Vector2(0.9499, 0.9499)
+texture = ExtResource("den_decal_crack")
+flip_h = true
+
+[node name="DDecal_decal_moss_027" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(3849.6587, -3044.8542)
+rotation = 3.8927
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_027"]
+scale = Vector2(0.9163, 0.9163)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_moss_028" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-1470.5891, -1160.0142)
+rotation = 2.0193
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_028"]
+scale = Vector2(0.8673, 0.8673)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_stain_029" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-790.2283, -2043.6051)
+rotation = 4.7746
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_stain_029"]
+scale = Vector2(0.9417, 0.9417)
+texture = ExtResource("den_decal_stain")
+
+[node name="DDecal_decal_moss_030" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(4643.5874, -2153.5781)
+rotation = 3.931
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_030"]
+scale = Vector2(1.0668, 1.0668)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_crack_031" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(4553.6509, -2977.1919)
+rotation = 4.5982
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_031"]
+scale = Vector2(0.9042, 0.9042)
+texture = ExtResource("den_decal_crack")
+flip_h = true
+
+[node name="DDecal_decal_stain_032" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(2324.1335, -2658.5994)
+rotation = 3.5795
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_stain_032"]
+scale = Vector2(0.8899, 0.8899)
+texture = ExtResource("den_decal_stain")
+flip_h = true
+
+[node name="DDecal_decal_moss_033" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(1241.3137, -959.6409)
+rotation = 0.0224
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_033"]
+scale = Vector2(1.0868, 1.0868)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_moss_034" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-749.8011, 288.6399)
+rotation = 4.5958
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_034"]
+scale = Vector2(0.9973, 0.9973)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_moss_035" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(423.0995, 344.5133)
+rotation = 2.1361
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_035"]
+scale = Vector2(1.0556, 1.0556)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_stain_036" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(1121.7666, 389.153)
+rotation = 5.369
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_stain_036"]
+scale = Vector2(1.0956, 1.0956)
+texture = ExtResource("den_decal_stain")
+
+[node name="DDecal_decal_stain_037" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(102.6276, 112.0853)
+rotation = 1.3008
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_stain_037"]
+scale = Vector2(0.9013, 0.9013)
+texture = ExtResource("den_decal_stain")
+flip_h = true
+
+[node name="DDecal_decal_moss_038" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(860.0924, 649.793)
+rotation = 3.3193
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_038"]
+scale = Vector2(1.0008, 1.0008)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_moss_039" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-3.1126, -445.6145)
+rotation = 3.5481
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_039"]
+scale = Vector2(0.8642, 0.8642)
+texture = ExtResource("den_decal_moss")

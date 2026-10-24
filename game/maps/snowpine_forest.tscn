@@ -1,4 +1,4 @@
-[gd_scene load_steps=305 format=3]
+[gd_scene load_steps=311 format=3]
 
 [ext_resource type="Script" path="res://systems/map_root.gd" id="1_j64er"]
 [ext_resource type="TileSet" path="res://assets/tilesets/winter_v1.tres" id="2_07gly"]
@@ -22,6 +22,9 @@
 [ext_resource type="Script" path="res://player/player.gd" id="20_2dg5e"]
 [ext_resource type="PackedScene" path="res://ui/hud.tscn" id="21_oc48o"]
 [ext_resource type="Script" path="res://ui/hud.gd" id="22_m4fw2"]
+[ext_resource type="Texture2D" path="res://assets/props/boulder.png" id="den_boulder"]
+[ext_resource type="Texture2D" path="res://assets/props/bush.png" id="den_bush"]
+[ext_resource type="Texture2D" path="res://assets/props/decal_crack.png" id="den_decal_crack"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dufv"]
 size = Vector2(8960, 64)
@@ -2935,3 +2938,1174 @@ attack_damage = Array[int]([10, 12, 18])
 
 [node name="HUD" type="CanvasLayer" parent="." instance=ExtResource("21_oc48o")]
 script = ExtResource("22_m4fw2")
+
+
+[node name="DensityProps" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="D_snow_pine_000" type="Node2D" parent="DensityProps"]
+position = Vector2(-2418.6113, 521.6973)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_000"]
+position = Vector2(0, -91.6192)
+scale = Vector2(0.9224, 0.9224)
+texture = ExtResource("4_h4cse")
+
+[node name="D_boulder_001" type="Node2D" parent="DensityProps"]
+position = Vector2(-2504.4185, 481.8243)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_001"]
+position = Vector2(0, -30.7582)
+scale = Vector2(1.1745, 1.1745)
+texture = ExtResource("den_boulder")
+flip_h = true
+
+[node name="D_bush_002" type="Node2D" parent="DensityProps"]
+position = Vector2(-2452.812, 638.7211)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_002"]
+position = Vector2(0, -29.6581)
+scale = Vector2(0.991, 0.991)
+texture = ExtResource("den_bush")
+
+[node name="D_snow_pine_003" type="Node2D" parent="DensityProps"]
+position = Vector2(-2511.5823, 580.8206)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_003"]
+position = Vector2(0, -94.4968)
+scale = Vector2(0.949, 0.949)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_boulder_004" type="Node2D" parent="DensityProps"]
+position = Vector2(1729.7324, -1527.1567)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_004"]
+position = Vector2(0, -29.1608)
+scale = Vector2(1.1261, 1.1261)
+texture = ExtResource("den_boulder")
+
+[node name="D_snow_pine_005" type="Node2D" parent="DensityProps"]
+position = Vector2(1760.1628, -1587.4329)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_005"]
+position = Vector2(0, -91.778)
+scale = Vector2(0.9239, 0.9239)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_ice_rock_006" type="Node2D" parent="DensityProps"]
+position = Vector2(1845.3142, -1540.8488)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_006"]
+position = Vector2(0, -54.8751)
+scale = Vector2(1.0479, 1.0479)
+texture = ExtResource("5_ketjj")
+flip_h = true
+
+[node name="D_ice_rock_007" type="Node2D" parent="DensityProps"]
+position = Vector2(1693.1664, -1646.4292)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_007"]
+position = Vector2(0, -47.3369)
+scale = Vector2(0.9223, 0.9223)
+texture = ExtResource("5_ketjj")
+
+[node name="D_bush_008" type="Node2D" parent="DensityProps"]
+position = Vector2(4316.1924, 852.1538)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_008"]
+position = Vector2(0, -25.3727)
+scale = Vector2(0.8782, 0.8782)
+texture = ExtResource("den_bush")
+flip_h = true
+
+[node name="D_ice_rock_009" type="Node2D" parent="DensityProps"]
+position = Vector2(2262.5698, -1255.7067)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_009"]
+position = Vector2(0, -50.4072)
+scale = Vector2(0.9735, 0.9735)
+texture = ExtResource("5_ketjj")
+flip_h = true
+
+[node name="D_ice_rock_010" type="Node2D" parent="DensityProps"]
+position = Vector2(2041.6821, -1235.5704)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_010"]
+position = Vector2(0, -47.7203)
+scale = Vector2(0.9287, 0.9287)
+texture = ExtResource("5_ketjj")
+flip_h = true
+
+[node name="D_snow_pine_011" type="Node2D" parent="DensityProps"]
+position = Vector2(1481.2676, -580.5381)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_011"]
+position = Vector2(0, -94.2362)
+scale = Vector2(0.9466, 0.9466)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_012" type="Node2D" parent="DensityProps"]
+position = Vector2(-1824.4636, 3070.373)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_012"]
+position = Vector2(0, -98.1186)
+scale = Vector2(0.9826, 0.9826)
+texture = ExtResource("4_h4cse")
+
+[node name="D_boulder_013" type="Node2D" parent="DensityProps"]
+position = Vector2(-1789.7197, 2993.1938)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_013"]
+position = Vector2(0, -28.4783)
+scale = Vector2(1.1054, 1.1054)
+texture = ExtResource("den_boulder")
+
+[node name="D_snow_pine_014" type="Node2D" parent="DensityProps"]
+position = Vector2(-1916.0732, 2999.344)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_014"]
+position = Vector2(0, -99.1622)
+scale = Vector2(0.9922, 0.9922)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_015" type="Node2D" parent="DensityProps"]
+position = Vector2(-263.8701, -232.8481)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_015"]
+position = Vector2(0, -94.9247)
+scale = Vector2(0.953, 0.953)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_bush_016" type="Node2D" parent="DensityProps"]
+position = Vector2(-323.5986, -293.4156)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_016"]
+position = Vector2(0, -30.7124)
+scale = Vector2(1.0187, 1.0187)
+texture = ExtResource("den_bush")
+
+[node name="D_bush_017" type="Node2D" parent="DensityProps"]
+position = Vector2(974.8223, 100.1411)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_017"]
+position = Vector2(0, -25.1917)
+scale = Vector2(0.8735, 0.8735)
+texture = ExtResource("den_bush")
+flip_h = true
+
+[node name="D_bush_018" type="Node2D" parent="DensityProps"]
+position = Vector2(-1146.562, -1382.8374)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_018"]
+position = Vector2(0, -31.9633)
+scale = Vector2(1.0517, 1.0517)
+texture = ExtResource("den_bush")
+flip_h = true
+
+[node name="D_bush_019" type="Node2D" parent="DensityProps"]
+position = Vector2(-1072.2734, -1458.989)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_019"]
+position = Vector2(0, -29.3596)
+scale = Vector2(0.9831, 0.9831)
+texture = ExtResource("den_bush")
+
+[node name="D_snow_pine_020" type="Node2D" parent="DensityProps"]
+position = Vector2(3487.6616, 1122.3135)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_020"]
+position = Vector2(0, -96.0862)
+scale = Vector2(0.9638, 0.9638)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_bush_021" type="Node2D" parent="DensityProps"]
+position = Vector2(-3532.4062, 681.5405)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_021"]
+position = Vector2(0, -25.2721)
+scale = Vector2(0.8756, 0.8756)
+texture = ExtResource("den_bush")
+flip_h = true
+
+[node name="D_snow_pine_022" type="Node2D" parent="DensityProps"]
+position = Vector2(-3628.3743, 634.8511)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_022"]
+position = Vector2(0, -91.0362)
+scale = Vector2(0.917, 0.917)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_023" type="Node2D" parent="DensityProps"]
+position = Vector2(-3637.4595, 710.5154)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_023"]
+position = Vector2(0, -96.3705)
+scale = Vector2(0.9664, 0.9664)
+texture = ExtResource("4_h4cse")
+
+[node name="D_bush_024" type="Node2D" parent="DensityProps"]
+position = Vector2(598.0029, -421.3525)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_024"]
+position = Vector2(0, -33.3257)
+scale = Vector2(1.0875, 1.0875)
+texture = ExtResource("den_bush")
+
+[node name="D_ice_rock_025" type="Node2D" parent="DensityProps"]
+position = Vector2(550.6846, -523.3333)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_025"]
+position = Vector2(0, -60.4871)
+scale = Vector2(1.1415, 1.1415)
+texture = ExtResource("5_ketjj")
+
+[node name="D_bush_026" type="Node2D" parent="DensityProps"]
+position = Vector2(682.7931, -444.1989)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_026"]
+position = Vector2(0, -28.9131)
+scale = Vector2(0.9714, 0.9714)
+texture = ExtResource("den_bush")
+flip_h = true
+
+[node name="D_snow_pine_027" type="Node2D" parent="DensityProps"]
+position = Vector2(561.7145, -461.8162)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_027"]
+position = Vector2(0, -86.5579)
+scale = Vector2(0.8755, 0.8755)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_028" type="Node2D" parent="DensityProps"]
+position = Vector2(67.0962, 2771.9419)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_028"]
+position = Vector2(0, -95.1465)
+scale = Vector2(0.9551, 0.9551)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_snow_pine_029" type="Node2D" parent="DensityProps"]
+position = Vector2(1924.769, -2035.5055)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_029"]
+position = Vector2(0, -97.8009)
+scale = Vector2(0.9796, 0.9796)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_030" type="Node2D" parent="DensityProps"]
+position = Vector2(4048.1934, -211.2761)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_030"]
+position = Vector2(0, -84.3783)
+scale = Vector2(0.8554, 0.8554)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_snow_pine_031" type="Node2D" parent="DensityProps"]
+position = Vector2(-3554.0867, 1719.1982)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_031"]
+position = Vector2(0, -100.904)
+scale = Vector2(1.0084, 1.0084)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_snow_pine_032" type="Node2D" parent="DensityProps"]
+position = Vector2(-3469.9836, 1791.7867)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_032"]
+position = Vector2(0, -95.3246)
+scale = Vector2(0.9567, 0.9567)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_033" type="Node2D" parent="DensityProps"]
+position = Vector2(-3674.7407, 1732.719)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_033"]
+position = Vector2(0, -84.6274)
+scale = Vector2(0.8577, 0.8577)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_034" type="Node2D" parent="DensityProps"]
+position = Vector2(-875.5923, -1843.3369)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_034"]
+position = Vector2(0, -105.0709)
+scale = Vector2(1.047, 1.047)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_snow_pine_035" type="Node2D" parent="DensityProps"]
+position = Vector2(-981.6487, -1843.89)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_035"]
+position = Vector2(0, -90.2379)
+scale = Vector2(0.9096, 0.9096)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_snow_pine_036" type="Node2D" parent="DensityProps"]
+position = Vector2(-898.9843, -1966.4932)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_036"]
+position = Vector2(0, -102.4929)
+scale = Vector2(1.0231, 1.0231)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_snow_pine_037" type="Node2D" parent="DensityProps"]
+position = Vector2(1474.874, -2409.7476)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_037"]
+position = Vector2(0, -88.1279)
+scale = Vector2(0.8901, 0.8901)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_038" type="Node2D" parent="DensityProps"]
+position = Vector2(1429.9229, -2483.7969)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_038"]
+position = Vector2(0, -90.7782)
+scale = Vector2(0.9146, 0.9146)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_ice_rock_039" type="Node2D" parent="DensityProps"]
+position = Vector2(1550.3616, -2514.0234)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_039"]
+position = Vector2(0, -51.445)
+scale = Vector2(0.9907, 0.9907)
+texture = ExtResource("5_ketjj")
+flip_h = true
+
+[node name="D_bush_040" type="Node2D" parent="DensityProps"]
+position = Vector2(-586.2561, 1994.1792)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_040"]
+position = Vector2(0, -27.9733)
+scale = Vector2(0.9467, 0.9467)
+texture = ExtResource("den_bush")
+flip_h = true
+
+[node name="D_bush_041" type="Node2D" parent="DensityProps"]
+position = Vector2(-459.5367, 2014.2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_041"]
+position = Vector2(0, -26.5806)
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("den_bush")
+
+[node name="D_snow_pine_042" type="Node2D" parent="DensityProps"]
+position = Vector2(-564.3101, 2056.7136)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_042"]
+position = Vector2(0, -98.2125)
+scale = Vector2(0.9834, 0.9834)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_bush_043" type="Node2D" parent="DensityProps"]
+position = Vector2(-692.8431, 1925.9143)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_043"]
+position = Vector2(0, -28.1975)
+scale = Vector2(0.9526, 0.9526)
+texture = ExtResource("den_bush")
+
+[node name="D_ice_rock_044" type="Node2D" parent="DensityProps"]
+position = Vector2(-619.6062, 2100.0493)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_044"]
+position = Vector2(0, -50.0883)
+scale = Vector2(0.9681, 0.9681)
+texture = ExtResource("5_ketjj")
+flip_h = true
+
+[node name="D_snow_pine_045" type="Node2D" parent="DensityProps"]
+position = Vector2(-3610.4443, -2624.7981)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_045"]
+position = Vector2(0, -93.2166)
+scale = Vector2(0.9372, 0.9372)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_snow_pine_046" type="Node2D" parent="DensityProps"]
+position = Vector2(-3503.5603, -2677.2891)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_046"]
+position = Vector2(0, -102.029)
+scale = Vector2(1.0188, 1.0188)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_snow_pine_047" type="Node2D" parent="DensityProps"]
+position = Vector2(87.2974, 1627.8501)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_047"]
+position = Vector2(0, -94.4529)
+scale = Vector2(0.9486, 0.9486)
+texture = ExtResource("4_h4cse")
+
+[node name="D_boulder_048" type="Node2D" parent="DensityProps"]
+position = Vector2(19.1298, 1583.8582)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_048"]
+position = Vector2(0, -28.5216)
+scale = Vector2(1.1067, 1.1067)
+texture = ExtResource("den_boulder")
+flip_h = true
+
+[node name="D_boulder_049" type="Node2D" parent="DensityProps"]
+position = Vector2(3878.5137, 603.9912)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_049"]
+position = Vector2(0, -29.9874)
+scale = Vector2(1.1511, 1.1511)
+texture = ExtResource("den_boulder")
+flip_h = true
+
+[node name="D_ice_rock_050" type="Node2D" parent="DensityProps"]
+position = Vector2(3758.75, 554.5573)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_050"]
+position = Vector2(0, -57.2452)
+scale = Vector2(1.0874, 1.0874)
+texture = ExtResource("5_ketjj")
+
+[node name="D_snow_pine_051" type="Node2D" parent="DensityProps"]
+position = Vector2(3767.9802, 656.7379)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_051"]
+position = Vector2(0, -103.5387)
+scale = Vector2(1.0328, 1.0328)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_052" type="Node2D" parent="DensityProps"]
+position = Vector2(3925.2627, 493.012)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_052"]
+position = Vector2(0, -92.0391)
+scale = Vector2(0.9263, 0.9263)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_053" type="Node2D" parent="DensityProps"]
+position = Vector2(-4124.7432, -2927)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_053"]
+position = Vector2(0, -90.5832)
+scale = Vector2(0.9128, 0.9128)
+texture = ExtResource("4_h4cse")
+
+[node name="D_ice_rock_054" type="Node2D" parent="DensityProps"]
+position = Vector2(-4146.251, -424.1455)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_054"]
+position = Vector2(0, -53.8909)
+scale = Vector2(1.0315, 1.0315)
+texture = ExtResource("5_ketjj")
+flip_h = true
+
+[node name="D_boulder_055" type="Node2D" parent="DensityProps"]
+position = Vector2(-4209.2979, -380.7123)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_055"]
+position = Vector2(0, -25.3753)
+scale = Vector2(1.0114, 1.0114)
+texture = ExtResource("den_boulder")
+
+[node name="D_snow_pine_056" type="Node2D" parent="DensityProps"]
+position = Vector2(-4211.6885, -490.0334)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_056"]
+position = Vector2(0, -89.651)
+scale = Vector2(0.9042, 0.9042)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_057" type="Node2D" parent="DensityProps"]
+position = Vector2(-3660.593, -913.4026)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_057"]
+position = Vector2(0, -102.0911)
+scale = Vector2(1.0194, 1.0194)
+texture = ExtResource("4_h4cse")
+
+[node name="D_bush_058" type="Node2D" parent="DensityProps"]
+position = Vector2(-3645.9148, -985.6499)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_058"]
+position = Vector2(0, -30.8824)
+scale = Vector2(1.0232, 1.0232)
+texture = ExtResource("den_bush")
+
+[node name="D_snow_pine_059" type="Node2D" parent="DensityProps"]
+position = Vector2(-3709.5737, -943.9604)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_059"]
+position = Vector2(0, -95.6564)
+scale = Vector2(0.9598, 0.9598)
+texture = ExtResource("4_h4cse")
+
+[node name="D_ice_rock_060" type="Node2D" parent="DensityProps"]
+position = Vector2(-3609.9248, -940.5911)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_060"]
+position = Vector2(0, -58.486)
+scale = Vector2(1.1081, 1.1081)
+texture = ExtResource("5_ketjj")
+
+[node name="D_snow_pine_061" type="Node2D" parent="DensityProps"]
+position = Vector2(-1939.9343, -1370.4237)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_061"]
+position = Vector2(0, -90.5161)
+scale = Vector2(0.9122, 0.9122)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_boulder_062" type="Node2D" parent="DensityProps"]
+position = Vector2(-1933.8518, -1496.2523)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_062"]
+position = Vector2(0, -30.2456)
+scale = Vector2(1.159, 1.159)
+texture = ExtResource("den_boulder")
+flip_h = true
+
+[node name="D_snow_pine_063" type="Node2D" parent="DensityProps"]
+position = Vector2(2750.0884, 1330.6216)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_063"]
+position = Vector2(0, -102.1869)
+scale = Vector2(1.0202, 1.0202)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_snow_pine_064" type="Node2D" parent="DensityProps"]
+position = Vector2(2871.4229, 1308.1553)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_064"]
+position = Vector2(0, -98.5481)
+scale = Vector2(0.9866, 0.9866)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_065" type="Node2D" parent="DensityProps"]
+position = Vector2(2694.4307, 1269.0253)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_065"]
+position = Vector2(0, -96.1854)
+scale = Vector2(0.9647, 0.9647)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_snow_pine_066" type="Node2D" parent="DensityProps"]
+position = Vector2(2796.8025, 1431.1198)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_066"]
+position = Vector2(0, -95.8064)
+scale = Vector2(0.9612, 0.9612)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_snow_pine_067" type="Node2D" parent="DensityProps"]
+position = Vector2(3922.7471, -802.4768)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_067"]
+position = Vector2(0, -103.3653)
+scale = Vector2(1.0312, 1.0312)
+texture = ExtResource("4_h4cse")
+
+[node name="D_bush_068" type="Node2D" parent="DensityProps"]
+position = Vector2(1041.5679, -439.2869)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_068"]
+position = Vector2(0, -26.9766)
+scale = Vector2(0.9204, 0.9204)
+texture = ExtResource("den_bush")
+
+[node name="D_bush_069" type="Node2D" parent="DensityProps"]
+position = Vector2(944.6069, -354.9078)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_069"]
+position = Vector2(0, -27.8065)
+scale = Vector2(0.9423, 0.9423)
+texture = ExtResource("den_bush")
+
+[node name="D_ice_rock_070" type="Node2D" parent="DensityProps"]
+position = Vector2(1131.6428, -350.5768)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_070"]
+position = Vector2(0, -54.7648)
+scale = Vector2(1.0461, 1.0461)
+texture = ExtResource("5_ketjj")
+flip_h = true
+
+[node name="D_boulder_071" type="Node2D" parent="DensityProps"]
+position = Vector2(1025.8104, -339.6171)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_071"]
+position = Vector2(0, -26.4938)
+scale = Vector2(1.0453, 1.0453)
+texture = ExtResource("den_boulder")
+
+[node name="D_boulder_072" type="Node2D" parent="DensityProps"]
+position = Vector2(2480.5537, 2848.271)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_072"]
+position = Vector2(0, -31.2506)
+scale = Vector2(1.1894, 1.1894)
+texture = ExtResource("den_boulder")
+
+[node name="D_ice_rock_073" type="Node2D" parent="DensityProps"]
+position = Vector2(2511.626, 2774.0911)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_073"]
+position = Vector2(0, -60.3981)
+scale = Vector2(1.14, 1.14)
+texture = ExtResource("5_ketjj")
+
+[node name="D_snow_pine_074" type="Node2D" parent="DensityProps"]
+position = Vector2(2578.8271, 2927.344)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_074"]
+position = Vector2(0, -91.8243)
+scale = Vector2(0.9243, 0.9243)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_075" type="Node2D" parent="DensityProps"]
+position = Vector2(2414.8796, 2922.8247)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_075"]
+position = Vector2(0, -103.7952)
+scale = Vector2(1.0351, 1.0351)
+texture = ExtResource("4_h4cse")
+
+[node name="D_ice_rock_076" type="Node2D" parent="DensityProps"]
+position = Vector2(2381.4561, 2839.3569)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_076"]
+position = Vector2(0, -55.3325)
+scale = Vector2(1.0555, 1.0555)
+texture = ExtResource("5_ketjj")
+
+[node name="D_snow_pine_077" type="Node2D" parent="DensityProps"]
+position = Vector2(4117.498, 2507.9438)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_077"]
+position = Vector2(0, -92.6859)
+scale = Vector2(0.9323, 0.9323)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_boulder_078" type="Node2D" parent="DensityProps"]
+position = Vector2(4027.1355, 2527.3416)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_078"]
+position = Vector2(0, -29.4857)
+scale = Vector2(1.1359, 1.1359)
+texture = ExtResource("den_boulder")
+
+[node name="D_snow_pine_079" type="Node2D" parent="DensityProps"]
+position = Vector2(4129.6611, 2611.7891)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_079"]
+position = Vector2(0, -85.881)
+scale = Vector2(0.8693, 0.8693)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_bush_080" type="Node2D" parent="DensityProps"]
+position = Vector2(-1842.6272, -2615.7639)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_080"]
+position = Vector2(0, -30.7941)
+scale = Vector2(1.0209, 1.0209)
+texture = ExtResource("den_bush")
+
+[node name="D_snow_pine_081" type="Node2D" parent="DensityProps"]
+position = Vector2(-1931.9503, -2671.874)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_081"]
+position = Vector2(0, -90.0645)
+scale = Vector2(0.908, 0.908)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_boulder_082" type="Node2D" parent="DensityProps"]
+position = Vector2(-1747.4364, -2579.2573)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_082"]
+position = Vector2(0, -29.4571)
+scale = Vector2(1.1351, 1.1351)
+texture = ExtResource("den_boulder")
+
+[node name="D_ice_rock_083" type="Node2D" parent="DensityProps"]
+position = Vector2(-1902.6919, -2597.6304)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_083"]
+position = Vector2(0, -58.8187)
+scale = Vector2(1.1136, 1.1136)
+texture = ExtResource("5_ketjj")
+
+[node name="D_bush_084" type="Node2D" parent="DensityProps"]
+position = Vector2(1458.7773, 27.0769)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_084"]
+position = Vector2(0, -27.4073)
+scale = Vector2(0.9318, 0.9318)
+texture = ExtResource("den_bush")
+
+[node name="D_boulder_085" type="Node2D" parent="DensityProps"]
+position = Vector2(1539.2263, -29.2184)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_085"]
+position = Vector2(0, -30.9739)
+scale = Vector2(1.181, 1.181)
+texture = ExtResource("den_boulder")
+
+[node name="D_snow_pine_086" type="Node2D" parent="DensityProps"]
+position = Vector2(1497.4645, 58.926)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_086"]
+position = Vector2(0, -89.2044)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_087" type="Node2D" parent="DensityProps"]
+position = Vector2(1371.1882, -637.1358)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_087"]
+position = Vector2(0, -98.3669)
+scale = Vector2(0.9849, 0.9849)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_snow_pine_088" type="Node2D" parent="DensityProps"]
+position = Vector2(3665.7896, 872.1282)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_088"]
+position = Vector2(0, -103.9618)
+scale = Vector2(1.0367, 1.0367)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_boulder_089" type="Node2D" parent="DensityProps"]
+position = Vector2(-3473.9121, 2045.4976)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_089"]
+position = Vector2(0, -22.4273)
+scale = Vector2(0.922, 0.922)
+texture = ExtResource("den_boulder")
+flip_h = true
+
+[node name="D_bush_090" type="Node2D" parent="DensityProps"]
+position = Vector2(-4205.6421, -3012.7212)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_090"]
+position = Vector2(0, -26.8204)
+scale = Vector2(0.9163, 0.9163)
+texture = ExtResource("den_bush")
+
+[node name="D_bush_091" type="Node2D" parent="DensityProps"]
+position = Vector2(-2982.4321, 839.1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_091"]
+position = Vector2(0, -25.0397)
+scale = Vector2(0.8695, 0.8695)
+texture = ExtResource("den_bush")
+
+[node name="D_snow_pine_092" type="Node2D" parent="DensityProps"]
+position = Vector2(-3053.875, 785.921)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_092"]
+position = Vector2(0, -104.2696)
+scale = Vector2(1.0395, 1.0395)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_093" type="Node2D" parent="DensityProps"]
+position = Vector2(-2881.7061, 781.707)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_093"]
+position = Vector2(0, -87.9562)
+scale = Vector2(0.8885, 0.8885)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_bush_094" type="Node2D" parent="DensityProps"]
+position = Vector2(333.5796, -1428.3635)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_bush_094"]
+position = Vector2(0, -29.4652)
+scale = Vector2(0.9859, 0.9859)
+texture = ExtResource("den_bush")
+flip_h = true
+
+[node name="D_ice_rock_095" type="Node2D" parent="DensityProps"]
+position = Vector2(-3476.1414, 2839.9331)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_095"]
+position = Vector2(0, -51.7829)
+scale = Vector2(0.9964, 0.9964)
+texture = ExtResource("5_ketjj")
+
+[node name="D_snow_pine_096" type="Node2D" parent="DensityProps"]
+position = Vector2(-3381.489, 2777.1553)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_096"]
+position = Vector2(0, -98.6903)
+scale = Vector2(0.9879, 0.9879)
+texture = ExtResource("4_h4cse")
+
+[node name="D_boulder_097" type="Node2D" parent="DensityProps"]
+position = Vector2(-311.9736, 663.4956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_097"]
+position = Vector2(0, -23.1983)
+scale = Vector2(0.9454, 0.9454)
+texture = ExtResource("den_boulder")
+
+[node name="D_ice_rock_098" type="Node2D" parent="DensityProps"]
+position = Vector2(-401.6374, 638.991)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_098"]
+position = Vector2(0, -47.471)
+scale = Vector2(0.9245, 0.9245)
+texture = ExtResource("5_ketjj")
+
+[node name="D_snow_pine_099" type="Node2D" parent="DensityProps"]
+position = Vector2(-205.7412, 610.4407)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_099"]
+position = Vector2(0, -94.9692)
+scale = Vector2(0.9534, 0.9534)
+texture = ExtResource("4_h4cse")
+flip_h = true
+
+[node name="D_ice_rock_100" type="Node2D" parent="DensityProps"]
+position = Vector2(-256.6877, 673.0226)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_100"]
+position = Vector2(0, -46.5495)
+scale = Vector2(0.9092, 0.9092)
+texture = ExtResource("5_ketjj")
+flip_h = true
+
+[node name="D_snow_pine_101" type="Node2D" parent="DensityProps"]
+position = Vector2(-340.6353, 541.9462)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_101"]
+position = Vector2(0, -93.7294)
+scale = Vector2(0.9419, 0.9419)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_102" type="Node2D" parent="DensityProps"]
+position = Vector2(-263.998, 592.9156)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_102"]
+position = Vector2(0, -103.9526)
+scale = Vector2(1.0366, 1.0366)
+texture = ExtResource("4_h4cse")
+
+[node name="D_ice_rock_103" type="Node2D" parent="DensityProps"]
+position = Vector2(1961.9019, -2215.3513)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_ice_rock_103"]
+position = Vector2(0, -53.2264)
+scale = Vector2(1.0204, 1.0204)
+texture = ExtResource("5_ketjj")
+
+[node name="D_snow_pine_104" type="Node2D" parent="DensityProps"]
+position = Vector2(1887.589, -2288.2197)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_104"]
+position = Vector2(0, -83.9864)
+scale = Vector2(0.8517, 0.8517)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_105" type="Node2D" parent="DensityProps"]
+position = Vector2(1371.0952, 2673.7104)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_105"]
+position = Vector2(0, -100.4929)
+scale = Vector2(1.0046, 1.0046)
+texture = ExtResource("4_h4cse")
+
+[node name="D_boulder_106" type="Node2D" parent="DensityProps"]
+position = Vector2(3575.9077, 1447.5698)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_106"]
+position = Vector2(0, -30.7007)
+scale = Vector2(1.1727, 1.1727)
+texture = ExtResource("den_boulder")
+
+[node name="D_boulder_107" type="Node2D" parent="DensityProps"]
+position = Vector2(3628.8391, 1451.9431)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_107"]
+position = Vector2(0, -26.4395)
+scale = Vector2(1.0436, 1.0436)
+texture = ExtResource("den_boulder")
+
+[node name="D_snow_pine_108" type="Node2D" parent="DensityProps"]
+position = Vector2(3538.9717, 1512.1194)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_108"]
+position = Vector2(0, -104.7437)
+scale = Vector2(1.0439, 1.0439)
+texture = ExtResource("4_h4cse")
+
+[node name="D_snow_pine_109" type="Node2D" parent="DensityProps"]
+position = Vector2(-4170.5557, -661.916)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_snow_pine_109"]
+position = Vector2(0, -100.9162)
+scale = Vector2(1.0085, 1.0085)
+texture = ExtResource("4_h4cse")
+
+[node name="DDecal_decal_crack_000" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-3507.707, -1905.4076)
+rotation = 1.3407
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_000"]
+scale = Vector2(0.9563, 0.9563)
+texture = ExtResource("den_decal_crack")
+flip_h = true
+
+[node name="DDecal_decal_crack_001" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-706.5586, 2081.4463)
+rotation = 3.4369
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_001"]
+scale = Vector2(1.0327, 1.0327)
+texture = ExtResource("den_decal_crack")
+
+[node name="DDecal_decal_crack_002" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-3622.3027, -1827.2118)
+rotation = 2.1403
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_002"]
+scale = Vector2(0.9411, 0.9411)
+texture = ExtResource("den_decal_crack")
+
+[node name="DDecal_decal_crack_003" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(1488.5845, 2777.5942)
+rotation = 3.8717
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_003"]
+scale = Vector2(0.9211, 0.9211)
+texture = ExtResource("den_decal_crack")
+flip_h = true
+
+[node name="DDecal_decal_crack_004" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-3291.9541, -1848.9445)
+rotation = 3.4919
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_004"]
+scale = Vector2(0.9235, 0.9235)
+texture = ExtResource("den_decal_crack")
+
+[node name="DDecal_decal_crack_005" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(1273.4204, -3082.1655)
+rotation = 2.9723
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_005"]
+scale = Vector2(1.0636, 1.0636)
+texture = ExtResource("den_decal_crack")
+flip_h = true
+
+[node name="DDecal_decal_crack_006" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-2217.6948, 2486.1914)
+rotation = 2.6724
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_006"]
+scale = Vector2(0.9626, 0.9626)
+texture = ExtResource("den_decal_crack")
+
+[node name="DDecal_decal_crack_007" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(1052.396, 1951.8809)
+rotation = 6.2442
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_007"]
+scale = Vector2(1.064, 1.064)
+texture = ExtResource("den_decal_crack")
+
+[node name="DDecal_decal_crack_008" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(1890.6499, -666.1711)
+rotation = 4.596
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_008"]
+scale = Vector2(0.832, 0.832)
+texture = ExtResource("den_decal_crack")
+flip_h = true
+
+[node name="DDecal_decal_crack_009" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(4059.5449, -1485.7438)
+rotation = 3.1999
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_009"]
+scale = Vector2(1.0107, 1.0107)
+texture = ExtResource("den_decal_crack")
+
+[node name="DDecal_decal_crack_010" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-92.6899, 1879.2148)
+rotation = 1.317
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_010"]
+scale = Vector2(0.9698, 0.9698)
+texture = ExtResource("den_decal_crack")
+flip_h = true
+
+[node name="DDecal_decal_crack_011" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-3339.0278, 987.8506)
+rotation = 6.1304
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_011"]
+scale = Vector2(1.0251, 1.0251)
+texture = ExtResource("den_decal_crack")
+
+[node name="DDecal_decal_crack_012" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-2502.4907, 331.4087)
+rotation = 1.1076
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_012"]
+scale = Vector2(1.0258, 1.0258)
+texture = ExtResource("den_decal_crack")
+
+[node name="DDecal_decal_crack_013" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(3939.4189, 1184.0508)
+rotation = 3.347
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_crack_013"]
+scale = Vector2(0.8238, 0.8238)
+texture = ExtResource("den_decal_crack")
+flip_h = true
