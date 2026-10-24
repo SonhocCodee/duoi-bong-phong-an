@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/boss_puppet_king.gd" id="1_script"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/player_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(38, 30)
+
+[node name="BossPuppetKing" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_script")
+editor_description = "BOSS CUOI Sigilspire Lv25: Vua Tren Dinh - Ke Keo Day Roi, 3 phase (loạt dan 3/5/7, goi linh gac + bong an, Vong An Vo phase 3). Tai dung player_frames tint vang; sprite rieng chua co."
+enemy_type = "boss_puppet_king"
+display_name = "Vua Trên Đỉnh — Kẻ Kéo Dây Rối"
+max_hp = 4500
+damage = 46
+speed = 96.0
+xp_reward = 6000
+gold_reward = 4000
+detect_range = 460.0
+attack_range = 62.0
+attack_cooldown_time = 1.15
+bolt_damage = 32
+blast_damage = 45
+sprite_frames = ExtResource("2_frames")
+sprite_modulate = Color(0.85, 0.7, 0.4, 1)
+sprite_scale = 2.1
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-18, 10, 18, 10, 21, 13, 18, 15, -18, 15, -21, 13)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -28)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")

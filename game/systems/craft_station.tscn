@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://systems/craft_station.gd" id="1_station"]
+[ext_resource type="Texture2D" path="res://assets/props/anvil.png" id="2_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(56, 40)
+
+[node name="CraftStation" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_station")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -24)
+texture = ExtResource("2_tex")
+
+[node name="PromptLabel" type="Label" parent="."]
+visible = false
+offset_left = -80.0
+offset_top = -104.0
+offset_right = 80.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.85, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "[E] Chế tạo"
+horizontal_alignment = 1

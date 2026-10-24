@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/wolf.gd" id="1_script"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/wolf_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(30, 20)
+
+[node name="SnowWolf" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_script")
+editor_description = "Soi Tuyet Frostgard Lv19-24: script wolf - bầy đàn; tai dung wolf_frames tint lanh, sprite rieng chua co."
+enemy_type = "snow_wolf"
+display_name = "Sói Tuyết"
+max_hp = 250
+damage = 30
+speed = 155.0
+xp_reward = 140
+gold_reward = 20
+sprite_frames = ExtResource("2_frames")
+sprite_modulate = Color(0.82, 0.9, 1.05, 1)
+sprite_scale = 1.1
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-14, 8, 14, 8, 17, 11, 14, 13, -14, 13, -17, 11)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -20)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")

@@ -15,4 +15,7 @@ func _on_body_entered(body: Node2D) -> void:
 	print("[HerbPickup] Player nhặt thảo dược: ", item_id)
 	if has_node("/root/QuestManager"):
 		QuestManager.on_item_collected(item_id)
+	# Đợt 6: thảo nhặt được cũng vào kho nguyên liệu chế tạo thật.
+	if item_id == "herb" and has_node("/root/GameState") and GameState.has_method("add_material"):
+		GameState.add_material("herb", 1)
 	queue_free()

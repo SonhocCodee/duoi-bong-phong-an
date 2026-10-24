@@ -33,6 +33,7 @@ enum State { IDLE, CHASE, ATTACK, DEAD }
 @export var drop_potion_chance: float = 0.15 # tỉ lệ rơi 1 bình máu khi chết
 @export var drop_herb_chance: float = 0.20 # tỉ lệ rơi thảo dược (quest collect "herb")
 @export var drop_equip_chance: float = 0.06 # tỉ lệ rơi 1 trang bị ngẫu nhiên
+@export var drop_core_chance: float = 0.25 # tỉ lệ rơi Lõi Quái (nguyên liệu chế tạo đợt 6); elite luôn rơi
 @export var respawn_time: float = 0.0 # 0 = chết hẳn; >0 = hồi sinh tại điểm gốc sau N giây
 @export var is_elite: bool = false # biến thể tinh nhuệ: HP/dmg/thưởng x3/x1.5/x3, to + vàng hơn
 @export var key_flag: String = "" # flag GameState set khi chết (vd chìa khoá mở cửa khoá)
@@ -47,6 +48,10 @@ const EQUIP_TABLE: Array = [
 
 var hp: int = 20
 var state: State = State.IDLE
+# --- Trạng thái xấu dùng chung (Bẫy Hồn / skill / boss có thể gọi) ---
+var slow_timer: float = 0.0
+var slow_factor: float = 1.0
+var stun_timer: float = 0.0
 var _player: Node2D = null
 var _attack_timer: float = 0.0
 var _wander_dir: Vector2 = Vector2.ZERO
@@ -102,9 +107,42 @@ func _ready() -> void:
 	_update_animation()
 
 
+## Áp làm chậm: factor 0.5 = còn 50% tốc độ trong duration giây.
+## Gọi lặp lại lấy thời lượng dài hơn; factor mạnh hơn (nhỏ hơn) được ưu tiên.
+func apply_slow(duration: float, factor: float = 0.5) -> void:
+	if state == State.DEAD or duration <= 0.0:
+		return
+	var old_timer := slow_timer
+	slow_timer = maxf(slow_timer, duration)
+	var new_factor := clampf(factor, 0.1, 0.95)
+	slow_factor = new_factor if duration >= old_timer else minf(slow_factor, new_factor)
+	print("[%s] Bị làm chậm %.0f%% trong %.1fs" % [display_name, (1.0 - slow_factor) * 100.0, duration])
+
+
+## Áp choáng: quái đứng yên trong duration giây (AI base tôn trọng).
+func apply_stun(duration: float) -> void:
+	if state == State.DEAD or duration <= 0.0:
+		return
+	stun_timer = maxf(stun_timer, duration)
+	print("[%s] Bị choáng %.1fs" % [display_name, duration])
+
+
+## Tương thích với code skill cũ từng dò method "stun".
+func stun(duration: float) -> void:
+	apply_stun(duration)
+
+
+func is_slowed() -> bool:
+	return slow_timer > 0.0
+
+
+func is_stunned() -> bool:
+	return stun_timer > 0.0
+
+
 ## Tốc độ di chuyển hiệu dụng — boss override để tăng tốc ở phase 2.
 func _move_speed() -> float:
-	return speed
+	return speed * (slow_factor if slow_timer > 0.0 else 1.0)
 
 
 # --- Animation helpers -------------------------------------------------
@@ -156,6 +194,8 @@ func _apply_modulate() -> void:
 		return
 	if _hurt_flash_timer > 0.0:
 		sprite.modulate = Color(1.0, 0.35, 0.35, 1.0)
+	elif slow_timer > 0.0:
+		sprite.modulate = Color(sprite_modulate.r * 0.65, sprite_modulate.g * 0.75, minf(1.6, sprite_modulate.b * 1.4), sprite_modulate.a)
 	else:
 		sprite.modulate = sprite_modulate
 
@@ -165,6 +205,17 @@ func _apply_modulate() -> void:
 func _physics_process(delta: float) -> void:
 	if state == State.DEAD:
 		velocity = Vector2.ZERO
+		return
+	if slow_timer > 0.0:
+		slow_timer = maxf(0.0, slow_timer - delta)
+		if slow_timer <= 0.0:
+			slow_factor = 1.0
+	if stun_timer > 0.0:
+		stun_timer = maxf(0.0, stun_timer - delta)
+		velocity = Vector2.ZERO
+		move_and_slide()
+		_update_animation()
+		_apply_modulate()
 		return
 	if _attack_timer > 0.0:
 		_attack_timer -= delta
@@ -310,11 +361,21 @@ func _roll_drops() -> void:
 		GameState.add_potions(1)
 		_spawn_loot_text("+1 Bình máu", Color(1.0, 0.55, 0.6))
 		print("[%s] Rơi: Bình máu" % display_name)
-	# Thảo dược (vật phẩm quest "herb")
+	# Thảo dược (vật phẩm quest "herb") — đợt 6: đồng thời vào kho
+	# nguyên liệu chế tạo (trước đây chỉ tính tiến độ quest).
 	if randf() < drop_herb_chance and has_node("/root/QuestManager"):
 		QuestManager.on_item_collected("herb")
+		if has_node("/root/GameState") and GameState.has_method("add_material"):
+			GameState.add_material("herb", 1)
 		_spawn_loot_text("Thảo dược!", Color(0.55, 1.0, 0.55))
 		print("[%s] Rơi: Thảo dược" % display_name)
+	# Lõi Quái (nguyên liệu chế tạo đợt 6): elite chắc chắn rơi 1,
+	# quái thường 25%. Tắt được bằng drop_core_chance = 0 (test dùng).
+	if has_node("/root/GameState") and GameState.has_method("add_material"):
+		if is_elite or randf() < drop_core_chance:
+			GameState.add_material("monster_core", 1)
+			_spawn_loot_text("Lõi Quái!", Color(0.8, 0.55, 1.0))
+			print("[%s] Rơi: Lõi Quái" % display_name)
 	# Trang bị ngẫu nhiên trong bảng nhỏ
 	if randf() < drop_equip_chance and has_node("/root/GameState"):
 		var row: Array = EQUIP_TABLE[randi() % EQUIP_TABLE.size()]
@@ -345,6 +406,9 @@ func _do_respawn() -> void:
 	_attack_timer = 0.0
 	_hurt_flash_timer = 0.0
 	_hurt_timer = 0.0
+	slow_timer = 0.0
+	slow_factor = 1.0
+	stun_timer = 0.0
 	sprite_modulate = _respawn_modulate
 	if sprite != null:
 		sprite.scale = _respawn_sprite_scale

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/spider.gd" id="1_spider"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/spider_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(28, 22)
+
+[node name="WaterSpider" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_spider")
+editor_description = "Nhen Nuoc Fenmire (Lv 7-12): dung script spider.gd - giu khoang 120-200px, nha poison_shot moi 1.8s (dmg 13). Dung spider_frames tint xanh nuoc."
+enemy_type = "water_spider"
+display_name = "Nhện Nước"
+max_hp = 65
+damage = 13
+speed = 115.0
+xp_reward = 28
+gold_reward = 7
+sprite_frames = ExtResource("2_frames")
+sprite_modulate = Color(0.4, 0.7, 1.1, 1)
+sprite_scale = 1.0
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-15, 8, 15, 8, 18, 11, 15, 13, -15, 13, -18, 11)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -20)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")

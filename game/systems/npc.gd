@@ -312,9 +312,13 @@ func _pick_dialogue() -> Dictionary:
 		if str(q2.get("status", "")) != "available":
 			continue
 		var req := str(q2.get("required_quest", ""))
-		if req == "" or str(QuestManager.get_quest(req).get("status", "")) == "completed":
-			return {"lines": _lines_or(dialogue_before, ["Ta có một việc cần ngươi giúp..."]),
-				"action": "accept", "quest_id": qid}
+		if req != "" and str(QuestManager.get_quest(req).get("status", "")) != "completed":
+			continue
+		var req_flag := str(q2.get("required_flag", ""))
+		if req_flag != "" and has_node("/root/GameState") and not GameState.get_flag(req_flag):
+			continue
+		return {"lines": _lines_or(dialogue_before, ["Ta có một việc cần ngươi giúp..."]),
+			"action": "accept", "quest_id": qid}
 	# Ưu tiên 3: quest đang làm dở
 	for qid in quest_ids:
 		var q3: Dictionary = QuestManager.get_quest(qid)

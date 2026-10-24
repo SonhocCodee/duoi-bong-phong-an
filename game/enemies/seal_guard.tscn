@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/enemy_base.gd" id="1_base"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/player_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(28, 26)
+
+[node name="SealGuard" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_base")
+editor_description = "Linh Gac Phong An Sigilspire Lv25: tinh nhue cua Thap, tai dung player_frames tint tim den; sprite rieng chua co."
+enemy_type = "seal_guard"
+display_name = "Lính Gác Phong Ấn"
+max_hp = 430
+damage = 34
+speed = 108.0
+xp_reward = 320
+gold_reward = 120
+detect_range = 260.0
+attack_range = 46.0
+sprite_frames = ExtResource("2_frames")
+sprite_modulate = Color(0.5, 0.42, 0.62, 1)
+sprite_scale = 1.15
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-13, 9, 13, 9, 16, 12, 13, 14, -13, 14, -16, 12)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -24)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")

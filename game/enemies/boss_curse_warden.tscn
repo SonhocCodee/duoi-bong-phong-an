@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/boss_curse_warden.gd" id="1_script"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/goblin_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(36, 28)
+
+[node name="BossCurseWarden" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_script")
+editor_description = "Boss Phan 4 Frostgard: Vharok, Ke Giu Nguyen (TEN DE XUAT) - loat Dan Bang 3/5 vien, moc 66/33 goi 2 Hiep Si Bang/dot, phase 2. Sprite rieng chua co."
+enemy_type = "boss_curse_warden"
+display_name = "Vharok, Kẻ Giữ Nguyền"
+max_hp = 3000
+damage = 40
+speed = 92.0
+xp_reward = 2400
+gold_reward = 1500
+detect_range = 400.0
+attack_range = 60.0
+attack_cooldown_time = 1.1
+bolt_damage = 28
+bolt_cooldown_p1 = 3.4
+bolt_cooldown_p2 = 2.2
+sprite_frames = ExtResource("2_frames")
+sprite_modulate = Color(0.55, 0.7, 1.0, 1)
+sprite_scale = 1.8
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-17, 9, 17, 9, 20, 12, 17, 14, -17, 14, -20, 12)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -26)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")

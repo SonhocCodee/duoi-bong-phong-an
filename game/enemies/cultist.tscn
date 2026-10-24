@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/cultist.gd" id="1_cultist"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/goblin_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(24, 24)
+
+[node name="Cultist" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_cultist")
+editor_description = "Tin Do Giao Phai Fenmire (Lv 7-12): ban shadow_bolt tam xa theo pattern spider (giu khoang 140-220px, cooldown 2.2s, dmg dan 15). Tai dung goblin_frames tint tim than (ao choang giao phai)."
+enemy_type = "cultist"
+display_name = "Tín Đồ Giáo Phái"
+max_hp = 85
+damage = 15
+speed = 95.0
+xp_reward = 38
+gold_reward = 12
+detect_range = 300.0
+sprite_frames = ExtResource("2_frames")
+sprite_modulate = Color(0.45, 0.35, 0.65, 1)
+sprite_scale = 1.0
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-11, 8, 11, 8, 14, 11, 11, 13, -11, 13, -14, 11)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -22)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")

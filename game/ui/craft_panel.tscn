@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://ui/craft_panel.gd" id="1_craft"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_panel"]
+bg_color = Color(0.07, 0.06, 0.1, 0.95)
+border_color = Color(0.85, 0.7, 0.35, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 20.0
+content_margin_top = 16.0
+content_margin_right = 20.0
+content_margin_bottom = 16.0
+
+[node name="CraftPanel" type="CanvasLayer"]
+layer = 40
+script = ExtResource("1_craft")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+theme_override_styles/panel = SubResource("StyleBox_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+custom_minimum_size = Vector2(460, 0)
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+theme_override_colors/font_color = Color(1, 0.85, 0.45, 1)
+theme_override_font_sizes/font_size = 20
+text = "Bàn Chế Tạo / Giả Kim"
+horizontal_alignment = 1
+
+[node name="MaterialsLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+theme_override_font_sizes/font_size = 15
+text = "Nguyên liệu: Thảo ×0 | Lõi Quái ×0 | Vàng: 0"
+autowrap_mode = 2
+
+[node name="RecipeBox" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+theme_override_constants/separation = 10
+
+[node name="CloseButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
+theme_override_font_sizes/font_size = 15
+text = "Đóng [Esc]"

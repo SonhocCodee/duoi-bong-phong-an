@@ -33,6 +33,10 @@ const PROP_SIZE := {
 var _fail := false
 
 func _ready() -> void:
+    # CANH BAO (dot 6): paint_maps la tool CU — chay lai se STRIP cac
+    # override chinh tay cua cac dot sau (schedule NPC, stat quai, sprite
+    # frames rieng) khoi 3 map Dong. CraftStation cua Elmford da duoc dat
+    # bang sua truc tiep file lang_tan_diep.tscn, KHONG qua tool nay.
     _paint_village()
     _paint_fields()
     _paint_cellar()

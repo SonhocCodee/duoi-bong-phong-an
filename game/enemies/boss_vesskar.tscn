@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/boss_vesskar.gd" id="1_script"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/wyvern_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(52, 36)
+
+[node name="BossVesskar" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_script")
+editor_description = "Boss/doi tuong dam phan Solmaris: Vesskar, Rong Cat canh cong phong an. Pattern hoi tho cat non 300px, bao cat 8/12 vien, dao cat ap sat; flag vesskar_dam_phan lam boss hoa binh. Sprite rieng chua co."
+enemy_type = "boss_vesskar"
+display_name = "Vesskar, Rồng Cát"
+max_hp = 2400
+damage = 38
+speed = 85.0
+xp_reward = 1600
+gold_reward = 1000
+detect_range = 380.0
+attack_range = 64.0
+attack_cooldown_time = 1.25
+sprite_frames = ExtResource("2_frames")
+sprite_modulate = Color(1.25, 0.95, 0.42, 1)
+sprite_scale = 2.2
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-25, 13, 25, 13, 29, 17, 25, 19, -25, 19, -29, 17)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -42)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")

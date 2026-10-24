@@ -12,11 +12,16 @@ extends CanvasLayer
 @onready var boss_container: VBoxContainer = $BossContainer
 @onready var boss_name_label: Label = $BossContainer/BossNameLabel
 @onready var boss_bar: ProgressBar = $BossContainer/BossBar
+@onready var skill_label: Label = $MarginContainer/VBoxContainer/SkillLabel
 
 const QUEST_LOG_SCENE: PackedScene = preload("res://ui/quest_log_panel.tscn")
+const SKILL_PANEL_SCENE: PackedScene = preload("res://ui/skill_panel.tscn")
 
 var _player: Node = null
 var _quest_log: CanvasLayer = null
+var _skill_panel: CanvasLayer = null
+var _skill_box_labels: Dictionary = {} # skill_id -> Label trong ô skill góc dưới
+var _skill_box_panels: Dictionary = {} # skill_id -> PanelContainer
 var _level_up_label: Label = null
 var _level_up_tween: Tween = null
 var _last_level: int = 1
@@ -27,6 +32,9 @@ func _ready() -> void:
 	# (ít rủi ro vỡ scene text, thứ tự khởi tạo do HUD kiểm soát hoàn toàn).
 	_quest_log = QUEST_LOG_SCENE.instantiate()
 	add_child(_quest_log)
+	_skill_panel = SKILL_PANEL_SCENE.instantiate()
+	add_child(_skill_panel)
+	_build_skill_boxes()
 	# Banner LEVEL UP cũng tạo bằng code (giữa-phía trên màn hình, chữ lớn vàng).
 	_level_up_label = Label.new()
 	_level_up_label.name = "LevelUpLabel"
@@ -56,6 +64,8 @@ func _ready() -> void:
 		GameState.potions_changed.connect(_on_potions_changed)
 		GameState.boss_changed.connect(_on_boss_changed)
 		GameState.stats_changed.connect(_on_stats_changed)
+		if GameState.has_signal("skills_changed"):
+			GameState.skills_changed.connect(func(_p: int, _u: Array) -> void: _refresh_skill_ui())
 	if has_node("/root/QuestManager"):
 		QuestManager.quest_updated.connect(_on_quest_updated)
 		QuestManager.quest_completed.connect(_on_quest_completed)
@@ -68,15 +78,139 @@ func _ready() -> void:
 	_try_connect_player()
 
 
+# --- Ô skill góc dưới-trái (dựng bằng code như banner/quest log) ------------
+# Đợt 6: 2 TRANG skill — phím Q lật trang (player.skill_page giữ trạng thái).
+# Trang 1 = 9 skill cũ (phím 1-9). Trang 2 = 4 skill cuối (phím 1-4).
+const SKILL_PAGE1: Array = ["chem_xoay", "xung_kich", "cuong_no", "dau_an_lua", "bay_hon", "hut_sinh_luc",
+	"cau_lua", "gai_bang", "set_lan"]
+const SKILL_PAGE2: Array = ["trieu_hoi_bong", "cong_phong_an", "khien_ma_thuat", "mua_thien_thach"]
+const SKILL_ORDER: Array = ["chem_xoay", "xung_kich", "cuong_no", "dau_an_lua", "bay_hon", "hut_sinh_luc",
+	"cau_lua", "gai_bang", "set_lan"]
+const SKILL_SHORT: Dictionary = {"chem_xoay": "CX", "xung_kich": "XK", "cuong_no": "CN",
+	"dau_an_lua": "ĐAL", "bay_hon": "BH", "hut_sinh_luc": "HSL",
+	"cau_lua": "CL", "gai_bang": "GB", "set_lan": "SL",
+	"trieu_hoi_bong": "THB", "cong_phong_an": "CPA", "khien_ma_thuat": "KMT", "mua_thien_thach": "MTT"}
+const SKILL_KEYS: Dictionary = {"chem_xoay": "1", "xung_kich": "2", "cuong_no": "3",
+	"dau_an_lua": "4", "bay_hon": "5", "hut_sinh_luc": "6",
+	"cau_lua": "7", "gai_bang": "8", "set_lan": "9",
+	"trieu_hoi_bong": "1", "cong_phong_an": "2", "khien_ma_thuat": "3", "mua_thien_thach": "4"}
+# Màu viền ô theo nhánh: Chiến binh đỏ, Thuật Đen tím, Pháp Sư xanh dương.
+const SKILL_BORDER_COLORS: Dictionary = {
+	"chem_xoay": Color(0.9, 0.3, 0.2), "xung_kich": Color(0.9, 0.3, 0.2), "cuong_no": Color(0.9, 0.3, 0.2),
+	"dau_an_lua": Color(0.62, 0.3, 0.9), "bay_hon": Color(0.62, 0.3, 0.9), "hut_sinh_luc": Color(0.62, 0.3, 0.9),
+	"cau_lua": Color(0.3, 0.55, 1.0), "gai_bang": Color(0.3, 0.55, 1.0), "set_lan": Color(0.3, 0.55, 1.0),
+	"trieu_hoi_bong": Color(0.62, 0.3, 0.9), "cong_phong_an": Color(0.62, 0.3, 0.9),
+	"khien_ma_thuat": Color(0.3, 0.55, 1.0), "mua_thien_thach": Color(0.3, 0.55, 1.0),
+}
+
+var _skill_hbox: HBoxContainer = null
+var _hud_skill_page: int = 1
+
+
+func _page_skills(page: int) -> Array:
+	return SKILL_PAGE2 if page == 2 else SKILL_PAGE1
+
+
+func _build_skill_boxes() -> void:
+	if _skill_hbox == null:
+		_skill_hbox = HBoxContainer.new()
+		_skill_hbox.name = "SkillBoxContainer"
+		_skill_hbox.anchor_left = 0.0
+		_skill_hbox.anchor_top = 1.0
+		_skill_hbox.anchor_right = 0.0
+		_skill_hbox.anchor_bottom = 1.0
+		_skill_hbox.offset_left = 16.0
+		_skill_hbox.offset_top = -84.0
+		_skill_hbox.offset_right = 980.0
+		_skill_hbox.offset_bottom = -16.0
+		_skill_hbox.add_theme_constant_override("separation", 8)
+		add_child(_skill_hbox)
+	for c in _skill_hbox.get_children():
+		_skill_hbox.remove_child(c)
+		c.queue_free()
+	_skill_box_labels.clear()
+	_skill_box_panels.clear()
+	var hbox := _skill_hbox
+	for sid in _page_skills(_hud_skill_page):
+		var panel := PanelContainer.new()
+		panel.custom_minimum_size = Vector2(100, 64)
+		var sb := StyleBoxFlat.new()
+		sb.bg_color = Color(0.1, 0.08, 0.08, 0.88)
+		sb.border_color = SKILL_BORDER_COLORS.get(sid, Color(0.9, 0.3, 0.2))
+		sb.set_border_width_all(2)
+		sb.set_corner_radius_all(6)
+		sb.set_content_margin_all(6)
+		panel.add_theme_stylebox_override("panel", sb)
+		var lbl := Label.new()
+		lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		lbl.add_theme_font_size_override("font_size", 13)
+		lbl.text = "%s [%s]\n🔒" % [SKILL_SHORT[sid], SKILL_KEYS[sid]]
+		panel.add_child(lbl)
+		hbox.add_child(panel)
+		_skill_box_labels[sid] = lbl
+		_skill_box_panels[sid] = panel
+
+
+func _refresh_skill_ui() -> void:
+	# Đồng bộ trang skill từ player (phím Q lật trang ở player.gd)
+	if _player != null and _player.get("skill_page") != null:
+		var p: int = int(_player.get("skill_page"))
+		if p != _hud_skill_page:
+			_hud_skill_page = p
+			_build_skill_boxes()
+	# Đọc trạng thái từ player (cooldown) + GameState (điểm / đã mở khoá)
+	var pts: int = 0
+	if has_node("/root/GameState"):
+		pts = GameState.get_skill_points()
+	var parts: Array[String] = []
+	for sid in _page_skills(_hud_skill_page):
+		var def: Dictionary = {}
+		if has_node("/root/GameState"):
+			def = GameState.SKILL_DEFS.get(sid, {})
+		var sname: String = str(def.get("name", sid))
+		var unlocked: bool = has_node("/root/GameState") and GameState.is_skill_unlocked(sid)
+		var cd: float = 0.0
+		if _player != null and _player.has_method("get_skill_cooldown"):
+			cd = float(_player.call("get_skill_cooldown", sid))
+		var status: String
+		if not unlocked:
+			status = "🔒"
+		elif cd > 0.05:
+			status = "%.0fs" % cd
+		else:
+			status = "Sẵn sàng"
+		parts.append("[%s] %s: %s" % [SKILL_KEYS[sid], sname, status])
+		# Ô skill góc dưới: tên tắt + trạng thái/CD phủ dạng số giây
+		if _skill_box_labels.has(sid):
+			var bl: Label = _skill_box_labels[sid]
+			if not unlocked:
+				bl.text = "%s [%s]\n🔒 Khoá" % [SKILL_SHORT[sid], SKILL_KEYS[sid]]
+			elif cd > 0.05:
+				bl.text = "%s [%s]\n%.1fs" % [SKILL_SHORT[sid], SKILL_KEYS[sid], cd]
+			else:
+				bl.text = "%s [%s]\n✓" % [SKILL_SHORT[sid], SKILL_KEYS[sid]]
+	if skill_label != null:
+		var da_sat_txt: String = "✓" if (has_node("/root/GameState") and GameState.is_skill_unlocked("da_sat")) else "🔒"
+		skill_label.text = "Skill (trang %d/2, [Q] lật) — Điểm: %d | %s | Da Sắt: %s | [T] cây skill" % [
+			_hud_skill_page, pts, " | ".join(parts), da_sat_txt]
+
+
 func _process(_delta: float) -> void:
 	if _player == null:
 		_try_connect_player()
+	_refresh_skill_ui()
 	# Toggle sổ quest bằng phím J (action "quest_log")
 	if _quest_log != null and Input.is_action_just_pressed("quest_log"):
 		if _quest_log.visible:
 			_quest_log.hide_panel()
 		else:
 			_quest_log.show_panel()
+	# Toggle cây skill bằng phím T (action "skill_tree")
+	if _skill_panel != null and Input.is_action_just_pressed("skill_tree"):
+		if _skill_panel.visible:
+			_skill_panel.hide_panel()
+		else:
+			_skill_panel.show_panel()
 
 
 func _try_connect_player() -> void:
@@ -173,7 +307,7 @@ func _refresh_potions() -> void:
 	if not is_node_ready() or potion_label == null:
 		return
 	if has_node("/root/GameState"):
-		potion_label.text = "Bình: %d — [H] dùng" % GameState.potions
+		potion_label.text = "Bình: %d | Đại bình: %d — [H] dùng" % [GameState.potions, GameState.greater_potions]
 
 
 # Thanh máu boss: hiện khi GameState.set_boss_display, ẩn khi clear_boss_display

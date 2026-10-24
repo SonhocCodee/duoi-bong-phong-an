@@ -94,9 +94,9 @@ position = Vector2(0, -320)
 
 [node name="PortalBack" parent="." instance=ExtResource("4_e")]
 position = Vector2(0, -440)
-target_scene = "res://maps/cong_nam_khung.tscn"
+target_scene = "res://maps/miregate.tscn"
 target_spawn = "from_duong"
-label_text = "↑ Cổng Nam Khung"
+label_text = "↑ Xuống Miregate (Vùng Nam Fenmire)"
 
 [node name="Player" parent="." instance=ExtResource("2_e")]
 position = Vector2(0, -320)

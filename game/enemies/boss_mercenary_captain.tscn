@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/boss_mercenary_captain.gd" id="1_script"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/goblin_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(32, 26)
+
+[node name="BossMercenaryCaptain" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_script")
+editor_description = "Boss dau truong Solmaris: Kassia Vane (TEN DE XUAT) - khien soldier, loat Dan Cat 3/5 vien, moc 66/33 goi 2 linh/dot. Sprite rieng chua co."
+enemy_type = "boss_mercenary_captain"
+display_name = "Kassia Vane, Chỉ Huy Lính Đánh Thuê"
+max_hp = 1500
+damage = 30
+speed = 100.0
+xp_reward = 900
+gold_reward = 600
+attack_cooldown_time = 1.05
+bolt_damage = 24
+sprite_frames = ExtResource("2_frames")
+sprite_modulate = Color(0.72, 0.34, 0.24, 1)
+sprite_scale = 1.35
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-16, 9, 16, 9, 19, 12, 16, 14, -16, 14, -19, 12)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -23)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")

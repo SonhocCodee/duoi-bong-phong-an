@@ -112,6 +112,11 @@ theme_override_colors/font_color = Color(1, 0.75, 0.8, 1)
 theme_override_font_sizes/font_size = 14
 text = "Bình: 3 — [H] dùng"
 
+[node name="SkillLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+theme_override_colors/font_color = Color(1, 0.9, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+text = "Skill — Điểm: 0 | [1] Chém Xoáy: 🔒 | [2] Xung Kích: 🔒 | [3] Cuồng Nộ: 🔒 | [T] cây skill"
+
 [node name="BossContainer" type="VBoxContainer" parent="."]
 visible = false
 anchor_left = 0.5

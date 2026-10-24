@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/enemy_base.gd" id="1_script"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/golem_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(36, 28)
+
+[node name="Wight" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_script")
+editor_description = "Wight Bao Tuyet Frostgard Lv19-24: enemy_base - undead trau cham; tai dung golem_frames tint xam bang, sprite rieng chua co."
+enemy_type = "wight"
+display_name = "Wight Bão Tuyết"
+max_hp = 430
+damage = 38
+speed = 88.0
+xp_reward = 170
+gold_reward = 26
+detect_range = 260.0
+sprite_frames = ExtResource("2_frames")
+sprite_modulate = Color(0.62, 0.78, 0.9, 1)
+sprite_scale = 1.15
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-17, 9, 17, 9, 20, 12, 17, 14, -17, 14, -20, 12)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -24)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")

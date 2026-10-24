@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://enemies/boar.gd" id="1_script"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/slime_frames.tres" id="2_frames"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape_body"]
+size = Vector2(30, 22)
+
+[node name="SandScorpion" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_script")
+editor_description = "Bo Cap Cat Solmaris Lv13-18: script boar - gong roi lao mui doc; tai dung slime_frames tint nau cam, sprite rieng chua co."
+enemy_type = "sand_scorpion"
+display_name = "Bọ Cạp Cát"
+max_hp = 130
+damage = 22
+speed = 135.0
+xp_reward = 70
+gold_reward = 14
+charge_range = 280.0
+charge_speed = 430.0
+sprite_frames = ExtResource("2_frames")
+sprite_modulate = Color(0.85, 0.48, 0.18, 1)
+sprite_scale = 1.15
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+color = Color(0, 0, 0, 0.3)
+polygon = PackedVector2Array(-14, 8, 14, 8, 17, 11, 14, 13, -14, 13, -17, 11)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -18)
+scale = Vector2(0.72, 0.72)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape_body")
