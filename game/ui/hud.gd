@@ -2,10 +2,10 @@ extends CanvasLayer
 ## HUD - Thanh HP / Stamina, nhãn Gold / XP / Level
 ## Cập nhật qua signal của Player và GameState.
 
-@onready var hp_bar: ProgressBar = $TopRightBars/HPBar
-@onready var stamina_bar: ProgressBar = $TopRightBars/StaminaBar
-@onready var hp_label: Label = $TopRightBars/HPBar/HPLabel
-@onready var stamina_label: Label = $TopRightBars/StaminaBar/StaminaLabel
+@onready var hp_bar: ProgressBar = $TopLeftBars/VBox/HPBar
+@onready var stamina_bar: ProgressBar = $TopLeftBars/VBox/StaminaBar
+@onready var hp_label: Label = $TopLeftBars/VBox/HPBar/HPLabel
+@onready var stamina_label: Label = $TopLeftBars/VBox/StaminaBar/StaminaLabel
 @onready var info_label: Label = $MarginContainer/VBoxContainer/InfoLabel
 @onready var quest_label: Label = $MarginContainer/VBoxContainer/QuestLabel
 @onready var potion_label: Label = $MarginContainer/VBoxContainer/PotionLabel
@@ -14,6 +14,7 @@ extends CanvasLayer
 @onready var boss_bar: ProgressBar = $BossContainer/BossBar
 @onready var skill_label: Label = $MarginContainer/VBoxContainer/SkillLabel
 
+const SKILL_FRAME_TEX: Texture2D = preload("res://assets/ui/skill_frame.png")
 const QUEST_LOG_SCENE: PackedScene = preload("res://ui/quest_log_panel.tscn")
 const SKILL_PANEL_SCENE: PackedScene = preload("res://ui/skill_panel.tscn")
 
@@ -136,12 +137,21 @@ func _build_skill_boxes() -> void:
 	for sid in _page_skills(_hud_skill_page):
 		var panel := PanelContainer.new()
 		panel.custom_minimum_size = Vector2(50, 50)
-		var sb := StyleBoxFlat.new()
-		sb.bg_color = Color(0.1, 0.08, 0.08, 0.88)
-		sb.border_color = SKILL_BORDER_COLORS.get(sid, Color(0.9, 0.3, 0.2))
-		sb.set_border_width_all(2)
-		sb.set_corner_radius_all(5)
-		sb.set_content_margin_all(2)
+		# Khung o skill = texture cham khac (skill_frame.png, tong sang
+		# trung tinh) nhuom mau theo nhanh bang modulate: mau vien cu
+		# tron voi trang 35% de khong bi dam/mau bu.
+		var sb := StyleBoxTexture.new()
+		sb.texture = SKILL_FRAME_TEX
+		sb.texture_margin_left = 14.0
+		sb.texture_margin_top = 14.0
+		sb.texture_margin_right = 14.0
+		sb.texture_margin_bottom = 14.0
+		sb.content_margin_left = 3.0
+		sb.content_margin_top = 3.0
+		sb.content_margin_right = 3.0
+		sb.content_margin_bottom = 3.0
+		var bc: Color = SKILL_BORDER_COLORS.get(sid, Color(0.9, 0.3, 0.2))
+		sb.modulate_color = bc.lerp(Color(1, 1, 1), 0.35)
 		panel.add_theme_stylebox_override("panel", sb)
 		# Hai dòng: tên tắt + phím (tĩnh) / trạng thái-CD (động, _skill_box_labels).
 		var vbox := VBoxContainer.new()

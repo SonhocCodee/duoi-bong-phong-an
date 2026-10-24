@@ -1,48 +1,65 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://ui/hud.gd" id="1_hud"]
+[ext_resource type="Texture2D" path="res://assets/ui/panel_frame.png" id="2_panel"]
+[ext_resource type="Texture2D" path="res://assets/ui/bar_frame_hp.png" id="3_fhp"]
+[ext_resource type="Texture2D" path="res://assets/ui/bar_fill_hp.png" id="4_fillhp"]
+[ext_resource type="Texture2D" path="res://assets/ui/bar_frame_sta.png" id="5_fsta"]
+[ext_resource type="Texture2D" path="res://assets/ui/bar_fill_sta.png" id="6_fillsta"]
+[ext_resource type="Texture2D" path="res://assets/ui/bar_fill_boss.png" id="7_fillboss"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBox_hp_bg"]
-bg_color = Color(0.15, 0.05, 0.05, 0.85)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxTexture" id="StyleBox_bars_panel"]
+texture = ExtResource("2_panel")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBox_hp_fill"]
-bg_color = Color(0.85, 0.2, 0.2, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxTexture" id="StyleBox_hp_bg"]
+texture = ExtResource("3_fhp")
+texture_margin_left = 20.0
+texture_margin_top = 8.0
+texture_margin_right = 20.0
+texture_margin_bottom = 8.0
+content_margin_left = 9.0
+content_margin_top = 6.0
+content_margin_right = 9.0
+content_margin_bottom = 6.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBox_sta_bg"]
-bg_color = Color(0.05, 0.12, 0.05, 0.85)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxTexture" id="StyleBox_hp_fill"]
+texture = ExtResource("4_fillhp")
 
-[sub_resource type="StyleBoxFlat" id="StyleBox_boss_bg"]
-bg_color = Color(0.12, 0.05, 0.05, 0.85)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxTexture" id="StyleBox_sta_bg"]
+texture = ExtResource("5_fsta")
+texture_margin_left = 20.0
+texture_margin_top = 6.0
+texture_margin_right = 20.0
+texture_margin_bottom = 6.0
+content_margin_left = 9.0
+content_margin_top = 4.0
+content_margin_right = 9.0
+content_margin_bottom = 4.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBox_boss_fill"]
-bg_color = Color(0.9, 0.15, 0.35, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxTexture" id="StyleBox_sta_fill"]
+texture = ExtResource("6_fillsta")
 
-[sub_resource type="StyleBoxFlat" id="StyleBox_sta_fill"]
-bg_color = Color(0.25, 0.8, 0.35, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxTexture" id="StyleBox_boss_bg"]
+texture = ExtResource("3_fhp")
+texture_margin_left = 20.0
+texture_margin_top = 6.0
+texture_margin_right = 20.0
+texture_margin_bottom = 6.0
+content_margin_left = 9.0
+content_margin_top = 4.0
+content_margin_right = 9.0
+content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBox_boss_fill"]
+texture = ExtResource("7_fillboss")
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_hud")
@@ -50,46 +67,58 @@ script = ExtResource("1_hud")
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
+grow_horizontal = 1
 offset_left = 16.0
-offset_top = 12.0
+offset_top = 244.0
 offset_right = -16.0
-offset_bottom = 140.0
-grow_horizontal = 2
+offset_bottom = 340.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 theme_override_constants/separation = 6
 
 [node name="InfoLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 theme_override_colors/font_color = Color(1, 0.95, 0.75, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 16
 text = "Level 1  |  XP 0 / 100  |  Vàng: 0"
 
 [node name="QuestLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 theme_override_colors/font_color = Color(0.85, 0.95, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 14
 text = "Nhiệm vụ:"
 
 [node name="PotionLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 theme_override_colors/font_color = Color(1, 0.75, 0.8, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 14
 text = "Bình: 3 — [H] dùng"
 
 [node name="SkillLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 theme_override_colors/font_color = Color(1, 0.9, 0.6, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 13
 text = "Skill — Điểm: 0 | [1] Chém Xoáy: 🔒 | [2] Xung Kích: 🔒 | [3] Cuồng Nộ: 🔒 | [T] cây skill"
 
-[node name="TopRightBars" type="VBoxContainer" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -336.0
-offset_top = 12.0
-offset_right = -16.0
-offset_bottom = 66.0
-grow_horizontal = 0
+[node name="TopLeftBars" type="PanelContainer" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 358.0
+offset_bottom = 78.0
+theme_override_styles/panel = SubResource("StyleBox_bars_panel")
+
+[node name="VBox" type="VBoxContainer" parent="TopLeftBars"]
 theme_override_constants/separation = 6
 
-[node name="HPBar" type="ProgressBar" parent="TopRightBars"]
+[node name="HPBar" type="ProgressBar" parent="TopLeftBars/VBox"]
 custom_minimum_size = Vector2(320, 24)
 max_value = 100.0
 value = 100.0
@@ -97,18 +126,21 @@ show_percentage = false
 theme_override_styles/background = SubResource("StyleBox_hp_bg")
 theme_override_styles/fill = SubResource("StyleBox_hp_fill")
 
-[node name="HPLabel" type="Label" parent="TopRightBars/HPBar"]
+[node name="HPLabel" type="Label" parent="TopLeftBars/VBox/HPBar"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 14
 text = "HP 100 / 100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StaminaBar" type="ProgressBar" parent="TopRightBars"]
+[node name="StaminaBar" type="ProgressBar" parent="TopLeftBars/VBox"]
 custom_minimum_size = Vector2(320, 18)
 max_value = 100.0
 value = 100.0
@@ -116,12 +148,15 @@ show_percentage = false
 theme_override_styles/background = SubResource("StyleBox_sta_bg")
 theme_override_styles/fill = SubResource("StyleBox_sta_fill")
 
-[node name="StaminaLabel" type="Label" parent="TopRightBars/StaminaBar"]
+[node name="StaminaLabel" type="Label" parent="TopLeftBars/VBox/StaminaBar"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/font_size = 12
 text = "STA 100 / 100"
 horizontal_alignment = 1

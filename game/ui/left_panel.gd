@@ -1,29 +1,40 @@
 extends Node
-## LeftUI (autoload) - Cum UI BEN TRAI man hinh: MINIMAP + O NHIEM VU.
-## File moi rieng, khong dung vao hud.gd/hud.tscn:
-##   - Tu dung CanvasLayer (layer 18) + PanelContainer bang code, giong
-##     mau HUD preload quest_log_panel bang code.
-##   - Vi tri: trai man hinh, offset tren = 120px (duoi khoi text goc
-##     trai-tren cua HUD, HUD MarginContainer cao toi ~140 nhung text
-##     thuc te o tren cung; cum nay rong 252px nen khong de len noi dung
-##     giua man hinh), tong rong ~252px, nen ban trong suot.
-##   - Chi HIEN khi dang o trong map choi: scene hien tai thuoc
-##     res://maps/ HOAC co mot node goc scene res://maps/ trong cay
-##     (truong hop capture scene instance map lam con) VA co node group
-##     "player". AN o main menu / scene test khong co map that.
-##   - Phim an/hien toan cum: M (doc keycode truc tiep trong
-##     _unhandled_input, KHONG can them action vao project.godot [input]).
-## Thanh phan: res://ui/minimap.gd (Minimap ve tu TileMap that) va
+## LeftUI (autoload) - Cum UI hai ben man hinh (dot lam lai UI):
+##   - BEN TRAI (duoi cum HP/STA cua HUD): panel NHIEM VU + tien trinh,
+##     nen la texture khung go/dong (panel_frame.png, nine-patch), logic
+##     du lieu giu nguyen 100% tu QuestManager qua quest_tracker.gd.
+##   - BEN PHAI (goc tren): MINIMAP TRON duong kinh 172px, vanh khung
+##     cham khac (ring_frame.png) phu len tren, nut + / - doi nac zoom
+##     (chi phong/thu NOI DUNG ban do trong khung, khung giu nguyen),
+##     tieu de ten map + chu thich nho.
+##   - Chi HIEN khi dang o trong map choi (scene res://maps/ + co player).
+##     Phim M an/hien toan cum (doc keycode truc tiep, khong can action).
+## Thanh phan: res://ui/minimap.gd (tron, tam nguoi choi) va
 ## res://ui/quest_tracker.gd (doc QuestManager that).
 
 const MINIMAP_SCRIPT: Script = preload("res://ui/minimap.gd")
 const TRACKER_SCRIPT: Script = preload("res://ui/quest_tracker.gd")
-const PANEL_LEFT := 10.0
-const PANEL_TOP := 120.0
-const PANEL_WIDTH := 252.0
+const PANEL_TEX: Texture2D = preload("res://assets/ui/panel_frame.png")
+const RING_TEX: Texture2D = preload("res://assets/ui/ring_frame.png")
+const BTN_PLUS: Array[Texture2D] = [
+	preload("res://assets/ui/btn_plus_normal.png"),
+	preload("res://assets/ui/btn_plus_hover.png"),
+	preload("res://assets/ui/btn_plus_pressed.png"),
+]
+const BTN_MINUS: Array[Texture2D] = [
+	preload("res://assets/ui/btn_minus_normal.png"),
+	preload("res://assets/ui/btn_minus_hover.png"),
+	preload("res://assets/ui/btn_minus_pressed.png"),
+]
+const QUEST_LEFT := 10.0
+const QUEST_TOP := 94.0 # ngay duoi cum HP/STA moi o goc tren-trai cua HUD
+const QUEST_WIDTH := 264.0
+const MAP_CLUSTER_W := 196.0
+const MAP_SIZE := 172.0
 
 var _layer: CanvasLayer = null
-var _root_panel: PanelContainer = null
+var _quest_panel: PanelContainer = null
+var _map_cluster: Control = null
 var _minimap: Control = null
 var _tracker: Control = null
 var _map_title: Label = null
@@ -43,58 +54,145 @@ func _ready() -> void:
 	_apply_visibility(false)
 
 
+func _panel_style(margin: float, content: float) -> StyleBoxTexture:
+	var sb := StyleBoxTexture.new()
+	sb.texture = PANEL_TEX
+	sb.texture_margin_left = margin
+	sb.texture_margin_top = margin
+	sb.texture_margin_right = margin
+	sb.texture_margin_bottom = margin
+	sb.content_margin_left = content
+	sb.content_margin_top = content - 2.0
+	sb.content_margin_right = content
+	sb.content_margin_bottom = content - 2.0
+	return sb
+
+
 func _build_ui() -> void:
 	_layer = CanvasLayer.new()
 	_layer.name = "LeftUILayer"
 	_layer.layer = 18
 	add_child(_layer)
-	_root_panel = PanelContainer.new()
-	_root_panel.name = "LeftPanel"
-	_root_panel.anchor_left = 0.0
-	_root_panel.anchor_top = 0.0
-	_root_panel.anchor_right = 0.0
-	_root_panel.anchor_bottom = 0.0
-	_root_panel.offset_left = PANEL_LEFT
-	_root_panel.offset_top = PANEL_TOP
-	_root_panel.offset_right = PANEL_LEFT + PANEL_WIDTH
-	_root_panel.offset_bottom = PANEL_TOP
-	var sb := StyleBoxFlat.new()
-	sb.bg_color = Color(0.05, 0.06, 0.05, 0.78)
-	sb.border_color = Color(0.85, 0.72, 0.4, 0.55)
-	sb.set_border_width_all(1)
-	sb.set_corner_radius_all(6)
-	sb.set_content_margin_all(8)
-	_root_panel.add_theme_stylebox_override("panel", sb)
-	_layer.add_child(_root_panel)
+	_build_quest_panel()
+	_build_map_cluster()
 
-	var vbox := VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 5)
-	vbox.custom_minimum_size = Vector2(PANEL_WIDTH - 16.0, 0)
-	_root_panel.add_child(vbox)
+
+func _build_quest_panel() -> void:
+	_quest_panel = PanelContainer.new()
+	_quest_panel.name = "QuestPanel"
+	_quest_panel.anchor_left = 0.0
+	_quest_panel.anchor_top = 0.0
+	_quest_panel.anchor_right = 0.0
+	_quest_panel.anchor_bottom = 0.0
+	_quest_panel.offset_left = QUEST_LEFT
+	_quest_panel.offset_top = QUEST_TOP
+	_quest_panel.offset_right = QUEST_LEFT + QUEST_WIDTH
+	_quest_panel.offset_bottom = QUEST_TOP
+	_quest_panel.add_theme_stylebox_override("panel", _panel_style(32.0, 24.0))
+	_layer.add_child(_quest_panel)
+	_tracker = TRACKER_SCRIPT.new()
+	_tracker.name = "QuestTracker"
+	_tracker.custom_minimum_size = Vector2(QUEST_WIDTH - 48.0, 0)
+	_quest_panel.add_child(_tracker)
+
+
+func _make_zoom_button(textures: Array[Texture2D]) -> TextureButton:
+	var b := TextureButton.new()
+	b.texture_normal = textures[0]
+	b.texture_hover = textures[1]
+	b.texture_pressed = textures[2]
+	b.ignore_texture_size = true
+	b.stretch_mode = TextureButton.STRETCH_SCALE
+	b.custom_minimum_size = Vector2(32, 32)
+	b.focus_mode = Control.FOCUS_NONE
+	return b
+
+
+func _build_map_cluster() -> void:
+	_map_cluster = Control.new()
+	_map_cluster.name = "MapCluster"
+	_map_cluster.anchor_left = 1.0
+	_map_cluster.anchor_right = 1.0
+	_map_cluster.anchor_top = 0.0
+	_map_cluster.anchor_bottom = 0.0
+	_map_cluster.offset_left = -MAP_CLUSTER_W - 10.0
+	_map_cluster.offset_right = -10.0
+	_map_cluster.offset_top = 6.0
+	_map_cluster.offset_bottom = 262.0
+	_map_cluster.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_layer.add_child(_map_cluster)
 
 	_map_title = Label.new()
 	_map_title.text = "BẢN ĐỒ"
-	_map_title.add_theme_font_size_override("font_size", 13)
+	_map_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_map_title.add_theme_font_size_override("font_size", 12)
 	_map_title.add_theme_color_override("font_color", Color(1.0, 0.85, 0.4))
-	vbox.add_child(_map_title)
+	_map_title.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.9))
+	_map_title.add_theme_constant_override("shadow_offset_x", 1)
+	_map_title.add_theme_constant_override("shadow_offset_y", 1)
+	_map_title.position = Vector2(0, 0)
+	_map_title.size = Vector2(MAP_CLUSTER_W, 16)
+	_map_cluster.add_child(_map_title)
 
+	var map_x := (MAP_CLUSTER_W - MAP_SIZE) * 0.5
 	_minimap = MINIMAP_SCRIPT.new()
 	_minimap.name = "Minimap"
-	_minimap.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	vbox.add_child(_minimap)
+	_minimap.position = Vector2(map_x, 20)
+	_minimap.size = Vector2(MAP_SIZE, MAP_SIZE)
+	_map_cluster.add_child(_minimap)
+
+	# Vanh khung tron trang tri phu len tren minimap (giua trong suot).
+	var ring := TextureRect.new()
+	ring.name = "MinimapRing"
+	ring.texture = RING_TEX
+	ring.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	ring.stretch_mode = TextureRect.STRETCH_SCALE
+	ring.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	ring.position = Vector2(map_x, 20)
+	ring.size = Vector2(MAP_SIZE, MAP_SIZE)
+	_map_cluster.add_child(ring)
+
+	# Hang nut zoom: [-] [+] sat duoi vong tron.
+	var hbox := HBoxContainer.new()
+	hbox.alignment = BoxContainer.ALIGNMENT_CENTER
+	hbox.add_theme_constant_override("separation", 10)
+	hbox.position = Vector2(0, 198)
+	hbox.size = Vector2(MAP_CLUSTER_W, 32)
+	_map_cluster.add_child(hbox)
+	var btn_minus := _make_zoom_button(BTN_MINUS)
+	btn_minus.pressed.connect(func() -> void:
+		if _minimap != null and _minimap.has_method("zoom_out"):
+			_minimap.call("zoom_out"))
+	hbox.add_child(btn_minus)
+	var btn_plus := _make_zoom_button(BTN_PLUS)
+	btn_plus.pressed.connect(func() -> void:
+		if _minimap != null and _minimap.has_method("zoom_in"):
+			_minimap.call("zoom_in"))
+	hbox.add_child(btn_plus)
 
 	var legend := Label.new()
-	legend.text = "● Bạn  ■ Cổng  ● Quest  [M] ẩn/hiện"
-	legend.add_theme_font_size_override("font_size", 10)
-	legend.add_theme_color_override("font_color", Color(0.75, 0.78, 0.72))
-	vbox.add_child(legend)
+	legend.text = "● Bạn  ● Cổng  ● Quest"
+	legend.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	legend.add_theme_font_size_override("font_size", 9)
+	legend.add_theme_color_override("font_color", Color(0.8, 0.82, 0.76))
+	legend.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.9))
+	legend.add_theme_constant_override("shadow_offset_x", 1)
+	legend.add_theme_constant_override("shadow_offset_y", 1)
+	legend.position = Vector2(0, 234)
+	legend.size = Vector2(MAP_CLUSTER_W, 14)
+	_map_cluster.add_child(legend)
 
-	var sep := HSeparator.new()
-	vbox.add_child(sep)
-
-	_tracker = TRACKER_SCRIPT.new()
-	_tracker.name = "QuestTracker"
-	vbox.add_child(_tracker)
+	var hint := Label.new()
+	hint.text = "[M] ẩn/hiện giao diện"
+	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hint.add_theme_font_size_override("font_size", 9)
+	hint.add_theme_color_override("font_color", Color(0.62, 0.64, 0.58))
+	hint.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.9))
+	hint.add_theme_constant_override("shadow_offset_x", 1)
+	hint.add_theme_constant_override("shadow_offset_y", 1)
+	hint.position = Vector2(0, 248)
+	hint.size = Vector2(MAP_CLUSTER_W, 12)
+	_map_cluster.add_child(hint)
 
 
 func _process(delta: float) -> void:
@@ -122,9 +220,7 @@ func _check_scene() -> void:
 		_rebuild(root)
 	else:
 		_map_root = root
-	# PanelContainer tu co theo noi dung (min size) vi offset_bottom = top.
-	if _root_panel != null:
-		_root_panel.size = _root_panel.get_combined_minimum_size()
+	_fit_quest_panel()
 
 
 func _rebuild(root: Node) -> void:
@@ -139,8 +235,20 @@ func _rebuild(root: Node) -> void:
 		_minimap.call("rebuild", root, player)
 	if _tracker != null and _tracker.has_method("refresh"):
 		_tracker.call("refresh")
-	if _root_panel != null:
-		_root_panel.size = _root_panel.get_combined_minimum_size()
+	_fit_quest_panel()
+
+
+## Chieu cao panel nhiem vu = le noi dung stylebox (14+14) + chieu cao
+## chu that cua tracker (min-size Label thieu dong khi text xuong dong).
+func _fit_quest_panel() -> void:
+	if _quest_panel == null or _tracker == null:
+		return
+	var th := 0.0
+	if _tracker.has_method("content_height"):
+		th = float(_tracker.call("content_height"))
+	if th <= 0.0:
+		th = _tracker.get_combined_minimum_size().y
+	_quest_panel.size = Vector2(QUEST_WIDTH, 48.0 + th)
 
 
 func _find_map_root() -> Node:
@@ -149,7 +257,6 @@ func _find_map_root() -> Node:
 		return cs
 	if _map_root != null and is_instance_valid(_map_root) and _map_root.is_inside_tree():
 		return _map_root
-	# Capture / test scene instance map lam node con: tim node goc scene map.
 	var stack: Array[Node] = []
 	for c in get_tree().root.get_children():
 		stack.append(c)
@@ -184,7 +291,6 @@ func get_quest_tracker() -> Control:
 func _on_quest_signal(_quest_id: String) -> void:
 	if _tracker != null and _tracker.has_method("refresh"):
 		_tracker.call("refresh")
-	# Diem quest tren minimap phu thuoc quest dang active: dung lai hinh.
 	if _map_root != null and is_instance_valid(_map_root) and _layer != null and _layer.visible:
 		_rebuild(_map_root)
 

@@ -101,6 +101,24 @@ func build_tracker_text() -> String:
 	return "\n".join(lines)
 
 
+## Chieu cao noi dung THAT tai be rong hien tai (panel cha dung so nay de
+## co chieu cao, vi min-size cua Label khong tinh du dong khi xuong dong).
+func content_height() -> float:
+	var h := 0.0
+	var visible_count := 0
+	for c in get_children():
+		if c is Label and (c as Label).visible:
+			var lbl := c as Label
+			var font := lbl.get_theme_font("font")
+			var fs := lbl.get_theme_font_size("font_size")
+			if font != null:
+				h += float(lbl.get_line_count()) * font.get_height(fs)
+			visible_count += 1
+	if visible_count > 1:
+		h += float(get_theme_constant("separation")) * float(visible_count - 1)
+	return h
+
+
 func refresh() -> void:
 	if _main_label == null:
 		return
