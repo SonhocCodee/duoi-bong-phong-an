@@ -19,3 +19,6 @@ design/sprite_mockup_v3.png
 # Python
 __pycache__/
 *.pyc
+
+# Godot binary tai ve de chay test local (khong commit)
+tools_bin/
