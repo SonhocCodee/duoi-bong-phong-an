@@ -1,4 +1,4 @@
-[gd_scene load_steps=233 format=3]
+[gd_scene load_steps=239 format=3]
 
 [ext_resource type="Script" path="res://systems/map_root.gd" id="1_medd8"]
 [ext_resource type="TileSet" path="res://assets/tilesets/swamp_v1.tres" id="2_bdm0f"]
@@ -24,6 +24,9 @@
 [ext_resource type="Script" path="res://player/player.gd" id="22_7px3u"]
 [ext_resource type="PackedScene" path="res://ui/hud.tscn" id="23_dfo4v"]
 [ext_resource type="Script" path="res://ui/hud.gd" id="24_wdo3b"]
+[ext_resource type="Texture2D" path="res://assets/props/boulder.png" id="den_boulder"]
+[ext_resource type="Texture2D" path="res://assets/props/glowshroom.png" id="den_glowshroom"]
+[ext_resource type="Texture2D" path="res://assets/props/decal_moss.png" id="den_decal_moss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdwri"]
 size = Vector2(8320, 64)
@@ -2634,3 +2637,1183 @@ attack_damage = Array[int]([10, 12, 18])
 
 [node name="HUD" type="CanvasLayer" parent="." instance=ExtResource("23_dfo4v")]
 script = ExtResource("24_wdo3b")
+
+
+[node name="DensityProps" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="D_boulder_000" type="Node2D" parent="DensityProps"]
+position = Vector2(-2997.26, 1671.6099)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_000"]
+position = Vector2(0, -25.534)
+scale = Vector2(1.0162, 1.0162)
+texture = ExtResource("den_boulder")
+
+[node name="D_reed_clump_001" type="Node2D" parent="DensityProps"]
+position = Vector2(2022.1841, 861.168)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_001"]
+position = Vector2(0, -39.7991)
+scale = Vector2(0.9192, 0.9192)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_glowshroom_002" type="Node2D" parent="DensityProps"]
+position = Vector2(2040.83, 973.0294)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_002"]
+position = Vector2(0, -33.0353)
+scale = Vector2(1.0799, 1.0799)
+texture = ExtResource("den_glowshroom")
+flip_h = true
+
+[node name="D_mangrove_003" type="Node2D" parent="DensityProps"]
+position = Vector2(1919.5906, 809.7725)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_003"]
+position = Vector2(0, -81.4137)
+scale = Vector2(0.8597, 0.8597)
+texture = ExtResource("4_snqq6")
+
+[node name="D_mangrove_004" type="Node2D" parent="DensityProps"]
+position = Vector2(1946.9236, 855.6402)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_004"]
+position = Vector2(0, -80.5346)
+scale = Vector2(0.8513, 0.8513)
+texture = ExtResource("4_snqq6")
+flip_h = true
+
+[node name="D_boulder_005" type="Node2D" parent="DensityProps"]
+position = Vector2(2099.5627, 819.9711)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_005"]
+position = Vector2(0, -23.5776)
+scale = Vector2(0.9569, 0.9569)
+texture = ExtResource("den_boulder")
+
+[node name="D_reed_clump_006" type="Node2D" parent="DensityProps"]
+position = Vector2(3868.2261, 715.5117)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_006"]
+position = Vector2(0, -54.139)
+scale = Vector2(1.195, 1.195)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_mangrove_007" type="Node2D" parent="DensityProps"]
+position = Vector2(3824.6301, 617.4756)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_007"]
+position = Vector2(0, -89.7431)
+scale = Vector2(0.9398, 0.9398)
+texture = ExtResource("4_snqq6")
+
+[node name="D_glowshroom_008" type="Node2D" parent="DensityProps"]
+position = Vector2(3795.9714, 791.8173)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_008"]
+position = Vector2(0, -31.1245)
+scale = Vector2(1.0296, 1.0296)
+texture = ExtResource("den_glowshroom")
+flip_h = true
+
+[node name="D_glowshroom_009" type="Node2D" parent="DensityProps"]
+position = Vector2(3761.9912, 2787.4883)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_009"]
+position = Vector2(0, -36.59)
+scale = Vector2(1.1734, 1.1734)
+texture = ExtResource("den_glowshroom")
+flip_h = true
+
+[node name="D_mangrove_010" type="Node2D" parent="DensityProps"]
+position = Vector2(3859.0464, 2721.3301)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_010"]
+position = Vector2(0, -88.4725)
+scale = Vector2(0.9276, 0.9276)
+texture = ExtResource("4_snqq6")
+
+[node name="D_swamp_log_011" type="Node2D" parent="DensityProps"]
+position = Vector2(3811.2869, 2849.5176)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_011"]
+position = Vector2(0, -20.6585)
+scale = Vector2(1.0235, 1.0235)
+texture = ExtResource("6_78i0w")
+flip_h = true
+
+[node name="D_boulder_012" type="Node2D" parent="DensityProps"]
+position = Vector2(3886.4143, 2802.6245)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_012"]
+position = Vector2(0, -23.4398)
+scale = Vector2(0.9527, 0.9527)
+texture = ExtResource("den_boulder")
+
+[node name="D_mangrove_013" type="Node2D" parent="DensityProps"]
+position = Vector2(3709.6682, 2793.3762)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_013"]
+position = Vector2(0, -91.9682)
+scale = Vector2(0.9612, 0.9612)
+texture = ExtResource("4_snqq6")
+flip_h = true
+
+[node name="D_glowshroom_014" type="Node2D" parent="DensityProps"]
+position = Vector2(1307.757, -1618.9703)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_014"]
+position = Vector2(0, -28.9411)
+scale = Vector2(0.9721, 0.9721)
+texture = ExtResource("den_glowshroom")
+flip_h = true
+
+[node name="D_reed_clump_015" type="Node2D" parent="DensityProps"]
+position = Vector2(1312.8137, -1520.87)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_015"]
+position = Vector2(0, -40.9034)
+scale = Vector2(0.9404, 0.9404)
+texture = ExtResource("5_q5oih")
+
+[node name="D_swamp_log_016" type="Node2D" parent="DensityProps"]
+position = Vector2(-1297.7358, 230.0117)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_016"]
+position = Vector2(0, -17.7907)
+scale = Vector2(0.9211, 0.9211)
+texture = ExtResource("6_78i0w")
+
+[node name="D_boulder_017" type="Node2D" parent="DensityProps"]
+position = Vector2(1328.7705, 2502.8115)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_017"]
+position = Vector2(0, -30.8797)
+scale = Vector2(1.1782, 1.1782)
+texture = ExtResource("den_boulder")
+flip_h = true
+
+[node name="D_glowshroom_018" type="Node2D" parent="DensityProps"]
+position = Vector2(1250.931, 2507.4104)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_018"]
+position = Vector2(0, -28.9732)
+scale = Vector2(0.973, 0.973)
+texture = ExtResource("den_glowshroom")
+flip_h = true
+
+[node name="D_mangrove_019" type="Node2D" parent="DensityProps"]
+position = Vector2(1352.8663, 2428.2424)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_019"]
+position = Vector2(0, -82.7223)
+scale = Vector2(0.8723, 0.8723)
+texture = ExtResource("4_snqq6")
+flip_h = true
+
+[node name="D_reed_clump_020" type="Node2D" parent="DensityProps"]
+position = Vector2(2060.4219, 728.4875)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_020"]
+position = Vector2(0, -42.1267)
+scale = Vector2(0.964, 0.964)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_mangrove_021" type="Node2D" parent="DensityProps"]
+position = Vector2(1939.3282, 691.475)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_021"]
+position = Vector2(0, -93.2687)
+scale = Vector2(0.9737, 0.9737)
+texture = ExtResource("4_snqq6")
+flip_h = true
+
+[node name="D_reed_clump_022" type="Node2D" parent="DensityProps"]
+position = Vector2(-3674.2324, 510.7732)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_022"]
+position = Vector2(0, -41.5801)
+scale = Vector2(0.9535, 0.9535)
+texture = ExtResource("5_q5oih")
+
+[node name="D_reed_clump_023" type="Node2D" parent="DensityProps"]
+position = Vector2(-3616.2874, 421.8093)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_023"]
+position = Vector2(0, -47.4212)
+scale = Vector2(1.0658, 1.0658)
+texture = ExtResource("5_q5oih")
+
+[node name="D_reed_clump_024" type="Node2D" parent="DensityProps"]
+position = Vector2(-3653.1045, 459.2188)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_024"]
+position = Vector2(0, -50.1698)
+scale = Vector2(1.1187, 1.1187)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_reed_clump_025" type="Node2D" parent="DensityProps"]
+position = Vector2(-3639.8042, -1275.6597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_025"]
+position = Vector2(0, -48.7003)
+scale = Vector2(1.0904, 1.0904)
+texture = ExtResource("5_q5oih")
+
+[node name="D_glowshroom_026" type="Node2D" parent="DensityProps"]
+position = Vector2(-3732.0327, -1202.0347)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_026"]
+position = Vector2(0, -36.6818)
+scale = Vector2(1.1758, 1.1758)
+texture = ExtResource("den_glowshroom")
+
+[node name="D_reed_clump_027" type="Node2D" parent="DensityProps"]
+position = Vector2(-3682.241, -1156.1367)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_027"]
+position = Vector2(0, -44.5106)
+scale = Vector2(1.0098, 1.0098)
+texture = ExtResource("5_q5oih")
+
+[node name="D_mangrove_028" type="Node2D" parent="DensityProps"]
+position = Vector2(3090.1567, 1053.0881)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_028"]
+position = Vector2(0, -94.9668)
+scale = Vector2(0.9901, 0.9901)
+texture = ExtResource("4_snqq6")
+
+[node name="D_reed_clump_029" type="Node2D" parent="DensityProps"]
+position = Vector2(3063.6885, 1121.6401)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_029"]
+position = Vector2(0, -53.5112)
+scale = Vector2(1.1829, 1.1829)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_glowshroom_030" type="Node2D" parent="DensityProps"]
+position = Vector2(3125.9902, 995.2571)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_030"]
+position = Vector2(0, -33.2914)
+scale = Vector2(1.0866, 1.0866)
+texture = ExtResource("den_glowshroom")
+flip_h = true
+
+[node name="D_glowshroom_031" type="Node2D" parent="DensityProps"]
+position = Vector2(3171.5762, 1088.8322)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_031"]
+position = Vector2(0, -30.0291)
+scale = Vector2(1.0008, 1.0008)
+texture = ExtResource("den_glowshroom")
+flip_h = true
+
+[node name="D_swamp_log_032" type="Node2D" parent="DensityProps"]
+position = Vector2(-3816.8071, -1930.3252)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_032"]
+position = Vector2(0, -18.2232)
+scale = Vector2(0.9365, 0.9365)
+texture = ExtResource("6_78i0w")
+
+[node name="D_boulder_033" type="Node2D" parent="DensityProps"]
+position = Vector2(-3720.7942, -1889.8719)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_033"]
+position = Vector2(0, -24.9086)
+scale = Vector2(0.9972, 0.9972)
+texture = ExtResource("den_boulder")
+flip_h = true
+
+[node name="D_glowshroom_034" type="Node2D" parent="DensityProps"]
+position = Vector2(-3872.3477, -1949.8308)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_034"]
+position = Vector2(0, -35.9532)
+scale = Vector2(1.1567, 1.1567)
+texture = ExtResource("den_glowshroom")
+
+[node name="D_reed_clump_035" type="Node2D" parent="DensityProps"]
+position = Vector2(-3870.8403, -1887.2129)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_035"]
+position = Vector2(0, -45.16)
+scale = Vector2(1.0223, 1.0223)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_reed_clump_036" type="Node2D" parent="DensityProps"]
+position = Vector2(-3074.1213, 427.4065)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_036"]
+position = Vector2(0, -42.54)
+scale = Vector2(0.9719, 0.9719)
+texture = ExtResource("5_q5oih")
+
+[node name="D_glowshroom_037" type="Node2D" parent="DensityProps"]
+position = Vector2(1869.0186, 543.8889)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_037"]
+position = Vector2(0, -35.2825)
+scale = Vector2(1.139, 1.139)
+texture = ExtResource("den_glowshroom")
+flip_h = true
+
+[node name="D_swamp_log_038" type="Node2D" parent="DensityProps"]
+position = Vector2(1932.3529, 473.3766)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_038"]
+position = Vector2(0, -19.5061)
+scale = Vector2(0.9824, 0.9824)
+texture = ExtResource("6_78i0w")
+flip_h = true
+
+[node name="D_glowshroom_039" type="Node2D" parent="DensityProps"]
+position = Vector2(1874.7286, 464.9091)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_039"]
+position = Vector2(0, -28.2148)
+scale = Vector2(0.953, 0.953)
+texture = ExtResource("den_glowshroom")
+flip_h = true
+
+[node name="D_reed_clump_040" type="Node2D" parent="DensityProps"]
+position = Vector2(1921.8639, 600.0688)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_040"]
+position = Vector2(0, -53.5605)
+scale = Vector2(1.1839, 1.1839)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_swamp_log_041" type="Node2D" parent="DensityProps"]
+position = Vector2(-3323.7544, -1478.9631)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_041"]
+position = Vector2(0, -20.0101)
+scale = Vector2(1.0004, 1.0004)
+texture = ExtResource("6_78i0w")
+
+[node name="D_boulder_042" type="Node2D" parent="DensityProps"]
+position = Vector2(-3206.8162, -1471.4943)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_042"]
+position = Vector2(0, -26.6542)
+scale = Vector2(1.0501, 1.0501)
+texture = ExtResource("den_boulder")
+flip_h = true
+
+[node name="D_swamp_log_043" type="Node2D" parent="DensityProps"]
+position = Vector2(-3313.6584, -1355.491)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_043"]
+position = Vector2(0, -20.1103)
+scale = Vector2(1.0039, 1.0039)
+texture = ExtResource("6_78i0w")
+
+[node name="D_mangrove_044" type="Node2D" parent="DensityProps"]
+position = Vector2(-3278.6055, -1438.7898)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_044"]
+position = Vector2(0, -100.4067)
+scale = Vector2(1.0424, 1.0424)
+texture = ExtResource("4_snqq6")
+flip_h = true
+
+[node name="D_boulder_045" type="Node2D" parent="DensityProps"]
+position = Vector2(-3247.3494, -1516.9978)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_045"]
+position = Vector2(0, -27.6956)
+scale = Vector2(1.0817, 1.0817)
+texture = ExtResource("den_boulder")
+
+[node name="D_mangrove_046" type="Node2D" parent="DensityProps"]
+position = Vector2(-3300.7644, -1567.7561)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_046"]
+position = Vector2(0, -81.8491)
+scale = Vector2(0.8639, 0.8639)
+texture = ExtResource("4_snqq6")
+
+[node name="D_swamp_log_047" type="Node2D" parent="DensityProps"]
+position = Vector2(1312.4883, 796.2361)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_047"]
+position = Vector2(0, -19.5789)
+scale = Vector2(0.985, 0.985)
+texture = ExtResource("6_78i0w")
+
+[node name="D_boulder_048" type="Node2D" parent="DensityProps"]
+position = Vector2(1235.8942, 757.2322)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_048"]
+position = Vector2(0, -26.2505)
+scale = Vector2(1.0379, 1.0379)
+texture = ExtResource("den_boulder")
+
+[node name="D_boulder_049" type="Node2D" parent="DensityProps"]
+position = Vector2(72.7183, -2449.2371)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_049"]
+position = Vector2(0, -24.0786)
+scale = Vector2(0.9721, 0.9721)
+texture = ExtResource("den_boulder")
+flip_h = true
+
+[node name="D_glowshroom_050" type="Node2D" parent="DensityProps"]
+position = Vector2(2703.6592, 2522.0732)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_050"]
+position = Vector2(0, -32.5066)
+scale = Vector2(1.066, 1.066)
+texture = ExtResource("den_glowshroom")
+flip_h = true
+
+[node name="D_reed_clump_051" type="Node2D" parent="DensityProps"]
+position = Vector2(2776.7314, 2476.1655)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_051"]
+position = Vector2(0, -44.8426)
+scale = Vector2(1.0162, 1.0162)
+texture = ExtResource("5_q5oih")
+
+[node name="D_reed_clump_052" type="Node2D" parent="DensityProps"]
+position = Vector2(525.0894, -1057.7593)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_052"]
+position = Vector2(0, -42.2464)
+scale = Vector2(0.9663, 0.9663)
+texture = ExtResource("5_q5oih")
+
+[node name="D_swamp_log_053" type="Node2D" parent="DensityProps"]
+position = Vector2(489.7389, -1105.8231)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_053"]
+position = Vector2(0, -21.3358)
+scale = Vector2(1.0477, 1.0477)
+texture = ExtResource("6_78i0w")
+
+[node name="D_reed_clump_054" type="Node2D" parent="DensityProps"]
+position = Vector2(556.7719, -1131.6031)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_054"]
+position = Vector2(0, -51.5933)
+scale = Vector2(1.146, 1.146)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_reed_clump_055" type="Node2D" parent="DensityProps"]
+position = Vector2(455.2121, -980.944)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_055"]
+position = Vector2(0, -53.2683)
+scale = Vector2(1.1782, 1.1782)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_mangrove_056" type="Node2D" parent="DensityProps"]
+position = Vector2(483.4139, -1164.11)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_056"]
+position = Vector2(0, -90.3229)
+scale = Vector2(0.9454, 0.9454)
+texture = ExtResource("4_snqq6")
+
+[node name="D_boulder_057" type="Node2D" parent="DensityProps"]
+position = Vector2(-3079.4363, 1972.1426)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_057"]
+position = Vector2(0, -29.4907)
+scale = Vector2(1.1361, 1.1361)
+texture = ExtResource("den_boulder")
+
+[node name="D_reed_clump_058" type="Node2D" parent="DensityProps"]
+position = Vector2(-2950.0659, 1977.2947)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_058"]
+position = Vector2(0, -50.6948)
+scale = Vector2(1.1287, 1.1287)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_glowshroom_059" type="Node2D" parent="DensityProps"]
+position = Vector2(-3060.8784, 1855.5902)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_059"]
+position = Vector2(0, -30.7656)
+scale = Vector2(1.0201, 1.0201)
+texture = ExtResource("den_glowshroom")
+
+[node name="D_swamp_log_060" type="Node2D" parent="DensityProps"]
+position = Vector2(1342.4175, -2325.7285)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_060"]
+position = Vector2(0, -22.1424)
+scale = Vector2(1.0765, 1.0765)
+texture = ExtResource("6_78i0w")
+flip_h = true
+
+[node name="D_boulder_061" type="Node2D" parent="DensityProps"]
+position = Vector2(1337.2693, -2253.3293)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_061"]
+position = Vector2(0, -31.3308)
+scale = Vector2(1.1918, 1.1918)
+texture = ExtResource("den_boulder")
+
+[node name="D_glowshroom_062" type="Node2D" parent="DensityProps"]
+position = Vector2(1448.4778, -2391.9705)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_062"]
+position = Vector2(0, -31.8349)
+scale = Vector2(1.0483, 1.0483)
+texture = ExtResource("den_glowshroom")
+flip_h = true
+
+[node name="D_swamp_log_063" type="Node2D" parent="DensityProps"]
+position = Vector2(1254.335, -2269.3516)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_063"]
+position = Vector2(0, -20.2393)
+scale = Vector2(1.0085, 1.0085)
+texture = ExtResource("6_78i0w")
+
+[node name="D_swamp_log_064" type="Node2D" parent="DensityProps"]
+position = Vector2(2131.0308, 738.5903)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_064"]
+position = Vector2(0, -19.8458)
+scale = Vector2(0.9945, 0.9945)
+texture = ExtResource("6_78i0w")
+flip_h = true
+
+[node name="D_reed_clump_065" type="Node2D" parent="DensityProps"]
+position = Vector2(-613.0725, 616.0059)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_065"]
+position = Vector2(0, -40.6434)
+scale = Vector2(0.9355, 0.9355)
+texture = ExtResource("5_q5oih")
+
+[node name="D_mangrove_066" type="Node2D" parent="DensityProps"]
+position = Vector2(-650.4083, 719.3781)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_066"]
+position = Vector2(0, -88.8221)
+scale = Vector2(0.931, 0.931)
+texture = ExtResource("4_snqq6")
+
+[node name="D_reed_clump_067" type="Node2D" parent="DensityProps"]
+position = Vector2(-696.0891, 604.8387)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_067"]
+position = Vector2(0, -40.9794)
+scale = Vector2(0.9419, 0.9419)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_reed_clump_068" type="Node2D" parent="DensityProps"]
+position = Vector2(-557.467, 562.3958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_068"]
+position = Vector2(0, -42.1024)
+scale = Vector2(0.9635, 0.9635)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_glowshroom_069" type="Node2D" parent="DensityProps"]
+position = Vector2(-550.6935, 700.9909)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_069"]
+position = Vector2(0, -26.56)
+scale = Vector2(0.9095, 0.9095)
+texture = ExtResource("den_glowshroom")
+flip_h = true
+
+[node name="D_reed_clump_070" type="Node2D" parent="DensityProps"]
+position = Vector2(3474.8723, -1612.8676)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_070"]
+position = Vector2(0, -43.8867)
+scale = Vector2(0.9978, 0.9978)
+texture = ExtResource("5_q5oih")
+
+[node name="D_reed_clump_071" type="Node2D" parent="DensityProps"]
+position = Vector2(3488.4543, -1822.5148)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_071"]
+position = Vector2(0, -53.2974)
+scale = Vector2(1.1788, 1.1788)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_glowshroom_072" type="Node2D" parent="DensityProps"]
+position = Vector2(2363.7378, -2508.5393)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_072"]
+position = Vector2(0, -34.7801)
+scale = Vector2(1.1258, 1.1258)
+texture = ExtResource("den_glowshroom")
+flip_h = true
+
+[node name="D_mangrove_073" type="Node2D" parent="DensityProps"]
+position = Vector2(2267.0032, -2580.8137)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_073"]
+position = Vector2(0, -87.6621)
+scale = Vector2(0.9198, 0.9198)
+texture = ExtResource("4_snqq6")
+
+[node name="D_swamp_log_074" type="Node2D" parent="DensityProps"]
+position = Vector2(2363.3027, -2388.8267)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_074"]
+position = Vector2(0, -18.3173)
+scale = Vector2(0.9399, 0.9399)
+texture = ExtResource("6_78i0w")
+
+[node name="D_reed_clump_075" type="Node2D" parent="DensityProps"]
+position = Vector2(-3123.4629, 1824.0137)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_075"]
+position = Vector2(0, -53.4832)
+scale = Vector2(1.1824, 1.1824)
+texture = ExtResource("5_q5oih")
+
+[node name="D_mangrove_076" type="Node2D" parent="DensityProps"]
+position = Vector2(-3078.8691, 1772.8564)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_076"]
+position = Vector2(0, -96.7461)
+scale = Vector2(1.0072, 1.0072)
+texture = ExtResource("4_snqq6")
+
+[node name="D_reed_clump_077" type="Node2D" parent="DensityProps"]
+position = Vector2(-3192.2375, 1891.5586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_077"]
+position = Vector2(0, -48.2215)
+scale = Vector2(1.0812, 1.0812)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_boulder_078" type="Node2D" parent="DensityProps"]
+position = Vector2(411.875, 1260.8433)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_078"]
+position = Vector2(0, -22.4669)
+scale = Vector2(0.9232, 0.9232)
+texture = ExtResource("den_boulder")
+flip_h = true
+
+[node name="D_glowshroom_079" type="Node2D" parent="DensityProps"]
+position = Vector2(-3574.0962, -88.7959)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_079"]
+position = Vector2(0, -35.8206)
+scale = Vector2(1.1532, 1.1532)
+texture = ExtResource("den_glowshroom")
+
+[node name="D_glowshroom_080" type="Node2D" parent="DensityProps"]
+position = Vector2(-3592.7751, -8.3163)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_080"]
+position = Vector2(0, -27.3284)
+scale = Vector2(0.9297, 0.9297)
+texture = ExtResource("den_glowshroom")
+
+[node name="D_mangrove_081" type="Node2D" parent="DensityProps"]
+position = Vector2(-3622.156, -73.825)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_081"]
+position = Vector2(0, -93.4431)
+scale = Vector2(0.9754, 0.9754)
+texture = ExtResource("4_snqq6")
+
+[node name="D_reed_clump_082" type="Node2D" parent="DensityProps"]
+position = Vector2(-3700.3267, -73.8658)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_082"]
+position = Vector2(0, -43.0008)
+scale = Vector2(0.9808, 0.9808)
+texture = ExtResource("5_q5oih")
+
+[node name="D_reed_clump_083" type="Node2D" parent="DensityProps"]
+position = Vector2(-3651.5125, -191.9368)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_083"]
+position = Vector2(0, -38.948)
+scale = Vector2(0.9028, 0.9028)
+texture = ExtResource("5_q5oih")
+
+[node name="D_reed_clump_084" type="Node2D" parent="DensityProps"]
+position = Vector2(-2427.8589, 1715.75)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_084"]
+position = Vector2(0, -41.3736)
+scale = Vector2(0.9495, 0.9495)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_glowshroom_085" type="Node2D" parent="DensityProps"]
+position = Vector2(-2381.094, 1648.6837)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_085"]
+position = Vector2(0, -37.4093)
+scale = Vector2(1.195, 1.195)
+texture = ExtResource("den_glowshroom")
+
+[node name="D_swamp_log_086" type="Node2D" parent="DensityProps"]
+position = Vector2(-2506.3962, 1639.0493)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_086"]
+position = Vector2(0, -21.5407)
+scale = Vector2(1.055, 1.055)
+texture = ExtResource("6_78i0w")
+flip_h = true
+
+[node name="D_swamp_log_087" type="Node2D" parent="DensityProps"]
+position = Vector2(-2549.3245, 1738.4918)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_087"]
+position = Vector2(0, -21.6869)
+scale = Vector2(1.0602, 1.0602)
+texture = ExtResource("6_78i0w")
+flip_h = true
+
+[node name="D_boulder_088" type="Node2D" parent="DensityProps"]
+position = Vector2(-811.3549, -207.6418)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_088"]
+position = Vector2(0, -24.0829)
+scale = Vector2(0.9722, 0.9722)
+texture = ExtResource("den_boulder")
+flip_h = true
+
+[node name="D_reed_clump_089" type="Node2D" parent="DensityProps"]
+position = Vector2(-838.3515, -137.1043)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_089"]
+position = Vector2(0, -41.1927)
+scale = Vector2(0.946, 0.946)
+texture = ExtResource("5_q5oih")
+
+[node name="D_swamp_log_090" type="Node2D" parent="DensityProps"]
+position = Vector2(-682.084, -2205.5156)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_090"]
+position = Vector2(0, -21.0042)
+scale = Vector2(1.0359, 1.0359)
+texture = ExtResource("6_78i0w")
+
+[node name="D_reed_clump_091" type="Node2D" parent="DensityProps"]
+position = Vector2(-755.9907, -2151.4722)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_091"]
+position = Vector2(0, -51.474)
+scale = Vector2(1.1437, 1.1437)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_glowshroom_092" type="Node2D" parent="DensityProps"]
+position = Vector2(3452.1196, -2813.7412)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_092"]
+position = Vector2(0, -34.9999)
+scale = Vector2(1.1316, 1.1316)
+texture = ExtResource("den_glowshroom")
+
+[node name="D_reed_clump_093" type="Node2D" parent="DensityProps"]
+position = Vector2(3381.7495, -2914.9138)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_093"]
+position = Vector2(0, -50.2754)
+scale = Vector2(1.1207, 1.1207)
+texture = ExtResource("5_q5oih")
+
+[node name="D_boulder_094" type="Node2D" parent="DensityProps"]
+position = Vector2(3505.0366, -2740.3311)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_094"]
+position = Vector2(0, -29.1115)
+scale = Vector2(1.1246, 1.1246)
+texture = ExtResource("den_boulder")
+
+[node name="D_reed_clump_095" type="Node2D" parent="DensityProps"]
+position = Vector2(1557.6494, 295.6953)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_095"]
+position = Vector2(0, -49.9479)
+scale = Vector2(1.1144, 1.1144)
+texture = ExtResource("5_q5oih")
+
+[node name="D_swamp_log_096" type="Node2D" parent="DensityProps"]
+position = Vector2(1438.21, 298.6624)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_096"]
+position = Vector2(0, -22.6876)
+scale = Vector2(1.096, 1.096)
+texture = ExtResource("6_78i0w")
+
+[node name="D_swamp_log_097" type="Node2D" parent="DensityProps"]
+position = Vector2(1619.0199, 370.7942)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_097"]
+position = Vector2(0, -21.325)
+scale = Vector2(1.0473, 1.0473)
+texture = ExtResource("6_78i0w")
+flip_h = true
+
+[node name="D_boulder_098" type="Node2D" parent="DensityProps"]
+position = Vector2(-1077.2354, -1738.8995)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_098"]
+position = Vector2(0, -24.3905)
+scale = Vector2(0.9815, 0.9815)
+texture = ExtResource("den_boulder")
+
+[node name="D_swamp_log_099" type="Node2D" parent="DensityProps"]
+position = Vector2(980.5845, 439.9976)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_099"]
+position = Vector2(0, -17.6581)
+scale = Vector2(0.9164, 0.9164)
+texture = ExtResource("6_78i0w")
+flip_h = true
+
+[node name="D_boulder_100" type="Node2D" parent="DensityProps"]
+position = Vector2(1016.7742, 403.0145)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_100"]
+position = Vector2(0, -27.9554)
+scale = Vector2(1.0896, 1.0896)
+texture = ExtResource("den_boulder")
+
+[node name="D_glowshroom_101" type="Node2D" parent="DensityProps"]
+position = Vector2(922.0527, 502.6509)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_glowshroom_101"]
+position = Vector2(0, -28.6066)
+scale = Vector2(0.9633, 0.9633)
+texture = ExtResource("den_glowshroom")
+
+[node name="D_swamp_log_102" type="Node2D" parent="DensityProps"]
+position = Vector2(934.6622, 381.9501)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_102"]
+position = Vector2(0, -22.109)
+scale = Vector2(1.0753, 1.0753)
+texture = ExtResource("6_78i0w")
+
+[node name="D_mangrove_103" type="Node2D" parent="DensityProps"]
+position = Vector2(-1443.7428, 2128.3101)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_103"]
+position = Vector2(0, -96.1158)
+scale = Vector2(1.0011, 1.0011)
+texture = ExtResource("4_snqq6")
+
+[node name="D_swamp_log_104" type="Node2D" parent="DensityProps"]
+position = Vector2(-1293.4325, 2085.1445)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_104"]
+position = Vector2(0, -18.2746)
+scale = Vector2(0.9384, 0.9384)
+texture = ExtResource("6_78i0w")
+
+[node name="D_boulder_105" type="Node2D" parent="DensityProps"]
+position = Vector2(3554.6787, 246.5376)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_boulder_105"]
+position = Vector2(0, -26.9591)
+scale = Vector2(1.0594, 1.0594)
+texture = ExtResource("den_boulder")
+flip_h = true
+
+[node name="D_swamp_log_106" type="Node2D" parent="DensityProps"]
+position = Vector2(3535.3196, 358.3843)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_106"]
+position = Vector2(0, -21.4583)
+scale = Vector2(1.0521, 1.0521)
+texture = ExtResource("6_78i0w")
+
+[node name="D_reed_clump_107" type="Node2D" parent="DensityProps"]
+position = Vector2(3606.7256, 130.6765)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_reed_clump_107"]
+position = Vector2(0, -43.973)
+scale = Vector2(0.9995, 0.9995)
+texture = ExtResource("5_q5oih")
+flip_h = true
+
+[node name="D_swamp_log_108" type="Node2D" parent="DensityProps"]
+position = Vector2(3553.9976, 299.338)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_swamp_log_108"]
+position = Vector2(0, -19.675)
+scale = Vector2(0.9884, 0.9884)
+texture = ExtResource("6_78i0w")
+
+[node name="D_mangrove_109" type="Node2D" parent="DensityProps"]
+position = Vector2(2002.4854, -2213.9873)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/D_mangrove_109"]
+position = Vector2(0, -101.1954)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("4_snqq6")
+
+[node name="DDecal_decal_moss_000" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-2105.1851, 1837.9658)
+rotation = 1.6727
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_000"]
+scale = Vector2(0.9807, 0.9807)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_moss_001" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-3282.9673, -2634.6284)
+rotation = 2.9303
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_001"]
+scale = Vector2(1.0223, 1.0223)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_moss_002" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(3991.8091, -2885.1392)
+rotation = 0.749
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_002"]
+scale = Vector2(0.858, 0.858)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_moss_003" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(1303.6089, -1475.3413)
+rotation = 4.0959
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_003"]
+scale = Vector2(1.0534, 1.0534)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_moss_004" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-1464.9265, -1859.9302)
+rotation = 2.8624
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_004"]
+scale = Vector2(0.9506, 0.9506)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_moss_005" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(1911.769, 2724.0781)
+rotation = 5.2519
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_005"]
+scale = Vector2(0.923, 0.923)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_moss_006" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-901.886, 441.2107)
+rotation = 0.6889
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_006"]
+scale = Vector2(0.8455, 0.8455)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_moss_007" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(2200.5142, 2457.1069)
+rotation = 2.4377
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_007"]
+scale = Vector2(0.8121, 0.8121)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_moss_008" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-4005.7874, -2627.9919)
+rotation = 5.0682
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_008"]
+scale = Vector2(1.0142, 1.0142)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_moss_009" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-3881.7288, 2737.7056)
+rotation = 2.2667
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_009"]
+scale = Vector2(0.9699, 0.9699)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_moss_010" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-2678.6108, 2556.627)
+rotation = 3.786
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_010"]
+scale = Vector2(0.9813, 0.9813)
+texture = ExtResource("den_decal_moss")
+
+[node name="DDecal_decal_moss_011" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(2832.1499, -1240.5228)
+rotation = 6.2366
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_011"]
+scale = Vector2(0.9674, 0.9674)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_moss_012" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(-4026.7678, -2337.0251)
+rotation = 1.1594
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_012"]
+scale = Vector2(0.8718, 0.8718)
+texture = ExtResource("den_decal_moss")
+flip_h = true
+
+[node name="DDecal_decal_moss_013" type="Node2D" parent="DensityProps"]
+z_index = -5
+position = Vector2(3684.5752, -2751.697)
+rotation = 1.5913
+
+[node name="Sprite2D" type="Sprite2D" parent="DensityProps/DDecal_decal_moss_013"]
+scale = Vector2(0.8975, 0.8975)
+texture = ExtResource("den_decal_moss")
+flip_h = true
