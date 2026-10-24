@@ -110,6 +110,7 @@ ASSET_FILES = [
     "design/city_shots/solmaris_01_oc_dao.png",
     "design/city_shots/solmaris_02_grand_bazaar.png",
     "design/city_shots/solmaris_03_khu_bo_lac.png",
+    "design/hud_after_fix.png",
     "game/assets/props/stilt_house_a.png",
     "game/assets/props/stilt_house_b.png",
     "game/assets/props/stilt_house_c.png",

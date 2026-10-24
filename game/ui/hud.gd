@@ -2,10 +2,10 @@ extends CanvasLayer
 ## HUD - Thanh HP / Stamina, nhãn Gold / XP / Level
 ## Cập nhật qua signal của Player và GameState.
 
-@onready var hp_bar: ProgressBar = $MarginContainer/VBoxContainer/HPBar
-@onready var stamina_bar: ProgressBar = $MarginContainer/VBoxContainer/StaminaBar
-@onready var hp_label: Label = $MarginContainer/VBoxContainer/HPBar/HPLabel
-@onready var stamina_label: Label = $MarginContainer/VBoxContainer/StaminaBar/StaminaLabel
+@onready var hp_bar: ProgressBar = $TopRightBars/HPBar
+@onready var stamina_bar: ProgressBar = $TopRightBars/StaminaBar
+@onready var hp_label: Label = $TopRightBars/HPBar/HPLabel
+@onready var stamina_label: Label = $TopRightBars/StaminaBar/StaminaLabel
 @onready var info_label: Label = $MarginContainer/VBoxContainer/InfoLabel
 @onready var quest_label: Label = $MarginContainer/VBoxContainer/QuestLabel
 @onready var potion_label: Label = $MarginContainer/VBoxContainer/PotionLabel
@@ -20,7 +20,7 @@ const SKILL_PANEL_SCENE: PackedScene = preload("res://ui/skill_panel.tscn")
 var _player: Node = null
 var _quest_log: CanvasLayer = null
 var _skill_panel: CanvasLayer = null
-var _skill_box_labels: Dictionary = {} # skill_id -> Label trong ô skill góc dưới
+var _skill_box_labels: Dictionary = {} # skill_id -> Label trạng thái trong ô skill giữa-dưới
 var _skill_box_panels: Dictionary = {} # skill_id -> PanelContainer
 var _level_up_label: Label = null
 var _level_up_tween: Tween = null
@@ -78,7 +78,7 @@ func _ready() -> void:
 	_try_connect_player()
 
 
-# --- Ô skill góc dưới-trái (dựng bằng code như banner/quest log) ------------
+# --- Ô skill giữa-dưới (dựng bằng code như banner/quest log) ---------------
 # Đợt 6: 2 TRANG skill — phím Q lật trang (player.skill_page giữ trạng thái).
 # Trang 1 = 9 skill cũ (phím 1-9). Trang 2 = 4 skill cuối (phím 1-4).
 const SKILL_PAGE1: Array = ["chem_xoay", "xung_kich", "cuong_no", "dau_an_lua", "bay_hon", "hut_sinh_luc",
@@ -115,15 +115,17 @@ func _build_skill_boxes() -> void:
 	if _skill_hbox == null:
 		_skill_hbox = HBoxContainer.new()
 		_skill_hbox.name = "SkillBoxContainer"
-		_skill_hbox.anchor_left = 0.0
+		# Hàng skill nhỏ gọn ở GIỮA-DƯỚI màn hình (neo giữa, không che nhân vật).
+		_skill_hbox.anchor_left = 0.5
 		_skill_hbox.anchor_top = 1.0
-		_skill_hbox.anchor_right = 0.0
+		_skill_hbox.anchor_right = 0.5
 		_skill_hbox.anchor_bottom = 1.0
-		_skill_hbox.offset_left = 16.0
-		_skill_hbox.offset_top = -84.0
-		_skill_hbox.offset_right = 980.0
-		_skill_hbox.offset_bottom = -16.0
-		_skill_hbox.add_theme_constant_override("separation", 8)
+		_skill_hbox.offset_left = -252.0
+		_skill_hbox.offset_top = -62.0
+		_skill_hbox.offset_right = 252.0
+		_skill_hbox.offset_bottom = -10.0
+		_skill_hbox.alignment = BoxContainer.ALIGNMENT_CENTER
+		_skill_hbox.add_theme_constant_override("separation", 6)
 		add_child(_skill_hbox)
 	for c in _skill_hbox.get_children():
 		_skill_hbox.remove_child(c)
@@ -133,19 +135,29 @@ func _build_skill_boxes() -> void:
 	var hbox := _skill_hbox
 	for sid in _page_skills(_hud_skill_page):
 		var panel := PanelContainer.new()
-		panel.custom_minimum_size = Vector2(100, 64)
+		panel.custom_minimum_size = Vector2(50, 50)
 		var sb := StyleBoxFlat.new()
 		sb.bg_color = Color(0.1, 0.08, 0.08, 0.88)
 		sb.border_color = SKILL_BORDER_COLORS.get(sid, Color(0.9, 0.3, 0.2))
 		sb.set_border_width_all(2)
-		sb.set_corner_radius_all(6)
-		sb.set_content_margin_all(6)
+		sb.set_corner_radius_all(5)
+		sb.set_content_margin_all(2)
 		panel.add_theme_stylebox_override("panel", sb)
+		# Hai dòng: tên tắt + phím (tĩnh) / trạng thái-CD (động, _skill_box_labels).
+		var vbox := VBoxContainer.new()
+		vbox.alignment = BoxContainer.ALIGNMENT_CENTER
+		vbox.add_theme_constant_override("separation", 0)
+		var name_lbl := Label.new()
+		name_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		name_lbl.add_theme_font_size_override("font_size", 12)
+		name_lbl.text = "%s [%s]" % [SKILL_SHORT[sid], SKILL_KEYS[sid]]
+		vbox.add_child(name_lbl)
 		var lbl := Label.new()
 		lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		lbl.add_theme_font_size_override("font_size", 13)
-		lbl.text = "%s [%s]\n🔒" % [SKILL_SHORT[sid], SKILL_KEYS[sid]]
-		panel.add_child(lbl)
+		lbl.add_theme_font_size_override("font_size", 12)
+		lbl.text = "🔒"
+		vbox.add_child(lbl)
+		panel.add_child(vbox)
 		hbox.add_child(panel)
 		_skill_box_labels[sid] = lbl
 		_skill_box_panels[sid] = panel
@@ -180,15 +192,15 @@ func _refresh_skill_ui() -> void:
 		else:
 			status = "Sẵn sàng"
 		parts.append("[%s] %s: %s" % [SKILL_KEYS[sid], sname, status])
-		# Ô skill góc dưới: tên tắt + trạng thái/CD phủ dạng số giây
+		# Ô skill giữa-dưới: dòng trạng thái (tên tắt + phím nằm ở dòng tĩnh phía trên)
 		if _skill_box_labels.has(sid):
 			var bl: Label = _skill_box_labels[sid]
 			if not unlocked:
-				bl.text = "%s [%s]\n🔒 Khoá" % [SKILL_SHORT[sid], SKILL_KEYS[sid]]
+				bl.text = "🔒"
 			elif cd > 0.05:
-				bl.text = "%s [%s]\n%.1fs" % [SKILL_SHORT[sid], SKILL_KEYS[sid], cd]
+				bl.text = "%.1fs" % cd
 			else:
-				bl.text = "%s [%s]\n✓" % [SKILL_SHORT[sid], SKILL_KEYS[sid]]
+				bl.text = "✓"
 	if skill_label != null:
 		var da_sat_txt: String = "✓" if (has_node("/root/GameState") and GameState.is_skill_unlocked("da_sat")) else "🔒"
 		skill_label.text = "Skill (trang %d/2, [Q] lật) — Điểm: %d | %s | Da Sắt: %s | [T] cây skill" % [
