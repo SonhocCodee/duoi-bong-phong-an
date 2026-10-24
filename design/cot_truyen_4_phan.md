@@ -15,7 +15,7 @@
 - Kết phần: Aldenmere giải phóng, **Cổng Tường Nam mở** — hook sang Phần 2.
 - Boss phần: The Rat King (Elmford Cellar, cao trào mở đầu), Mossback, the Moss Golem (hang núi, giữ Chìa Rễ Xanh), Heartwood Treant (mini-boss Heartwood), King Aldric, the Puppet King (cuối phần).
 
-## Phần 2 — NAM / Fenmire: ĐIỀU TRA + LỰA CHỌN ĐẠO ĐỨC (chưa code)
+## Phần 2 — NAM / Fenmire: ĐIỀU TRA + LỰA CHỌN ĐẠO ĐỨC (đã code mức khung đợt 3: 8 map + tuyến nam_01–nam_06 + lựa chọn cuối phần; riêng nội thành Fenmire chưa dựng, chờ duyệt layout — đối chất cuối phần tạm đặt tại các NPC phe ở Fevercamp/Blackmere/Reedmere)
 
 - Khác Phần 1 ở bản chất: vua Nam **tự nguyện hợp tác** với giáo phái của Tháp để đổi **thuốc cứu vợ và cứu dân khỏi dịch bệnh đầm lầy**. Không có "kẻ ác" rõ ràng: phá vỡ thỏa thuận = dịch bùng lại, dân chết; giữ thỏa thuận = vùng mãi là chư hầu.
 - Gameplay cao trào: **điều tra** (thu thập chứng cứ trong Đền Chìm Triều, đối chất các phe: giáo phái, dân chài, người giữ triều), rồi **lựa chọn đạo đức** có hậu quả thật lên map/NPC về sau (ai được cứu, làng nào bị bỏ).
