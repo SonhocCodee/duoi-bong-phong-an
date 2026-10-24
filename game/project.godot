@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 GameState="*res://autoload/game_state.gd"
 SaveSystem="*res://autoload/save_system.gd"
 QuestManager="*res://autoload/quest_manager.gd"
+LeftUI="*res://ui/left_panel.gd"
 
 [display]
 
