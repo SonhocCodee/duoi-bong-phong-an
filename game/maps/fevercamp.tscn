@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=3]
+[gd_scene load_steps=169 format=3]
 
 [ext_resource type="Script" path="res://systems/map_root.gd" id="1_sw2ss"]
 [ext_resource type="TileSet" path="res://assets/tilesets/swamp_v1.tres" id="2_x5i5n"]
@@ -21,6 +21,8 @@
 [ext_resource type="Script" path="res://player/player.gd" id="19_7pbih"]
 [ext_resource type="PackedScene" path="res://ui/hud.tscn" id="20_yhtnh"]
 [ext_resource type="Script" path="res://ui/hud.gd" id="21_vy2ag"]
+[ext_resource type="Texture2D" path="res://assets/props/reed_clump.png" id="bor_reed_clump"]
+[ext_resource type="Texture2D" path="res://assets/props/mangrove.png" id="bor_mangrove"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eerxo"]
 size = Vector2(5760, 64)
@@ -1391,3 +1393,3033 @@ attack_damage = Array[int]([10, 12, 18])
 
 [node name="HUD" type="CanvasLayer" parent="." instance=ExtResource("20_yhtnh")]
 script = ExtResource("21_vy2ag")
+
+[node name="MapBorder" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="B_reed_clump_000" type="Node2D" parent="MapBorder"]
+position = Vector2(-2779, -1950)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_000"]
+position = Vector2(0, -50.708)
+scale = Vector2(1.129, 1.129)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_001" type="Node2D" parent="MapBorder"]
+position = Vector2(-2733, -1949)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_001"]
+position = Vector2(0, -100.992)
+scale = Vector2(1.048, 1.048)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_002" type="Node2D" parent="MapBorder"]
+position = Vector2(-2683, -1960)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_002"]
+position = Vector2(0, -51.072)
+scale = Vector2(1.136, 1.136)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_003" type="Node2D" parent="MapBorder"]
+position = Vector2(-2620, -1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_003"]
+position = Vector2(0, -43.948)
+scale = Vector2(0.999, 0.999)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_004" type="Node2D" parent="MapBorder"]
+position = Vector2(-2554, -1951)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_004"]
+position = Vector2(0, -81.232)
+scale = Vector2(0.858, 0.858)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_005" type="Node2D" parent="MapBorder"]
+position = Vector2(-2502, -1946)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_005"]
+position = Vector2(0, -104.32)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_006" type="Node2D" parent="MapBorder"]
+position = Vector2(-2452, -1961)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_006"]
+position = Vector2(0, -104.112)
+scale = Vector2(1.078, 1.078)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_007" type="Node2D" parent="MapBorder"]
+position = Vector2(-2388, -1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_007"]
+position = Vector2(0, -103.28)
+scale = Vector2(1.07, 1.07)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_008" type="Node2D" parent="MapBorder"]
+position = Vector2(-2341, -1954)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_008"]
+position = Vector2(0, -92.36)
+scale = Vector2(0.965, 0.965)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_glowshroom_009" type="Node2D" parent="MapBorder"]
+position = Vector2(-2294, -1952)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_009"]
+position = Vector2(0, -27.378)
+scale = Vector2(0.931, 0.931)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_mangrove_010" type="Node2D" parent="MapBorder"]
+position = Vector2(-2227, -1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_010"]
+position = Vector2(0, -88.512)
+scale = Vector2(0.928, 0.928)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_011" type="Node2D" parent="MapBorder"]
+position = Vector2(-2184, -1959)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_011"]
+position = Vector2(0, -90.072)
+scale = Vector2(0.943, 0.943)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_012" type="Node2D" parent="MapBorder"]
+position = Vector2(-2114, -1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_012"]
+position = Vector2(0, -45.664)
+scale = Vector2(1.032, 1.032)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_013" type="Node2D" parent="MapBorder"]
+position = Vector2(-2065, -1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_013"]
+position = Vector2(0, -45.768)
+scale = Vector2(1.034, 1.034)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_014" type="Node2D" parent="MapBorder"]
+position = Vector2(-2012, -1961)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_014"]
+position = Vector2(0, -97.664)
+scale = Vector2(1.016, 1.016)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_015" type="Node2D" parent="MapBorder"]
+position = Vector2(-1948, -1954)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_015"]
+position = Vector2(0, -47.9)
+scale = Vector2(1.075, 1.075)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_016" type="Node2D" parent="MapBorder"]
+position = Vector2(-1886, -1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_016"]
+position = Vector2(0, -56.012)
+scale = Vector2(1.231, 1.231)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_017" type="Node2D" parent="MapBorder"]
+position = Vector2(-1848, -1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_017"]
+position = Vector2(0, -47.38)
+scale = Vector2(1.065, 1.065)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_018" type="Node2D" parent="MapBorder"]
+position = Vector2(-1787, -1950)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_018"]
+position = Vector2(0, -80.504)
+scale = Vector2(0.851, 0.851)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_019" type="Node2D" parent="MapBorder"]
+position = Vector2(-1737, -1949)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_019"]
+position = Vector2(0, -83)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_020" type="Node2D" parent="MapBorder"]
+position = Vector2(-1682, -1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_020"]
+position = Vector2(0, -92.672)
+scale = Vector2(0.968, 0.968)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_021" type="Node2D" parent="MapBorder"]
+position = Vector2(-1611, -1943)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_021"]
+position = Vector2(0, -103.072)
+scale = Vector2(1.068, 1.068)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_022" type="Node2D" parent="MapBorder"]
+position = Vector2(-1564, -1952)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_022"]
+position = Vector2(0, -94.544)
+scale = Vector2(0.986, 0.986)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_023" type="Node2D" parent="MapBorder"]
+position = Vector2(-1500, -1943)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_023"]
+position = Vector2(0, -55.388)
+scale = Vector2(1.219, 1.219)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_024" type="Node2D" parent="MapBorder"]
+position = Vector2(-1441, -1949)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_024"]
+position = Vector2(0, -93.192)
+scale = Vector2(0.973, 0.973)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_025" type="Node2D" parent="MapBorder"]
+position = Vector2(-1398, -1961)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_025"]
+position = Vector2(0, -81.856)
+scale = Vector2(0.864, 0.864)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_026" type="Node2D" parent="MapBorder"]
+position = Vector2(-1334, -1953)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_026"]
+position = Vector2(0, -55.18)
+scale = Vector2(1.215, 1.215)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_027" type="Node2D" parent="MapBorder"]
+position = Vector2(-1285, -1959)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_027"]
+position = Vector2(0, -102.136)
+scale = Vector2(1.059, 1.059)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_028" type="Node2D" parent="MapBorder"]
+position = Vector2(-1225, -1950)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_028"]
+position = Vector2(0, -93.504)
+scale = Vector2(0.976, 0.976)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_glowshroom_029" type="Node2D" parent="MapBorder"]
+position = Vector2(-1176, -1945)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_029"]
+position = Vector2(0, -31.52)
+scale = Vector2(1.04, 1.04)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_reed_clump_030" type="Node2D" parent="MapBorder"]
+position = Vector2(-1118, -1957)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_030"]
+position = Vector2(0, -51.488)
+scale = Vector2(1.144, 1.144)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_031" type="Node2D" parent="MapBorder"]
+position = Vector2(-1064, -1952)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_031"]
+position = Vector2(0, -56.064)
+scale = Vector2(1.232, 1.232)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_032" type="Node2D" parent="MapBorder"]
+position = Vector2(-1013, -1950)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_032"]
+position = Vector2(0, -94.336)
+scale = Vector2(0.984, 0.984)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_033" type="Node2D" parent="MapBorder"]
+position = Vector2(-967, -1960)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_033"]
+position = Vector2(0, -101.824)
+scale = Vector2(1.056, 1.056)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_034" type="Node2D" parent="MapBorder"]
+position = Vector2(-897, -1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_034"]
+position = Vector2(0, -101.096)
+scale = Vector2(1.049, 1.049)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_035" type="Node2D" parent="MapBorder"]
+position = Vector2(-854, -1957)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_035"]
+position = Vector2(0, -52.424)
+scale = Vector2(1.162, 1.162)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_036" type="Node2D" parent="MapBorder"]
+position = Vector2(-792, -1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_036"]
+position = Vector2(0, -81.96)
+scale = Vector2(0.865, 0.865)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_037" type="Node2D" parent="MapBorder"]
+position = Vector2(-745, -1959)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_037"]
+position = Vector2(0, -56.844)
+scale = Vector2(1.247, 1.247)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_038" type="Node2D" parent="MapBorder"]
+position = Vector2(-686, -1949)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_038"]
+position = Vector2(0, -43.688)
+scale = Vector2(0.994, 0.994)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_039" type="Node2D" parent="MapBorder"]
+position = Vector2(-638, -1955)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_039"]
+position = Vector2(0, -48.576)
+scale = Vector2(1.088, 1.088)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_040" type="Node2D" parent="MapBorder"]
+position = Vector2(-581, -1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_040"]
+position = Vector2(0, -48.992)
+scale = Vector2(1.096, 1.096)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_041" type="Node2D" parent="MapBorder"]
+position = Vector2(-518, -1944)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_041"]
+position = Vector2(0, -86.64)
+scale = Vector2(0.91, 0.91)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_042" type="Node2D" parent="MapBorder"]
+position = Vector2(-465, -1960)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_042"]
+position = Vector2(0, -94.336)
+scale = Vector2(0.984, 0.984)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_043" type="Node2D" parent="MapBorder"]
+position = Vector2(-418, -1952)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_043"]
+position = Vector2(0, -44.988)
+scale = Vector2(1.019, 1.019)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_044" type="Node2D" parent="MapBorder"]
+position = Vector2(-348, -1955)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_044"]
+position = Vector2(0, -84.352)
+scale = Vector2(0.888, 0.888)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_045" type="Node2D" parent="MapBorder"]
+position = Vector2(-300, -1953)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_045"]
+position = Vector2(0, -49.876)
+scale = Vector2(1.113, 1.113)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_046" type="Node2D" parent="MapBorder"]
+position = Vector2(-227, -1959)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_046"]
+position = Vector2(0, -42.232)
+scale = Vector2(0.966, 0.966)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_047" type="Node2D" parent="MapBorder"]
+position = Vector2(-171, -1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_047"]
+position = Vector2(0, -90.696)
+scale = Vector2(0.949, 0.949)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_048" type="Node2D" parent="MapBorder"]
+position = Vector2(-124, -1954)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_048"]
+position = Vector2(0, -105.984)
+scale = Vector2(1.096, 1.096)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_049" type="Node2D" parent="MapBorder"]
+position = Vector2(203, -1955)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_049"]
+position = Vector2(0, -42.7)
+scale = Vector2(0.975, 0.975)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_050" type="Node2D" parent="MapBorder"]
+position = Vector2(263, -1945)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_050"]
+position = Vector2(0, -52.476)
+scale = Vector2(1.163, 1.163)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_051" type="Node2D" parent="MapBorder"]
+position = Vector2(322, -1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_051"]
+position = Vector2(0, -93.608)
+scale = Vector2(0.977, 0.977)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_052" type="Node2D" parent="MapBorder"]
+position = Vector2(373, -1951)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_052"]
+position = Vector2(0, -55.7)
+scale = Vector2(1.225, 1.225)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_053" type="Node2D" parent="MapBorder"]
+position = Vector2(430, -1954)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_053"]
+position = Vector2(0, -48.056)
+scale = Vector2(1.078, 1.078)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_054" type="Node2D" parent="MapBorder"]
+position = Vector2(495, -1947)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_054"]
+position = Vector2(0, -48.94)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_055" type="Node2D" parent="MapBorder"]
+position = Vector2(534, -1951)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_055"]
+position = Vector2(0, -43.324)
+scale = Vector2(0.987, 0.987)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_056" type="Node2D" parent="MapBorder"]
+position = Vector2(605, -1960)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_056"]
+position = Vector2(0, -106.296)
+scale = Vector2(1.099, 1.099)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_057" type="Node2D" parent="MapBorder"]
+position = Vector2(656, -1960)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_057"]
+position = Vector2(0, -105.464)
+scale = Vector2(1.091, 1.091)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_058" type="Node2D" parent="MapBorder"]
+position = Vector2(713, -1947)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_058"]
+position = Vector2(0, -52.008)
+scale = Vector2(1.154, 1.154)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_059" type="Node2D" parent="MapBorder"]
+position = Vector2(771, -1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_059"]
+position = Vector2(0, -101.616)
+scale = Vector2(1.054, 1.054)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_060" type="Node2D" parent="MapBorder"]
+position = Vector2(890, -1952)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_060"]
+position = Vector2(0, -104.84)
+scale = Vector2(1.085, 1.085)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_061" type="Node2D" parent="MapBorder"]
+position = Vector2(937, -1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_061"]
+position = Vector2(0, -54.972)
+scale = Vector2(1.211, 1.211)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_062" type="Node2D" parent="MapBorder"]
+position = Vector2(983, -1943)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_062"]
+position = Vector2(0, -103.696)
+scale = Vector2(1.074, 1.074)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_glowshroom_063" type="Node2D" parent="MapBorder"]
+position = Vector2(1061, -1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_063"]
+position = Vector2(0, -33.496)
+scale = Vector2(1.092, 1.092)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_mangrove_064" type="Node2D" parent="MapBorder"]
+position = Vector2(1115, -1960)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_064"]
+position = Vector2(0, -96.104)
+scale = Vector2(1.001, 1.001)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_065" type="Node2D" parent="MapBorder"]
+position = Vector2(1213, -1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_065"]
+position = Vector2(0, -86.952)
+scale = Vector2(0.913, 0.913)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_066" type="Node2D" parent="MapBorder"]
+position = Vector2(1283, -1960)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_066"]
+position = Vector2(0, -54.296)
+scale = Vector2(1.198, 1.198)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_067" type="Node2D" parent="MapBorder"]
+position = Vector2(1334, -1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_067"]
+position = Vector2(0, -47.744)
+scale = Vector2(1.072, 1.072)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_068" type="Node2D" parent="MapBorder"]
+position = Vector2(1375, -1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_068"]
+position = Vector2(0, -104.424)
+scale = Vector2(1.081, 1.081)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_069" type="Node2D" parent="MapBorder"]
+position = Vector2(1451, -1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_069"]
+position = Vector2(0, -93.504)
+scale = Vector2(0.976, 0.976)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_070" type="Node2D" parent="MapBorder"]
+position = Vector2(1498, -1954)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_070"]
+position = Vector2(0, -53.516)
+scale = Vector2(1.183, 1.183)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_glowshroom_071" type="Node2D" parent="MapBorder"]
+position = Vector2(1546, -1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_071"]
+position = Vector2(0, -27.34)
+scale = Vector2(0.93, 0.93)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_glowshroom_072" type="Node2D" parent="MapBorder"]
+position = Vector2(1608, -1949)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_072"]
+position = Vector2(0, -34.978)
+scale = Vector2(1.131, 1.131)
+texture = ExtResource("10_3xtoo")
+
+[node name="B_mangrove_073" type="Node2D" parent="MapBorder"]
+position = Vector2(1666, -1947)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_073"]
+position = Vector2(0, -87.68)
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_074" type="Node2D" parent="MapBorder"]
+position = Vector2(1704, -1945)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_074"]
+position = Vector2(0, -85.912)
+scale = Vector2(0.903, 0.903)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_075" type="Node2D" parent="MapBorder"]
+position = Vector2(1779, -1944)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_075"]
+position = Vector2(0, -49.408)
+scale = Vector2(1.104, 1.104)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_076" type="Node2D" parent="MapBorder"]
+position = Vector2(1835, -1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_076"]
+position = Vector2(0, -43.948)
+scale = Vector2(0.999, 0.999)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_077" type="Node2D" parent="MapBorder"]
+position = Vector2(1881, -1953)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_077"]
+position = Vector2(0, -102.656)
+scale = Vector2(1.064, 1.064)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_078" type="Node2D" parent="MapBorder"]
+position = Vector2(1934, -1947)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_078"]
+position = Vector2(0, -54.348)
+scale = Vector2(1.199, 1.199)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_079" type="Node2D" parent="MapBorder"]
+position = Vector2(1986, -1955)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_079"]
+position = Vector2(0, -96)
+scale = Vector2(1, 1)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_080" type="Node2D" parent="MapBorder"]
+position = Vector2(2025, -1953)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_080"]
+position = Vector2(0, -85.288)
+scale = Vector2(0.897, 0.897)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_081" type="Node2D" parent="MapBorder"]
+position = Vector2(2085, -1954)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_081"]
+position = Vector2(0, -42.596)
+scale = Vector2(0.973, 0.973)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_082" type="Node2D" parent="MapBorder"]
+position = Vector2(2156, -1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_082"]
+position = Vector2(0, -41.712)
+scale = Vector2(0.956, 0.956)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_083" type="Node2D" parent="MapBorder"]
+position = Vector2(2194, -1952)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_083"]
+position = Vector2(0, -81.648)
+scale = Vector2(0.862, 0.862)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_084" type="Node2D" parent="MapBorder"]
+position = Vector2(2251, -1945)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_084"]
+position = Vector2(0, -51.696)
+scale = Vector2(1.148, 1.148)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_085" type="Node2D" parent="MapBorder"]
+position = Vector2(2325, -1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_085"]
+position = Vector2(0, -87.368)
+scale = Vector2(0.917, 0.917)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_086" type="Node2D" parent="MapBorder"]
+position = Vector2(2425, -1947)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_086"]
+position = Vector2(0, -50.604)
+scale = Vector2(1.127, 1.127)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_087" type="Node2D" parent="MapBorder"]
+position = Vector2(2468, -1944)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_087"]
+position = Vector2(0, -103.488)
+scale = Vector2(1.072, 1.072)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_088" type="Node2D" parent="MapBorder"]
+position = Vector2(2525, -1950)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_088"]
+position = Vector2(0, -41.66)
+scale = Vector2(0.955, 0.955)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_089" type="Node2D" parent="MapBorder"]
+position = Vector2(2585, -1945)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_089"]
+position = Vector2(0, -80.504)
+scale = Vector2(0.851, 0.851)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_090" type="Node2D" parent="MapBorder"]
+position = Vector2(2638, -1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_090"]
+position = Vector2(0, -55.544)
+scale = Vector2(1.222, 1.222)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_091" type="Node2D" parent="MapBorder"]
+position = Vector2(2719, -1951)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_091"]
+position = Vector2(0, -98.912)
+scale = Vector2(1.028, 1.028)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_092" type="Node2D" parent="MapBorder"]
+position = Vector2(2760, -1960)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_092"]
+position = Vector2(0, -85.496)
+scale = Vector2(0.899, 0.899)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_093" type="Node2D" parent="MapBorder"]
+position = Vector2(-2796, 1954)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_093"]
+position = Vector2(0, -90.384)
+scale = Vector2(0.946, 0.946)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_094" type="Node2D" parent="MapBorder"]
+position = Vector2(-2732, 1955)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_094"]
+position = Vector2(0, -87.784)
+scale = Vector2(0.921, 0.921)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_095" type="Node2D" parent="MapBorder"]
+position = Vector2(-2677, 1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_095"]
+position = Vector2(0, -82.272)
+scale = Vector2(0.868, 0.868)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_096" type="Node2D" parent="MapBorder"]
+position = Vector2(-2608, 1950)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_096"]
+position = Vector2(0, -49.2)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_097" type="Node2D" parent="MapBorder"]
+position = Vector2(-2553, 1943)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_097"]
+position = Vector2(0, -105.256)
+scale = Vector2(1.089, 1.089)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_098" type="Node2D" parent="MapBorder"]
+position = Vector2(-2508, 1954)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_098"]
+position = Vector2(0, -41.972)
+scale = Vector2(0.961, 0.961)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_glowshroom_099" type="Node2D" parent="MapBorder"]
+position = Vector2(-2444, 1959)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_099"]
+position = Vector2(0, -31.596)
+scale = Vector2(1.042, 1.042)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_glowshroom_100" type="Node2D" parent="MapBorder"]
+position = Vector2(-2386, 1947)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_100"]
+position = Vector2(0, -26.314)
+scale = Vector2(0.903, 0.903)
+texture = ExtResource("10_3xtoo")
+
+[node name="B_mangrove_101" type="Node2D" parent="MapBorder"]
+position = Vector2(-2340, 1946)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_101"]
+position = Vector2(0, -105.776)
+scale = Vector2(1.094, 1.094)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_glowshroom_102" type="Node2D" parent="MapBorder"]
+position = Vector2(-2265, 1959)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_102"]
+position = Vector2(0, -34.142)
+scale = Vector2(1.109, 1.109)
+texture = ExtResource("10_3xtoo")
+
+[node name="B_glowshroom_103" type="Node2D" parent="MapBorder"]
+position = Vector2(-2223, 1945)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_103"]
+position = Vector2(0, -33.04)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_reed_clump_104" type="Node2D" parent="MapBorder"]
+position = Vector2(-2170, 1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_104"]
+position = Vector2(0, -49.876)
+scale = Vector2(1.113, 1.113)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_105" type="Node2D" parent="MapBorder"]
+position = Vector2(-2114, 1949)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_105"]
+position = Vector2(0, -100.68)
+scale = Vector2(1.045, 1.045)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_glowshroom_106" type="Node2D" parent="MapBorder"]
+position = Vector2(-2063, 1955)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_106"]
+position = Vector2(0, -28.366)
+scale = Vector2(0.957, 0.957)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_mangrove_107" type="Node2D" parent="MapBorder"]
+position = Vector2(-1995, 1960)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_107"]
+position = Vector2(0, -87.68)
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_108" type="Node2D" parent="MapBorder"]
+position = Vector2(-1930, 1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_108"]
+position = Vector2(0, -100.472)
+scale = Vector2(1.043, 1.043)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_109" type="Node2D" parent="MapBorder"]
+position = Vector2(-1875, 1949)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_109"]
+position = Vector2(0, -49.928)
+scale = Vector2(1.114, 1.114)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_110" type="Node2D" parent="MapBorder"]
+position = Vector2(-1832, 1944)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_110"]
+position = Vector2(0, -102.76)
+scale = Vector2(1.065, 1.065)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_111" type="Node2D" parent="MapBorder"]
+position = Vector2(-1769, 1955)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_111"]
+position = Vector2(0, -52.528)
+scale = Vector2(1.164, 1.164)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_112" type="Node2D" parent="MapBorder"]
+position = Vector2(-1717, 1959)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_112"]
+position = Vector2(0, -50.5)
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_113" type="Node2D" parent="MapBorder"]
+position = Vector2(-1650, 1953)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_113"]
+position = Vector2(0, -83.936)
+scale = Vector2(0.884, 0.884)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_114" type="Node2D" parent="MapBorder"]
+position = Vector2(-1546, 1950)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_114"]
+position = Vector2(0, -88.2)
+scale = Vector2(0.925, 0.925)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_115" type="Node2D" parent="MapBorder"]
+position = Vector2(-1476, 1943)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_115"]
+position = Vector2(0, -83)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_glowshroom_116" type="Node2D" parent="MapBorder"]
+position = Vector2(-1435, 1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_116"]
+position = Vector2(0, -32.166)
+scale = Vector2(1.057, 1.057)
+texture = ExtResource("10_3xtoo")
+
+[node name="B_mangrove_117" type="Node2D" parent="MapBorder"]
+position = Vector2(-1368, 1954)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_117"]
+position = Vector2(0, -99.536)
+scale = Vector2(1.034, 1.034)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_118" type="Node2D" parent="MapBorder"]
+position = Vector2(-1299, 1950)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_118"]
+position = Vector2(0, -99.224)
+scale = Vector2(1.031, 1.031)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_119" type="Node2D" parent="MapBorder"]
+position = Vector2(-1242, 1947)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_119"]
+position = Vector2(0, -104.736)
+scale = Vector2(1.084, 1.084)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_120" type="Node2D" parent="MapBorder"]
+position = Vector2(-1145, 1949)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_120"]
+position = Vector2(0, -45.612)
+scale = Vector2(1.031, 1.031)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_121" type="Node2D" parent="MapBorder"]
+position = Vector2(-1085, 1944)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_121"]
+position = Vector2(0, -99.432)
+scale = Vector2(1.033, 1.033)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_122" type="Node2D" parent="MapBorder"]
+position = Vector2(-969, 1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_122"]
+position = Vector2(0, -50.916)
+scale = Vector2(1.133, 1.133)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_123" type="Node2D" parent="MapBorder"]
+position = Vector2(-918, 1943)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_123"]
+position = Vector2(0, -105.88)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_124" type="Node2D" parent="MapBorder"]
+position = Vector2(-868, 1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_124"]
+position = Vector2(0, -96.936)
+scale = Vector2(1.009, 1.009)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_glowshroom_125" type="Node2D" parent="MapBorder"]
+position = Vector2(-802, 1947)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_125"]
+position = Vector2(0, -27.948)
+scale = Vector2(0.946, 0.946)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_mangrove_126" type="Node2D" parent="MapBorder"]
+position = Vector2(-763, 1953)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_126"]
+position = Vector2(0, -104.112)
+scale = Vector2(1.078, 1.078)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_127" type="Node2D" parent="MapBorder"]
+position = Vector2(-691, 1945)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_127"]
+position = Vector2(0, -88.72)
+scale = Vector2(0.93, 0.93)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_128" type="Node2D" parent="MapBorder"]
+position = Vector2(-654, 1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_128"]
+position = Vector2(0, -100.888)
+scale = Vector2(1.047, 1.047)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_129" type="Node2D" parent="MapBorder"]
+position = Vector2(-592, 1957)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_129"]
+position = Vector2(0, -99.536)
+scale = Vector2(1.034, 1.034)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_130" type="Node2D" parent="MapBorder"]
+position = Vector2(-518, 1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_130"]
+position = Vector2(0, -43.272)
+scale = Vector2(0.986, 0.986)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_131" type="Node2D" parent="MapBorder"]
+position = Vector2(-459, 1957)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_131"]
+position = Vector2(0, -104.944)
+scale = Vector2(1.086, 1.086)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_132" type="Node2D" parent="MapBorder"]
+position = Vector2(-395, 1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_132"]
+position = Vector2(0, -99.12)
+scale = Vector2(1.03, 1.03)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_133" type="Node2D" parent="MapBorder"]
+position = Vector2(-349, 1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_133"]
+position = Vector2(0, -94.544)
+scale = Vector2(0.986, 0.986)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_134" type="Node2D" parent="MapBorder"]
+position = Vector2(-296, 1949)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_134"]
+position = Vector2(0, -54.868)
+scale = Vector2(1.209, 1.209)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_glowshroom_135" type="Node2D" parent="MapBorder"]
+position = Vector2(-239, 1947)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_135"]
+position = Vector2(0, -37.182)
+scale = Vector2(1.189, 1.189)
+texture = ExtResource("10_3xtoo")
+
+[node name="B_reed_clump_136" type="Node2D" parent="MapBorder"]
+position = Vector2(-181, 1951)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_136"]
+position = Vector2(0, -54.816)
+scale = Vector2(1.208, 1.208)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_137" type="Node2D" parent="MapBorder"]
+position = Vector2(-110, 1951)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_137"]
+position = Vector2(0, -102.448)
+scale = Vector2(1.062, 1.062)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_138" type="Node2D" parent="MapBorder"]
+position = Vector2(-50, 1961)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_138"]
+position = Vector2(0, -81.44)
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_139" type="Node2D" parent="MapBorder"]
+position = Vector2(63, 1957)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_139"]
+position = Vector2(0, -50.188)
+scale = Vector2(1.119, 1.119)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_140" type="Node2D" parent="MapBorder"]
+position = Vector2(158, 1947)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_140"]
+position = Vector2(0, -45.82)
+scale = Vector2(1.035, 1.035)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_141" type="Node2D" parent="MapBorder"]
+position = Vector2(211, 1949)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_141"]
+position = Vector2(0, -93.712)
+scale = Vector2(0.978, 0.978)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_142" type="Node2D" parent="MapBorder"]
+position = Vector2(263, 1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_142"]
+position = Vector2(0, -81.752)
+scale = Vector2(0.863, 0.863)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_glowshroom_143" type="Node2D" parent="MapBorder"]
+position = Vector2(328, 1955)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_143"]
+position = Vector2(0, -33.952)
+scale = Vector2(1.104, 1.104)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_reed_clump_144" type="Node2D" parent="MapBorder"]
+position = Vector2(367, 1952)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_144"]
+position = Vector2(0, -50.136)
+scale = Vector2(1.118, 1.118)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_145" type="Node2D" parent="MapBorder"]
+position = Vector2(418, 1947)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_145"]
+position = Vector2(0, -95.896)
+scale = Vector2(0.999, 0.999)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_146" type="Node2D" parent="MapBorder"]
+position = Vector2(471, 1946)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_146"]
+position = Vector2(0, -45.456)
+scale = Vector2(1.028, 1.028)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_147" type="Node2D" parent="MapBorder"]
+position = Vector2(537, 1946)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_147"]
+position = Vector2(0, -51.748)
+scale = Vector2(1.149, 1.149)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_148" type="Node2D" parent="MapBorder"]
+position = Vector2(585, 1952)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_148"]
+position = Vector2(0, -89.136)
+scale = Vector2(0.934, 0.934)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_149" type="Node2D" parent="MapBorder"]
+position = Vector2(653, 1946)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_149"]
+position = Vector2(0, -100.16)
+scale = Vector2(1.04, 1.04)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_150" type="Node2D" parent="MapBorder"]
+position = Vector2(716, 1954)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_150"]
+position = Vector2(0, -55.284)
+scale = Vector2(1.217, 1.217)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_151" type="Node2D" parent="MapBorder"]
+position = Vector2(753, 1952)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_151"]
+position = Vector2(0, -56.532)
+scale = Vector2(1.241, 1.241)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_152" type="Node2D" parent="MapBorder"]
+position = Vector2(833, 1959)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_152"]
+position = Vector2(0, -104.736)
+scale = Vector2(1.084, 1.084)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_153" type="Node2D" parent="MapBorder"]
+position = Vector2(880, 1943)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_153"]
+position = Vector2(0, -44.364)
+scale = Vector2(1.007, 1.007)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_154" type="Node2D" parent="MapBorder"]
+position = Vector2(939, 1959)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_154"]
+position = Vector2(0, -104.632)
+scale = Vector2(1.083, 1.083)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_155" type="Node2D" parent="MapBorder"]
+position = Vector2(983, 1949)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_155"]
+position = Vector2(0, -48.16)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_156" type="Node2D" parent="MapBorder"]
+position = Vector2(1027, 1960)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_156"]
+position = Vector2(0, -48.368)
+scale = Vector2(1.084, 1.084)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_157" type="Node2D" parent="MapBorder"]
+position = Vector2(1098, 1944)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_157"]
+position = Vector2(0, -105.152)
+scale = Vector2(1.088, 1.088)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_158" type="Node2D" parent="MapBorder"]
+position = Vector2(1133, 1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_158"]
+position = Vector2(0, -49.252)
+scale = Vector2(1.101, 1.101)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_159" type="Node2D" parent="MapBorder"]
+position = Vector2(1211, 1951)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_159"]
+position = Vector2(0, -89.136)
+scale = Vector2(0.934, 0.934)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_160" type="Node2D" parent="MapBorder"]
+position = Vector2(1254, 1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_160"]
+position = Vector2(0, -44)
+scale = Vector2(1, 1)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_161" type="Node2D" parent="MapBorder"]
+position = Vector2(1315, 1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_161"]
+position = Vector2(0, -101.824)
+scale = Vector2(1.056, 1.056)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_162" type="Node2D" parent="MapBorder"]
+position = Vector2(1369, 1944)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_162"]
+position = Vector2(0, -55.752)
+scale = Vector2(1.226, 1.226)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_163" type="Node2D" parent="MapBorder"]
+position = Vector2(1415, 1947)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_163"]
+position = Vector2(0, -99.744)
+scale = Vector2(1.036, 1.036)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_164" type="Node2D" parent="MapBorder"]
+position = Vector2(1486, 1951)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_164"]
+position = Vector2(0, -49.2)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_165" type="Node2D" parent="MapBorder"]
+position = Vector2(1532, 1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_165"]
+position = Vector2(0, -105.776)
+scale = Vector2(1.094, 1.094)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_166" type="Node2D" parent="MapBorder"]
+position = Vector2(1580, 1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_166"]
+position = Vector2(0, -104.632)
+scale = Vector2(1.083, 1.083)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_167" type="Node2D" parent="MapBorder"]
+position = Vector2(1657, 1945)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_167"]
+position = Vector2(0, -105.048)
+scale = Vector2(1.087, 1.087)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_168" type="Node2D" parent="MapBorder"]
+position = Vector2(1704, 1951)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_168"]
+position = Vector2(0, -98.184)
+scale = Vector2(1.021, 1.021)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_169" type="Node2D" parent="MapBorder"]
+position = Vector2(1772, 1952)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_169"]
+position = Vector2(0, -95.48)
+scale = Vector2(0.995, 0.995)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_170" type="Node2D" parent="MapBorder"]
+position = Vector2(1812, 1946)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_170"]
+position = Vector2(0, -48.368)
+scale = Vector2(1.084, 1.084)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_171" type="Node2D" parent="MapBorder"]
+position = Vector2(1870, 1950)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_171"]
+position = Vector2(0, -43.792)
+scale = Vector2(0.996, 0.996)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_172" type="Node2D" parent="MapBorder"]
+position = Vector2(1925, 1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_172"]
+position = Vector2(0, -43.532)
+scale = Vector2(0.991, 0.991)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_173" type="Node2D" parent="MapBorder"]
+position = Vector2(1995, 1950)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_173"]
+position = Vector2(0, -91.008)
+scale = Vector2(0.952, 0.952)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_174" type="Node2D" parent="MapBorder"]
+position = Vector2(2053, 1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_174"]
+position = Vector2(0, -104.944)
+scale = Vector2(1.086, 1.086)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_glowshroom_175" type="Node2D" parent="MapBorder"]
+position = Vector2(2103, 1950)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_175"]
+position = Vector2(0, -32.508)
+scale = Vector2(1.066, 1.066)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_mangrove_176" type="Node2D" parent="MapBorder"]
+position = Vector2(2167, 1951)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_176"]
+position = Vector2(0, -91.32)
+scale = Vector2(0.955, 0.955)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_177" type="Node2D" parent="MapBorder"]
+position = Vector2(2203, 1953)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_177"]
+position = Vector2(0, -91.32)
+scale = Vector2(0.955, 0.955)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_178" type="Node2D" parent="MapBorder"]
+position = Vector2(2262, 1948)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_178"]
+position = Vector2(0, -51.54)
+scale = Vector2(1.145, 1.145)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_179" type="Node2D" parent="MapBorder"]
+position = Vector2(2328, 1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_179"]
+position = Vector2(0, -43.22)
+scale = Vector2(0.985, 0.985)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_180" type="Node2D" parent="MapBorder"]
+position = Vector2(2377, 1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_180"]
+position = Vector2(0, -45.404)
+scale = Vector2(1.027, 1.027)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_glowshroom_181" type="Node2D" parent="MapBorder"]
+position = Vector2(2441, 1957)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_181"]
+position = Vector2(0, -28.024)
+scale = Vector2(0.948, 0.948)
+texture = ExtResource("10_3xtoo")
+
+[node name="B_glowshroom_182" type="Node2D" parent="MapBorder"]
+position = Vector2(2480, 1957)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_182"]
+position = Vector2(0, -29.278)
+scale = Vector2(0.981, 0.981)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_reed_clump_183" type="Node2D" parent="MapBorder"]
+position = Vector2(2558, 1953)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_183"]
+position = Vector2(0, -41.608)
+scale = Vector2(0.954, 0.954)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_184" type="Node2D" parent="MapBorder"]
+position = Vector2(2610, 1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_184"]
+position = Vector2(0, -88.72)
+scale = Vector2(0.93, 0.93)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_185" type="Node2D" parent="MapBorder"]
+position = Vector2(2664, 1958)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_185"]
+position = Vector2(0, -51.124)
+scale = Vector2(1.137, 1.137)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_186" type="Node2D" parent="MapBorder"]
+position = Vector2(2723, 1951)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_186"]
+position = Vector2(0, -99.432)
+scale = Vector2(1.033, 1.033)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_187" type="Node2D" parent="MapBorder"]
+position = Vector2(2773, 1956)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_187"]
+position = Vector2(0, -52.164)
+scale = Vector2(1.157, 1.157)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_188" type="Node2D" parent="MapBorder"]
+position = Vector2(-2758, -2002)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_188"]
+position = Vector2(0, -50.396)
+scale = Vector2(1.123, 1.123)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_189" type="Node2D" parent="MapBorder"]
+position = Vector2(-2755, -1885)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_189"]
+position = Vector2(0, -102.656)
+scale = Vector2(1.064, 1.064)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_190" type="Node2D" parent="MapBorder"]
+position = Vector2(-2754, -1834)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_190"]
+position = Vector2(0, -87.056)
+scale = Vector2(0.914, 0.914)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_191" type="Node2D" parent="MapBorder"]
+position = Vector2(-2760, -1771)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_191"]
+position = Vector2(0, -87.68)
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_192" type="Node2D" parent="MapBorder"]
+position = Vector2(-2752, -1725)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_192"]
+position = Vector2(0, -88.2)
+scale = Vector2(0.925, 0.925)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_193" type="Node2D" parent="MapBorder"]
+position = Vector2(-2750, -1660)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_193"]
+position = Vector2(0, -87.576)
+scale = Vector2(0.919, 0.919)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_194" type="Node2D" parent="MapBorder"]
+position = Vector2(-2759, -1597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_194"]
+position = Vector2(0, -56.22)
+scale = Vector2(1.235, 1.235)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_195" type="Node2D" parent="MapBorder"]
+position = Vector2(-2750, -1518)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_195"]
+position = Vector2(0, -105.88)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_196" type="Node2D" parent="MapBorder"]
+position = Vector2(-2753, -1451)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_196"]
+position = Vector2(0, -45.144)
+scale = Vector2(1.022, 1.022)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_197" type="Node2D" parent="MapBorder"]
+position = Vector2(-2752, -1410)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_197"]
+position = Vector2(0, -51.904)
+scale = Vector2(1.152, 1.152)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_198" type="Node2D" parent="MapBorder"]
+position = Vector2(-2758, -1343)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_198"]
+position = Vector2(0, -100.264)
+scale = Vector2(1.041, 1.041)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_199" type="Node2D" parent="MapBorder"]
+position = Vector2(-2757, -1276)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_199"]
+position = Vector2(0, -44.26)
+scale = Vector2(1.005, 1.005)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_200" type="Node2D" parent="MapBorder"]
+position = Vector2(-2749, -1215)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_200"]
+position = Vector2(0, -96.936)
+scale = Vector2(1.009, 1.009)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_201" type="Node2D" parent="MapBorder"]
+position = Vector2(-2746, -1162)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_201"]
+position = Vector2(0, -47.224)
+scale = Vector2(1.062, 1.062)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_202" type="Node2D" parent="MapBorder"]
+position = Vector2(-2755, -1104)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_202"]
+position = Vector2(0, -88.616)
+scale = Vector2(0.929, 0.929)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_203" type="Node2D" parent="MapBorder"]
+position = Vector2(-2749, -1064)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_203"]
+position = Vector2(0, -82.896)
+scale = Vector2(0.874, 0.874)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_204" type="Node2D" parent="MapBorder"]
+position = Vector2(-2745, -1001)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_204"]
+position = Vector2(0, -43.48)
+scale = Vector2(0.99, 0.99)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_205" type="Node2D" parent="MapBorder"]
+position = Vector2(-2761, -943)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_205"]
+position = Vector2(0, -46.912)
+scale = Vector2(1.056, 1.056)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_206" type="Node2D" parent="MapBorder"]
+position = Vector2(-2751, -900)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_206"]
+position = Vector2(0, -41.868)
+scale = Vector2(0.959, 0.959)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_207" type="Node2D" parent="MapBorder"]
+position = Vector2(-2758, -842)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_207"]
+position = Vector2(0, -85.912)
+scale = Vector2(0.903, 0.903)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_208" type="Node2D" parent="MapBorder"]
+position = Vector2(-2756, -776)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_208"]
+position = Vector2(0, -83.52)
+scale = Vector2(0.88, 0.88)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_209" type="Node2D" parent="MapBorder"]
+position = Vector2(-2745, -726)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_209"]
+position = Vector2(0, -55.96)
+scale = Vector2(1.23, 1.23)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_210" type="Node2D" parent="MapBorder"]
+position = Vector2(-2744, -675)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_210"]
+position = Vector2(0, -94.856)
+scale = Vector2(0.989, 0.989)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_211" type="Node2D" parent="MapBorder"]
+position = Vector2(-2754, -605)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_211"]
+position = Vector2(0, -105.048)
+scale = Vector2(1.087, 1.087)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_212" type="Node2D" parent="MapBorder"]
+position = Vector2(-2757, -567)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_212"]
+position = Vector2(0, -99.848)
+scale = Vector2(1.037, 1.037)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_213" type="Node2D" parent="MapBorder"]
+position = Vector2(-2759, -508)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_213"]
+position = Vector2(0, -56.064)
+scale = Vector2(1.232, 1.232)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_214" type="Node2D" parent="MapBorder"]
+position = Vector2(-2754, -460)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_214"]
+position = Vector2(0, -98.496)
+scale = Vector2(1.024, 1.024)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_215" type="Node2D" parent="MapBorder"]
+position = Vector2(-2748, -391)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_215"]
+position = Vector2(0, -96.52)
+scale = Vector2(1.005, 1.005)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_216" type="Node2D" parent="MapBorder"]
+position = Vector2(-2758, -344)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_216"]
+position = Vector2(0, -54.764)
+scale = Vector2(1.207, 1.207)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_217" type="Node2D" parent="MapBorder"]
+position = Vector2(-2749, -278)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_217"]
+position = Vector2(0, -88.928)
+scale = Vector2(0.932, 0.932)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_218" type="Node2D" parent="MapBorder"]
+position = Vector2(-2755, -233)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_218"]
+position = Vector2(0, -99.536)
+scale = Vector2(1.034, 1.034)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_219" type="Node2D" parent="MapBorder"]
+position = Vector2(-2753, 222)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_219"]
+position = Vector2(0, -42.492)
+scale = Vector2(0.971, 0.971)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_220" type="Node2D" parent="MapBorder"]
+position = Vector2(-2747, 268)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_220"]
+position = Vector2(0, -55.544)
+scale = Vector2(1.222, 1.222)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_221" type="Node2D" parent="MapBorder"]
+position = Vector2(-2757, 322)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_221"]
+position = Vector2(0, -51.124)
+scale = Vector2(1.137, 1.137)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_222" type="Node2D" parent="MapBorder"]
+position = Vector2(-2748, 384)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_222"]
+position = Vector2(0, -102.76)
+scale = Vector2(1.065, 1.065)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_glowshroom_223" type="Node2D" parent="MapBorder"]
+position = Vector2(-2747, 440)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_223"]
+position = Vector2(0, -30)
+scale = Vector2(1, 1)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_reed_clump_224" type="Node2D" parent="MapBorder"]
+position = Vector2(-2760, 505)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_224"]
+position = Vector2(0, -54.66)
+scale = Vector2(1.205, 1.205)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_glowshroom_225" type="Node2D" parent="MapBorder"]
+position = Vector2(-2757, 561)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_225"]
+position = Vector2(0, -33.192)
+scale = Vector2(1.084, 1.084)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_mangrove_226" type="Node2D" parent="MapBorder"]
+position = Vector2(-2759, 618)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_226"]
+position = Vector2(0, -86.224)
+scale = Vector2(0.906, 0.906)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_227" type="Node2D" parent="MapBorder"]
+position = Vector2(-2752, 665)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_227"]
+position = Vector2(0, -55.44)
+scale = Vector2(1.22, 1.22)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_228" type="Node2D" parent="MapBorder"]
+position = Vector2(-2744, 717)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_228"]
+position = Vector2(0, -44.884)
+scale = Vector2(1.017, 1.017)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_229" type="Node2D" parent="MapBorder"]
+position = Vector2(-2758, 783)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_229"]
+position = Vector2(0, -51.332)
+scale = Vector2(1.141, 1.141)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_230" type="Node2D" parent="MapBorder"]
+position = Vector2(-2747, 847)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_230"]
+position = Vector2(0, -87.264)
+scale = Vector2(0.916, 0.916)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_231" type="Node2D" parent="MapBorder"]
+position = Vector2(-2744, 890)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_231"]
+position = Vector2(0, -52.164)
+scale = Vector2(1.157, 1.157)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_232" type="Node2D" parent="MapBorder"]
+position = Vector2(-2757, 963)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_232"]
+position = Vector2(0, -84.56)
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_233" type="Node2D" parent="MapBorder"]
+position = Vector2(-2759, 1063)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_233"]
+position = Vector2(0, -84.768)
+scale = Vector2(0.892, 0.892)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_234" type="Node2D" parent="MapBorder"]
+position = Vector2(-2753, 1110)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_234"]
+position = Vector2(0, -83.624)
+scale = Vector2(0.881, 0.881)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_235" type="Node2D" parent="MapBorder"]
+position = Vector2(-2756, 1162)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_235"]
+position = Vector2(0, -44.572)
+scale = Vector2(1.011, 1.011)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_236" type="Node2D" parent="MapBorder"]
+position = Vector2(-2760, 1225)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_236"]
+position = Vector2(0, -82.064)
+scale = Vector2(0.866, 0.866)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_237" type="Node2D" parent="MapBorder"]
+position = Vector2(-2751, 1271)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_237"]
+position = Vector2(0, -88.304)
+scale = Vector2(0.926, 0.926)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_238" type="Node2D" parent="MapBorder"]
+position = Vector2(-2750, 1339)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_238"]
+position = Vector2(0, -99.952)
+scale = Vector2(1.038, 1.038)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_239" type="Node2D" parent="MapBorder"]
+position = Vector2(-2756, 1382)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_239"]
+position = Vector2(0, -95.168)
+scale = Vector2(0.992, 0.992)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_240" type="Node2D" parent="MapBorder"]
+position = Vector2(-2752, 1454)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_240"]
+position = Vector2(0, -98.912)
+scale = Vector2(1.028, 1.028)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_241" type="Node2D" parent="MapBorder"]
+position = Vector2(-2750, 1518)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_241"]
+position = Vector2(0, -92.568)
+scale = Vector2(0.967, 0.967)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_242" type="Node2D" parent="MapBorder"]
+position = Vector2(-2748, 1555)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_242"]
+position = Vector2(0, -82.376)
+scale = Vector2(0.869, 0.869)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_glowshroom_243" type="Node2D" parent="MapBorder"]
+position = Vector2(-2747, 1621)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_243"]
+position = Vector2(0, -32.356)
+scale = Vector2(1.062, 1.062)
+texture = ExtResource("10_3xtoo")
+
+[node name="B_mangrove_244" type="Node2D" parent="MapBorder"]
+position = Vector2(-2756, 1677)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_244"]
+position = Vector2(0, -94.024)
+scale = Vector2(0.981, 0.981)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_245" type="Node2D" parent="MapBorder"]
+position = Vector2(-2744, 1732)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_245"]
+position = Vector2(0, -53.776)
+scale = Vector2(1.188, 1.188)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_246" type="Node2D" parent="MapBorder"]
+position = Vector2(-2759, 1769)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_246"]
+position = Vector2(0, -103.696)
+scale = Vector2(1.074, 1.074)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_247" type="Node2D" parent="MapBorder"]
+position = Vector2(-2748, 1824)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_247"]
+position = Vector2(0, -46.34)
+scale = Vector2(1.045, 1.045)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_248" type="Node2D" parent="MapBorder"]
+position = Vector2(-2760, 1881)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_248"]
+position = Vector2(0, -88.408)
+scale = Vector2(0.927, 0.927)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_249" type="Node2D" parent="MapBorder"]
+position = Vector2(2746, -2000)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_249"]
+position = Vector2(0, -43.324)
+scale = Vector2(0.987, 0.987)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_250" type="Node2D" parent="MapBorder"]
+position = Vector2(2754, -1893)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_250"]
+position = Vector2(0, -48.524)
+scale = Vector2(1.087, 1.087)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_251" type="Node2D" parent="MapBorder"]
+position = Vector2(2758, -1825)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_251"]
+position = Vector2(0, -48.316)
+scale = Vector2(1.083, 1.083)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_252" type="Node2D" parent="MapBorder"]
+position = Vector2(2756, -1784)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_252"]
+position = Vector2(0, -48.836)
+scale = Vector2(1.093, 1.093)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_253" type="Node2D" parent="MapBorder"]
+position = Vector2(2745, -1718)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_253"]
+position = Vector2(0, -51.904)
+scale = Vector2(1.152, 1.152)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_254" type="Node2D" parent="MapBorder"]
+position = Vector2(2753, -1659)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_254"]
+position = Vector2(0, -92.256)
+scale = Vector2(0.964, 0.964)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_255" type="Node2D" parent="MapBorder"]
+position = Vector2(2755, -1602)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_255"]
+position = Vector2(0, -95.48)
+scale = Vector2(0.995, 0.995)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_256" type="Node2D" parent="MapBorder"]
+position = Vector2(2748, -1546)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_256"]
+position = Vector2(0, -85.704)
+scale = Vector2(0.901, 0.901)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_glowshroom_257" type="Node2D" parent="MapBorder"]
+position = Vector2(2749, -1489)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_257"]
+position = Vector2(0, -37.068)
+scale = Vector2(1.186, 1.186)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_reed_clump_258" type="Node2D" parent="MapBorder"]
+position = Vector2(2745, -1435)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_258"]
+position = Vector2(0, -41.712)
+scale = Vector2(0.956, 0.956)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_259" type="Node2D" parent="MapBorder"]
+position = Vector2(2754, -1379)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_259"]
+position = Vector2(0, -98.184)
+scale = Vector2(1.021, 1.021)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_260" type="Node2D" parent="MapBorder"]
+position = Vector2(2759, -1340)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_260"]
+position = Vector2(0, -44.312)
+scale = Vector2(1.006, 1.006)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_261" type="Node2D" parent="MapBorder"]
+position = Vector2(2747, -1277)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_261"]
+position = Vector2(0, -87.16)
+scale = Vector2(0.915, 0.915)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_glowshroom_262" type="Node2D" parent="MapBorder"]
+position = Vector2(2746, -1229)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_262"]
+position = Vector2(0, -37.562)
+scale = Vector2(1.199, 1.199)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_mangrove_263" type="Node2D" parent="MapBorder"]
+position = Vector2(2746, -1154)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_263"]
+position = Vector2(0, -104.944)
+scale = Vector2(1.086, 1.086)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_264" type="Node2D" parent="MapBorder"]
+position = Vector2(2760, -1098)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_264"]
+position = Vector2(0, -93.816)
+scale = Vector2(0.979, 0.979)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_265" type="Node2D" parent="MapBorder"]
+position = Vector2(2759, -1051)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_265"]
+position = Vector2(0, -84.456)
+scale = Vector2(0.889, 0.889)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_266" type="Node2D" parent="MapBorder"]
+position = Vector2(2745, -1005)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_266"]
+position = Vector2(0, -53.932)
+scale = Vector2(1.191, 1.191)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_267" type="Node2D" parent="MapBorder"]
+position = Vector2(2757, -943)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_267"]
+position = Vector2(0, -96)
+scale = Vector2(1, 1)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_268" type="Node2D" parent="MapBorder"]
+position = Vector2(2747, -875)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_268"]
+position = Vector2(0, -52.06)
+scale = Vector2(1.155, 1.155)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_269" type="Node2D" parent="MapBorder"]
+position = Vector2(2749, -803)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_269"]
+position = Vector2(0, -81.44)
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_270" type="Node2D" parent="MapBorder"]
+position = Vector2(2756, -748)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_270"]
+position = Vector2(0, -103.8)
+scale = Vector2(1.075, 1.075)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_271" type="Node2D" parent="MapBorder"]
+position = Vector2(2753, -693)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_271"]
+position = Vector2(0, -54.296)
+scale = Vector2(1.198, 1.198)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_272" type="Node2D" parent="MapBorder"]
+position = Vector2(2751, -642)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_272"]
+position = Vector2(0, -95.064)
+scale = Vector2(0.991, 0.991)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_273" type="Node2D" parent="MapBorder"]
+position = Vector2(2746, -586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_273"]
+position = Vector2(0, -101.824)
+scale = Vector2(1.056, 1.056)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_274" type="Node2D" parent="MapBorder"]
+position = Vector2(2745, -545)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_274"]
+position = Vector2(0, -89.864)
+scale = Vector2(0.941, 0.941)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_275" type="Node2D" parent="MapBorder"]
+position = Vector2(2754, -483)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_275"]
+position = Vector2(0, -98.288)
+scale = Vector2(1.022, 1.022)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_276" type="Node2D" parent="MapBorder"]
+position = Vector2(2746, -420)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_276"]
+position = Vector2(0, -47.328)
+scale = Vector2(1.064, 1.064)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_277" type="Node2D" parent="MapBorder"]
+position = Vector2(2744, -365)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_277"]
+position = Vector2(0, -84.56)
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_278" type="Node2D" parent="MapBorder"]
+position = Vector2(2752, -319)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_278"]
+position = Vector2(0, -100.16)
+scale = Vector2(1.04, 1.04)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_279" type="Node2D" parent="MapBorder"]
+position = Vector2(2744, -259)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_279"]
+position = Vector2(0, -97.04)
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_280" type="Node2D" parent="MapBorder"]
+position = Vector2(2758, -219)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_280"]
+position = Vector2(0, -48.316)
+scale = Vector2(1.083, 1.083)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_glowshroom_281" type="Node2D" parent="MapBorder"]
+position = Vector2(2745, -160)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_281"]
+position = Vector2(0, -30.152)
+scale = Vector2(1.004, 1.004)
+texture = ExtResource("10_3xtoo")
+
+[node name="B_glowshroom_282" type="Node2D" parent="MapBorder"]
+position = Vector2(2751, -117)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_282"]
+position = Vector2(0, -30.38)
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("10_3xtoo")
+
+[node name="B_reed_clump_283" type="Node2D" parent="MapBorder"]
+position = Vector2(2758, -58)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_283"]
+position = Vector2(0, -47.432)
+scale = Vector2(1.066, 1.066)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_284" type="Node2D" parent="MapBorder"]
+position = Vector2(2745, 6)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_284"]
+position = Vector2(0, -106.4)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_285" type="Node2D" parent="MapBorder"]
+position = Vector2(2744, 67)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_285"]
+position = Vector2(0, -92.36)
+scale = Vector2(0.965, 0.965)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_286" type="Node2D" parent="MapBorder"]
+position = Vector2(2759, 119)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_286"]
+position = Vector2(0, -52.32)
+scale = Vector2(1.16, 1.16)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_287" type="Node2D" parent="MapBorder"]
+position = Vector2(2760, 183)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_287"]
+position = Vector2(0, -43.48)
+scale = Vector2(0.99, 0.99)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_288" type="Node2D" parent="MapBorder"]
+position = Vector2(2745, 235)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_288"]
+position = Vector2(0, -83.52)
+scale = Vector2(0.88, 0.88)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_289" type="Node2D" parent="MapBorder"]
+position = Vector2(2755, 297)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_289"]
+position = Vector2(0, -86.536)
+scale = Vector2(0.909, 0.909)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_290" type="Node2D" parent="MapBorder"]
+position = Vector2(2753, 354)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_290"]
+position = Vector2(0, -93.4)
+scale = Vector2(0.975, 0.975)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_291" type="Node2D" parent="MapBorder"]
+position = Vector2(2757, 410)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_291"]
+position = Vector2(0, -91.632)
+scale = Vector2(0.958, 0.958)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_292" type="Node2D" parent="MapBorder"]
+position = Vector2(2751, 461)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_292"]
+position = Vector2(0, -43.168)
+scale = Vector2(0.984, 0.984)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_293" type="Node2D" parent="MapBorder"]
+position = Vector2(2747, 546)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_293"]
+position = Vector2(0, -50.5)
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_glowshroom_294" type="Node2D" parent="MapBorder"]
+position = Vector2(2755, 592)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_294"]
+position = Vector2(0, -30.342)
+scale = Vector2(1.009, 1.009)
+texture = ExtResource("10_3xtoo")
+
+[node name="B_mangrove_295" type="Node2D" parent="MapBorder"]
+position = Vector2(2751, 629)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_295"]
+position = Vector2(0, -92.256)
+scale = Vector2(0.964, 0.964)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_296" type="Node2D" parent="MapBorder"]
+position = Vector2(2754, 696)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_296"]
+position = Vector2(0, -43.948)
+scale = Vector2(0.999, 0.999)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_297" type="Node2D" parent="MapBorder"]
+position = Vector2(2744, 752)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_297"]
+position = Vector2(0, -48.316)
+scale = Vector2(1.083, 1.083)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_298" type="Node2D" parent="MapBorder"]
+position = Vector2(2760, 805)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_298"]
+position = Vector2(0, -46.496)
+scale = Vector2(1.048, 1.048)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_mangrove_299" type="Node2D" parent="MapBorder"]
+position = Vector2(2761, 842)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_299"]
+position = Vector2(0, -93.4)
+scale = Vector2(0.975, 0.975)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_300" type="Node2D" parent="MapBorder"]
+position = Vector2(2757, 919)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_300"]
+position = Vector2(0, -42.908)
+scale = Vector2(0.979, 0.979)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_301" type="Node2D" parent="MapBorder"]
+position = Vector2(2760, 963)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_301"]
+position = Vector2(0, -54.972)
+scale = Vector2(1.211, 1.211)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_302" type="Node2D" parent="MapBorder"]
+position = Vector2(2753, 1011)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_302"]
+position = Vector2(0, -54.868)
+scale = Vector2(1.209, 1.209)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_303" type="Node2D" parent="MapBorder"]
+position = Vector2(2758, 1074)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_303"]
+position = Vector2(0, -97.768)
+scale = Vector2(1.017, 1.017)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_304" type="Node2D" parent="MapBorder"]
+position = Vector2(2752, 1113)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_304"]
+position = Vector2(0, -44.728)
+scale = Vector2(1.014, 1.014)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_305" type="Node2D" parent="MapBorder"]
+position = Vector2(2755, 1172)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_305"]
+position = Vector2(0, -46.236)
+scale = Vector2(1.043, 1.043)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_glowshroom_306" type="Node2D" parent="MapBorder"]
+position = Vector2(2749, 1238)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_306"]
+position = Vector2(0, -34.75)
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("10_3xtoo")
+
+[node name="B_mangrove_307" type="Node2D" parent="MapBorder"]
+position = Vector2(2760, 1286)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_307"]
+position = Vector2(0, -103.28)
+scale = Vector2(1.07, 1.07)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_reed_clump_308" type="Node2D" parent="MapBorder"]
+position = Vector2(2751, 1340)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_308"]
+position = Vector2(0, -55.44)
+scale = Vector2(1.22, 1.22)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_309" type="Node2D" parent="MapBorder"]
+position = Vector2(2759, 1392)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_309"]
+position = Vector2(0, -88.512)
+scale = Vector2(0.928, 0.928)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_reed_clump_310" type="Node2D" parent="MapBorder"]
+position = Vector2(2753, 1467)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_310"]
+position = Vector2(0, -47.068)
+scale = Vector2(1.059, 1.059)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_reed_clump_311" type="Node2D" parent="MapBorder"]
+position = Vector2(2760, 1574)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_311"]
+position = Vector2(0, -48.576)
+scale = Vector2(1.088, 1.088)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_312" type="Node2D" parent="MapBorder"]
+position = Vector2(2746, 1649)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_312"]
+position = Vector2(0, -55.804)
+scale = Vector2(1.227, 1.227)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_glowshroom_313" type="Node2D" parent="MapBorder"]
+position = Vector2(2754, 1696)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_glowshroom_313"]
+position = Vector2(0, -27.644)
+scale = Vector2(0.938, 0.938)
+texture = ExtResource("10_3xtoo")
+flip_h = true
+
+[node name="B_reed_clump_314" type="Node2D" parent="MapBorder"]
+position = Vector2(2760, 1747)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_314"]
+position = Vector2(0, -54.504)
+scale = Vector2(1.202, 1.202)
+texture = ExtResource("bor_reed_clump")
+
+[node name="B_reed_clump_315" type="Node2D" parent="MapBorder"]
+position = Vector2(2746, 1797)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_reed_clump_315"]
+position = Vector2(0, -43.896)
+scale = Vector2(0.998, 0.998)
+texture = ExtResource("bor_reed_clump")
+flip_h = true
+
+[node name="B_mangrove_316" type="Node2D" parent="MapBorder"]
+position = Vector2(2760, 1853)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_316"]
+position = Vector2(0, -82.376)
+scale = Vector2(0.869, 0.869)
+texture = ExtResource("bor_mangrove")
+
+[node name="B_mangrove_317" type="Node2D" parent="MapBorder"]
+position = Vector2(2751, 1913)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_317"]
+position = Vector2(0, -96.936)
+scale = Vector2(1.009, 1.009)
+texture = ExtResource("bor_mangrove")
+flip_h = true
+
+[node name="B_mangrove_318" type="Node2D" parent="MapBorder"]
+position = Vector2(2744, 1982)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_mangrove_318"]
+position = Vector2(0, -91.32)
+scale = Vector2(0.955, 0.955)
+texture = ExtResource("bor_mangrove")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=255 format=3]
+[gd_scene load_steps=256 format=3]
 
 [ext_resource type="Script" path="res://systems/map_root.gd" id="1_yufpo"]
 [ext_resource type="TileSet" path="res://assets/tilesets/winter_v1.tres" id="2_lc10w"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://player/player.gd" id="20_rhk2a"]
 [ext_resource type="PackedScene" path="res://ui/hud.tscn" id="21_k27rd"]
 [ext_resource type="Script" path="res://ui/hud.gd" id="22_15fu2"]
+[ext_resource type="Texture2D" path="res://assets/props/snow_pine.png" id="bor_snow_pine"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_na1dq"]
 size = Vector2(7680, 64)
@@ -2052,3 +2053,4132 @@ script = ExtResource("22_15fu2")
 
 [node name="Spawn_from_frostgard" type="Marker2D" parent="."]
 position = Vector2(-480, -2304)
+
+[node name="MapBorder" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="B_snow_pine_000" type="Node2D" parent="MapBorder"]
+position = Vector2(-3753, -2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_000"]
+position = Vector2(0, -86.5)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_001" type="Node2D" parent="MapBorder"]
+position = Vector2(-3702, -2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_001"]
+position = Vector2(0, -63.52)
+scale = Vector2(1.192, 1.192)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_002" type="Node2D" parent="MapBorder"]
+position = Vector2(-3644, -2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_002"]
+position = Vector2(0, -59.32)
+scale = Vector2(1.122, 1.122)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_003" type="Node2D" parent="MapBorder"]
+position = Vector2(-3591, -2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_003"]
+position = Vector2(0, -102.376)
+scale = Vector2(1.022, 1.022)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_004" type="Node2D" parent="MapBorder"]
+position = Vector2(-3528, -2600)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_004"]
+position = Vector2(0, -84.016)
+scale = Vector2(0.852, 0.852)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_005" type="Node2D" parent="MapBorder"]
+position = Vector2(-3483, -2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_005"]
+position = Vector2(0, -98.488)
+scale = Vector2(0.986, 0.986)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_006" type="Node2D" parent="MapBorder"]
+position = Vector2(-3423, -2590)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_006"]
+position = Vector2(0, -65.32)
+scale = Vector2(1.222, 1.222)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_007" type="Node2D" parent="MapBorder"]
+position = Vector2(-3386, -2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_007"]
+position = Vector2(0, -97.948)
+scale = Vector2(0.981, 0.981)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_008" type="Node2D" parent="MapBorder"]
+position = Vector2(-3325, -2592)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_008"]
+position = Vector2(0, -98.38)
+scale = Vector2(0.985, 0.985)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_009" type="Node2D" parent="MapBorder"]
+position = Vector2(-3257, -2596)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_009"]
+position = Vector2(0, -101.944)
+scale = Vector2(1.018, 1.018)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_010" type="Node2D" parent="MapBorder"]
+position = Vector2(-3190, -2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_010"]
+position = Vector2(0, -59.74)
+scale = Vector2(1.129, 1.129)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_011" type="Node2D" parent="MapBorder"]
+position = Vector2(-3137, -2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_011"]
+position = Vector2(0, -61.72)
+scale = Vector2(1.162, 1.162)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_012" type="Node2D" parent="MapBorder"]
+position = Vector2(-3071, -2600)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_012"]
+position = Vector2(0, -108.748)
+scale = Vector2(1.081, 1.081)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_013" type="Node2D" parent="MapBorder"]
+position = Vector2(-3032, -2592)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_013"]
+position = Vector2(0, -60.22)
+scale = Vector2(1.137, 1.137)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_014" type="Node2D" parent="MapBorder"]
+position = Vector2(-2974, -2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_014"]
+position = Vector2(0, -84.34)
+scale = Vector2(0.855, 0.855)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_015" type="Node2D" parent="MapBorder"]
+position = Vector2(-2930, -2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_015"]
+position = Vector2(0, -54.28)
+scale = Vector2(1.038, 1.038)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_016" type="Node2D" parent="MapBorder"]
+position = Vector2(-2865, -2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_016"]
+position = Vector2(0, -50.74)
+scale = Vector2(0.979, 0.979)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_017" type="Node2D" parent="MapBorder"]
+position = Vector2(-2818, -2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_017"]
+position = Vector2(0, -96.112)
+scale = Vector2(0.964, 0.964)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_018" type="Node2D" parent="MapBorder"]
+position = Vector2(-2767, -2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_018"]
+position = Vector2(0, -53.86)
+scale = Vector2(1.031, 1.031)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_019" type="Node2D" parent="MapBorder"]
+position = Vector2(-2700, -2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_019"]
+position = Vector2(0, -61.96)
+scale = Vector2(1.166, 1.166)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_020" type="Node2D" parent="MapBorder"]
+position = Vector2(-2655, -2596)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_020"]
+position = Vector2(0, -85.744)
+scale = Vector2(0.868, 0.868)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_021" type="Node2D" parent="MapBorder"]
+position = Vector2(-2599, -2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_021"]
+position = Vector2(0, -87.796)
+scale = Vector2(0.887, 0.887)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_022" type="Node2D" parent="MapBorder"]
+position = Vector2(-2532, -2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_022"]
+position = Vector2(0, -54.94)
+scale = Vector2(1.049, 1.049)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_023" type="Node2D" parent="MapBorder"]
+position = Vector2(-2469, -2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_023"]
+position = Vector2(0, -47.74)
+scale = Vector2(0.929, 0.929)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_024" type="Node2D" parent="MapBorder"]
+position = Vector2(-2365, -2590)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_024"]
+position = Vector2(0, -55.9)
+scale = Vector2(1.065, 1.065)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_025" type="Node2D" parent="MapBorder"]
+position = Vector2(-2317, -2593)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_025"]
+position = Vector2(0, -93.52)
+scale = Vector2(0.94, 0.94)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_026" type="Node2D" parent="MapBorder"]
+position = Vector2(-2249, -2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_026"]
+position = Vector2(0, -90.604)
+scale = Vector2(0.913, 0.913)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_027" type="Node2D" parent="MapBorder"]
+position = Vector2(-2210, -2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_027"]
+position = Vector2(0, -109.936)
+scale = Vector2(1.092, 1.092)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_028" type="Node2D" parent="MapBorder"]
+position = Vector2(-2136, -2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_028"]
+position = Vector2(0, -65.74)
+scale = Vector2(1.229, 1.229)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_029" type="Node2D" parent="MapBorder"]
+position = Vector2(-2083, -2601)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_029"]
+position = Vector2(0, -62.8)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_030" type="Node2D" parent="MapBorder"]
+position = Vector2(-2022, -2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_030"]
+position = Vector2(0, -96.22)
+scale = Vector2(0.965, 0.965)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_031" type="Node2D" parent="MapBorder"]
+position = Vector2(-1965, -2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_031"]
+position = Vector2(0, -88.12)
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_032" type="Node2D" parent="MapBorder"]
+position = Vector2(-1908, -2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_032"]
+position = Vector2(0, -99.352)
+scale = Vector2(0.994, 0.994)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_033" type="Node2D" parent="MapBorder"]
+position = Vector2(-1848, -2587)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_033"]
+position = Vector2(0, -103.348)
+scale = Vector2(1.031, 1.031)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_034" type="Node2D" parent="MapBorder"]
+position = Vector2(-1800, -2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_034"]
+position = Vector2(0, -108.748)
+scale = Vector2(1.081, 1.081)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_035" type="Node2D" parent="MapBorder"]
+position = Vector2(-1741, -2590)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_035"]
+position = Vector2(0, -84.664)
+scale = Vector2(0.858, 0.858)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_036" type="Node2D" parent="MapBorder"]
+position = Vector2(-1687, -2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_036"]
+position = Vector2(0, -98.488)
+scale = Vector2(0.986, 0.986)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_037" type="Node2D" parent="MapBorder"]
+position = Vector2(-1610, -2590)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_037"]
+position = Vector2(0, -85.96)
+scale = Vector2(0.87, 0.87)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_038" type="Node2D" parent="MapBorder"]
+position = Vector2(-1549, -2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_038"]
+position = Vector2(0, -105.508)
+scale = Vector2(1.051, 1.051)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_039" type="Node2D" parent="MapBorder"]
+position = Vector2(-1506, -2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_039"]
+position = Vector2(0, -108.748)
+scale = Vector2(1.081, 1.081)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_040" type="Node2D" parent="MapBorder"]
+position = Vector2(-1431, -2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_040"]
+position = Vector2(0, -51.04)
+scale = Vector2(0.984, 0.984)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_041" type="Node2D" parent="MapBorder"]
+position = Vector2(-1376, -2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_041"]
+position = Vector2(0, -96.004)
+scale = Vector2(0.963, 0.963)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_042" type="Node2D" parent="MapBorder"]
+position = Vector2(-1277, -2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_042"]
+position = Vector2(0, -59.2)
+scale = Vector2(1.12, 1.12)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_043" type="Node2D" parent="MapBorder"]
+position = Vector2(-1233, -2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_043"]
+position = Vector2(0, -48.76)
+scale = Vector2(0.946, 0.946)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_044" type="Node2D" parent="MapBorder"]
+position = Vector2(-1165, -2600)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_044"]
+position = Vector2(0, -108.532)
+scale = Vector2(1.079, 1.079)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_045" type="Node2D" parent="MapBorder"]
+position = Vector2(-1129, -2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_045"]
+position = Vector2(0, -59.44)
+scale = Vector2(1.124, 1.124)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_046" type="Node2D" parent="MapBorder"]
+position = Vector2(-1066, -2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_046"]
+position = Vector2(0, -104.644)
+scale = Vector2(1.043, 1.043)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_047" type="Node2D" parent="MapBorder"]
+position = Vector2(-1018, -2590)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_047"]
+position = Vector2(0, -88.012)
+scale = Vector2(0.889, 0.889)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_048" type="Node2D" parent="MapBorder"]
+position = Vector2(-953, -2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_048"]
+position = Vector2(0, -84.988)
+scale = Vector2(0.861, 0.861)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_049" type="Node2D" parent="MapBorder"]
+position = Vector2(-902, -2587)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_049"]
+position = Vector2(0, -109.288)
+scale = Vector2(1.086, 1.086)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_050" type="Node2D" parent="MapBorder"]
+position = Vector2(-847, -2590)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_050"]
+position = Vector2(0, -86.608)
+scale = Vector2(0.876, 0.876)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_051" type="Node2D" parent="MapBorder"]
+position = Vector2(-776, -2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_051"]
+position = Vector2(0, -106.804)
+scale = Vector2(1.063, 1.063)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_052" type="Node2D" parent="MapBorder"]
+position = Vector2(-715, -2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_052"]
+position = Vector2(0, -96.112)
+scale = Vector2(0.964, 0.964)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_053" type="Node2D" parent="MapBorder"]
+position = Vector2(-680, -2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_053"]
+position = Vector2(0, -54.7)
+scale = Vector2(1.045, 1.045)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_054" type="Node2D" parent="MapBorder"]
+position = Vector2(-626, -2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_054"]
+position = Vector2(0, -48.88)
+scale = Vector2(0.948, 0.948)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_055" type="Node2D" parent="MapBorder"]
+position = Vector2(-570, -2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_055"]
+position = Vector2(0, -89.848)
+scale = Vector2(0.906, 0.906)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_056" type="Node2D" parent="MapBorder"]
+position = Vector2(-395, -2596)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_056"]
+position = Vector2(0, -99.46)
+scale = Vector2(0.995, 0.995)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_057" type="Node2D" parent="MapBorder"]
+position = Vector2(-341, -2593)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_057"]
+position = Vector2(0, -49.36)
+scale = Vector2(0.956, 0.956)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_058" type="Node2D" parent="MapBorder"]
+position = Vector2(-275, -2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_058"]
+position = Vector2(0, -65.26)
+scale = Vector2(1.221, 1.221)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_059" type="Node2D" parent="MapBorder"]
+position = Vector2(-203, -2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_059"]
+position = Vector2(0, -60.76)
+scale = Vector2(1.146, 1.146)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_060" type="Node2D" parent="MapBorder"]
+position = Vector2(-165, -2596)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_060"]
+position = Vector2(0, -63.16)
+scale = Vector2(1.186, 1.186)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_061" type="Node2D" parent="MapBorder"]
+position = Vector2(-104, -2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_061"]
+position = Vector2(0, -94.6)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_062" type="Node2D" parent="MapBorder"]
+position = Vector2(121, -2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_062"]
+position = Vector2(0, -85.636)
+scale = Vector2(0.867, 0.867)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_063" type="Node2D" parent="MapBorder"]
+position = Vector2(186, -2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_063"]
+position = Vector2(0, -63.64)
+scale = Vector2(1.194, 1.194)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_064" type="Node2D" parent="MapBorder"]
+position = Vector2(257, -2587)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_064"]
+position = Vector2(0, -61.48)
+scale = Vector2(1.158, 1.158)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_065" type="Node2D" parent="MapBorder"]
+position = Vector2(301, -2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_065"]
+position = Vector2(0, -97.516)
+scale = Vector2(0.977, 0.977)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_066" type="Node2D" parent="MapBorder"]
+position = Vector2(352, -2587)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_066"]
+position = Vector2(0, -102.7)
+scale = Vector2(1.025, 1.025)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_067" type="Node2D" parent="MapBorder"]
+position = Vector2(412, -2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_067"]
+position = Vector2(0, -100.648)
+scale = Vector2(1.006, 1.006)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_068" type="Node2D" parent="MapBorder"]
+position = Vector2(462, -2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_068"]
+position = Vector2(0, -62.44)
+scale = Vector2(1.174, 1.174)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_069" type="Node2D" parent="MapBorder"]
+position = Vector2(515, -2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_069"]
+position = Vector2(0, -102.268)
+scale = Vector2(1.021, 1.021)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_070" type="Node2D" parent="MapBorder"]
+position = Vector2(565, -2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_070"]
+position = Vector2(0, -59.56)
+scale = Vector2(1.126, 1.126)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_071" type="Node2D" parent="MapBorder"]
+position = Vector2(639, -2583)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_071"]
+position = Vector2(0, -102.808)
+scale = Vector2(1.026, 1.026)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_072" type="Node2D" parent="MapBorder"]
+position = Vector2(749, -2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_072"]
+position = Vector2(0, -106.48)
+scale = Vector2(1.06, 1.06)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_073" type="Node2D" parent="MapBorder"]
+position = Vector2(787, -2593)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_073"]
+position = Vector2(0, -86.932)
+scale = Vector2(0.879, 0.879)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_074" type="Node2D" parent="MapBorder"]
+position = Vector2(854, -2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_074"]
+position = Vector2(0, -95.896)
+scale = Vector2(0.962, 0.962)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_075" type="Node2D" parent="MapBorder"]
+position = Vector2(921, -2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_075"]
+position = Vector2(0, -90.604)
+scale = Vector2(0.913, 0.913)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_076" type="Node2D" parent="MapBorder"]
+position = Vector2(965, -2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_076"]
+position = Vector2(0, -94.492)
+scale = Vector2(0.949, 0.949)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_077" type="Node2D" parent="MapBorder"]
+position = Vector2(1025, -2592)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_077"]
+position = Vector2(0, -95.68)
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_078" type="Node2D" parent="MapBorder"]
+position = Vector2(1064, -2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_078"]
+position = Vector2(0, -109.504)
+scale = Vector2(1.088, 1.088)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_079" type="Node2D" parent="MapBorder"]
+position = Vector2(1128, -2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_079"]
+position = Vector2(0, -99.568)
+scale = Vector2(0.996, 0.996)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_080" type="Node2D" parent="MapBorder"]
+position = Vector2(1197, -2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_080"]
+position = Vector2(0, -62.62)
+scale = Vector2(1.177, 1.177)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_081" type="Node2D" parent="MapBorder"]
+position = Vector2(1245, -2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_081"]
+position = Vector2(0, -89.524)
+scale = Vector2(0.903, 0.903)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_082" type="Node2D" parent="MapBorder"]
+position = Vector2(1298, -2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_082"]
+position = Vector2(0, -48.34)
+scale = Vector2(0.939, 0.939)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_083" type="Node2D" parent="MapBorder"]
+position = Vector2(1366, -2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_083"]
+position = Vector2(0, -107.992)
+scale = Vector2(1.074, 1.074)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_084" type="Node2D" parent="MapBorder"]
+position = Vector2(1411, -2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_084"]
+position = Vector2(0, -100.972)
+scale = Vector2(1.009, 1.009)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_085" type="Node2D" parent="MapBorder"]
+position = Vector2(1476, -2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_085"]
+position = Vector2(0, -64.9)
+scale = Vector2(1.215, 1.215)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_086" type="Node2D" parent="MapBorder"]
+position = Vector2(1515, -2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_086"]
+position = Vector2(0, -102.592)
+scale = Vector2(1.024, 1.024)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_087" type="Node2D" parent="MapBorder"]
+position = Vector2(1588, -2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_087"]
+position = Vector2(0, -86.284)
+scale = Vector2(0.873, 0.873)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_088" type="Node2D" parent="MapBorder"]
+position = Vector2(1633, -2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_088"]
+position = Vector2(0, -99.568)
+scale = Vector2(0.996, 0.996)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_089" type="Node2D" parent="MapBorder"]
+position = Vector2(1690, -2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_089"]
+position = Vector2(0, -104.644)
+scale = Vector2(1.043, 1.043)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_090" type="Node2D" parent="MapBorder"]
+position = Vector2(1754, -2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_090"]
+position = Vector2(0, -46.48)
+scale = Vector2(0.908, 0.908)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_091" type="Node2D" parent="MapBorder"]
+position = Vector2(1822, -2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_091"]
+position = Vector2(0, -64.12)
+scale = Vector2(1.202, 1.202)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_092" type="Node2D" parent="MapBorder"]
+position = Vector2(1881, -2600)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_092"]
+position = Vector2(0, -61.96)
+scale = Vector2(1.166, 1.166)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_093" type="Node2D" parent="MapBorder"]
+position = Vector2(1975, -2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_093"]
+position = Vector2(0, -85.852)
+scale = Vector2(0.869, 0.869)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_094" type="Node2D" parent="MapBorder"]
+position = Vector2(2032, -2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_094"]
+position = Vector2(0, -110.26)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_095" type="Node2D" parent="MapBorder"]
+position = Vector2(2081, -2590)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_095"]
+position = Vector2(0, -86.932)
+scale = Vector2(0.879, 0.879)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_096" type="Node2D" parent="MapBorder"]
+position = Vector2(2126, -2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_096"]
+position = Vector2(0, -49)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_097" type="Node2D" parent="MapBorder"]
+position = Vector2(2189, -2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_097"]
+position = Vector2(0, -107.344)
+scale = Vector2(1.068, 1.068)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_098" type="Node2D" parent="MapBorder"]
+position = Vector2(2234, -2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_098"]
+position = Vector2(0, -66.88)
+scale = Vector2(1.248, 1.248)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_099" type="Node2D" parent="MapBorder"]
+position = Vector2(2299, -2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_099"]
+position = Vector2(0, -49.18)
+scale = Vector2(0.953, 0.953)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_100" type="Node2D" parent="MapBorder"]
+position = Vector2(2369, -2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_100"]
+position = Vector2(0, -110.584)
+scale = Vector2(1.098, 1.098)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_101" type="Node2D" parent="MapBorder"]
+position = Vector2(2427, -2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_101"]
+position = Vector2(0, -50.92)
+scale = Vector2(0.982, 0.982)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_102" type="Node2D" parent="MapBorder"]
+position = Vector2(2486, -2600)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_102"]
+position = Vector2(0, -87.256)
+scale = Vector2(0.882, 0.882)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_103" type="Node2D" parent="MapBorder"]
+position = Vector2(2542, -2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_103"]
+position = Vector2(0, -88.552)
+scale = Vector2(0.894, 0.894)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_104" type="Node2D" parent="MapBorder"]
+position = Vector2(2607, -2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_104"]
+position = Vector2(0, -90.064)
+scale = Vector2(0.908, 0.908)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_105" type="Node2D" parent="MapBorder"]
+position = Vector2(2652, -2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_105"]
+position = Vector2(0, -86.932)
+scale = Vector2(0.879, 0.879)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_106" type="Node2D" parent="MapBorder"]
+position = Vector2(2697, -2600)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_106"]
+position = Vector2(0, -87.256)
+scale = Vector2(0.882, 0.882)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_107" type="Node2D" parent="MapBorder"]
+position = Vector2(2770, -2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_107"]
+position = Vector2(0, -66.04)
+scale = Vector2(1.234, 1.234)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_108" type="Node2D" parent="MapBorder"]
+position = Vector2(2815, -2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_108"]
+position = Vector2(0, -94.6)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_109" type="Node2D" parent="MapBorder"]
+position = Vector2(2864, -2587)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_109"]
+position = Vector2(0, -53.56)
+scale = Vector2(1.026, 1.026)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_110" type="Node2D" parent="MapBorder"]
+position = Vector2(2932, -2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_110"]
+position = Vector2(0, -105.508)
+scale = Vector2(1.051, 1.051)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_111" type="Node2D" parent="MapBorder"]
+position = Vector2(2986, -2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_111"]
+position = Vector2(0, -96.436)
+scale = Vector2(0.967, 0.967)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_112" type="Node2D" parent="MapBorder"]
+position = Vector2(3035, -2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_112"]
+position = Vector2(0, -84.124)
+scale = Vector2(0.853, 0.853)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_113" type="Node2D" parent="MapBorder"]
+position = Vector2(3098, -2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_113"]
+position = Vector2(0, -103.78)
+scale = Vector2(1.035, 1.035)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_114" type="Node2D" parent="MapBorder"]
+position = Vector2(3158, -2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_114"]
+position = Vector2(0, -66.58)
+scale = Vector2(1.243, 1.243)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_115" type="Node2D" parent="MapBorder"]
+position = Vector2(3220, -2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_115"]
+position = Vector2(0, -84.34)
+scale = Vector2(0.855, 0.855)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_116" type="Node2D" parent="MapBorder"]
+position = Vector2(3262, -2590)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_116"]
+position = Vector2(0, -66.88)
+scale = Vector2(1.248, 1.248)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_117" type="Node2D" parent="MapBorder"]
+position = Vector2(3328, -2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_117"]
+position = Vector2(0, -86.176)
+scale = Vector2(0.872, 0.872)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_118" type="Node2D" parent="MapBorder"]
+position = Vector2(3369, -2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_118"]
+position = Vector2(0, -104.536)
+scale = Vector2(1.042, 1.042)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_119" type="Node2D" parent="MapBorder"]
+position = Vector2(3424, -2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_119"]
+position = Vector2(0, -53.2)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_120" type="Node2D" parent="MapBorder"]
+position = Vector2(3486, -2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_120"]
+position = Vector2(0, -98.812)
+scale = Vector2(0.989, 0.989)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_121" type="Node2D" parent="MapBorder"]
+position = Vector2(3524, -2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_121"]
+position = Vector2(0, -97.084)
+scale = Vector2(0.973, 0.973)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_122" type="Node2D" parent="MapBorder"]
+position = Vector2(3600, -2596)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_122"]
+position = Vector2(0, -92.44)
+scale = Vector2(0.93, 0.93)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_123" type="Node2D" parent="MapBorder"]
+position = Vector2(3643, -2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_123"]
+position = Vector2(0, -96.544)
+scale = Vector2(0.968, 0.968)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_124" type="Node2D" parent="MapBorder"]
+position = Vector2(3687, -2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_124"]
+position = Vector2(0, -54.4)
+scale = Vector2(1.04, 1.04)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_125" type="Node2D" parent="MapBorder"]
+position = Vector2(-3747, 2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_125"]
+position = Vector2(0, -101.296)
+scale = Vector2(1.012, 1.012)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_126" type="Node2D" parent="MapBorder"]
+position = Vector2(-3668, 2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_126"]
+position = Vector2(0, -96.544)
+scale = Vector2(0.968, 0.968)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_127" type="Node2D" parent="MapBorder"]
+position = Vector2(-3618, 2592)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_127"]
+position = Vector2(0, -90.388)
+scale = Vector2(0.911, 0.911)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_128" type="Node2D" parent="MapBorder"]
+position = Vector2(-3570, 2596)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_128"]
+position = Vector2(0, -99.46)
+scale = Vector2(0.995, 0.995)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_129" type="Node2D" parent="MapBorder"]
+position = Vector2(-3503, 2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_129"]
+position = Vector2(0, -85.96)
+scale = Vector2(0.87, 0.87)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_130" type="Node2D" parent="MapBorder"]
+position = Vector2(-3449, 2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_130"]
+position = Vector2(0, -61.12)
+scale = Vector2(1.152, 1.152)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_131" type="Node2D" parent="MapBorder"]
+position = Vector2(-3397, 2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_131"]
+position = Vector2(0, -107.776)
+scale = Vector2(1.072, 1.072)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_132" type="Node2D" parent="MapBorder"]
+position = Vector2(-3334, 2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_132"]
+position = Vector2(0, -87.796)
+scale = Vector2(0.887, 0.887)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_133" type="Node2D" parent="MapBorder"]
+position = Vector2(-3277, 2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_133"]
+position = Vector2(0, -107.668)
+scale = Vector2(1.071, 1.071)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_134" type="Node2D" parent="MapBorder"]
+position = Vector2(-3237, 2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_134"]
+position = Vector2(0, -97.732)
+scale = Vector2(0.979, 0.979)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_135" type="Node2D" parent="MapBorder"]
+position = Vector2(-3167, 2587)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_135"]
+position = Vector2(0, -101.512)
+scale = Vector2(1.014, 1.014)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_136" type="Node2D" parent="MapBorder"]
+position = Vector2(-3104, 2593)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_136"]
+position = Vector2(0, -59.32)
+scale = Vector2(1.122, 1.122)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_137" type="Node2D" parent="MapBorder"]
+position = Vector2(-3047, 2590)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_137"]
+position = Vector2(0, -102.268)
+scale = Vector2(1.021, 1.021)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_138" type="Node2D" parent="MapBorder"]
+position = Vector2(-2986, 2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_138"]
+position = Vector2(0, -88.66)
+scale = Vector2(0.895, 0.895)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_139" type="Node2D" parent="MapBorder"]
+position = Vector2(-2935, 2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_139"]
+position = Vector2(0, -50.32)
+scale = Vector2(0.972, 0.972)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_140" type="Node2D" parent="MapBorder"]
+position = Vector2(-2894, 2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_140"]
+position = Vector2(0, -58.3)
+scale = Vector2(1.105, 1.105)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_141" type="Node2D" parent="MapBorder"]
+position = Vector2(-2833, 2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_141"]
+position = Vector2(0, -100.972)
+scale = Vector2(1.009, 1.009)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_142" type="Node2D" parent="MapBorder"]
+position = Vector2(-2786, 2592)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_142"]
+position = Vector2(0, -85.96)
+scale = Vector2(0.87, 0.87)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_143" type="Node2D" parent="MapBorder"]
+position = Vector2(-2715, 2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_143"]
+position = Vector2(0, -59.62)
+scale = Vector2(1.127, 1.127)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_144" type="Node2D" parent="MapBorder"]
+position = Vector2(-2666, 2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_144"]
+position = Vector2(0, -85.204)
+scale = Vector2(0.863, 0.863)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_145" type="Node2D" parent="MapBorder"]
+position = Vector2(-2620, 2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_145"]
+position = Vector2(0, -101.404)
+scale = Vector2(1.013, 1.013)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_146" type="Node2D" parent="MapBorder"]
+position = Vector2(-2543, 2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_146"]
+position = Vector2(0, -94.06)
+scale = Vector2(0.945, 0.945)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_147" type="Node2D" parent="MapBorder"]
+position = Vector2(-2481, 2587)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_147"]
+position = Vector2(0, -100.54)
+scale = Vector2(1.005, 1.005)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_148" type="Node2D" parent="MapBorder"]
+position = Vector2(-2371, 2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_148"]
+position = Vector2(0, -91.036)
+scale = Vector2(0.917, 0.917)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_149" type="Node2D" parent="MapBorder"]
+position = Vector2(-2321, 2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_149"]
+position = Vector2(0, -88.984)
+scale = Vector2(0.898, 0.898)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_150" type="Node2D" parent="MapBorder"]
+position = Vector2(-2273, 2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_150"]
+position = Vector2(0, -98.488)
+scale = Vector2(0.986, 0.986)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_151" type="Node2D" parent="MapBorder"]
+position = Vector2(-2211, 2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_151"]
+position = Vector2(0, -58.3)
+scale = Vector2(1.105, 1.105)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_152" type="Node2D" parent="MapBorder"]
+position = Vector2(-2161, 2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_152"]
+position = Vector2(0, -99.352)
+scale = Vector2(0.994, 0.994)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_153" type="Node2D" parent="MapBorder"]
+position = Vector2(-2090, 2590)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_153"]
+position = Vector2(0, -108.964)
+scale = Vector2(1.083, 1.083)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_154" type="Node2D" parent="MapBorder"]
+position = Vector2(-2052, 2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_154"]
+position = Vector2(0, -65.5)
+scale = Vector2(1.225, 1.225)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_155" type="Node2D" parent="MapBorder"]
+position = Vector2(-1988, 2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_155"]
+position = Vector2(0, -94.384)
+scale = Vector2(0.948, 0.948)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_156" type="Node2D" parent="MapBorder"]
+position = Vector2(-1925, 2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_156"]
+position = Vector2(0, -108.208)
+scale = Vector2(1.076, 1.076)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_157" type="Node2D" parent="MapBorder"]
+position = Vector2(-1884, 2600)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_157"]
+position = Vector2(0, -63.34)
+scale = Vector2(1.189, 1.189)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_158" type="Node2D" parent="MapBorder"]
+position = Vector2(-1833, 2583)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_158"]
+position = Vector2(0, -87.688)
+scale = Vector2(0.886, 0.886)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_159" type="Node2D" parent="MapBorder"]
+position = Vector2(-1782, 2587)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_159"]
+position = Vector2(0, -92.764)
+scale = Vector2(0.933, 0.933)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_160" type="Node2D" parent="MapBorder"]
+position = Vector2(-1710, 2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_160"]
+position = Vector2(0, -103.78)
+scale = Vector2(1.035, 1.035)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_161" type="Node2D" parent="MapBorder"]
+position = Vector2(-1651, 2590)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_161"]
+position = Vector2(0, -49.6)
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_162" type="Node2D" parent="MapBorder"]
+position = Vector2(-1599, 2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_162"]
+position = Vector2(0, -66.04)
+scale = Vector2(1.234, 1.234)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_163" type="Node2D" parent="MapBorder"]
+position = Vector2(-1561, 2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_163"]
+position = Vector2(0, -63.28)
+scale = Vector2(1.188, 1.188)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_164" type="Node2D" parent="MapBorder"]
+position = Vector2(-1503, 2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_164"]
+position = Vector2(0, -55.96)
+scale = Vector2(1.066, 1.066)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_165" type="Node2D" parent="MapBorder"]
+position = Vector2(-1429, 2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_165"]
+position = Vector2(0, -64.9)
+scale = Vector2(1.215, 1.215)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_166" type="Node2D" parent="MapBorder"]
+position = Vector2(-1338, 2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_166"]
+position = Vector2(0, -96.652)
+scale = Vector2(0.969, 0.969)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_167" type="Node2D" parent="MapBorder"]
+position = Vector2(-1268, 2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_167"]
+position = Vector2(0, -100.108)
+scale = Vector2(1.001, 1.001)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_168" type="Node2D" parent="MapBorder"]
+position = Vector2(-1211, 2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_168"]
+position = Vector2(0, -87.148)
+scale = Vector2(0.881, 0.881)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_169" type="Node2D" parent="MapBorder"]
+position = Vector2(-1167, 2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_169"]
+position = Vector2(0, -107.452)
+scale = Vector2(1.069, 1.069)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_170" type="Node2D" parent="MapBorder"]
+position = Vector2(-1118, 2593)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_170"]
+position = Vector2(0, -47.2)
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_171" type="Node2D" parent="MapBorder"]
+position = Vector2(-1057, 2593)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_171"]
+position = Vector2(0, -62.02)
+scale = Vector2(1.167, 1.167)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_172" type="Node2D" parent="MapBorder"]
+position = Vector2(-998, 2600)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_172"]
+position = Vector2(0, -63.7)
+scale = Vector2(1.195, 1.195)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_173" type="Node2D" parent="MapBorder"]
+position = Vector2(-928, 2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_173"]
+position = Vector2(0, -109.288)
+scale = Vector2(1.086, 1.086)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_174" type="Node2D" parent="MapBorder"]
+position = Vector2(-881, 2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_174"]
+position = Vector2(0, -54.64)
+scale = Vector2(1.044, 1.044)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_175" type="Node2D" parent="MapBorder"]
+position = Vector2(-837, 2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_175"]
+position = Vector2(0, -108.964)
+scale = Vector2(1.083, 1.083)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_176" type="Node2D" parent="MapBorder"]
+position = Vector2(-773, 2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_176"]
+position = Vector2(0, -110.152)
+scale = Vector2(1.094, 1.094)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_177" type="Node2D" parent="MapBorder"]
+position = Vector2(-713, 2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_177"]
+position = Vector2(0, -51.22)
+scale = Vector2(0.987, 0.987)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_178" type="Node2D" parent="MapBorder"]
+position = Vector2(-650, 2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_178"]
+position = Vector2(0, -107.02)
+scale = Vector2(1.065, 1.065)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_179" type="Node2D" parent="MapBorder"]
+position = Vector2(-597, 2587)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_179"]
+position = Vector2(0, -49.9)
+scale = Vector2(0.965, 0.965)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_180" type="Node2D" parent="MapBorder"]
+position = Vector2(-538, 2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_180"]
+position = Vector2(0, -86.932)
+scale = Vector2(0.879, 0.879)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_181" type="Node2D" parent="MapBorder"]
+position = Vector2(-489, 2593)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_181"]
+position = Vector2(0, -104.32)
+scale = Vector2(1.04, 1.04)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_182" type="Node2D" parent="MapBorder"]
+position = Vector2(-425, 2583)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_182"]
+position = Vector2(0, -57.1)
+scale = Vector2(1.085, 1.085)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_183" type="Node2D" parent="MapBorder"]
+position = Vector2(-389, 2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_183"]
+position = Vector2(0, -108.748)
+scale = Vector2(1.081, 1.081)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_184" type="Node2D" parent="MapBorder"]
+position = Vector2(-324, 2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_184"]
+position = Vector2(0, -101.188)
+scale = Vector2(1.011, 1.011)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_185" type="Node2D" parent="MapBorder"]
+position = Vector2(-268, 2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_185"]
+position = Vector2(0, -96.652)
+scale = Vector2(0.969, 0.969)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_186" type="Node2D" parent="MapBorder"]
+position = Vector2(-205, 2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_186"]
+position = Vector2(0, -49.84)
+scale = Vector2(0.964, 0.964)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_187" type="Node2D" parent="MapBorder"]
+position = Vector2(-160, 2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_187"]
+position = Vector2(0, -50.68)
+scale = Vector2(0.978, 0.978)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_188" type="Node2D" parent="MapBorder"]
+position = Vector2(-98, 2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_188"]
+position = Vector2(0, -66.94)
+scale = Vector2(1.249, 1.249)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_189" type="Node2D" parent="MapBorder"]
+position = Vector2(-61, 2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_189"]
+position = Vector2(0, -92.872)
+scale = Vector2(0.934, 0.934)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_190" type="Node2D" parent="MapBorder"]
+position = Vector2(128, 2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_190"]
+position = Vector2(0, -49.84)
+scale = Vector2(0.964, 0.964)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_191" type="Node2D" parent="MapBorder"]
+position = Vector2(167, 2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_191"]
+position = Vector2(0, -101.62)
+scale = Vector2(1.015, 1.015)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_192" type="Node2D" parent="MapBorder"]
+position = Vector2(230, 2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_192"]
+position = Vector2(0, -47.44)
+scale = Vector2(0.924, 0.924)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_193" type="Node2D" parent="MapBorder"]
+position = Vector2(301, 2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_193"]
+position = Vector2(0, -46.72)
+scale = Vector2(0.912, 0.912)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_194" type="Node2D" parent="MapBorder"]
+position = Vector2(357, 2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_194"]
+position = Vector2(0, -47.74)
+scale = Vector2(0.929, 0.929)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_195" type="Node2D" parent="MapBorder"]
+position = Vector2(458, 2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_195"]
+position = Vector2(0, -86.068)
+scale = Vector2(0.871, 0.871)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_196" type="Node2D" parent="MapBorder"]
+position = Vector2(514, 2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_196"]
+position = Vector2(0, -98.488)
+scale = Vector2(0.986, 0.986)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_197" type="Node2D" parent="MapBorder"]
+position = Vector2(581, 2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_197"]
+position = Vector2(0, -95.464)
+scale = Vector2(0.958, 0.958)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_198" type="Node2D" parent="MapBorder"]
+position = Vector2(645, 2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_198"]
+position = Vector2(0, -56.14)
+scale = Vector2(1.069, 1.069)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_199" type="Node2D" parent="MapBorder"]
+position = Vector2(705, 2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_199"]
+position = Vector2(0, -88.228)
+scale = Vector2(0.891, 0.891)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_200" type="Node2D" parent="MapBorder"]
+position = Vector2(752, 2592)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_200"]
+position = Vector2(0, -48.4)
+scale = Vector2(0.94, 0.94)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_201" type="Node2D" parent="MapBorder"]
+position = Vector2(822, 2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_201"]
+position = Vector2(0, -48.22)
+scale = Vector2(0.937, 0.937)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_202" type="Node2D" parent="MapBorder"]
+position = Vector2(883, 2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_202"]
+position = Vector2(0, -93.304)
+scale = Vector2(0.938, 0.938)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_203" type="Node2D" parent="MapBorder"]
+position = Vector2(926, 2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_203"]
+position = Vector2(0, -92.764)
+scale = Vector2(0.933, 0.933)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_204" type="Node2D" parent="MapBorder"]
+position = Vector2(977, 2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_204"]
+position = Vector2(0, -87.364)
+scale = Vector2(0.883, 0.883)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_205" type="Node2D" parent="MapBorder"]
+position = Vector2(1024, 2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_205"]
+position = Vector2(0, -100.324)
+scale = Vector2(1.003, 1.003)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_206" type="Node2D" parent="MapBorder"]
+position = Vector2(1085, 2601)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_206"]
+position = Vector2(0, -105.292)
+scale = Vector2(1.049, 1.049)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_207" type="Node2D" parent="MapBorder"]
+position = Vector2(1138, 2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_207"]
+position = Vector2(0, -102.808)
+scale = Vector2(1.026, 1.026)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_208" type="Node2D" parent="MapBorder"]
+position = Vector2(1204, 2600)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_208"]
+position = Vector2(0, -96.112)
+scale = Vector2(0.964, 0.964)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_209" type="Node2D" parent="MapBorder"]
+position = Vector2(1252, 2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_209"]
+position = Vector2(0, -49.54)
+scale = Vector2(0.959, 0.959)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_210" type="Node2D" parent="MapBorder"]
+position = Vector2(1316, 2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_210"]
+position = Vector2(0, -83.908)
+scale = Vector2(0.851, 0.851)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_211" type="Node2D" parent="MapBorder"]
+position = Vector2(1381, 2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_211"]
+position = Vector2(0, -108.748)
+scale = Vector2(1.081, 1.081)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_212" type="Node2D" parent="MapBorder"]
+position = Vector2(1474, 2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_212"]
+position = Vector2(0, -100)
+scale = Vector2(1, 1)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_213" type="Node2D" parent="MapBorder"]
+position = Vector2(1542, 2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_213"]
+position = Vector2(0, -61)
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_214" type="Node2D" parent="MapBorder"]
+position = Vector2(1578, 2592)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_214"]
+position = Vector2(0, -51.28)
+scale = Vector2(0.988, 0.988)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_215" type="Node2D" parent="MapBorder"]
+position = Vector2(1634, 2596)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_215"]
+position = Vector2(0, -97.624)
+scale = Vector2(0.978, 0.978)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_216" type="Node2D" parent="MapBorder"]
+position = Vector2(1712, 2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_216"]
+position = Vector2(0, -99.784)
+scale = Vector2(0.998, 0.998)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_217" type="Node2D" parent="MapBorder"]
+position = Vector2(1761, 2585)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_217"]
+position = Vector2(0, -56.86)
+scale = Vector2(1.081, 1.081)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_218" type="Node2D" parent="MapBorder"]
+position = Vector2(1826, 2601)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_218"]
+position = Vector2(0, -97.516)
+scale = Vector2(0.977, 0.977)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_219" type="Node2D" parent="MapBorder"]
+position = Vector2(1876, 2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_219"]
+position = Vector2(0, -87.472)
+scale = Vector2(0.884, 0.884)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_220" type="Node2D" parent="MapBorder"]
+position = Vector2(1926, 2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_220"]
+position = Vector2(0, -99.46)
+scale = Vector2(0.995, 0.995)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_221" type="Node2D" parent="MapBorder"]
+position = Vector2(1988, 2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_221"]
+position = Vector2(0, -98.272)
+scale = Vector2(0.984, 0.984)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_222" type="Node2D" parent="MapBorder"]
+position = Vector2(2035, 2592)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_222"]
+position = Vector2(0, -101.188)
+scale = Vector2(1.011, 1.011)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_223" type="Node2D" parent="MapBorder"]
+position = Vector2(2107, 2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_223"]
+position = Vector2(0, -106.696)
+scale = Vector2(1.062, 1.062)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_224" type="Node2D" parent="MapBorder"]
+position = Vector2(2161, 2583)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_224"]
+position = Vector2(0, -54.16)
+scale = Vector2(1.036, 1.036)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_225" type="Node2D" parent="MapBorder"]
+position = Vector2(2218, 2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_225"]
+position = Vector2(0, -107.884)
+scale = Vector2(1.073, 1.073)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_226" type="Node2D" parent="MapBorder"]
+position = Vector2(2268, 2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_226"]
+position = Vector2(0, -51.52)
+scale = Vector2(0.992, 0.992)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_227" type="Node2D" parent="MapBorder"]
+position = Vector2(2345, 2601)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_227"]
+position = Vector2(0, -64.36)
+scale = Vector2(1.206, 1.206)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_228" type="Node2D" parent="MapBorder"]
+position = Vector2(2401, 2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_228"]
+position = Vector2(0, -97.624)
+scale = Vector2(0.978, 0.978)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_229" type="Node2D" parent="MapBorder"]
+position = Vector2(2440, 2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_229"]
+position = Vector2(0, -51.88)
+scale = Vector2(0.998, 0.998)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_230" type="Node2D" parent="MapBorder"]
+position = Vector2(2509, 2587)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_230"]
+position = Vector2(0, -96.328)
+scale = Vector2(0.966, 0.966)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_231" type="Node2D" parent="MapBorder"]
+position = Vector2(2566, 2588)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_231"]
+position = Vector2(0, -90.82)
+scale = Vector2(0.915, 0.915)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_232" type="Node2D" parent="MapBorder"]
+position = Vector2(2618, 2589)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_232"]
+position = Vector2(0, -89.848)
+scale = Vector2(0.906, 0.906)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_233" type="Node2D" parent="MapBorder"]
+position = Vector2(2679, 2599)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_233"]
+position = Vector2(0, -93.52)
+scale = Vector2(0.94, 0.94)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_234" type="Node2D" parent="MapBorder"]
+position = Vector2(2737, 2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_234"]
+position = Vector2(0, -93.844)
+scale = Vector2(0.943, 0.943)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_235" type="Node2D" parent="MapBorder"]
+position = Vector2(2800, 2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_235"]
+position = Vector2(0, -89.308)
+scale = Vector2(0.901, 0.901)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_236" type="Node2D" parent="MapBorder"]
+position = Vector2(2854, 2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_236"]
+position = Vector2(0, -94.708)
+scale = Vector2(0.951, 0.951)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_237" type="Node2D" parent="MapBorder"]
+position = Vector2(2926, 2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_237"]
+position = Vector2(0, -105.616)
+scale = Vector2(1.052, 1.052)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_238" type="Node2D" parent="MapBorder"]
+position = Vector2(2970, 2590)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_238"]
+position = Vector2(0, -88.876)
+scale = Vector2(0.897, 0.897)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_239" type="Node2D" parent="MapBorder"]
+position = Vector2(3033, 2587)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_239"]
+position = Vector2(0, -96.868)
+scale = Vector2(0.971, 0.971)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_240" type="Node2D" parent="MapBorder"]
+position = Vector2(3080, 2596)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_240"]
+position = Vector2(0, -66.04)
+scale = Vector2(1.234, 1.234)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_241" type="Node2D" parent="MapBorder"]
+position = Vector2(3135, 2591)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_241"]
+position = Vector2(0, -52.24)
+scale = Vector2(1.004, 1.004)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_242" type="Node2D" parent="MapBorder"]
+position = Vector2(3172, 2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_242"]
+position = Vector2(0, -90.172)
+scale = Vector2(0.909, 0.909)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_243" type="Node2D" parent="MapBorder"]
+position = Vector2(3246, 2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_243"]
+position = Vector2(0, -89.632)
+scale = Vector2(0.904, 0.904)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_244" type="Node2D" parent="MapBorder"]
+position = Vector2(3293, 2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_244"]
+position = Vector2(0, -87.904)
+scale = Vector2(0.888, 0.888)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_245" type="Node2D" parent="MapBorder"]
+position = Vector2(3340, 2597)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_245"]
+position = Vector2(0, -89.956)
+scale = Vector2(0.907, 0.907)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_246" type="Node2D" parent="MapBorder"]
+position = Vector2(3419, 2594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_246"]
+position = Vector2(0, -48.52)
+scale = Vector2(0.942, 0.942)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_247" type="Node2D" parent="MapBorder"]
+position = Vector2(3457, 2595)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_247"]
+position = Vector2(0, -102.052)
+scale = Vector2(1.019, 1.019)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_248" type="Node2D" parent="MapBorder"]
+position = Vector2(3505, 2586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_248"]
+position = Vector2(0, -87.688)
+scale = Vector2(0.886, 0.886)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_249" type="Node2D" parent="MapBorder"]
+position = Vector2(3581, 2587)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_249"]
+position = Vector2(0, -49)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_250" type="Node2D" parent="MapBorder"]
+position = Vector2(3625, 2600)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_250"]
+position = Vector2(0, -106.912)
+scale = Vector2(1.064, 1.064)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_251" type="Node2D" parent="MapBorder"]
+position = Vector2(3700, 2598)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_251"]
+position = Vector2(0, -89.524)
+scale = Vector2(0.903, 0.903)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_252" type="Node2D" parent="MapBorder"]
+position = Vector2(3745, 2584)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_252"]
+position = Vector2(0, -90.064)
+scale = Vector2(0.908, 0.908)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_253" type="Node2D" parent="MapBorder"]
+position = Vector2(-3709, -2514)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_253"]
+position = Vector2(0, -55.36)
+scale = Vector2(1.056, 1.056)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_254" type="Node2D" parent="MapBorder"]
+position = Vector2(-3711, -2444)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_254"]
+position = Vector2(0, -52)
+scale = Vector2(1, 1)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_255" type="Node2D" parent="MapBorder"]
+position = Vector2(-3717, -2407)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_255"]
+position = Vector2(0, -58.84)
+scale = Vector2(1.114, 1.114)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_256" type="Node2D" parent="MapBorder"]
+position = Vector2(-3706, -2343)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_256"]
+position = Vector2(0, -47.98)
+scale = Vector2(0.933, 0.933)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_257" type="Node2D" parent="MapBorder"]
+position = Vector2(-3707, -2272)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_257"]
+position = Vector2(0, -108.964)
+scale = Vector2(1.083, 1.083)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_258" type="Node2D" parent="MapBorder"]
+position = Vector2(-3710, -2226)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_258"]
+position = Vector2(0, -87.148)
+scale = Vector2(0.881, 0.881)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_259" type="Node2D" parent="MapBorder"]
+position = Vector2(-3716, -2164)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_259"]
+position = Vector2(0, -96.652)
+scale = Vector2(0.969, 0.969)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_260" type="Node2D" parent="MapBorder"]
+position = Vector2(-3708, -2095)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_260"]
+position = Vector2(0, -101.944)
+scale = Vector2(1.018, 1.018)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_261" type="Node2D" parent="MapBorder"]
+position = Vector2(-3711, -2039)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_261"]
+position = Vector2(0, -62.2)
+scale = Vector2(1.17, 1.17)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_262" type="Node2D" parent="MapBorder"]
+position = Vector2(-3720, -1991)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_262"]
+position = Vector2(0, -53.38)
+scale = Vector2(1.023, 1.023)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_263" type="Node2D" parent="MapBorder"]
+position = Vector2(-3707, -1940)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_263"]
+position = Vector2(0, -107.992)
+scale = Vector2(1.074, 1.074)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_264" type="Node2D" parent="MapBorder"]
+position = Vector2(-3710, -1874)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_264"]
+position = Vector2(0, -99.028)
+scale = Vector2(0.991, 0.991)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_265" type="Node2D" parent="MapBorder"]
+position = Vector2(-3711, -1803)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_265"]
+position = Vector2(0, -64)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_266" type="Node2D" parent="MapBorder"]
+position = Vector2(-3717, -1741)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_266"]
+position = Vector2(0, -108.964)
+scale = Vector2(1.083, 1.083)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_267" type="Node2D" parent="MapBorder"]
+position = Vector2(-3712, -1690)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_267"]
+position = Vector2(0, -51.22)
+scale = Vector2(0.987, 0.987)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_268" type="Node2D" parent="MapBorder"]
+position = Vector2(-3711, -1638)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_268"]
+position = Vector2(0, -106.156)
+scale = Vector2(1.057, 1.057)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_269" type="Node2D" parent="MapBorder"]
+position = Vector2(-3706, -1586)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_269"]
+position = Vector2(0, -105.184)
+scale = Vector2(1.048, 1.048)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_270" type="Node2D" parent="MapBorder"]
+position = Vector2(-3708, -1531)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_270"]
+position = Vector2(0, -91.576)
+scale = Vector2(0.922, 0.922)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_271" type="Node2D" parent="MapBorder"]
+position = Vector2(-3715, -1470)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_271"]
+position = Vector2(0, -96.328)
+scale = Vector2(0.966, 0.966)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_272" type="Node2D" parent="MapBorder"]
+position = Vector2(-3707, -1403)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_272"]
+position = Vector2(0, -97.84)
+scale = Vector2(0.98, 0.98)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_273" type="Node2D" parent="MapBorder"]
+position = Vector2(-3704, -1349)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_273"]
+position = Vector2(0, -106.912)
+scale = Vector2(1.064, 1.064)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_274" type="Node2D" parent="MapBorder"]
+position = Vector2(-3717, -1302)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_274"]
+position = Vector2(0, -104.86)
+scale = Vector2(1.045, 1.045)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_275" type="Node2D" parent="MapBorder"]
+position = Vector2(-3709, -1255)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_275"]
+position = Vector2(0, -55.06)
+scale = Vector2(1.051, 1.051)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_276" type="Node2D" parent="MapBorder"]
+position = Vector2(-3709, -1189)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_276"]
+position = Vector2(0, -104.212)
+scale = Vector2(1.039, 1.039)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_277" type="Node2D" parent="MapBorder"]
+position = Vector2(-3710, -1130)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_277"]
+position = Vector2(0, -89.848)
+scale = Vector2(0.906, 0.906)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_278" type="Node2D" parent="MapBorder"]
+position = Vector2(-3718, -1072)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_278"]
+position = Vector2(0, -61.96)
+scale = Vector2(1.166, 1.166)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_279" type="Node2D" parent="MapBorder"]
+position = Vector2(-3712, -1021)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_279"]
+position = Vector2(0, -101.836)
+scale = Vector2(1.017, 1.017)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_280" type="Node2D" parent="MapBorder"]
+position = Vector2(-3707, -972)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_280"]
+position = Vector2(0, -99.136)
+scale = Vector2(0.992, 0.992)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_281" type="Node2D" parent="MapBorder"]
+position = Vector2(-3714, -910)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_281"]
+position = Vector2(0, -109.072)
+scale = Vector2(1.084, 1.084)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_282" type="Node2D" parent="MapBorder"]
+position = Vector2(-3706, -853)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_282"]
+position = Vector2(0, -47.2)
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_283" type="Node2D" parent="MapBorder"]
+position = Vector2(-3716, -785)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_283"]
+position = Vector2(0, -59.92)
+scale = Vector2(1.132, 1.132)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_284" type="Node2D" parent="MapBorder"]
+position = Vector2(-3712, -717)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_284"]
+position = Vector2(0, -95.464)
+scale = Vector2(0.958, 0.958)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_285" type="Node2D" parent="MapBorder"]
+position = Vector2(-3710, -681)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_285"]
+position = Vector2(0, -86.176)
+scale = Vector2(0.872, 0.872)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_286" type="Node2D" parent="MapBorder"]
+position = Vector2(-3716, -624)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_286"]
+position = Vector2(0, -103.24)
+scale = Vector2(1.03, 1.03)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_287" type="Node2D" parent="MapBorder"]
+position = Vector2(-3704, -550)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_287"]
+position = Vector2(0, -62.5)
+scale = Vector2(1.175, 1.175)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_288" type="Node2D" parent="MapBorder"]
+position = Vector2(-3714, -487)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_288"]
+position = Vector2(0, -104.32)
+scale = Vector2(1.04, 1.04)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_289" type="Node2D" parent="MapBorder"]
+position = Vector2(-3707, -444)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_289"]
+position = Vector2(0, -89.2)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_290" type="Node2D" parent="MapBorder"]
+position = Vector2(-3716, -399)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_290"]
+position = Vector2(0, -89.848)
+scale = Vector2(0.906, 0.906)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_291" type="Node2D" parent="MapBorder"]
+position = Vector2(-3706, -332)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_291"]
+position = Vector2(0, -51.16)
+scale = Vector2(0.986, 0.986)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_292" type="Node2D" parent="MapBorder"]
+position = Vector2(-3708, -283)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_292"]
+position = Vector2(0, -100.432)
+scale = Vector2(1.004, 1.004)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_293" type="Node2D" parent="MapBorder"]
+position = Vector2(-3714, -213)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_293"]
+position = Vector2(0, -49.36)
+scale = Vector2(0.956, 0.956)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_294" type="Node2D" parent="MapBorder"]
+position = Vector2(-3709, -161)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_294"]
+position = Vector2(0, -102.16)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_295" type="Node2D" parent="MapBorder"]
+position = Vector2(-3706, -102)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_295"]
+position = Vector2(0, -85.312)
+scale = Vector2(0.864, 0.864)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_296" type="Node2D" parent="MapBorder"]
+position = Vector2(-3716, -34)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_296"]
+position = Vector2(0, -53.08)
+scale = Vector2(1.018, 1.018)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_297" type="Node2D" parent="MapBorder"]
+position = Vector2(-3703, 23)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_297"]
+position = Vector2(0, -105.4)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_298" type="Node2D" parent="MapBorder"]
+position = Vector2(-3720, 92)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_298"]
+position = Vector2(0, -88.228)
+scale = Vector2(0.891, 0.891)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_299" type="Node2D" parent="MapBorder"]
+position = Vector2(-3705, 186)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_299"]
+position = Vector2(0, -110.26)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_300" type="Node2D" parent="MapBorder"]
+position = Vector2(-3710, 245)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_300"]
+position = Vector2(0, -62.32)
+scale = Vector2(1.172, 1.172)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_301" type="Node2D" parent="MapBorder"]
+position = Vector2(-3712, 309)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_301"]
+position = Vector2(0, -97.192)
+scale = Vector2(0.974, 0.974)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_302" type="Node2D" parent="MapBorder"]
+position = Vector2(-3703, 350)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_302"]
+position = Vector2(0, -91.576)
+scale = Vector2(0.922, 0.922)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_303" type="Node2D" parent="MapBorder"]
+position = Vector2(-3715, 389)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_303"]
+position = Vector2(0, -56.68)
+scale = Vector2(1.078, 1.078)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_304" type="Node2D" parent="MapBorder"]
+position = Vector2(-3719, 451)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_304"]
+position = Vector2(0, -63.04)
+scale = Vector2(1.184, 1.184)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_305" type="Node2D" parent="MapBorder"]
+position = Vector2(-3707, 513)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_305"]
+position = Vector2(0, -49.06)
+scale = Vector2(0.951, 0.951)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_306" type="Node2D" parent="MapBorder"]
+position = Vector2(-3719, 560)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_306"]
+position = Vector2(0, -109.504)
+scale = Vector2(1.088, 1.088)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_307" type="Node2D" parent="MapBorder"]
+position = Vector2(-3711, 612)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_307"]
+position = Vector2(0, -86.716)
+scale = Vector2(0.877, 0.877)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_308" type="Node2D" parent="MapBorder"]
+position = Vector2(-3715, 678)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_308"]
+position = Vector2(0, -110.26)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_309" type="Node2D" parent="MapBorder"]
+position = Vector2(-3709, 730)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_309"]
+position = Vector2(0, -88.66)
+scale = Vector2(0.895, 0.895)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_310" type="Node2D" parent="MapBorder"]
+position = Vector2(-3705, 796)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_310"]
+position = Vector2(0, -96.868)
+scale = Vector2(0.971, 0.971)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_311" type="Node2D" parent="MapBorder"]
+position = Vector2(-3717, 860)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_311"]
+position = Vector2(0, -62.44)
+scale = Vector2(1.174, 1.174)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_312" type="Node2D" parent="MapBorder"]
+position = Vector2(-3718, 902)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_312"]
+position = Vector2(0, -62.02)
+scale = Vector2(1.167, 1.167)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_313" type="Node2D" parent="MapBorder"]
+position = Vector2(-3704, 964)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_313"]
+position = Vector2(0, -94.492)
+scale = Vector2(0.949, 0.949)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_314" type="Node2D" parent="MapBorder"]
+position = Vector2(-3720, 1039)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_314"]
+position = Vector2(0, -46.3)
+scale = Vector2(0.905, 0.905)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_315" type="Node2D" parent="MapBorder"]
+position = Vector2(-3714, 1098)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_315"]
+position = Vector2(0, -104.968)
+scale = Vector2(1.046, 1.046)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_316" type="Node2D" parent="MapBorder"]
+position = Vector2(-3709, 1149)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_316"]
+position = Vector2(0, -110.476)
+scale = Vector2(1.097, 1.097)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_317" type="Node2D" parent="MapBorder"]
+position = Vector2(-3711, 1203)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_317"]
+position = Vector2(0, -106.372)
+scale = Vector2(1.059, 1.059)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_318" type="Node2D" parent="MapBorder"]
+position = Vector2(-3717, 1259)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_318"]
+position = Vector2(0, -100.108)
+scale = Vector2(1.001, 1.001)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_319" type="Node2D" parent="MapBorder"]
+position = Vector2(-3709, 1305)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_319"]
+position = Vector2(0, -63.76)
+scale = Vector2(1.196, 1.196)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_320" type="Node2D" parent="MapBorder"]
+position = Vector2(-3716, 1370)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_320"]
+position = Vector2(0, -101.296)
+scale = Vector2(1.012, 1.012)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_321" type="Node2D" parent="MapBorder"]
+position = Vector2(-3714, 1427)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_321"]
+position = Vector2(0, -48.64)
+scale = Vector2(0.944, 0.944)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_322" type="Node2D" parent="MapBorder"]
+position = Vector2(-3716, 1463)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_322"]
+position = Vector2(0, -63.52)
+scale = Vector2(1.192, 1.192)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_323" type="Node2D" parent="MapBorder"]
+position = Vector2(-3709, 1526)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_323"]
+position = Vector2(0, -109.72)
+scale = Vector2(1.09, 1.09)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_324" type="Node2D" parent="MapBorder"]
+position = Vector2(-3719, 1579)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_324"]
+position = Vector2(0, -92.656)
+scale = Vector2(0.932, 0.932)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_325" type="Node2D" parent="MapBorder"]
+position = Vector2(-3717, 1629)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_325"]
+position = Vector2(0, -50.74)
+scale = Vector2(0.979, 0.979)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_326" type="Node2D" parent="MapBorder"]
+position = Vector2(-3717, 1692)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_326"]
+position = Vector2(0, -87.472)
+scale = Vector2(0.884, 0.884)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_327" type="Node2D" parent="MapBorder"]
+position = Vector2(-3711, 1767)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_327"]
+position = Vector2(0, -97.948)
+scale = Vector2(0.981, 0.981)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_328" type="Node2D" parent="MapBorder"]
+position = Vector2(-3706, 1808)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_328"]
+position = Vector2(0, -93.844)
+scale = Vector2(0.943, 0.943)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_329" type="Node2D" parent="MapBorder"]
+position = Vector2(-3720, 1873)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_329"]
+position = Vector2(0, -86.824)
+scale = Vector2(0.878, 0.878)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_330" type="Node2D" parent="MapBorder"]
+position = Vector2(-3711, 1939)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_330"]
+position = Vector2(0, -104.644)
+scale = Vector2(1.043, 1.043)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_331" type="Node2D" parent="MapBorder"]
+position = Vector2(-3703, 1988)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_331"]
+position = Vector2(0, -48.76)
+scale = Vector2(0.946, 0.946)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_332" type="Node2D" parent="MapBorder"]
+position = Vector2(-3708, 2054)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_332"]
+position = Vector2(0, -49.36)
+scale = Vector2(0.956, 0.956)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_333" type="Node2D" parent="MapBorder"]
+position = Vector2(-3721, 2108)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_333"]
+position = Vector2(0, -60.04)
+scale = Vector2(1.134, 1.134)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_334" type="Node2D" parent="MapBorder"]
+position = Vector2(-3708, 2168)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_334"]
+position = Vector2(0, -100.54)
+scale = Vector2(1.005, 1.005)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_335" type="Node2D" parent="MapBorder"]
+position = Vector2(-3708, 2217)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_335"]
+position = Vector2(0, -105.724)
+scale = Vector2(1.053, 1.053)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_336" type="Node2D" parent="MapBorder"]
+position = Vector2(-3718, 2262)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_336"]
+position = Vector2(0, -109.936)
+scale = Vector2(1.092, 1.092)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_337" type="Node2D" parent="MapBorder"]
+position = Vector2(-3720, 2328)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_337"]
+position = Vector2(0, -102.268)
+scale = Vector2(1.021, 1.021)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_338" type="Node2D" parent="MapBorder"]
+position = Vector2(-3704, 2375)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_338"]
+position = Vector2(0, -106.48)
+scale = Vector2(1.06, 1.06)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_339" type="Node2D" parent="MapBorder"]
+position = Vector2(-3718, 2440)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_339"]
+position = Vector2(0, -92.98)
+scale = Vector2(0.935, 0.935)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_340" type="Node2D" parent="MapBorder"]
+position = Vector2(-3718, 2486)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_340"]
+position = Vector2(0, -61.6)
+scale = Vector2(1.16, 1.16)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_341" type="Node2D" parent="MapBorder"]
+position = Vector2(-3703, 2546)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_341"]
+position = Vector2(0, -60.94)
+scale = Vector2(1.149, 1.149)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_342" type="Node2D" parent="MapBorder"]
+position = Vector2(3705, -2638)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_342"]
+position = Vector2(0, -88.012)
+scale = Vector2(0.889, 0.889)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_343" type="Node2D" parent="MapBorder"]
+position = Vector2(3720, -2575)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_343"]
+position = Vector2(0, -91.036)
+scale = Vector2(0.917, 0.917)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_344" type="Node2D" parent="MapBorder"]
+position = Vector2(3720, -2510)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_344"]
+position = Vector2(0, -90.064)
+scale = Vector2(0.908, 0.908)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_345" type="Node2D" parent="MapBorder"]
+position = Vector2(3713, -2472)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_345"]
+position = Vector2(0, -89.092)
+scale = Vector2(0.899, 0.899)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_346" type="Node2D" parent="MapBorder"]
+position = Vector2(3711, -2395)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_346"]
+position = Vector2(0, -105.184)
+scale = Vector2(1.048, 1.048)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_347" type="Node2D" parent="MapBorder"]
+position = Vector2(3704, -2341)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_347"]
+position = Vector2(0, -93.304)
+scale = Vector2(0.938, 0.938)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_348" type="Node2D" parent="MapBorder"]
+position = Vector2(3716, -2301)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_348"]
+position = Vector2(0, -47.62)
+scale = Vector2(0.927, 0.927)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_349" type="Node2D" parent="MapBorder"]
+position = Vector2(3710, -2227)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_349"]
+position = Vector2(0, -60.76)
+scale = Vector2(1.146, 1.146)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_350" type="Node2D" parent="MapBorder"]
+position = Vector2(3715, -2165)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_350"]
+position = Vector2(0, -99.676)
+scale = Vector2(0.997, 0.997)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_351" type="Node2D" parent="MapBorder"]
+position = Vector2(3704, -2127)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_351"]
+position = Vector2(0, -94.384)
+scale = Vector2(0.948, 0.948)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_352" type="Node2D" parent="MapBorder"]
+position = Vector2(3703, -2062)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_352"]
+position = Vector2(0, -91.252)
+scale = Vector2(0.919, 0.919)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_353" type="Node2D" parent="MapBorder"]
+position = Vector2(3706, -2003)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_353"]
+position = Vector2(0, -47.38)
+scale = Vector2(0.923, 0.923)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_354" type="Node2D" parent="MapBorder"]
+position = Vector2(3707, -1944)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_354"]
+position = Vector2(0, -51.22)
+scale = Vector2(0.987, 0.987)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_355" type="Node2D" parent="MapBorder"]
+position = Vector2(3716, -1899)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_355"]
+position = Vector2(0, -89.524)
+scale = Vector2(0.903, 0.903)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_356" type="Node2D" parent="MapBorder"]
+position = Vector2(3711, -1822)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_356"]
+position = Vector2(0, -90.604)
+scale = Vector2(0.913, 0.913)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_357" type="Node2D" parent="MapBorder"]
+position = Vector2(3718, -1777)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_357"]
+position = Vector2(0, -65.32)
+scale = Vector2(1.222, 1.222)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_358" type="Node2D" parent="MapBorder"]
+position = Vector2(3716, -1734)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_358"]
+position = Vector2(0, -63.22)
+scale = Vector2(1.187, 1.187)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_359" type="Node2D" parent="MapBorder"]
+position = Vector2(3710, -1666)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_359"]
+position = Vector2(0, -107.452)
+scale = Vector2(1.069, 1.069)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_360" type="Node2D" parent="MapBorder"]
+position = Vector2(3704, -1627)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_360"]
+position = Vector2(0, -58.9)
+scale = Vector2(1.115, 1.115)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_361" type="Node2D" parent="MapBorder"]
+position = Vector2(3706, -1583)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_361"]
+position = Vector2(0, -105.076)
+scale = Vector2(1.047, 1.047)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_362" type="Node2D" parent="MapBorder"]
+position = Vector2(3713, -1519)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_362"]
+position = Vector2(0, -92.116)
+scale = Vector2(0.927, 0.927)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_363" type="Node2D" parent="MapBorder"]
+position = Vector2(3705, -1477)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_363"]
+position = Vector2(0, -58.36)
+scale = Vector2(1.106, 1.106)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_364" type="Node2D" parent="MapBorder"]
+position = Vector2(3705, -1403)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_364"]
+position = Vector2(0, -91.144)
+scale = Vector2(0.918, 0.918)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_365" type="Node2D" parent="MapBorder"]
+position = Vector2(3704, -1302)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_365"]
+position = Vector2(0, -87.256)
+scale = Vector2(0.882, 0.882)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_366" type="Node2D" parent="MapBorder"]
+position = Vector2(3720, -1247)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_366"]
+position = Vector2(0, -95.248)
+scale = Vector2(0.956, 0.956)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_367" type="Node2D" parent="MapBorder"]
+position = Vector2(3704, -1201)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_367"]
+position = Vector2(0, -94.384)
+scale = Vector2(0.948, 0.948)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_368" type="Node2D" parent="MapBorder"]
+position = Vector2(3714, -1139)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_368"]
+position = Vector2(0, -84.664)
+scale = Vector2(0.858, 0.858)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_369" type="Node2D" parent="MapBorder"]
+position = Vector2(3718, -1080)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_369"]
+position = Vector2(0, -59.56)
+scale = Vector2(1.126, 1.126)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_370" type="Node2D" parent="MapBorder"]
+position = Vector2(3711, -1040)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_370"]
+position = Vector2(0, -86.716)
+scale = Vector2(0.877, 0.877)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_371" type="Node2D" parent="MapBorder"]
+position = Vector2(3719, -979)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_371"]
+position = Vector2(0, -87.688)
+scale = Vector2(0.886, 0.886)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_372" type="Node2D" parent="MapBorder"]
+position = Vector2(3705, -927)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_372"]
+position = Vector2(0, -88.552)
+scale = Vector2(0.894, 0.894)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_373" type="Node2D" parent="MapBorder"]
+position = Vector2(3711, -884)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_373"]
+position = Vector2(0, -59.02)
+scale = Vector2(1.117, 1.117)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_374" type="Node2D" parent="MapBorder"]
+position = Vector2(3703, -810)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_374"]
+position = Vector2(0, -91.144)
+scale = Vector2(0.918, 0.918)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_375" type="Node2D" parent="MapBorder"]
+position = Vector2(3705, -773)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_375"]
+position = Vector2(0, -94.6)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_376" type="Node2D" parent="MapBorder"]
+position = Vector2(3704, -701)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_376"]
+position = Vector2(0, -101.08)
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_377" type="Node2D" parent="MapBorder"]
+position = Vector2(3720, -653)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_377"]
+position = Vector2(0, -94.708)
+scale = Vector2(0.951, 0.951)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_378" type="Node2D" parent="MapBorder"]
+position = Vector2(3708, -577)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_378"]
+position = Vector2(0, -96.112)
+scale = Vector2(0.964, 0.964)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_379" type="Node2D" parent="MapBorder"]
+position = Vector2(3712, -541)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_379"]
+position = Vector2(0, -51.64)
+scale = Vector2(0.994, 0.994)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_ice_rock_380" type="Node2D" parent="MapBorder"]
+position = Vector2(3711, -473)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_380"]
+position = Vector2(0, -46.18)
+scale = Vector2(0.903, 0.903)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_381" type="Node2D" parent="MapBorder"]
+position = Vector2(3719, -421)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_381"]
+position = Vector2(0, -60.28)
+scale = Vector2(1.138, 1.138)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_382" type="Node2D" parent="MapBorder"]
+position = Vector2(3705, -365)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_382"]
+position = Vector2(0, -91.252)
+scale = Vector2(0.919, 0.919)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_383" type="Node2D" parent="MapBorder"]
+position = Vector2(3710, -295)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_383"]
+position = Vector2(0, -52.54)
+scale = Vector2(1.009, 1.009)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_384" type="Node2D" parent="MapBorder"]
+position = Vector2(3719, -247)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_384"]
+position = Vector2(0, -95.356)
+scale = Vector2(0.957, 0.957)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_385" type="Node2D" parent="MapBorder"]
+position = Vector2(3711, -186)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_385"]
+position = Vector2(0, -85.852)
+scale = Vector2(0.869, 0.869)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_386" type="Node2D" parent="MapBorder"]
+position = Vector2(3712, -140)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_386"]
+position = Vector2(0, -98.812)
+scale = Vector2(0.989, 0.989)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_387" type="Node2D" parent="MapBorder"]
+position = Vector2(3717, -86)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_387"]
+position = Vector2(0, -91.9)
+scale = Vector2(0.925, 0.925)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_388" type="Node2D" parent="MapBorder"]
+position = Vector2(3705, -27)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_388"]
+position = Vector2(0, -90.82)
+scale = Vector2(0.915, 0.915)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_389" type="Node2D" parent="MapBorder"]
+position = Vector2(3709, 12)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_389"]
+position = Vector2(0, -55.42)
+scale = Vector2(1.057, 1.057)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_390" type="Node2D" parent="MapBorder"]
+position = Vector2(3716, 80)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_390"]
+position = Vector2(0, -105.724)
+scale = Vector2(1.053, 1.053)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_391" type="Node2D" parent="MapBorder"]
+position = Vector2(3711, 135)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_391"]
+position = Vector2(0, -96.976)
+scale = Vector2(0.972, 0.972)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_392" type="Node2D" parent="MapBorder"]
+position = Vector2(3711, 187)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_392"]
+position = Vector2(0, -65.74)
+scale = Vector2(1.229, 1.229)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_393" type="Node2D" parent="MapBorder"]
+position = Vector2(3715, 296)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_393"]
+position = Vector2(0, -61.66)
+scale = Vector2(1.161, 1.161)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_394" type="Node2D" parent="MapBorder"]
+position = Vector2(3704, 344)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_394"]
+position = Vector2(0, -108.748)
+scale = Vector2(1.081, 1.081)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_395" type="Node2D" parent="MapBorder"]
+position = Vector2(3719, 402)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_395"]
+position = Vector2(0, -110.152)
+scale = Vector2(1.094, 1.094)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_396" type="Node2D" parent="MapBorder"]
+position = Vector2(3710, 464)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_396"]
+position = Vector2(0, -58.48)
+scale = Vector2(1.108, 1.108)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_397" type="Node2D" parent="MapBorder"]
+position = Vector2(3710, 522)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_397"]
+position = Vector2(0, -101.08)
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_398" type="Node2D" parent="MapBorder"]
+position = Vector2(3715, 576)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_398"]
+position = Vector2(0, -53.8)
+scale = Vector2(1.03, 1.03)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_399" type="Node2D" parent="MapBorder"]
+position = Vector2(3712, 623)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_399"]
+position = Vector2(0, -92.98)
+scale = Vector2(0.935, 0.935)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_400" type="Node2D" parent="MapBorder"]
+position = Vector2(3713, 681)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_400"]
+position = Vector2(0, -98.056)
+scale = Vector2(0.982, 0.982)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_401" type="Node2D" parent="MapBorder"]
+position = Vector2(3710, 728)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_401"]
+position = Vector2(0, -103.78)
+scale = Vector2(1.035, 1.035)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_402" type="Node2D" parent="MapBorder"]
+position = Vector2(3717, 792)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_402"]
+position = Vector2(0, -56.2)
+scale = Vector2(1.07, 1.07)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_403" type="Node2D" parent="MapBorder"]
+position = Vector2(3716, 845)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_403"]
+position = Vector2(0, -50.98)
+scale = Vector2(0.983, 0.983)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_404" type="Node2D" parent="MapBorder"]
+position = Vector2(3717, 905)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_404"]
+position = Vector2(0, -93.304)
+scale = Vector2(0.938, 0.938)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_405" type="Node2D" parent="MapBorder"]
+position = Vector2(3706, 963)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_405"]
+position = Vector2(0, -54.04)
+scale = Vector2(1.034, 1.034)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_406" type="Node2D" parent="MapBorder"]
+position = Vector2(3711, 1035)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_406"]
+position = Vector2(0, -98.812)
+scale = Vector2(0.989, 0.989)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_407" type="Node2D" parent="MapBorder"]
+position = Vector2(3717, 1091)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_407"]
+position = Vector2(0, -90.172)
+scale = Vector2(0.909, 0.909)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_408" type="Node2D" parent="MapBorder"]
+position = Vector2(3719, 1145)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_408"]
+position = Vector2(0, -84.232)
+scale = Vector2(0.854, 0.854)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_409" type="Node2D" parent="MapBorder"]
+position = Vector2(3716, 1190)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_409"]
+position = Vector2(0, -58.84)
+scale = Vector2(1.114, 1.114)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_410" type="Node2D" parent="MapBorder"]
+position = Vector2(3706, 1248)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_410"]
+position = Vector2(0, -62.92)
+scale = Vector2(1.182, 1.182)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_411" type="Node2D" parent="MapBorder"]
+position = Vector2(3716, 1293)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_411"]
+position = Vector2(0, -88.552)
+scale = Vector2(0.894, 0.894)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_412" type="Node2D" parent="MapBorder"]
+position = Vector2(3706, 1368)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_412"]
+position = Vector2(0, -93.196)
+scale = Vector2(0.937, 0.937)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_413" type="Node2D" parent="MapBorder"]
+position = Vector2(3705, 1428)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_413"]
+position = Vector2(0, -95.14)
+scale = Vector2(0.955, 0.955)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_414" type="Node2D" parent="MapBorder"]
+position = Vector2(3706, 1473)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_414"]
+position = Vector2(0, -55.54)
+scale = Vector2(1.059, 1.059)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_415" type="Node2D" parent="MapBorder"]
+position = Vector2(3719, 1542)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_415"]
+position = Vector2(0, -50.14)
+scale = Vector2(0.969, 0.969)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_416" type="Node2D" parent="MapBorder"]
+position = Vector2(3721, 1594)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_416"]
+position = Vector2(0, -98.92)
+scale = Vector2(0.99, 0.99)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_417" type="Node2D" parent="MapBorder"]
+position = Vector2(3716, 1638)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_417"]
+position = Vector2(0, -54.4)
+scale = Vector2(1.04, 1.04)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_418" type="Node2D" parent="MapBorder"]
+position = Vector2(3714, 1696)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_418"]
+position = Vector2(0, -108.964)
+scale = Vector2(1.083, 1.083)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_419" type="Node2D" parent="MapBorder"]
+position = Vector2(3715, 1761)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_419"]
+position = Vector2(0, -106.372)
+scale = Vector2(1.059, 1.059)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_420" type="Node2D" parent="MapBorder"]
+position = Vector2(3719, 1809)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_420"]
+position = Vector2(0, -90.388)
+scale = Vector2(0.911, 0.911)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_snow_pine_421" type="Node2D" parent="MapBorder"]
+position = Vector2(3717, 1859)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_421"]
+position = Vector2(0, -98.056)
+scale = Vector2(0.982, 0.982)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_422" type="Node2D" parent="MapBorder"]
+position = Vector2(3705, 1909)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_422"]
+position = Vector2(0, -66.04)
+scale = Vector2(1.234, 1.234)
+texture = ExtResource("5_flxhs")
+
+[node name="B_ice_rock_423" type="Node2D" parent="MapBorder"]
+position = Vector2(3705, 1974)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_423"]
+position = Vector2(0, -54.82)
+scale = Vector2(1.047, 1.047)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_424" type="Node2D" parent="MapBorder"]
+position = Vector2(3720, 2012)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_424"]
+position = Vector2(0, -109.612)
+scale = Vector2(1.089, 1.089)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_425" type="Node2D" parent="MapBorder"]
+position = Vector2(3711, 2059)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_425"]
+position = Vector2(0, -92.656)
+scale = Vector2(0.932, 0.932)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_426" type="Node2D" parent="MapBorder"]
+position = Vector2(3709, 2128)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_426"]
+position = Vector2(0, -84.88)
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_snow_pine_427" type="Node2D" parent="MapBorder"]
+position = Vector2(3714, 2189)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_427"]
+position = Vector2(0, -83.8)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
+
+[node name="B_ice_rock_428" type="Node2D" parent="MapBorder"]
+position = Vector2(3720, 2259)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_428"]
+position = Vector2(0, -57.58)
+scale = Vector2(1.093, 1.093)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_429" type="Node2D" parent="MapBorder"]
+position = Vector2(3710, 2307)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_429"]
+position = Vector2(0, -103.672)
+scale = Vector2(1.034, 1.034)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_430" type="Node2D" parent="MapBorder"]
+position = Vector2(3704, 2349)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_430"]
+position = Vector2(0, -60.46)
+scale = Vector2(1.141, 1.141)
+texture = ExtResource("5_flxhs")
+
+[node name="B_snow_pine_431" type="Node2D" parent="MapBorder"]
+position = Vector2(3709, 2407)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_431"]
+position = Vector2(0, -92.224)
+scale = Vector2(0.928, 0.928)
+texture = ExtResource("bor_snow_pine")
+
+[node name="B_ice_rock_432" type="Node2D" parent="MapBorder"]
+position = Vector2(3706, 2458)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_ice_rock_432"]
+position = Vector2(0, -60.28)
+scale = Vector2(1.138, 1.138)
+texture = ExtResource("5_flxhs")
+flip_h = true
+
+[node name="B_snow_pine_433" type="Node2D" parent="MapBorder"]
+position = Vector2(3713, 2501)
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MapBorder/B_snow_pine_433"]
+position = Vector2(0, -96.868)
+scale = Vector2(0.971, 0.971)
+texture = ExtResource("bor_snow_pine")
+flip_h = true
