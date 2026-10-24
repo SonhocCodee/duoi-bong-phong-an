@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://enemies/sand_bolt.gd" id="1_shot"]
+
+[sub_resource type="CircleShape2D" id="CircleShape_hit"]
+radius = 7.0
+
+[node name="SandBolt" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+monitoring = true
+monitorable = false
+script = ExtResource("1_shot")
+damage = 20
+
+[node name="Trail" type="Polygon2D" parent="."]
+color = Color(0.85, 0.58, 0.22, 0.3)
+polygon = PackedVector2Array(-18, -3, -4, -1.4, -4, 1.4, -18, 3)
+
+[node name="Trail2" type="Polygon2D" parent="."]
+color = Color(0.95, 0.75, 0.38, 0.2)
+polygon = PackedVector2Array(-28, -1.6, -15, -0.8, -15, 0.8, -28, 1.6)
+
+[node name="Core" type="Polygon2D" parent="."]
+color = Color(0.92, 0.62, 0.2, 0.96)
+polygon = PackedVector2Array(-6, -4, 2, -4.5, 7, 0, 2, 4.5, -6, 4, -8, 0)
+
+[node name="CoreHi" type="Polygon2D" parent="."]
+color = Color(1, 0.88, 0.55, 0.9)
+polygon = PackedVector2Array(-2, -2, 2, -2.2, 0.5, 0.5, -2.5, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape_hit")
