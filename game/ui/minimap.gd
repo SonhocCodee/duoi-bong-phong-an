@@ -25,6 +25,8 @@ var _ref_rect := Rect2i()
 var _step := 1
 var _portals: Array[Vector2] = []
 var _quest_points: Array[Vector2] = []
+var _main_quest_point := Vector2.ZERO
+var _has_main_point := false
 var _player: Node2D = null
 var _tex_images: Dictionary = {}
 var _color_cache: Dictionary = {}
@@ -88,6 +90,8 @@ func rebuild(root: Node, player: Node2D) -> void:
 	_ref_tm = null
 	_portals.clear()
 	_quest_points.clear()
+	_main_quest_point = Vector2.ZERO
+	_has_main_point = false
 	_player = player
 	if root == null:
 		queue_redraw()
@@ -110,17 +114,33 @@ func rebuild(root: Node, player: Node2D) -> void:
 	if has_node("/root/QuestManager"):
 		var wanted_npc: Dictionary = {}
 		var wanted_qnpc: Dictionary = {}
+		# NPC tra quest cua quest CHINH dau tien dang active/ready_turn_in,
+		# chi khi quest do da den luc tra (ready_turn_in, hoac du tien do +
+		# requires_turn_in). Quest chinh dang o trang thai diet quai thi
+		# khong co diem chinh (dich la quai, khong phai NPC).
+		var main_turn_in_npc := ""
+		var main_found := false
 		for qid in QuestManager.quests.keys():
 			var q: Dictionary = QuestManager.quests[qid]
 			var st := str(q.get("status", ""))
 			if st != "active" and st != "ready_turn_in":
 				continue
+			if not main_found and str(q.get("quest_type", "")) == "main":
+				main_found = true
+				var need_turn_in := st == "ready_turn_in" or (
+					int(q.get("progress", 0)) >= int(q.get("target_count", 1))
+					and bool(q.get("requires_turn_in", false)))
+				if need_turn_in:
+					main_turn_in_npc = str(q.get("turn_in_npc", ""))
 			var tn := str(q.get("turn_in_npc", ""))
 			if tn != "":
 				wanted_npc[tn] = true
 			wanted_qnpc[qid] = true
 		for npc in npc_nodes:
 			var nid := str(npc.get("npc_id"))
+			if main_turn_in_npc != "" and nid == main_turn_in_npc and not _has_main_point:
+				_main_quest_point = (npc as Node2D).global_position
+				_has_main_point = true
 			var hit := wanted_npc.has(nid)
 			if not hit:
 				var qids = npc.get("quest_ids")
@@ -189,6 +209,12 @@ func get_quest_point_count() -> int:
 	return _quest_points.size()
 
 
+## Diem NPC tra quest CHINH (Vector2 global) hoac null neu khong co:
+## quest chinh dau tien chua den luc tra / NPC khong o map nay.
+func get_main_quest_point() -> Variant:
+	return _main_quest_point if _has_main_point else null
+
+
 ## Cat vung quanh nguoi choi, tron mat na, ve cham, cap nhat texture.
 func _render() -> void:
 	if _map_img == null or _player == null or not is_instance_valid(_player):
@@ -216,13 +242,29 @@ func _render() -> void:
 	for p in _portals:
 		var d := _marker_pos(p, px_per_cell)
 		if d.length() <= vis_r - 6.0:
-			_stamp(out, d, 5, Color(0.05, 0.25, 0.3, 1.0))
-			_stamp(out, d, 4, Color(0.15, 0.9, 0.95, 1.0))
+			_stamp(out, d, 6, Color(0.02, 0.10, 0.12, 1.0))
+			_stamp(out, d, 5, Color(0.15, 0.9, 0.95, 1.0))
 	for p in _quest_points:
+		# Khu trung: diem quest thuong trung diem quest chinh (< 8px) thi
+		# bo qua — diem chinh duoc ve rieng (nhap nhay) ngay duoi day.
+		if _has_main_point and p.distance_to(_main_quest_point) < 8.0:
+			continue
 		var d := _marker_pos(p, px_per_cell)
 		if d.length() <= vis_r - 6.0:
-			_stamp(out, d, 5, Color(0.1, 0.08, 0.0, 1.0))
-			_stamp(out, d, 4, Color(1.0, 0.8, 0.2, 1.0))
+			_stamp(out, d, 6, Color(0.03, 0.03, 0.03, 1.0))
+			_stamp(out, d, 5, Color(1.0, 0.8, 0.2, 1.0))
+	# Marker quest CHINH nhap nhay (chu ky ~800ms, 2 trang thai doi nhau),
+	# ve sau cung de luon nam tren cac marker thuong.
+	if _has_main_point:
+		var dm := _marker_pos(_main_quest_point, px_per_cell)
+		if dm.length() <= vis_r - 8.0:
+			var phase := int(Time.get_ticks_msec() / 400) % 2
+			if phase == 0:
+				_stamp(out, dm, 8, Color(1, 1, 1, 1))
+				_stamp(out, dm, 6, Color(1.0, 0.8, 0.2, 1.0))
+			else:
+				_stamp(out, dm, 8, Color(1.0, 0.8, 0.2, 1.0))
+				_stamp(out, dm, 5, Color(1, 1, 1, 1))
 	# Cham nguoi choi: dung tam, vien trang loi do
 	var center := Vector2(RENDER, RENDER) * 0.5
 	_stamp(out, center, 7, Color(1, 1, 1, 1))
@@ -280,8 +322,43 @@ func _tile_color(tm: TileMap, layer: int, cell: Vector2i) -> Color:
 		var sampled := _sample_atlas_color(src, atlas)
 		if sampled.a > 0.05:
 			col = sampled
+	# Remap tuong phan TRUOC khi cache: cache luu mau da remap.
+	col = _contrast_remap(col)
 	_color_cache[key] = col
 	return col
+
+
+## Remap mau tile sampled/fallback ve bang mau minimap tuong phan cao,
+## de nhin phan biet ngay nuoc / duong / rung / co / nha-da / cat / tuyet.
+## Phan loai theo sac troi + do sang (luminance) + do bao hoa tu mau goc:
+##   - xanh duong troi (b > r + 0.08 va b > g) -> nuoc xanh duong dam.
+##   - xanh la troi ro (g > r + 0.04 va g > b + 0.04, tranh mau xam hoi
+##     anh luc bi nuot): luminance < 0.32 -> rung dam, con lai -> co.
+##   - it bao hoa (sat < 0.20) + sang cao (max > 0.80) -> tuyet.
+##   - thien nau/vang (r > g > b, r - g < 0.30 de khong nuot mai do):
+##     luminance >= 0.55 -> cat, con lai -> duong dat nau sang.
+##   - it bao hoa con lai (sat < 0.28) -> da / cong trinh nau-xam.
+##   - con lai (mau bao hoa dac trung nhu mai do, tim...): giu nguyen.
+func _contrast_remap(c: Color) -> Color:
+	var mx := maxf(c.r, maxf(c.g, c.b))
+	var mn := minf(c.r, minf(c.g, c.b))
+	var lum := 0.2126 * c.r + 0.7152 * c.g + 0.0722 * c.b
+	var sat := 0.0 if mx <= 0.001 else (mx - mn) / mx
+	if c.b > c.r + 0.08 and c.b > c.g:
+		return Color(0.15, 0.45, 0.95)
+	if c.g > c.r + 0.04 and c.g > c.b + 0.04:
+		if lum < 0.32:
+			return Color(0.10, 0.32, 0.12)
+		return Color(0.35, 0.62, 0.28)
+	if sat < 0.20 and mx > 0.80:
+		return Color(0.92, 0.94, 0.97)
+	if c.r > c.g and c.g > c.b and (c.r - c.g) < 0.30:
+		if lum >= 0.55:
+			return Color(0.85, 0.72, 0.45)
+		return Color(0.76, 0.60, 0.38)
+	if sat < 0.28:
+		return Color(0.48, 0.43, 0.38)
+	return c
 
 
 func _sample_atlas_color(src: TileSetAtlasSource, atlas: Vector2i) -> Color:

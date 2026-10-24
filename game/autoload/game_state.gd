@@ -15,6 +15,8 @@ signal part4_completed
 signal potions_changed(new_count: int)
 signal boss_changed(display_name: String, hp: int, max_hp: int)
 signal stats_changed(attack_bonus: int, defense_bonus: int)
+signal appearance_changed(has_armor: bool)
+signal equipment_changed
 signal skills_changed(skill_points: int, unlocked_skills: Array)
 signal materials_changed(materials: Dictionary)
 signal ending_chosen(ending_id: String)
@@ -51,9 +53,36 @@ var spawn_point: String = "start"
 var current_map: String = ""
 # Đang mở hộp thoại / shop: player.gd kiểm tra cờ này để khóa di chuyển
 var in_dialogue: bool = false
-# --- Chỉ số trang bị (cộng dồn từ add_equipment: rơi từ quái / rương) ---
+# --- Trang bị ---------------------------------------------------------------
+# Hệ trang bị thật: người chơi SỞ HỮU danh sách món (equipment_items) và
+# MẶC tối đa 1 món / slot ("weapon" / "armor") qua equipped_uids.
+# attack_bonus / defense_bonus GIỮ NGUYÊN là biến công khai (player.gd,
+# hud.gd và các test đọc trực tiếp) nhưng từ nay là GIÁ TRỊ SUY RA, chỉ
+# _recalc_equipment_bonus() mới được ghi:
+#   attack_bonus  = legacy_attack_bonus  + tổng atk của 2 món đang mặc
+#   defense_bonus = legacy_defense_bonus + tổng def của 2 món đang mặc
+# legacy_*: phần chỉ số "trần" di trú từ save cũ (bản xương cộng dồn thẳng,
+# không có danh sách đồ) — xem from_dict(). Game mới luôn có legacy = 0.
+# CÂN BẰNG: đồ chế/rương chủ chốt (Kiếm Lõi Quái +6 ATK, Giáp Da Bóng
+# +4 DEF, Kiếm Sắt Cũ +3 ATK) luôn là món mạnh nhất trong slot của chúng
+# tính tới mốc nhận được, nên tổng chỉ số ở các mốc chính KHÔNG đổi so với
+# bản cũ. Khác biệt duy nhất: đồ rác rơi ngẫu nhiên trùng slot mà yếu hơn
+# món đang mặc không còn cộng dồn vô hạn như bản xương cũ (trước đây farm
+# quái thường cộng ATK không giới hạn — đó là hệ quả của bản khung chưa có
+# hệ trang bị, không phải thiết kế cân bằng).
 var attack_bonus: int = 0
 var defense_bonus: int = 0
+var equipment_items: Array = [] # Array[Dictionary]: {"uid": String, "name": String, "slot": "weapon"|"armor", "atk": int, "def": int}
+var equipped_uids: Dictionary = {"weapon": "", "armor": ""}
+var legacy_attack_bonus: int = 0
+var legacy_defense_bonus: int = 0
+var _equipment_counter: int = 0
+# Ngoại hình player ("lính đánh thuê trắng tay"): mặc ÁO VẢI lúc khởi đầu,
+# chuyển sang bộ GIÁP hiệp sĩ khi đang MẶC một món ở slot "armor".
+# Đây là giá trị SUY RA — _recalc_equipment_bonus() đồng bộ nó (và phát
+# appearance_changed) tại mọi điểm trang bị thay đổi; player.gd nghe
+# signal đó để hoán đổi SpriteFrames áo vải <-> giáp.
+var has_armor_visual: bool = false
 # --- Skill (GDD v2 mục 5.1): mỗi level +1 điểm skill ---
 var skill_points: int = 0
 var unlocked_skills: Array = [] # Array[String] id skill đã mở, vd "chem_xoay"
@@ -135,8 +164,12 @@ func reset_game() -> void:
 	spawn_point = "start"
 	current_map = ""
 	in_dialogue = false
-	attack_bonus = 0
-	defense_bonus = 0
+	equipment_items = []
+	equipped_uids = {"weapon": "", "armor": ""}
+	legacy_attack_bonus = 0
+	legacy_defense_bonus = 0
+	_equipment_counter = 0
+	_recalc_equipment_bonus()
 	skill_points = 0
 	unlocked_skills = []
 	materials = {"herb": 0, "monster_core": 0}
@@ -197,14 +230,108 @@ func get_reputation(region: String) -> int:
 
 # --- Trang bị / chỉ số -----------------------------------------------------
 
-## Cộng dồn chỉ số từ một món trang bị (rơi từ quái hoặc mở rương).
-## name chỉ để log/hiển thị; chỉ số cộng thẳng vào attack_bonus/defense_bonus.
-func add_equipment(equip_name: String, atk: int, def: int) -> void:
-	attack_bonus += atk
-	defense_bonus += def
+## Suy slot từ chỉ số: atk>0,def=0 -> weapon; def>0,atk=0 -> armor;
+## cả hai >0 -> atk>=def ? weapon : armor; cả hai =0 -> weapon.
+func _infer_equipment_slot(atk: int, def: int) -> String:
+	if atk > 0 and def == 0:
+		return "weapon"
+	if def > 0 and atk == 0:
+		return "armor"
+	if atk > 0 and def > 0:
+		return "weapon" if atk >= def else "armor"
+	return "weapon"
+
+
+## Tính lại attack_bonus/defense_bonus từ legacy + 2 món đang mặc, rồi
+## phát stats_changed (player/hud đọc) + equipment_changed (panel trang bị).
+func _recalc_equipment_bonus() -> void:
+	var atk_total: int = legacy_attack_bonus
+	var def_total: int = legacy_defense_bonus
+	for slot in ["weapon", "armor"]:
+		var item: Dictionary = get_equipped_item(slot)
+		if not item.is_empty():
+			atk_total += int(item.get("atk", 0))
+			def_total += int(item.get("def", 0))
+	attack_bonus = atk_total
+	defense_bonus = def_total
+	# Đồng bộ ngoại hình: đang mặc món ở slot giáp -> hiện bộ giáp.
+	# Cộng thêm dấu vết của SAVE CŨ (bản xương, không có danh sách đồ):
+	# DEF trần di trú > 0 hoặc đã từng chế Giáp Da Bóng cũng tính là
+	# "đã có giáp" — load game cũ có giáp thì hiện giáp, không bắt
+	# người chơi quay về áo vải. Game mới luôn có legacy = 0 và chưa
+	# có cờ đó nên không bị ảnh hưởng.
+	var wearing_armor: bool = str(equipped_uids.get("armor", "")) != "" \
+		or legacy_defense_bonus > 0 or get_flag("crafted_giap_da_bong")
+	if wearing_armor != has_armor_visual:
+		has_armor_visual = wearing_armor
+		appearance_changed.emit(has_armor_visual)
 	stats_changed.emit(attack_bonus, defense_bonus)
+	equipment_changed.emit()
+
+
+## Món `candidate` có mạnh HƠN HẲN món `current` trong cùng slot không?
+## Vũ khí so atk trước rồi def; giáp so def trước rồi atk. Bằng nhau ở cả
+## hai chỉ số thì KHÔNG mạnh hơn (giữ món đang mặc).
+func _is_stronger_equipment(candidate: Dictionary, current: Dictionary) -> bool:
+	if str(candidate.get("slot", "weapon")) == "armor":
+		if int(candidate.get("def", 0)) != int(current.get("def", 0)):
+			return int(candidate.get("def", 0)) > int(current.get("def", 0))
+		return int(candidate.get("atk", 0)) > int(current.get("atk", 0))
+	if int(candidate.get("atk", 0)) != int(current.get("atk", 0)):
+		return int(candidate.get("atk", 0)) > int(current.get("atk", 0))
+	return int(candidate.get("def", 0)) > int(current.get("def", 0))
+
+
+## Nhận một món trang bị (rơi từ quái, mở rương hoặc chế tạo).
+## Giữ nguyên chữ ký cũ. Món được thêm vào equipment_items và TỰ ĐỘNG
+## TRANG BỊ nếu slot còn trống hoặc món mới mạnh hơn hẳn món đang mặc
+## trong slot đó; yếu hơn/bằng thì chỉ nằm trong túi, không đổi chỉ số.
+func add_equipment(equip_name: String, atk: int, def: int) -> void:
+	var slot: String = _infer_equipment_slot(atk, def)
+	_equipment_counter += 1
+	var item: Dictionary = {
+		"uid": "eq_%d" % _equipment_counter,
+		"name": equip_name,
+		"slot": slot,
+		"atk": atk,
+		"def": def,
+	}
+	equipment_items.append(item)
+	var current: Dictionary = get_equipped_item(slot)
+	if current.is_empty() or _is_stronger_equipment(item, current):
+		equipped_uids[slot] = str(item["uid"])
+	_recalc_equipment_bonus()
 	print("[GameState] Nhận trang bị '%s' (+%d ATK, +%d DEF) -> ATK bonus %d, DEF bonus %d" % [
 		equip_name, atk, def, attack_bonus, defense_bonus])
+
+
+## Trang bị món đang sở hữu theo uid (theo slot của chính món đó).
+## Trả false nếu uid không tồn tại (không đổi gì).
+func equip_item(uid: String) -> bool:
+	var item: Dictionary = get_equipment_by_uid(uid)
+	if item.is_empty():
+		return false
+	equipped_uids[str(item.get("slot", "weapon"))] = uid
+	_recalc_equipment_bonus()
+	return true
+
+
+## Món đang mặc ở slot ("weapon"/"armor"), {} nếu slot trống/không hợp lệ.
+func get_equipped_item(slot: String) -> Dictionary:
+	var uid: String = str(equipped_uids.get(slot, ""))
+	if uid == "":
+		return {}
+	return get_equipment_by_uid(uid)
+
+
+## Tìm món theo uid trong equipment_items, {} nếu không có.
+func get_equipment_by_uid(uid: String) -> Dictionary:
+	if uid == "":
+		return {}
+	for raw in equipment_items:
+		if raw is Dictionary and str(raw.get("uid", "")) == uid:
+			return raw
+	return {}
 
 
 # --- Bình máu ------------------------------------------------------------
@@ -436,6 +563,12 @@ func to_dict() -> Dictionary:
 		"current_map": current_map,
 		"attack_bonus": attack_bonus,
 		"defense_bonus": defense_bonus,
+		"has_armor_visual": has_armor_visual,
+		"equipment_items": equipment_items.duplicate(true),
+		"equipped_uids": equipped_uids.duplicate(),
+		"legacy_attack_bonus": legacy_attack_bonus,
+		"legacy_defense_bonus": legacy_defense_bonus,
+		"equipment_counter": _equipment_counter,
 		"skill_points": skill_points,
 		"unlocked_skills": unlocked_skills.duplicate(),
 		"materials": materials.duplicate(),
@@ -462,8 +595,56 @@ func from_dict(data: Dictionary) -> void:
 		flags = data["flags"].duplicate(true)
 	spawn_point = str(data.get("spawn_point", "start"))
 	current_map = str(data.get("current_map", ""))
-	attack_bonus = int(data.get("attack_bonus", 0))
-	defense_bonus = int(data.get("defense_bonus", 0))
+	# --- Trang bị: nạp danh sách đồ HOẶC di trú save cũ ---
+	# KHÔNG gán thẳng attack_bonus/defense_bonus ở đây: hai biến đó là giá
+	# trị suy ra, _recalc_equipment_bonus() ở cuối from_dict() sẽ tính lại.
+	if data.has("equipment_items") and data["equipment_items"] is Array:
+		# Save mới: nạp danh sách đồ (làm sạch từng phần tử), legacy lấy từ
+		# save, counter lấy từ save để uid sinh sau không trùng uid cũ.
+		equipment_items = []
+		for raw in data["equipment_items"]:
+			if not (raw is Dictionary):
+				continue
+			var c_atk: int = int(raw.get("atk", 0))
+			var c_def: int = int(raw.get("def", 0))
+			var c_slot: String = str(raw.get("slot", ""))
+			if c_slot != "weapon" and c_slot != "armor":
+				c_slot = _infer_equipment_slot(c_atk, c_def)
+			var c_uid: String = str(raw.get("uid", ""))
+			if c_uid == "":
+				continue
+			equipment_items.append({
+				"uid": c_uid,
+				"name": str(raw.get("name", "")),
+				"slot": c_slot,
+				"atk": c_atk,
+				"def": c_def,
+			})
+		legacy_attack_bonus = int(data.get("legacy_attack_bonus", 0))
+		legacy_defense_bonus = int(data.get("legacy_defense_bonus", 0))
+		_equipment_counter = int(data.get("equipment_counter", equipment_items.size()))
+		# equipped_uids: chỉ giữ uid thực sự tồn tại trong danh sách đồ.
+		equipped_uids = {"weapon": "", "armor": ""}
+		if data.has("equipped_uids") and data["equipped_uids"] is Dictionary:
+			for slot in ["weapon", "armor"]:
+				var e_uid: String = str(data["equipped_uids"].get(slot, ""))
+				if e_uid != "" and not get_equipment_by_uid(e_uid).is_empty():
+					equipped_uids[slot] = e_uid
+	else:
+		# DI TRÚ SAVE CŨ (chưa có equipment keys): bản xương cộng dồn thẳng
+		# vào attack_bonus/defense_bonus và không lưu món nào. Chuyển toàn
+		# bộ tổng cũ sang legacy_* để tổng chỉ số người chơi giữ nguyên
+		# 100% khi load; danh sách đồ bắt đầu rỗng, đồ nhặt từ nay mới vào
+		# hệ slot. (Save mới lưu legacy riêng nên không cộng trùng: khi đó
+		# attack_bonus trong save đã là giá trị suy ra, không đọc trực tiếp.)
+		equipment_items = []
+		equipped_uids = {"weapon": "", "armor": ""}
+		legacy_attack_bonus = int(data.get("attack_bonus", 0))
+		legacy_defense_bonus = int(data.get("defense_bonus", 0))
+		_equipment_counter = 0
+		# NGOẠI HÌNH của save cũ được lo ở _recalc_equipment_bonus()
+		# (legacy_defense_bonus > 0 / cờ crafted_giap_da_bong -> coi như
+		# đã có giáp) — KHÔNG tạo món giả vào danh sách đồ ở đây.
 	skill_points = int(data.get("skill_points", 0))
 	materials = {"herb": 0, "monster_core": 0}
 	if data.has("materials") and data["materials"] is Dictionary:
@@ -481,7 +662,9 @@ func from_dict(data: Dictionary) -> void:
 		for sid in data["unlocked_skills"]:
 			unlocked_skills.append(str(sid))
 	skills_changed.emit(skill_points, unlocked_skills)
-	stats_changed.emit(attack_bonus, defense_bonus)
+	# Tính lại attack_bonus/defense_bonus suy ra từ legacy + đồ đang mặc
+	# (hàm này tự emit stats_changed + equipment_changed).
+	_recalc_equipment_bonus()
 	clear_boss_display()
 	gold_changed.emit(gold)
 	potions_changed.emit(potions)

@@ -39,6 +39,24 @@ func _script_path(node: Node) -> String:
 	return s.resource_path if s != null else ""
 
 
+# Tổng atk/def của 2 món đang trang bị (legacy = 0 trong test này, vì
+# reset_game ở đầu test và không nạp save cũ).
+func _equipped_bonus_sum() -> Vector2i:
+	var total := Vector2i.ZERO
+	for slot in ["weapon", "armor"]:
+		var item: Dictionary = GameState.get_equipped_item(slot)
+		total.x += int(item.get("atk", 0))
+		total.y += int(item.get("def", 0))
+	return total
+
+
+func _has_equipment_named(item_name: String) -> bool:
+	for raw in GameState.equipment_items:
+		if raw is Dictionary and str(raw.get("name", "")) == item_name:
+			return true
+	return false
+
+
 func _ready() -> void:
 	print("[GAMEPLAY] Bắt đầu test gameplay systems.")
 	GameState.reset_game()
@@ -123,7 +141,6 @@ func _ready() -> void:
 	# ============ 4) Rương loot ============
 	var gold0: int = GameState.gold
 	var pot2: int = GameState.potions
-	var atk0: int = GameState.attack_bonus
 	var chest: Node = load("res://systems/chest.tscn").instantiate()
 	chest.set("chest_id", "test_chest")
 	chest.set("gold_reward", 50)
@@ -139,10 +156,20 @@ func _ready() -> void:
 	chest.interact()
 	_check(GameState.gold == gold0 + 50, "Chest: +50 vàng (gold=%d)" % GameState.gold)
 	_check(GameState.potions == pot2 + 1, "Chest: +1 potion (potions=%d)" % GameState.potions)
-	_check(GameState.attack_bonus == atk0 + 3, "Chest: trang bị +3 ATK (atk_bonus=%d)" % GameState.attack_bonus)
+	# Ngữ nghĩa trang bị MỚI (hệ slot): assert cũ "attack_bonus == atk0 + 3"
+	# không còn đúng tuyệt đối — slime ở mục Drops đã rơi đồ ngẫu nhiên có
+	# thể đang chiếm slot weapon, nên Kiếm Ngắn Cũ (+3) chỉ cộng chỉ số khi
+	# nó là món đang mặc. Assert đúng với hệ mới: rương cho đúng món vào
+	# túi VÀ bonus bằng đúng tổng 2 món đang trang bị.
+	var chest_sum: Vector2i = _equipped_bonus_sum()
+	_check(_has_equipment_named("Kiếm Ngắn Cũ"),
+		"Chest: equipment_items chứa 'Kiếm Ngắn Cũ' sau khi mở rương")
+	_check(GameState.attack_bonus == chest_sum.x and GameState.defense_bonus == chest_sum.y,
+		"Chest: bonus = tổng 2 món đang trang bị (ATK %d / DEF %d)" % [chest_sum.x, chest_sum.y])
 	_check(GameState.get_flag("chest_test_chest"), "Chest: flag chest_test_chest đã set")
 	chest.interact()
-	_check(GameState.gold == gold0 + 50 and GameState.potions == pot2 + 1 and GameState.attack_bonus == atk0 + 3,
+	_check(GameState.gold == gold0 + 50 and GameState.potions == pot2 + 1
+		and GameState.attack_bonus == chest_sum.x and GameState.defense_bonus == chest_sum.y,
 		"Chest: mở lần 2 không phát thưởng nữa")
 
 	# ============ 5) Cửa khoá ============

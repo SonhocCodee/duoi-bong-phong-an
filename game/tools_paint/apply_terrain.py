@@ -178,20 +178,25 @@ def dump_tile_data(cells):
 # Raster hoa hinh hoc theo o
 # ---------------------------------------------------------------------------
 
-def raster_polyline(points, width):
-    """Tra ve set o bi phu boi polyline day `width` o (but tron)."""
+def raster_polyline(points, width, widths=None):
+    """Tra ve set o bi phu boi polyline day `width` o (but tron).
+    `widths`: be rong rieng cho tung diem neo — noi suy tuyen tinh doc doan
+    (song uon rong/hep theo doan)."""
     cells = set()
-    r = width / 2.0
     pts = [(float(px), float(py)) for px, py in points]
+    ws = [float(w) for w in widths] if widths else [float(width)] * len(pts)
+    if len(ws) < 2:
+        ws = ws * 2
     segs = list(zip(pts, pts[1:])) if len(pts) > 1 else [(pts[0], pts[0])]
-    for (x1, y1), (x2, y2) in segs:
+    for si, ((x1, y1), (x2, y2)) in enumerate(segs):
         steps = max(1, int(math.hypot(x2 - x1, y2 - y1) * 4))
         for i in range(steps + 1):
             t = i / steps
+            rr = (ws[si] + (ws[si + 1] - ws[si]) * t) / 2.0
             cx, cy = x1 + (x2 - x1) * t, y1 + (y2 - y1) * t
-            for dx in range(int(math.floor(-r)), int(math.ceil(r)) + 1):
-                for dy in range(int(math.floor(-r)), int(math.ceil(r)) + 1):
-                    if math.hypot(dx, dy) <= r + 0.01:
+            for dx in range(int(math.floor(-rr)), int(math.ceil(rr)) + 1):
+                for dy in range(int(math.floor(-rr)), int(math.ceil(rr)) + 1):
+                    if math.hypot(dx, dy) <= rr + 0.01:
                         cells.add((int(round(cx)) + dx, int(round(cy)) + dy))
     return cells
 
@@ -380,7 +385,7 @@ def apply_map(spec, dump):
         if "rect" in op:
             return rect_cells(*op["rect"])
         if "points" in op:
-            return raster_polyline(op["points"], op.get("width", 2))
+            return raster_polyline(op["points"], op.get("width", 2), op.get("widths"))
         if "cells" in op:
             return {tuple(c) for c in op["cells"]}
         return set()

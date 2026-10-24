@@ -29,6 +29,7 @@
 [ext_resource type="Script" path="res://enemies/boar.gd" id="26_7vgoj"]
 [ext_resource type="PackedScene" path="res://enemies/boar.tscn" id="26_boar"]
 [ext_resource type="SpriteFrames" path="res://assets/sprites/rat_frames.tres" id="27_wi6hl"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/linh_tuan_frames.tres" id="33_ltuan"]
 [ext_resource type="Texture2D" path="res://assets/props/flower_bed.png" id="den_flower_bed"]
 [ext_resource type="Texture2D" path="res://assets/props/sack.png" id="den_sack"]
 [ext_resource type="Texture2D" path="res://assets/props/barrel.png" id="den_barrel"]
@@ -495,6 +496,27 @@ schedule_enabled = true
 work_anim = "work"
 speed = 55.0
 
+[node name="NPC_GacCong" type="CharacterBody2D" parent="." instance=ExtResource("7_npc")]
+y_sort_enabled = true
+position = Vector2(40, 1318)
+script = ExtResource("8_eushh")
+npc_id = "gac_cong"
+display_name = "Bác Từ — Người gác cổng Elmford"
+dialogue_done = Array[String](["Dừng chân một chút, khách lạ. Ta là Từ — giữ cổng nam Elmford này đã ba chục năm. Nhìn bộ dạng ngươi... lính đánh thuê mới tới, mà trong túi chắc chẳng còn nổi một xu, phải không?", "Elmford từng yên bình, cho đến khi lính thuế của King Aldric kéo về. Mùa màng bị vét sạch để cống nạp lên thành; kho lúa — nguồn sống của cả làng — thì bị bầy chuột phá hoại, còn goblin lảng vảng ở bìa rừng phía đông.", "Trưởng làng đang tìm một người có kiếm như ngươi. Nhà ông ấy là ngôi nhà lớn ở đầu tây bắc làng — cứ theo đường làng mà lên. Đừng để ông ấy chờ lâu."])
+shop_enabled = false
+set_flag_on_dialogue_end = "opening_gate_done"
+tint = Color(1, 0.95, 0.85, 1)
+sprite_scale = 0.75
+wander_radius = 0.0
+wander_speed = 30.0
+schedule = Array[Dictionary]([])
+schedule_enabled = false
+work_anim = "work"
+speed = 55.0
+
+[node name="AnimatedSprite2D" parent="NPC_GacCong" index="1"]
+sprite_frames = ExtResource("33_ltuan")
+
 [node name="Slime1" type="CharacterBody2D" parent="." instance=ExtResource("5_slime")]
 y_sort_enabled = true
 position = Vector2(2400, 1000)
@@ -566,7 +588,7 @@ script = ExtResource("13_lrawr")
 item_id = "herb"
 
 [node name="Spawn_start" type="Marker2D" parent="."]
-position = Vector2(0, 180)
+position = Vector2(0, 1330)
 
 [node name="Spawn_from_machnha" type="Marker2D" parent="."]
 position = Vector2(0, -3050)
@@ -616,7 +638,7 @@ shape = SubResource("Shape_BigV")
 
 [node name="Player" type="CharacterBody2D" parent="." instance=ExtResource("2_player")]
 y_sort_enabled = true
-position = Vector2(0, 180)
+position = Vector2(0, 1330)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("17_7urt3")

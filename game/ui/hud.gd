@@ -23,6 +23,8 @@ var _quest_log: CanvasLayer = null
 var _skill_panel: CanvasLayer = null
 var _skill_box_labels: Dictionary = {} # skill_id -> Label trạng thái trong ô skill giữa-dưới
 var _skill_box_panels: Dictionary = {} # skill_id -> PanelContainer
+var _skill_box_name_labels: Dictionary = {} # skill_id -> Label tên tắt + phím (dòng tĩnh)
+var _skill_box_styleboxes: Dictionary = {} # skill_id -> StyleBoxTexture khung ô (để đổi màu theo trạng thái lộ diện)
 var _level_up_label: Label = null
 var _level_up_tween: Tween = null
 var _last_level: int = 1
@@ -133,6 +135,8 @@ func _build_skill_boxes() -> void:
 		c.queue_free()
 	_skill_box_labels.clear()
 	_skill_box_panels.clear()
+	_skill_box_name_labels.clear()
+	_skill_box_styleboxes.clear()
 	var hbox := _skill_hbox
 	for sid in _page_skills(_hud_skill_page):
 		var panel := PanelContainer.new()
@@ -160,17 +164,43 @@ func _build_skill_boxes() -> void:
 		var name_lbl := Label.new()
 		name_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		name_lbl.add_theme_font_size_override("font_size", 12)
-		name_lbl.text = "%s [%s]" % [SKILL_SHORT[sid], SKILL_KEYS[sid]]
+		# Nội dung tên/phím KHÔNG đặt sẵn ở đây nữa: _refresh_skill_ui quyết
+		# định theo quy tắc lộ diện (đã học HOẶC nhánh đã mở mới hiện).
+		name_lbl.text = ""
 		vbox.add_child(name_lbl)
 		var lbl := Label.new()
 		lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		lbl.add_theme_font_size_override("font_size", 12)
-		lbl.text = "🔒"
+		lbl.text = ""
 		vbox.add_child(lbl)
 		panel.add_child(vbox)
 		hbox.add_child(panel)
 		_skill_box_labels[sid] = lbl
 		_skill_box_panels[sid] = panel
+		_skill_box_name_labels[sid] = name_lbl
+		_skill_box_styleboxes[sid] = sb
+
+
+## Nhánh của skill đã "mở" chưa: nhánh không có required_flag (Chiến
+## binh) mở từ đầu game; Thuật Đen / Pháp Sư mở khi xong Phần 2 / Phần 3
+## (đúng gate try_unlock_skill dùng trong GameState.SKILL_DEFS).
+func _skill_branch_open(sid: String) -> bool:
+	if not has_node("/root/GameState"):
+		return false
+	var def: Dictionary = GameState.SKILL_DEFS.get(sid, {})
+	var rf: String = str(def.get("required_flag", ""))
+	return rf == "" or GameState.get_flag(rf)
+
+
+## Quy tắc LỘ DIỆN ô skill (phản hồi user: vừa vào game thanh skill bày
+## sẵn 9 ô khoá kèm tên -> trông như có sẵn một đống skill): ô CHỈ hiện
+## nội dung (tên tắt / màu nhánh / trạng thái) khi skill ĐÃ HỌC hoặc
+## NHÁNH của nó ĐÃ MỞ. Chưa lộ diện: ô trống trơn, chỉ còn khung trung
+## tính — không tên, không ổ khoá, không số 0.
+func _skill_revealed(sid: String) -> bool:
+	if not has_node("/root/GameState"):
+		return false
+	return GameState.is_skill_unlocked(sid) or _skill_branch_open(sid)
 
 
 func _refresh_skill_ui() -> void:
@@ -191,30 +221,48 @@ func _refresh_skill_ui() -> void:
 			def = GameState.SKILL_DEFS.get(sid, {})
 		var sname: String = str(def.get("name", sid))
 		var unlocked: bool = has_node("/root/GameState") and GameState.is_skill_unlocked(sid)
+		var revealed: bool = _skill_revealed(sid)
 		var cd: float = 0.0
 		if _player != null and _player.has_method("get_skill_cooldown"):
 			cd = float(_player.call("get_skill_cooldown", sid))
-		var status: String
-		if not unlocked:
-			status = "🔒"
-		elif cd > 0.05:
-			status = "%.0fs" % cd
-		else:
-			status = "Sẵn sàng"
-		parts.append("[%s] %s: %s" % [SKILL_KEYS[sid], sname, status])
-		# Ô skill giữa-dưới: dòng trạng thái (tên tắt + phím nằm ở dòng tĩnh phía trên)
+		# Ô skill giữa-dưới: chưa lộ diện -> TRỐNG TRƠN (chỉ khung trung
+		# tính, không tên/khoá/màu nhánh). Đã lộ diện -> giữ hành vi cũ:
+		# tên tắt + phím, màu viền theo nhánh, trạng thái 🔒/CD/✓.
+		if _skill_box_name_labels.has(sid):
+			(_skill_box_name_labels[sid] as Label).text = (
+				"%s [%s]" % [SKILL_SHORT[sid], SKILL_KEYS[sid]]) if revealed else ""
+		if _skill_box_styleboxes.has(sid):
+			var sbx: StyleBoxTexture = _skill_box_styleboxes[sid]
+			if revealed:
+				var bc: Color = SKILL_BORDER_COLORS.get(sid, Color(0.9, 0.3, 0.2))
+				sbx.modulate_color = bc.lerp(Color(1, 1, 1), 0.35)
+			else:
+				sbx.modulate_color = Color(0.5, 0.5, 0.54)
 		if _skill_box_labels.has(sid):
 			var bl: Label = _skill_box_labels[sid]
-			if not unlocked:
+			if not revealed:
+				bl.text = ""
+			elif not unlocked:
 				bl.text = "🔒"
 			elif cd > 0.05:
 				bl.text = "%.1fs" % cd
 			else:
 				bl.text = "✓"
+		# Dòng chữ SkillLabel: cũng chỉ liệt kê skill đã lộ diện.
+		if revealed:
+			var status: String
+			if not unlocked:
+				status = "🔒"
+			elif cd > 0.05:
+				status = "%.0fs" % cd
+			else:
+				status = "Sẵn sàng"
+			parts.append("[%s] %s: %s" % [SKILL_KEYS[sid], sname, status])
 	if skill_label != null:
 		var da_sat_txt: String = "✓" if (has_node("/root/GameState") and GameState.is_skill_unlocked("da_sat")) else "🔒"
-		skill_label.text = "Skill (trang %d/2, [Q] lật) — Điểm: %d | %s | Da Sắt: %s | [T] cây skill" % [
-			_hud_skill_page, pts, " | ".join(parts), da_sat_txt]
+		var mid: String = (" | " + " | ".join(parts)) if not parts.is_empty() else ""
+		skill_label.text = "Skill (trang %d/2, [Q] lật) — Điểm: %d%s | Da Sắt: %s | [T] cây skill" % [
+			_hud_skill_page, pts, mid, da_sat_txt]
 
 
 func _process(_delta: float) -> void:

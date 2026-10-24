@@ -27,36 +27,57 @@ SPECS = {
         "strip": ["BackgroundPlaceholder"],
         "ops": [
             {"op": "fill_base", "tile": "grass", "variants": GRASS_VAR},
-            # Rung khoi hai vanh Dong/Tay
+            # === KHOI RUNG DAY, mep rang cua bat quy tac (v2) ===
+            # Tay: khoi goc + 4 thoi nho ra phia dong
             {"op": "paint", "rect": (-55, -40, -36, 39), "tile": "grass_dark", "block": True, "forest": True},
+            {"op": "paint", "rect": (-36, -30, -33, -22), "tile": "grass_dark", "block": True, "forest": True},
+            {"op": "paint", "rect": (-35, -12, -32, -5), "tile": "grass_dark", "block": True, "forest": True},
+            {"op": "paint", "rect": (-36, 6, -33, 14), "tile": "grass_dark", "block": True, "forest": True},
+            {"op": "paint", "rect": (-35, 24, -32, 31), "tile": "grass_dark", "block": True, "forest": True},
+            # Dong: khoi goc + 3 thoi nho ra phia tay
             {"op": "paint", "rect": (36, -40, 54, 39), "tile": "grass_dark", "block": True, "forest": True},
-            # Lum chan phia Bac (chia khu, khong bit duong truc uon)
-            {"op": "paint", "rect": (-20, -30, -14, -24), "tile": "grass_dark", "block": True, "forest": True},
-            {"op": "paint", "rect": (-8, -36, -3, -31), "tile": "grass_dark", "block": True, "forest": True},
-            {"op": "paint", "rect": (11, -27, 17, -21), "tile": "grass_dark", "block": True, "forest": True},
-            {"op": "paint", "rect": (24, -37, 30, -31), "tile": "grass_dark", "block": True, "forest": True},
-            # Lum chan phia Nam
-            {"op": "paint", "rect": (-26, 21, -20, 27), "tile": "grass_dark", "block": True, "forest": True},
-            {"op": "paint", "rect": (22, 27, 28, 33), "tile": "grass_dark", "block": True, "forest": True},
-            # Khoanh ruong phia Dong-Nam (khong block)
+            {"op": "paint", "rect": (33, -26, 36, -18), "tile": "grass_dark", "block": True, "forest": True},
+            {"op": "paint", "rect": (32, -2, 35, 6), "tile": "grass_dark", "block": True, "forest": True},
+            {"op": "paint", "rect": (33, 18, 36, 26), "tile": "grass_dark", "block": True, "forest": True},
+            # Lum le (giu vai tro chia khu nhu v1, vi tri lech bat quy tac)
+            {"op": "paint", "rect": (-14, -20, -10, -15), "tile": "grass_dark", "block": True, "forest": True},
+            {"op": "paint", "rect": (-30, -28, -26, -24), "tile": "grass_dark", "block": True, "forest": True},
+            {"op": "paint", "rect": (-9, 20, -5, 24), "tile": "grass_dark", "block": True, "forest": True},
+            {"op": "paint", "rect": (14, 16, 18, 20), "tile": "grass_dark", "block": True, "forest": True},
+            # Khoanh ruong Dong-Nam (khong block) - giu tu v1
             {"op": "paint", "rect": (8, 17, 19, 23), "tile": "field"},
-            # SONG CLEARWATER (cat qua ca rung hai dau)
-            {"op": "paint", "points": [(-56, -1), (-44, -1), (-24, 0), (0, 0), (24, 0), (44, 1), (56, 1)],
-             "width": 7, "tile": "water", "block": True},
-            {"op": "shore"},
-            # Duong truc Bac-Nam + cau: MOT polyline lien tuc xuyen song
-            # (tach hai doan se de lai dai nuoc chan giua song)
-            {"op": "carve", "points": [(0, 40), (0, 10), (0, 0), (0, -10), (3, -18), (5, -26), (4, -33), (1, -38), (0, -40)],
-             "width": 3, "tile": "dirt"},
-            # Duong ben do di Tay-Nam qua rung Tay toi bai boi
-            {"op": "carve", "points": [(-1, 6), (-4, 5), (-10, 5), (-16, 8), (-26, 12), (-35, 14)],
-             "width": 2, "tile": "dirt"},
+            # === Trang ===
             {"op": "paint", "rect": (-47, 9, -37, 19), "tile": "sand"},
             {"op": "carve", "rect": (-47, 9, -37, 19)},
-            # Duong toi trang da phia Dong (qua rung Dong)
-            {"op": "carve", "points": [(2, 8), (12, 10), (22, 12), (33, 10)], "width": 2, "tile": "dirt"},
             {"op": "paint", "rect": (38, -18, 46, -10), "tile": "sand"},
             {"op": "carve", "rect": (38, -18, 46, -10)},
+            # Trang an cuoi loi mon rung Tay
+            {"op": "paint", "rect": (-50, 15, -46, 20), "tile": "grass_flower"},
+            {"op": "carve", "rect": (-50, 15, -46, 20)},
+            # === SONG UON (v2): truc dao dong +-2 o, be rong 6-8 o thay doi theo doan;
+            # doan tram thue |tx|<=8 giu tam 0 de khong nuot linh/NPC ===
+            {"op": "paint", "points": [(-56, -3), (-46, -2), (-36, 0), (-26, 1), (-16, 0), (-8, 0), (0, 0), (8, 0), (16, 1), (26, 2), (36, 1), (46, -1), (56, -2)],
+             "widths": [6, 7, 8, 7, 6, 7, 7, 6, 7, 8, 7, 6, 6], "tile": "water", "block": True},
+            {"op": "shore"},
+            # Bai boi nho giua song (carve block: len duoc, khong noi hai bo)
+            {"op": "paint", "points": [(-24, -2), (-23, -2)], "width": 1, "tile": "sand"},
+            {"op": "carve", "points": [(-24, -2), (-23, -2)], "width": 1},
+            {"op": "paint", "points": [(21, 3)], "width": 1, "tile": "sand"},
+            {"op": "carve", "points": [(21, 3)], "width": 1},
+            # === DUONG CHINH CONG Bac-Nam: lech truc toi da 3 o, doan qua cau giu x=0;
+            # MOT polyline lien tuc xuyen song tai cau (tx -1..1) ===
+            {"op": "carve", "points": [(0, 40), (0, 33), (2, 26), (3, 19), (1, 12), (0, 6), (0, 1), (0, -2), (-1, -9), (-3, -16), (-2, -23), (0, -30), (1, -36), (0, -40)],
+             "width": 3, "tile": "dirt"},
+            # === Duong ben do: cong theo dia hinh ===
+            {"op": "carve", "points": [(-1, 6), (-4, 5), (-10, 5), (-16, 8), (-23, 11), (-29, 12), (-35, 14)],
+             "width": 2, "tile": "dirt"},
+            # === Duong trang da xuyen rung Dong: ngoan ngoeo hon, vao thang trang cu ===
+            {"op": "carve", "points": [(2, 8), (7, 9), (13, 8), (19, 11), (25, 10), (31, 11), (36, 8), (40, 2), (42, -4), (43, -10), (42, -13)],
+             "width": 2, "tile": "dirt"},
+            # === LOI MON rung Tay: mieng loe 3 o, mon hep 1 o xuyen khoi rung toi trang an ===
+            {"op": "carve", "points": [(-23, 11), (-27, 13)], "width": 3, "tile": "grass"},
+            {"op": "carve", "points": [(-27, 13), (-32, 12), (-37, 16), (-42, 14), (-47, 17)],
+             "width": 1, "tile": "grass"},
         ],
         "move": {
             "PortalNorth": (0, -2528),
@@ -67,7 +88,7 @@ SPECS = {
             "Spawn_start": (0, 2368),
             "LabelSouth": (-200, 2464),
         },
-        "props": {"tex": "oak", "h": 216},
+        "props": {"tex": "oak", "h": 216, "edge_prob": 0.95, "inner_prob": 0.55},
     },
 
     # ------------------------------------------------------------------

@@ -89,6 +89,14 @@ var _dash_fx_from: Vector2 = Vector2.ZERO
 var _dash_fx_to: Vector2 = Vector2.ZERO
 var _fx_time: float = 0.0
 
+# --- Ngoại hình theo tiến trình trang bị (GameState.has_armor_visual) ---
+# Khởi đầu "lính đánh thuê trắng tay": bộ ÁO VẢI (player_cloth_frames).
+# Mặc món giáp thật đầu tiên (slot "armor" trong GameState) -> bộ GIÁP
+# hiệp sĩ (player_frames). Hai bộ CÙNG layout frame/animation (sinh bởi
+# tools/gen_player_cloth.py từ pipeline v3) nên chỉ hoán đổi resource.
+const CLOTH_FRAMES: SpriteFrames = preload("res://assets/sprites/player_cloth_frames.tres")
+const ARMOR_FRAMES: SpriteFrames = preload("res://assets/sprites/player_frames.tres")
+
 # Animation
 var _anim_current: StringName = &""
 var _attack_anim_timer: float = 0.0 # giữ animation chém theo nhịp cooldown
@@ -113,6 +121,12 @@ func _ready() -> void:
 			hp = clampi(GameState.player_hp, 1, max_hp)
 	stamina = max_stamina
 	add_to_group("player")
+	# Ngoại hình khởi điểm theo GameState (áo vải khi trắng tay, giáp khi
+	# đã mặc giáp — kể cả khi load save cũ) + nghe thay đổi về sau.
+	_apply_appearance()
+	if has_node("/root/GameState") and GameState.has_signal("appearance_changed"):
+		if not GameState.appearance_changed.is_connected(_on_appearance_changed):
+			GameState.appearance_changed.connect(_on_appearance_changed)
 	# Đồng bộ HP khởi tạo sang GameState
 	if has_node("/root/GameState"):
 		GameState.set_player_hp(hp, max_hp)
@@ -121,9 +135,34 @@ func _ready() -> void:
 	if attack_shape:
 		attack_shape.disabled = true
 	_update_animation(false)
-	# Nhận quest mẫu đầu game (để goblin kill có tác dụng ngay khi test)
-	if has_node("/root/QuestManager"):
-		QuestManager.accept_quest("dong_01_goblin")
+	# LƯU Ý: KHÔNG còn tự nhận dong_01_goblin ở đây. Quest đầu tiên nay
+	# đến từ chính Trưởng làng qua hội thoại (npc.gd) sau đoạn mở đầu ở
+	# cổng nam Elmford — đúng thiết kế "trắng tay tới làng, gặp trưởng
+	# làng rồi mới nhận việc", không nhét nhiệm vụ ngay khi vừa vào game.
+
+
+# --- Ngoại hình áo vải / giáp ------------------------------------------
+
+## Áp dụng bộ SpriteFrames đúng trạng thái trang bị hiện tại của
+## GameState. Giữ nguyên animation đang phát (hai bộ cùng tên anim).
+func _apply_appearance() -> void:
+	if sprite == null:
+		return
+	var want_armor: bool = has_node("/root/GameState") and GameState.has_armor_visual
+	var target: SpriteFrames = ARMOR_FRAMES if want_armor else CLOTH_FRAMES
+	if sprite.sprite_frames != target:
+		var current_anim: StringName = sprite.animation
+		sprite.sprite_frames = target
+		_anim_current = &""
+		if current_anim != &"" and target.has_animation(current_anim):
+			sprite.play(current_anim)
+			_anim_current = current_anim
+
+
+func _on_appearance_changed(_has_armor: bool) -> void:
+	_apply_appearance()
+	_update_animation(false)
+	print("[Player] Đổi ngoại hình: %s" % ("bộ GIÁP hiệp sĩ" if _has_armor else "ÁO VẢI trắng tay"))
 
 
 # --- Animation helpers -------------------------------------------------

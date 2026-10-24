@@ -12,6 +12,9 @@ const OUT_DIR := "/home/hatch/workspace/game-phong-an/design/terrain_shots"
 const SHOTS := [
 	["stonebridge_full", "res://maps/bo_song_thanh.tscn", Vector2(0, 0), 0.14],
 	["stonebridge_bridge", "res://maps/bo_song_thanh.tscn", Vector2(0, -60), 0.62],
+	["stonebridge_forest", "res://maps/bo_song_thanh.tscn", Vector2(-2656, 928), 0.62],
+	["stonebridge_trail", "res://maps/bo_song_thanh.tscn", Vector2(-2240, 832), 0.62],
+	["stonebridge_riverbend", "res://maps/bo_song_thanh.tscn", Vector2(1664, 96), 0.45],
 	["elderwood_full", "res://maps/rung_co_thu.tscn", Vector2(0, 0), 0.14],
 	["elderwood_trail", "res://maps/rung_co_thu.tscn", Vector2(-300, 100), 0.62],
 	["mistlake_full", "res://maps/ho_suong.tscn", Vector2(0, 0), 0.15],

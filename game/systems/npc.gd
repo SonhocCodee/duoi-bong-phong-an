@@ -20,6 +20,11 @@ const SHOP_PANEL_SCENE: PackedScene = preload("res://ui/shop_panel.tscn")
 @export var dialogue_ready: Array[String] = [] # đủ tiến độ, chờ trả quest
 @export var dialogue_done: Array[String] = [] # đã xong / chào xã giao
 @export var shop_enabled: bool = false
+# Cờ GameState đặt khi MỘT cuộc thoại với NPC này kết thúc hẳn (sau cả
+# thoại xác nhận accept/turn_in). Mặc định "" = không làm gì — mọi NPC
+# cũ không đổi hành vi. Dùng cho nhịp mở đầu (người gác cổng Elmford
+# đặt cờ "opening_gate_done" khi người chơi nghe hết lời dặn).
+@export var set_flag_on_dialogue_end: String = ""
 @export var tint: Color = Color.WHITE # màu nhuộm sprite để phân biệt NPC
 @export var sprite_scale: float = 0.75
 @export var wander_radius: float = 24.0 # 0 = đứng yên
@@ -374,6 +379,10 @@ func _on_dialogue_finished() -> void:
 
 func _end_conversation() -> void:
 	_talking = false
+	# Cờ sự kiện khi thoại kết thúc (opt-in theo từng NPC, xem export).
+	if set_flag_on_dialogue_end != "" and has_node("/root/GameState"):
+		GameState.set_flag(set_flag_on_dialogue_end)
+		print("[NPC %s] Đặt cờ sau thoại: %s" % [npc_id, set_flag_on_dialogue_end])
 	# Thoại xong (kể cả sau thoại xác nhận accept/turn_in — các thoại đó đi
 	# qua _start_dialogue nên vẫn giữ pause, chỉ kết thúc hẳn mới mở lại):
 	# tiếp tục đúng bước schedule đang dở.

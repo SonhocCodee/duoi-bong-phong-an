@@ -14,6 +14,8 @@ extends Node
 
 const MINIMAP_SCRIPT: Script = preload("res://ui/minimap.gd")
 const TRACKER_SCRIPT: Script = preload("res://ui/quest_tracker.gd")
+const INVENTORY_SCRIPT: Script = preload("res://ui/inventory_panel.gd")
+const GUIDANCE_SCRIPT: Script = preload("res://ui/quest_guidance.gd")
 const PANEL_TEX: Texture2D = preload("res://assets/ui/panel_frame.png")
 const RING_TEX: Texture2D = preload("res://assets/ui/ring_frame.png")
 const BTN_PLUS: Array[Texture2D] = [
@@ -37,6 +39,8 @@ var _quest_panel: PanelContainer = null
 var _map_cluster: Control = null
 var _minimap: Control = null
 var _tracker: Control = null
+var _inventory: Control = null
+var _guidance: Control = null
 var _map_title: Label = null
 var _user_hidden := false
 var _map_root: Node = null
@@ -75,6 +79,22 @@ func _build_ui() -> void:
 	add_child(_layer)
 	_build_quest_panel()
 	_build_map_cluster()
+	_build_guidance()
+	_build_inventory()
+
+
+func _build_guidance() -> void:
+	_guidance = GUIDANCE_SCRIPT.new()
+	_guidance.name = "QuestGuidance"
+	_layer.add_child(_guidance)
+	_guidance.set_anchors_preset(Control.PRESET_FULL_RECT)
+
+
+func _build_inventory() -> void:
+	_inventory = INVENTORY_SCRIPT.new()
+	_inventory.name = "InventoryPanel"
+	_layer.add_child(_inventory)
+	_inventory.set_anchors_preset(Control.PRESET_FULL_RECT)
 
 
 func _build_quest_panel() -> void:
@@ -183,7 +203,7 @@ func _build_map_cluster() -> void:
 	_map_cluster.add_child(legend)
 
 	var hint := Label.new()
-	hint.text = "[M] ẩn/hiện giao diện"
+	hint.text = "[M] ẩn/hiện • [I] túi đồ"
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	hint.add_theme_font_size_override("font_size", 9)
 	hint.add_theme_color_override("font_color", Color(0.62, 0.64, 0.58))
@@ -233,6 +253,8 @@ func _rebuild(root: Node) -> void:
 		player = players[0]
 	if _minimap != null and _minimap.has_method("rebuild"):
 		_minimap.call("rebuild", root, player)
+	if _guidance != null and _guidance.has_method("set_context"):
+		_guidance.call("set_context", root, player)
 	if _tracker != null and _tracker.has_method("refresh"):
 		_tracker.call("refresh")
 	_fit_quest_panel()
@@ -274,6 +296,12 @@ func _find_map_root() -> Node:
 func _apply_visibility(v: bool) -> void:
 	if _layer != null:
 		_layer.visible = v
+	if _guidance != null and _guidance.has_method("set_ui_visible"):
+		_guidance.call("set_ui_visible", v)
+	# An toan cum: an UI (phim M / roi map) thi dong luon panel tui do,
+	# tranh ket GameState.in_dialogue=true khi panel khong con nhin thay.
+	if not v and _inventory != null and _inventory.visible and _inventory.has_method("close_panel"):
+		_inventory.call("close_panel")
 
 
 func is_left_ui_visible() -> bool:
@@ -286,6 +314,30 @@ func get_minimap() -> Control:
 
 func get_quest_tracker() -> Control:
 	return _tracker
+
+
+func get_inventory_panel() -> Control:
+	return _inventory
+
+
+func get_guidance() -> Control:
+	return _guidance
+
+
+## Phim I: mo/dong panel tui do + trang bi (chi khi dang trong map choi).
+func _toggle_inventory() -> void:
+	if _inventory == null:
+		return
+	if _inventory.visible:
+		_inventory.call("close_panel")
+		return
+	var root := _find_map_root()
+	var in_game := root != null and not get_tree().get_nodes_in_group("player").is_empty()
+	if not in_game:
+		return
+	_user_hidden = false
+	_apply_visibility(true)
+	_inventory.call("open_panel")
 
 
 func _on_quest_signal(_quest_id: String) -> void:
@@ -303,4 +355,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			var root := _find_map_root()
 			var in_game := root != null and not get_tree().get_nodes_in_group("player").is_empty()
 			_apply_visibility(in_game and not _user_hidden)
+			get_viewport().set_input_as_handled()
+		elif k.pressed and not k.echo and (k.keycode == KEY_I or k.physical_keycode == KEY_I):
+			_toggle_inventory()
 			get_viewport().set_input_as_handled()
